@@ -28,7 +28,7 @@ namespace Estacionamento
         public void limparCampos()
         {
             //limpa os campos textbox
-            txtFuncionario.Clear();
+            txtPrimeironome.Clear();
             txtCpf.Clear();
             txtRg.Clear();
             txtSalario.Clear();
@@ -41,7 +41,8 @@ namespace Estacionamento
 
             bool result = false;
             //passa os parametros do text para a classe
-            funcionario.primeiroNome = txtFuncionario.Text;
+            funcionario.primeiroNome = txtNome.Text;
+            funcionario.primeiroNome = txtSobrenome.Text;
             funcionario.Cpf = txtCpf.Text;
             funcionario.Rg = txtRg.Text;
             funcionario.Profissao = txtProfissao.Text;
@@ -56,7 +57,7 @@ namespace Estacionamento
             }
             if (result == false)//se for false
             {
-                txtFuncionario.Focus();
+                txtPrimeironome.Focus();
             }
 
         }

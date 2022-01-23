@@ -48,8 +48,10 @@ namespace Estacionamento
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtRg = new System.Windows.Forms.TextBox();
             this.txtCpf = new System.Windows.Forms.TextBox();
-            this.txtFuncionario = new System.Windows.Forms.TextBox();
+            this.txtPrimeironome = new System.Windows.Forms.TextBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSobrenome = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
@@ -77,7 +79,7 @@ namespace Estacionamento
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1221, 177);
+            this.label1.Location = new System.Drawing.Point(1221, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 19);
             this.label1.TabIndex = 176;
@@ -95,7 +97,7 @@ namespace Estacionamento
             // 
             // txtSalario
             // 
-            this.txtSalario.Location = new System.Drawing.Point(1303, 176);
+            this.txtSalario.Location = new System.Drawing.Point(1303, 147);
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(154, 20);
             this.txtSalario.TabIndex = 165;
@@ -111,7 +113,7 @@ namespace Estacionamento
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(628, 212);
+            this.label8.Location = new System.Drawing.Point(617, 247);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(22, 19);
             this.label8.TabIndex = 174;
@@ -165,7 +167,7 @@ namespace Estacionamento
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(938, 212);
+            this.lblSenha.Location = new System.Drawing.Point(938, 188);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(43, 19);
             this.lblSenha.TabIndex = 172;
@@ -175,7 +177,7 @@ namespace Estacionamento
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(938, 171);
+            this.label6.Location = new System.Drawing.Point(938, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(26, 19);
             this.label6.TabIndex = 171;
@@ -185,7 +187,7 @@ namespace Estacionamento
             // 
             this.txtNome.AutoSize = true;
             this.txtNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(628, 174);
+            this.txtNome.Location = new System.Drawing.Point(628, 145);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(38, 19);
             this.txtNome.TabIndex = 169;
@@ -193,7 +195,7 @@ namespace Estacionamento
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(1026, 211);
+            this.txtSenha.Location = new System.Drawing.Point(1026, 187);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(154, 20);
             this.txtSenha.TabIndex = 163;
@@ -201,24 +203,24 @@ namespace Estacionamento
             // 
             // txtRg
             // 
-            this.txtRg.Location = new System.Drawing.Point(720, 214);
+            this.txtRg.Location = new System.Drawing.Point(709, 249);
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(154, 20);
             this.txtRg.TabIndex = 161;
             // 
             // txtCpf
             // 
-            this.txtCpf.Location = new System.Drawing.Point(1026, 173);
+            this.txtCpf.Location = new System.Drawing.Point(1026, 144);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(154, 20);
             this.txtCpf.TabIndex = 162;
             // 
-            // txtFuncionario
+            // txtPrimeironome
             // 
-            this.txtFuncionario.Location = new System.Drawing.Point(720, 173);
-            this.txtFuncionario.Name = "txtFuncionario";
-            this.txtFuncionario.Size = new System.Drawing.Size(154, 20);
-            this.txtFuncionario.TabIndex = 159;
+            this.txtPrimeironome.Location = new System.Drawing.Point(720, 144);
+            this.txtPrimeironome.Name = "txtPrimeironome";
+            this.txtPrimeironome.Size = new System.Drawing.Size(154, 20);
+            this.txtPrimeironome.TabIndex = 159;
             // 
             // notifyIcon1
             // 
@@ -226,11 +228,30 @@ namespace Estacionamento
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(617, 191);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 19);
+            this.label3.TabIndex = 180;
+            this.label3.Text = "Sobrenome";
+            // 
+            // txtSobrenome
+            // 
+            this.txtSobrenome.Location = new System.Drawing.Point(720, 193);
+            this.txtSobrenome.Name = "txtSobrenome";
+            this.txtSobrenome.Size = new System.Drawing.Size(154, 20);
+            this.txtSobrenome.TabIndex = 179;
+            // 
             // FrmCadFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtSobrenome);
             this.Controls.Add(this.ptbAtivarsenha);
             this.Controls.Add(this.ptbSenha);
             this.Controls.Add(this.label1);
@@ -248,7 +269,7 @@ namespace Estacionamento
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtRg);
             this.Controls.Add(this.txtCpf);
-            this.Controls.Add(this.txtFuncionario);
+            this.Controls.Add(this.txtPrimeironome);
             this.Name = "FrmCadFuncionario";
             this.Text = "FrmCadFuncionario";
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).EndInit();
@@ -278,7 +299,9 @@ namespace Estacionamento
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtRg;
         private System.Windows.Forms.TextBox txtCpf;
-        private System.Windows.Forms.TextBox txtFuncionario;
+        private System.Windows.Forms.TextBox txtPrimeironome;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSobrenome;
     }
 }
