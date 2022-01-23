@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Model;
+using Controller;
+using Estacionamento.Menu;
+using DAO;
+using Estacionamento.Entrada;
+
+namespace Estacionamento.Login
+{
+    public partial class frmLogin : Form
+    {
+        Usuario usuario = new Usuario();
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        public frmLogin()
+        {
+            InitializeComponent();
+        }
+    
+        //TODO: JÁ FEITO - Fazer login. Sessao e login
+        
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            FrmCadFuncionario frmcad = new FrmCadFuncionario();
+            frmcad.Show();
+            this.Hide();
+
+        }
+
+        private void btnSairmenu_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnLoginfuncionario_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            frmMenuu frmmenu = new frmMenuu();//vai para o menu
+            int Nivel;//codigo do nivel do acesso
+
+            
+            //passa os parametros
+            usuario.Cpf = txtCpf.Text;
+            usuario.Senha = txtSenha.Text;
+
+            dt = usuarioDAO.Login(usuario);//recebe o valor do DataTable
+            //se uma linha for afetada, faz o login
+            if (dt.Rows.Count == 1)
+            {
+                foreach (DataRow row in dt.Rows)//carrega a informaçoes
+                {
+                    Nivel = row["Acesso"].GetHashCode();//recebe o nivel de acesso
+                    
+                    if (Nivel == 1)//se o nivel pesquisado for igual ao código, faz o login. Nivel - Funcionario
+                    {
+                        MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
+                        frmmenu.btnFuncionario.Enabled = false;
+                        frmmenu.Show();
+                        this.Hide();
+                    }
+                    if (Nivel == 2)//Nivel 2 - Administrador
+                    {
+                        MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
+                        frmmenu.Show();
+                        this.Hide();
+
+                    }
+                }
+                
+                
+            }
+            else
+            {
+                MessageBox.Show("Erro ao fazer login. Verifique os campos e tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //mensagem de erro
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmMenuu frmmenu = new frmMenuu();//vai para o menu
+            frmmenu.Show();
+            this.Hide();
+        }
+
+        private void ptbFundo_Click(object sender, EventArgs e)
+        {
+
+        }
+    }  
+}

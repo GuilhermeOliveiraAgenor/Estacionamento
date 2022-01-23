@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer</name>
+    </assembly>
+    <members>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions">
+            <summary>
+                Class DependencyInjectionExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerSqlHistory(Microsoft.Extensions.DependencyInjection.IServiceCollection,NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings)">
+            <summary>
+                Adds an EntityFramework mailer history store using the built-in SqlHistoryContext.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="sqlHistorySettings">The SQL history store settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerSqlHistory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings)">
+            <summary>
+                Adds an EntityFramework mailer history store for the specified HistoryContext type.
+            </summary>
+            <typeparam name="TContext">The type of the history DbContext.</typeparam>
+            <param name="services">The services.</param>
+            <param name="sqlHistorySettings">The SQL history store settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerSqlHistory(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings})">
+            <summary>
+                Adds an EntityFramework mailer history store for the built-in SqlHistoryContext.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="sqlHistorySettings">The SQL history store settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerSqlHistory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings})">
+            <summary>
+                Adds an EntityFramework mailer history store for the specified HistoryContext type.
+            </summary>
+            <typeparam name="TContext">The type of the history DbContext.</typeparam>
+            <param name="services">The services.</param>
+            <param name="sqlHistorySettings">The SQL history store settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerSqlHistory(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings})">
+            <summary>
+                Adds a mailer history store of the built-in SqlHistoryContext.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="sqlHistorySettings">Function to obtain sql history settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerSqlHistory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings})">
+            <summary>
+                Adds a mailer history store of the specified HistoryContext.
+            </summary>
+            <typeparam name="TContext">The type of the t context.</typeparam>
+            <param name="services">The services.</param>
+            <param name="sqlHistorySettings">Function to obtain sql history settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings">
+            <summary>
+                Settings for an entity framework history store using SQL Server.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.StandardHistoryStoreSettings" />
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings.ConnectionString">
+            <summary>
+                The SQL connection string for the history context.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings.AutoInitializeDatabase">
+            <summary>
+                Indicates whether to automatically initialize the database on startup.
+            </summary>
+            <value><c>true</c> to automatically initialize database; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings.op_Implicit(NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings)~NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings">
+            <summary>
+                Performs an implicit conversion from <see cref="T:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlEntityHistoryStoreSettings" /> to
+                <see cref="T:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings" />.
+            </summary>
+            <param name="sqlSettings">The d.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContext">
+            <summary>
+                SQL Server DbContext for Message History.
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContext.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContext" /> class.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext})">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContext" /> class.
+            </summary>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContext.InitializeDatabase">
+            <summary>
+                Initializes the database.
+            </summary>
+            <remarks>Used to run migrations.</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContextFactory">
+            <summary>
+                Class SqlHistoryContextFactory.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.SqlServer.SqlHistoryContextFactory.CreateDbContext(System.String[])">
+            <summary>
+                Creates a new instance of the  context.
+            </summary>
+            <param name="args">Arguments provided by the design-time service.</param>
+            <remarks>Used by EF CLI tooling</remarks>
+        </member>
+    </members>
+</doc>

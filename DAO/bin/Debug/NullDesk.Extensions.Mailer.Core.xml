@@ -1,0 +1,2541 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NullDesk.Extensions.Mailer.Core</name>
+    </assembly>
+    <members>
+        <member name="T:NullDesk.Extensions.Mailer.Core.AttachmentFileExtensions">
+            <summary>
+                Class AttachmentFileExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AttachmentFileExtensions.GetAttachmentStreamsForFiles(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Gets a dictionary with filename and streams from a list of file paths
+            </summary>
+            <param name="files">A list of paths for the files you wish to retrieve</param>
+            <returns>A dictionary of file names and streams for each requested file path</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AttachmentFileExtensions.GetAttachmentStreamsForFiles(System.Collections.Generic.IEnumerable{System.IO.FileInfo})">
+            <summary>
+                Gets the attachment streams for file.
+            </summary>
+            <param name="attachmentFiles">A collection of files.</param>
+            <returns>IDictionary&lt;System.String, Stream&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AttachmentFileExtensions.GetAttachmentStreamForFile(System.String)">
+            <summary>
+                Gets the attachment stream for file.
+            </summary>
+            <param name="attachmentFile">The attachment filename.</param>
+            <returns>KeyValuePair&lt;System.String, Stream&gt;.</returns>
+            <exception cref="T:System.IO.FileNotFoundException"></exception>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AttachmentFileExtensions.GetAttachmentStreamForFile(System.IO.FileInfo)">
+            <summary>
+                Gets the attachment stream for file.
+            </summary>
+            <param name="file">The file.</param>
+            <returns>KeyValuePair&lt;System.String, Stream&gt;.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions">
+            <summary>
+                Class MailerServiceCollectionExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddMailer``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,``1)">
+            <summary>
+                Adds the mailer system to dependency injection.
+            </summary>
+            <typeparam name="TMailer"></typeparam>
+            <typeparam name="TMailerSettings">The type of settings.</typeparam>
+            <param name="services">The services.</param>
+            <param name="mailerSettings">The settings.</param>
+            <returns>IServiceCollection.</returns>
+            <remarks>Will setup the mailer as the default</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddMailer``4(Microsoft.Extensions.DependencyInjection.IServiceCollection,``3,``1)">
+            <summary>
+                Adds the mailer system to dependency injection for a proxy mailer.
+            </summary>
+            <typeparam name="TProxy">The type of the t proxy.</typeparam>
+            <typeparam name="TProxySettings">The type of the t proxy settings.</typeparam>
+            <typeparam name="TMailer">The type of the t mailer.</typeparam>
+            <typeparam name="TMailerSettings">The type of settings.</typeparam>
+            <param name="services">The services.</param>
+            <param name="mailerSettings">The settings.</param>
+            <param name="proxyMailerSettings">The proxy mailer settings.</param>
+            <returns>IServiceCollection.</returns>
+            <remarks>Will setup the Proxy as the default IMailer</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddMailer``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,``1})">
+            <summary>
+                Adds the mailer system to dependency injection.
+            </summary>
+            <typeparam name="TMailer"></typeparam>
+            <typeparam name="TMailerSettings">The type of settings.</typeparam>
+            <param name="services">The services.</param>
+            <param name="mailerSettingsFactory">A func that returns the settings.</param>
+            <returns>IServiceCollection.</returns>
+            <remarks>Will setup the mailer as the default</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddMailer``4(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,``3},System.Func{System.IServiceProvider,``1})">
+            <summary>
+            Adds the mailer system to dependency injection.
+            </summary>
+            <typeparam name="TProxy">The type of the t proxy.</typeparam>
+            <typeparam name="TProxySettings">The type of the t proxy settings.</typeparam>
+            <typeparam name="TMailer">The type of the t mailer.</typeparam>
+            <typeparam name="TMailerSettings">The type of settings.</typeparam>
+            <param name="services">The services.</param>
+            <param name="mailerSettingsFactory">A func that returns the settings.</param>
+            <param name="proxyMailerSettingsFactory">A func that returns the proxy mailer settings.</param>
+            <returns>IServiceCollection.</returns>
+            <remarks>Will setup the mailer as the default</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddNullMailer(Microsoft.Extensions.DependencyInjection.IServiceCollection,NullDesk.Extensions.Mailer.Core.NullMailerSettings)">
+            <summary>
+                Adds the NullMailer to dependency injection.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="mailerSettings">The settings.</param>
+            <returns>IServiceCollection.</returns>
+            <remarks>Will setup the mailer as the default</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddNullMailer(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,NullDesk.Extensions.Mailer.Core.NullMailerSettings})">
+            <summary>
+                Adds the NullMailer to dependency injection.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="mailerSettingsFactory">A func that returns the mailer settings.</param>
+            <returns>IServiceCollection.</returns>
+            <remarks>Will setup the mailer as the default</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddMailerNullHistory(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Adds the NullHistoryStore to dependency injection.
+            </summary>
+            <param name="services">The services.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddSafetyMailer``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,NullDesk.Extensions.Mailer.Core.SafetyMailerSettings,``1)">
+            <summary>
+            Adds the safety mailer proxy for an IMailer to dependency injection.
+            </summary>
+            <typeparam name="TMailer">The type of the t mailer.</typeparam>
+            <typeparam name="TMailerSettings">The type of the t mailer settings.</typeparam>
+            <param name="services">The services.</param>
+            <param name="safetyMailerSettings">The safety mailer settings.</param>
+            <param name="mailerSettings">The mailer settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddSafetyMailer``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,NullDesk.Extensions.Mailer.Core.SafetyMailerSettings},System.Func{System.IServiceProvider,``1})">
+            <summary>
+            Adds the safety mailer proxy for an IMailer to dependency injection.
+            </summary>
+            <typeparam name="TMailer">The type of the t mailer.</typeparam>
+            <typeparam name="TMailerSettings">The type of the t mailer settings.</typeparam>
+            <param name="services">The services.</param>
+            <param name="safetyMailerSettingsFactory">The safety mailer settings function.</param>
+            <param name="mailerSettingsFactory">The mailer settings function.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddSafetyMailer(Microsoft.Extensions.DependencyInjection.IServiceCollection,NullDesk.Extensions.Mailer.Core.SafetyMailerSettings,NullDesk.Extensions.Mailer.Core.NullMailerSettings)">
+            <summary>
+            Adds the safety mailer proxy for a NullMailer to dependency injection.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="safetyMailerSettings">The safety mailer settings.</param>
+            <param name="mailerSettings">The mailer settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DependencyInjectionExtensions.AddSafetyMailer(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,NullDesk.Extensions.Mailer.Core.SafetyMailerSettings},System.Func{System.IServiceProvider,NullDesk.Extensions.Mailer.Core.NullMailerSettings})">
+            <summary>
+            Adds the safety mailer proxy for a NullMailer to dependency injection.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="safetyMailerSettingsFactory">The safety mailer settings function.</param>
+            <param name="mailerSettingsFactory">The mailer settings function.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.DirectoryInfoExtensions">
+            <summary>
+                Class DirectoryInfoExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DirectoryInfoExtensions.GetFirstFileForExtensions(System.IO.DirectoryInfo,System.String,System.String[])">
+            <summary>
+                Gets the first file by name with one of the specified extensions.
+            </summary>
+            <param name="dir">The dir.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="extensions">The extensions.</param>
+            <returns>FileInfo.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.FileSystemTemplateBodyExtensions">
+            <summary>
+                Class FileSystemTemplateBodyExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.FileSystemTemplateBodyExtensions.GetContentBodyFromFileTemplatesAsync(NullDesk.Extensions.Mailer.Core.TemplateBody,NullDesk.Extensions.Mailer.Core.DeliveryItem,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},Microsoft.Extensions.Logging.ILogger,System.Threading.CancellationToken)">
+            <summary>
+                Gets a content body from a template body using filesystem templates.
+            </summary>
+            <param name="tbody">The tbody.</param>
+            <param name="message">The message.</param>
+            <param name="templatePath">The template path.</param>
+            <param name="htmlTemplateFileExtensions">The HTML template file extensions.</param>
+            <param name="textTemplateFileExtensions">The text template file extensions.</param>
+            <param name="logger">The logger.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;MimeEntity&gt;.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.MailerFactoryExtensions">
+            <summary>
+                Class MailerFactoryExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactoryExtensions.AddNullMailer(NullDesk.Extensions.Mailer.Core.MailerFactory,NullDesk.Extensions.Mailer.Core.NullMailerSettings,Microsoft.Extensions.Logging.ILogger{NullDesk.Extensions.Mailer.Core.NullMailer},NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+                Registers a null mailer with the factory.
+            </summary>
+            <param name="factory">The factory.</param>
+            <param name="mailerSettings">The mailer settings.</param>
+            <param name="logger">The logger.</param>
+            <param name="store">The store.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactoryExtensions.AddSafetyMailer``2(NullDesk.Extensions.Mailer.Core.MailerFactory,NullDesk.Extensions.Mailer.Core.SafetyMailerSettings,``1,Microsoft.Extensions.Logging.ILogger{NullDesk.Extensions.Mailer.Core.NullMailer},NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+                Registers a safety mailer proxy for the specified mailer type.
+            </summary>
+            <typeparam name="TMailer">The type of the t mailer.</typeparam>
+            <typeparam name="TMailerSettings">The type of the t mailer settings.</typeparam>
+            <param name="factory">The factory.</param>
+            <param name="safetyMailerSettings">The safety mailer settings.</param>
+            <param name="mailerSettings">The mailer settings.</param>
+            <param name="logger">The logger.</param>
+            <param name="store">The store.</param>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Extensions.StreamExtensions">
+            <summary>
+                Class StreamExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Extensions.StreamExtensions.ToBase64StringAsync(System.IO.Stream)">
+            <summary>
+                Gets a base64 encoded string from the stream.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>Task&lt;System.String&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Extensions.StreamExtensions.ToBase64String(System.IO.Stream)">
+            <summary>
+                Gets a base64 encoded string from the stream.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>Task&lt;System.String&gt;.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.StringExtensions">
+            <summary>
+                Class StringExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.StringExtensions.PerformContentSubstitution(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Replaces content in a string for each of the values in a replacement variables dictionary
+            </summary>
+            <param name="content">The template content</param>
+            <param name="replacementVariables">The replacement variables</param>
+            <returns></returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerContentBodyFluentExtensions">
+            <summary>
+                Class MailerContentBodyFluentExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerContentBodyFluentExtensions.WithHtml(NullDesk.Extensions.Mailer.Core.ContentBody,System.String)">
+            <summary>
+                Adds an HTML email body.
+            </summary>
+            <param name="body">The body.</param>
+            <param name="html">The HTML.</param>
+            <returns>ContentBody.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerContentBodyFluentExtensions.WithPlainText(NullDesk.Extensions.Mailer.Core.ContentBody,System.String)">
+            <summary>
+                Adds a plain text email body.
+            </summary>
+            <param name="body">The body.</param>
+            <param name="text">The text.</param>
+            <returns>ContentBody.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions">
+            <summary>
+                Fluent mailer API.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithBody``1(NullDesk.Extensions.Mailer.Core.MailerMessage,System.Action{``0})">
+            <summary>
+                Creates a body of the specified type and adds it to the message.
+            </summary>
+            <typeparam name="T">The body type</typeparam>
+            <param name="message">The message.</param>
+            <param name="bodyAction">Configure the new message body.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithBody(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.IMessageBody)">
+            <summary>
+                Adds the specified body to the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="body">The body.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.From(NullDesk.Extensions.Mailer.Core.MailerMessage,System.Action{NullDesk.Extensions.Mailer.Core.MessageSender})">
+            <summary>
+                Add the sender's info to the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="sender">The action to setup the sender.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.From(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.MessageSender)">
+            <summary>
+                Add the sender's info to the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="sender">The sender.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.From(NullDesk.Extensions.Mailer.Core.MailerMessage,System.String,System.String,System.String,System.String)">
+            <summary>
+                Add the sender's info to the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="emailAddress">The email address.</param>
+            <param name="displayName">The display name.</param>
+            <param name="replyToEmailAddress">The reply to email address.</param>
+            <param name="replyToDisplayName">Display name of the reply to.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.To(NullDesk.Extensions.Mailer.Core.MailerMessage,System.Action{NullDesk.Extensions.Mailer.Core.MessageRecipient})">
+            <summary>
+                Add the sender's info to the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="recipientAction">The recipient action.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.To(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.MessageRecipient)">
+            <summary>
+                Adds a recipient to the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="recipient">The recipient.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.To(NullDesk.Extensions.Mailer.Core.MailerMessage,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Adds a recipient to the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="emailAddress">The email address.</param>
+            <param name="displayName">The display name.</param>
+            <param name="personalizedSubstitutions">The personalized substitutions.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.To(NullDesk.Extensions.Mailer.Core.MailerMessage,System.Collections.Generic.IEnumerable{NullDesk.Extensions.Mailer.Core.MessageRecipient})">
+            <summary>
+                Adds a collection of recipients the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="recipients">The recipients.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithAttachment(NullDesk.Extensions.Mailer.Core.MailerMessage,System.String,System.IO.Stream)">
+            <summary>
+                Adds an attachment to the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="attachmentName">Name of the attachment.</param>
+            <param name="attachmentContent">Content of the attachment.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithAttachment(NullDesk.Extensions.Mailer.Core.MailerMessage,System.String)">
+            <summary>
+                Adds an attachment to the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="fileName">Name of the file.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithAttachments(NullDesk.Extensions.Mailer.Core.MailerMessage,System.Collections.Generic.IDictionary{System.String,System.IO.Stream})">
+            <summary>
+                Adds a collection of attachments to the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="attachments">The attachments.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithAttachments(NullDesk.Extensions.Mailer.Core.MailerMessage,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Adds a collection of attachments to the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="attachments">The attachments.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithSubject(NullDesk.Extensions.Mailer.Core.MailerMessage,System.String)">
+            <summary>
+                Adds a subject for the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="subject">The subject.</param>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithSubstitutions(NullDesk.Extensions.Mailer.Core.MailerMessage,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Adds one or more replacement variables to the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="substitutions">The substitutions.</param>
+            <returns>MailerMessage.</returns>
+            <remarks>Substitutions can be applied to the subject, html body, text body, and templates</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MailerMessageFluentExtensions.WithSubstitution(NullDesk.Extensions.Mailer.Core.MailerMessage,System.String,System.String)">
+            <summary>
+                Adds a replacement variable to the message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="key">The token to replace.</param>
+            <param name="value">The value to substitue for the token.</param>
+            <returns>MailerMessage.</returns>
+            <remarks>Substitutions can be applied to the subject, html body, text body, and templates</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageRecipientFluentExtensions">
+            <summary>
+                MailerRecipient Fluent API.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageRecipientFluentExtensions.ToAddress(NullDesk.Extensions.Mailer.Core.MessageRecipient,System.String)">
+            <summary>
+                Adds the specified email address to the sender's info.
+            </summary>
+            <param name="recipient">The sender.</param>
+            <param name="emailAddress">The email address.</param>
+            <returns>MessageRecipient.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageRecipientFluentExtensions.WithDisplayName(NullDesk.Extensions.Mailer.Core.MessageRecipient,System.String)">
+            <summary>
+                Adds a display name to the sender's info.
+            </summary>
+            <param name="recipient">The sender.</param>
+            <param name="displayName">The display name.</param>
+            <returns>MessageRecipient.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageRecipientFluentExtensions.WithSubstitutions(NullDesk.Extensions.Mailer.Core.MessageRecipient,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Adds one or more personalized replacement variables for the recipient.
+            </summary>
+            <param name="recipient">The message.</param>
+            <param name="substitutions">The substitutions.</param>
+            <returns>MessageRecipient.</returns>
+            <remarks>Substitutions can be applied to the subject, html body, text body, and templates</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageRecipientFluentExtensions.WithSubstitution(NullDesk.Extensions.Mailer.Core.MessageRecipient,System.String,System.String)">
+            <summary>
+                Adds a personalized replacement variable for the recipient.
+            </summary>
+            <param name="recipient">The message.</param>
+            <param name="key">The token to replace.</param>
+            <param name="value">The value to substitue for the token.</param>
+            <returns>MessageRecipient.</returns>
+            <remarks>Substitutions can be applied to the subject, html body, text body, and templates</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageSenderFluentExtensions">
+            <summary>
+                MailerReplyTo Fluent API.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageSenderFluentExtensions.FromAddress(NullDesk.Extensions.Mailer.Core.MessageSender,System.String)">
+            <summary>
+                Adds the specified email address to the sender's info.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="emailAddress">The email address.</param>
+            <returns>MessageSender.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageSenderFluentExtensions.WithDisplayName(NullDesk.Extensions.Mailer.Core.MessageSender,System.String)">
+            <summary>
+                Adds a display name to the sender's info.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="displayName">The display name.</param>
+            <returns>MessageSender.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageSenderFluentExtensions.ReplyToAddress(NullDesk.Extensions.Mailer.Core.MessageSender,System.String)">
+            <summary>
+                Adds the specified email address as the message's reply to address for the sender.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="emailAddress">The reply to email address.</param>
+            <returns>MessageSender.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.Extensions.MessageSenderFluentExtensions.WithReplyToDisplayName(NullDesk.Extensions.Mailer.Core.MessageSender,System.String)">
+            <summary>
+                Adds a display name for the reply to address.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="displayName">The reply to display name.</param>
+            <returns>MessageSender.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContentBodyContext">
+            <summary>
+                Base fluent context for the message body content builder.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContentBodyContext.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.ContentBody)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContentBodyContext" /> class.
+            </summary>
+            <param name="context">The message context.</param>
+            <param name="body">The body.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContentBodyContext.Body">
+            <summary>
+                Gets the body.
+            </summary>
+            <value>The body.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext">
+            <summary>
+                Base fluent context for the message builder.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.IBuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext.Context">
+            <summary>
+                Gets the context.
+            </summary>
+            <remarks>
+                Allows inheritors to access the mailer message directly without needing to cast to IBuilderContext each time.
+            </remarks>
+            <value>The context.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext.NullDesk#Extensions#Mailer#Core#Fluent#IBuilderContext#Message">
+            <summary>
+                The message this context refers to.
+            </summary>
+            <remarks>
+                Explicit interface implementation. Hidden from intellisense and general public usage, but still allows unit tests
+                and other callers to cast the instance to IBuilderContext and directly access the underlying mailer message if
+                necessary.
+            </remarks>
+            <value>The message.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderRecipientContext">
+            <summary>
+                Base fluent context for the message recipient builder.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.BuilderRecipientContext.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.MessageRecipient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderRecipientContext" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="recipient">The recipient.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.BuilderRecipientContext.Recipient">
+            <summary>
+                The recipient.
+            </summary>
+            <value>The recipient.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.IBuilderContext">
+            <summary>
+                Interface for fluent message builder contexts.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.IBuilderContext.Message">
+            <summary>
+                The message being built by the context.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.IBuilderStepsCompleted">
+            <summary>
+                Marker Interface for a message builder step that can be built to return a usable mailer message
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.IBuilderStepsCompleted.Build">
+            <summary>
+                Completes the fluent builder and returns the mailer message instance.
+            </summary>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder">
+            <summary>
+                Fluent builder for creating a MailerMessage.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder" /> class.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.From(System.String)">
+            <summary>
+                Add sender info with the specified email address.
+            </summary>
+            <param name="emailAddress">The email address.</param>
+            <returns>BuildFromStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.ForSettings(NullDesk.Extensions.Mailer.Core.IMailerSettings)">
+            <summary>
+                Add sender info from mailer settings.
+            </summary>
+            <param name="mailerSettings">The mailer settings.</param>
+            <returns>BuildSubjectStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep">
+            <summary>
+                Fluent message builder step for creating the message's main content.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.To(System.String)">
+            <summary>
+                Add a recipient with the specified email address.
+            </summary>
+            <param name="emailAddress">The email address.</param>
+            <returns>BuildRecipientsStep.BuildToStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.ForTemplate(System.String)">
+            <summary>
+                Add message content using the specified template.
+            </summary>
+            <param name="templateName">Name of the template.</param>
+            <returns>BuildContentTemplateStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.ForBody">
+            <summary>
+                Create an explicitly defined body.
+            </summary>
+            <returns>BuildBodyStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildContentTemplateStep">
+            <summary>
+                Fluent message builder step for specifying a template for the message's main content .
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildContentTemplateStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildContentTemplateStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildContentTemplateStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildContentTemplateStep.Build">
+            <summary>
+                Completes the fluent builder and returns the mailer message instance.
+            </summary>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep">
+            <summary>
+                Fluent message builder step for explicitly defining the message's main content.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.Body">
+            <summary>
+                The builder context for the message body.
+            </summary>
+            <value>The body.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.WithHtml(System.String)">
+            <summary>
+                Adds an HTML body to the message.
+            </summary>
+            <param name="html">The HTML.</param>
+            <returns>BuildHtmlBodyStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.WithPlainText(System.String)">
+            <summary>
+                Adds a plain text body to the message.
+            </summary>
+            <param name="text">The text.</param>
+            <returns>BuildTextBodyStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildHtmlBodyStep">
+            <summary>
+                Fluent message builder step for explicitly defining the message's main content.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContentBodyContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildHtmlBodyStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.ContentBody)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildHtmlBodyStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="body">The body.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildHtmlBodyStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildHtmlBodyStep.Build">
+            <summary>
+                Completes the fluent builder and returns the mailer message instance.
+            </summary>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildHtmlBodyStep.AndPlainText(System.String)">
+            <summary>
+                Adds a plain text body to the message.
+            </summary>
+            <param name="text">The text.</param>
+            <returns>BuildBodyCompleteStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildTextBodyStep">
+            <summary>
+                Fluent message builder step for explicitly defining the message's main content.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContentBodyContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildTextBodyStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.ContentBody)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildTextBodyStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="body">The body.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildTextBodyStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildTextBodyStep.Build">
+            <summary>
+                Completes the fluent builder and returns the mailer message instance.
+            </summary>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildTextBodyStep.AndHtml(System.String)">
+            <summary>
+                Adds an HTML body to the message.
+            </summary>
+            <param name="html">The HTML.</param>
+            <returns>BuildBodyCompleteStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildBodyCompleteStep">
+            <summary>
+                Fluent message builder step for explicitly defining the message's main content.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildBodyCompleteStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildBodyCompleteStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildBodyCompleteStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildContentStep.BuildBodyStep.BuildBodyCompleteStep.Build">
+            <summary>
+                Completes the fluent builder and returns the mailer message instance.
+            </summary>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep">
+            <summary>
+                Fluent message builder step for defining the message's sender.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.WithReplyTo(System.String)">
+            <summary>
+                Adds a reply to address for the sender.
+            </summary>
+            <param name="emailAddress">The email address.</param>
+            <returns>BuildReplyToStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.WithDisplayName(System.String)">
+            <summary>
+                Adds a display name for the sender
+            </summary>
+            <param name="displayName">The display name.</param>
+            <returns>BuildFromWithDisplayStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.BuildFromWithDisplayStep">
+            <summary>
+                Fluent message builder step for defining the message's sender.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.BuildFromWithDisplayStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.BuildFromWithDisplayStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.BuildFromWithDisplayStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildFromStep.BuildFromWithDisplayStep.WithReplyTo(System.String)">
+            <summary>
+                Adds a reply to address for the sender.
+            </summary>
+            <param name="emailAddress">The email address.</param>
+            <returns>BuildReplyToStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep">
+            <summary>
+                Fluent message builder step for defining optional message features such as attachments and content substitutions.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.Build">
+            <summary>
+                Completes the fluent builder and returns the mailer message instance.
+            </summary>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.WithAttachments(System.Collections.Generic.IDictionary{System.String,System.IO.Stream})">
+            <summary>
+                Adds a collection of attachments to the message.
+            </summary>
+            <param name="attachments">The attachments.</param>
+            <returns>BuildAttachmentOrSubstitutionStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.WithAttachments(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Adds a collection of attachments to the message.
+            </summary>
+            <param name="attachments">The attachments.</param>
+            <returns>BuildAttachmentOrSubstitutionStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.WithAttachment(System.String,System.IO.Stream)">
+            <summary>
+                Adds an attachment to the message.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="stream">The stream.</param>
+            <returns>BuildAttachmentOrSubstitutionStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.WithAttachment(System.String)">
+            <summary>
+                Adds an attachment to the message.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns>BuildAttachmentOrSubstitutionStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.WithSubstitutions(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Adds a collection of replacement tokens and values to the collection of substitutions.
+            </summary>
+            <param name="substitutions">The substitutions.</param>
+            <returns>BuildAttachmentOrSubstitutionStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.WithSubstitution(System.String,System.String)">
+            <summary>
+                Adds a replacement token and value to the collection of substitutions.
+            </summary>
+            <param name="replacementToken">The replacement token.</param>
+            <param name="replacementValue">The replacement value.</param>
+            <returns>BuildAttachmentOrSubstitutionStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.BuildAttachmentOrSubstitutionStep">
+            <summary>
+                Fluent message builder step for defining optional message features such as attachments and content substitutions.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.BuildAttachmentOrSubstitutionStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.BuildAttachmentOrSubstitutionStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.BuildAttachmentOrSubstitutionStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildPostContentStep.BuildAttachmentOrSubstitutionStep.Build">
+            <summary>
+                Completes the fluent builder and returns the mailer message instance.
+            </summary>
+            <returns>MailerMessage.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep">
+            <summary>
+                Fluent message builder step for defining one or more message recipients.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.To(System.String)">
+            <summary>
+                Adds a recipient with the specified email address.
+            </summary>
+            <param name="emailAddress">The email address.</param>
+            <returns>BuildToStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep">
+            <summary>
+                Fluent message builder step for defining one or more message recipients.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="recipientAddress">The recipient address.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.Recipient">
+            <summary>
+                The recipient.
+            </summary>
+            <value>The recipient.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.WithDisplayName(System.String)">
+            <summary>
+                Adds a display name for the recipient.
+            </summary>
+            <param name="displayName">The display name.</param>
+            <returns>BuiltToWithDisplayStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.WithPersonalizedSubstitution(System.String,System.String)">
+            <summary>
+                Adds a replacement token and value to the collection of personalized substitutions.
+            </summary>
+            <remarks>
+                Personalized substitutions will be used to replace tokens in the subject, body, or template on a per-user
+                basis. Personalized substitutions override message level substitutions defined for the same token.
+            </remarks>
+            <param name="replacementToken">The replacement token.</param>
+            <param name="replacementValue">The replacement value.</param>
+            <returns>BuildRecipientSubstitutionStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.WithPersonalizedSubstitutions(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Adds a collection of replacement tokens and values to the collection of substitutions.
+            </summary>
+            <param name="substitutions">The substitutions.</param>
+            <returns>BuildRecipientSubstitutionStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuiltToWithDisplayStep">
+            <summary>
+                Fluent message builder step for defining one or more message recipients.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderRecipientContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuiltToWithDisplayStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.MessageRecipient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuiltToWithDisplayStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="recipient">The recipient.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuiltToWithDisplayStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuiltToWithDisplayStep.WithPersonalizedSubstitution(System.String,System.String)">
+            <summary>
+                Adds a replacement token and value to the collection of personalized substitutions.
+            </summary>
+            <remarks>
+                Personalized substitutions will be used to replace tokens in the subject, body, or template on a per-user
+                basis. Personalized substitutions override message level substitutions defined for the same token.
+            </remarks>
+            <param name="replacementToken">The replacement token.</param>
+            <param name="replacementValue">The replacement value.</param>
+            <returns>BuildRecipientWithDisplaySubstitutionStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientSubstitutionStep">
+            <summary>
+                Fluent message builder step for defining one or more message recipients.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderRecipientContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientSubstitutionStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.MessageRecipient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientSubstitutionStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="recipient">The recipient.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientSubstitutionStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientSubstitutionStep.WithDisplayName(System.String)">
+            <summary>
+                Adds a display name for the recipient.
+            </summary>
+            <param name="displayName">The display name.</param>
+            <returns>BuiltToWithDisplayStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientSubstitutionStep.WithPersonalizedSubstitution(System.String,System.String)">
+            <summary>
+                Adds a replacement token and value to the collection of personalized substitutions.
+            </summary>
+            <remarks>
+                Personalized substitutions will be used to replace tokens in the subject, body, or template on a per-user
+                basis. Personalized substitutions override message level substitutions defined for the same token.
+            </remarks>
+            <param name="replacementToken">The replacement token.</param>
+            <param name="replacementValue">The replacement value.</param>
+            <returns>BuildRecipientWithDisplaySubstitutionStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientWithDisplaySubstitutionStep">
+            <summary>
+                Fluent message builder step for defining one or more message recipients.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderRecipientContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientWithDisplaySubstitutionStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.MessageRecipient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientWithDisplaySubstitutionStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="recipient">The recipient.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientWithDisplaySubstitutionStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildRecipientsStep.BuildToStep.BuildRecipientWithDisplaySubstitutionStep.WithPersonalizedSubstitution(System.String,System.String)">
+            <summary>
+                Adds a replacement token and value to the collection of personalized substitutions.
+            </summary>
+            <remarks>
+                Personalized substitutions will be used to replace tokens in the subject, body, or template on a per-user
+                basis. Personalized substitutions override message level substitutions defined for the same token.
+            </remarks>
+            <param name="replacementToken">The replacement token.</param>
+            <param name="replacementValue">The replacement value.</param>
+            <returns>BuildRecipientWithDisplaySubstitutionStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep">
+            <summary>
+                Fluent message builder step for defining the message's reply to address.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep.WithReplyToDisplayName(System.String)">
+            <summary>
+                Adds a display name for the sender
+            </summary>
+            <param name="displayName">The display name.</param>
+            <returns>BuildFromWithDisplayStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep.BuildReplyToWithDisplayStep">
+            <summary>
+                Fluent message builder step for defining the message's reply to addres.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep.BuildReplyToWithDisplayStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep.BuildReplyToWithDisplayStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildReplyToStep.BuildReplyToWithDisplayStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep">
+            <summary>
+                Fluent message builder step for defining the message's subject.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep.Subject(System.String)">
+            <summary>
+                Adds a subject to the message.
+            </summary>
+            <param name="subject">The subject.</param>
+            <returns>BuildWithSubjectStep.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep.WithOutSubject">
+            <summary>
+                Specifies that this message should have an empty subject line.
+            </summary>
+            <returns>BuildWithSubjectStep.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep.BuildWithSubjectStep">
+            <summary>
+                Fluent message builder step for defining the message's subject.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Fluent.BuilderContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep.BuildWithSubjectStep.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep.BuildWithSubjectStep" /> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep.BuildWithSubjectStep.And">
+            <summary>
+                Advance to the next step in the fluent builder process
+            </summary>
+            <value>The and.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IHistoryStore`1">
+            <summary>
+                Interface for a message and delivery history store provider
+            </summary>
+            <typeparam name="TSettings">The type of the t settings.</typeparam>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IHistoryStore" />
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IHistoryStore`1.Settings">
+            <summary>
+                The history store settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IHistoryStore">
+            <summary>
+                Interface for a message and delivery history store provider
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IHistoryStore.Logger">
+            <summary>
+                Optional logger
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IHistoryStore.AddAsync(NullDesk.Extensions.Mailer.Core.DeliveryItem,System.Threading.CancellationToken)">
+            <summary>
+                Adds the history item to the history store.
+            </summary>
+            <param name="item">The item to add.</param>
+            <param name="token">A cancellation token.</param>
+            <returns>Task&lt;Guid&gt; the ID of the message.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IHistoryStore.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Gets the history item from the store.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IHistoryStore.GetAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+                Gets a pagable list of summary delivery items from the store.
+            </summary>
+            <param name="offset">The offset.</param>
+            <param name="limit">The limit.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IHistoryStore.SearchAsync(System.String,System.Int32,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary>
+                Simple search over common fields in history items, returns the specific number of matches.
+            </summary>
+            <remarks>Searches the sender, reply to, and recipient email and display names, and the subject</remarks>
+            <param name="searchText">The search text.</param>
+            <param name="limit">The limit.</param>
+            <param name="sourceApplicationName">Optional, if supplied limits the search to just the supplied source application.</param>
+            <param name="startDate">Optional start date for range searches.</param>
+            <param name="endDate">Optional end date for range searches.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IHistoryStoreSettings">
+            <summary>
+                History store settings
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IHistoryStoreSettings.IsEnabled">
+            <summary>
+                Indicates if delivery history is enabled.
+            </summary>
+            <value><c>true</c> if history is enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IHistoryStoreSettings.StoreAttachmentContents">
+            <summary>
+                Indicates whether to store attachment content with the delivery history.
+            </summary>
+            <remarks>
+                If <c>false</c> messages in history will not be resendable if the original had attachments.
+            </remarks>
+            <value><c>true</c> if content of attachments should be included in history otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IHistoryStoreSettings.SourceApplicationName">
+            <summary>
+                The name of the application to be include in history.
+            </summary>
+            <remarks>Use to give a name to the system recording history.</remarks>
+            <value>The name of the delivery provider.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore">
+            <summary>
+                In-memory History Store.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IHistoryStore" />
+            <remarks>Useful for unit tests.</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore.#ctor(NullDesk.Extensions.Mailer.Core.StandardHistoryStoreSettings,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore" /> class.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="logger">An optional logger.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore.AddAsync(NullDesk.Extensions.Mailer.Core.DeliveryItem,System.Threading.CancellationToken)">
+            <summary>
+                Adds the history item to the history store.
+            </summary>
+            <param name="item">The item to add.</param>
+            <param name="token">A cancellation token.</param>
+            <returns>Task&lt;Guid&gt; the ID of the message.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Gets the history item from the store.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore.GetAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+                Gets a pagable list of history items from the store.
+            </summary>
+            <param name="offset">The offset.</param>
+            <param name="limit">The limit.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore.SearchAsync(System.String,System.Int32,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary>
+                Searches common fields in history items and returns the specific number of matches.
+            </summary>
+            <param name="searchText">The search text.</param>
+            <param name="limit">The limit.</param>
+            <param name="sourceApplicationName">Optional, if supplied limits the search to just the supplied source application.</param>
+            <param name="startDate">Optional start date for range searches.</param>
+            <param name="endDate">Optional end date for range searches.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+            <remarks>Searches the sender, reply to, and recipient email and display names, and the subject</remarks>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore.Logger">
+            <summary>
+                Optional logger
+            </summary>
+            <value>The logger.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.InMemoryHistoryStore.Settings">
+            <summary>
+                The history store settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.NullHistoryStore">
+            <summary>
+                A HistoryStore that does nothing, used as a default when history is not enabled.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IHistoryStore" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullHistoryStore.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.NullHistoryStore" /> class.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullHistoryStore.Instance">
+            <summary>
+                Gets a shared instance of the history store.
+            </summary>
+            <value>The instance.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullHistoryStore.SerializeAttachments">
+            <summary>
+                Gets or sets a value indicating whether to serialize attachments for use in the history store. If not enabled,
+                messages with attachments cannot be resent from history.
+            </summary>
+            <value><c>true</c> if attachments should be serialized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullHistoryStore.AddAsync(NullDesk.Extensions.Mailer.Core.DeliveryItem,System.Threading.CancellationToken)">
+            <summary>
+                Does nothing.
+            </summary>
+            <param name="item">The item to add.</param>
+            <param name="token">A cancellation token.</param>
+            <returns>Task&lt;Guid&gt; the ID of the message.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullHistoryStore.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Does nothing, returns null.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt; always null.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullHistoryStore.GetAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+                Does nothing, returns empty collection.
+            </summary>
+            <param name="offset">The offset.</param>
+            <param name="limit">The limit.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullHistoryStore.SearchAsync(System.String,System.Int32,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary>
+                Does nothing, returns empty collection.
+            </summary>
+            <param name="searchText">The search text.</param>
+            <param name="limit">The limit.</param>
+            <param name="sourceApplicationName">Optional, if supplied limits the search to just the supplied source application.</param>
+            <param name="startDate">Optional start date for range searches.</param>
+            <param name="endDate">Optional end date for range searches.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+            <remarks>Searches the sender, reply to, and recipient email and display names, and the subject</remarks>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullHistoryStore.Logger">
+            <summary>
+                Optional logger
+            </summary>
+            <value>The logger.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullHistoryStore.Settings">
+            <summary>
+                Gets or sets the settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.StandardHistoryStoreSettings">
+            <summary>
+                Standard History Store Settings.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IHistoryStoreSettings" />
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.StandardHistoryStoreSettings.IsEnabled">
+            <summary>
+                Indicates if delivery history is enabled. Default is true.
+            </summary>
+            <value><c>true</c> if history is enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.StandardHistoryStoreSettings.StoreAttachmentContents">
+            <summary>
+                Indicates whether to store attachment content with the delivery history. Default is false.
+            </summary>
+            <value><c>true</c> if content of attachments should be included in history otherwise, <c>false</c>.</value>
+            <remarks>If <c>false</c> messages in history will not be resendable if the original had attachments.</remarks>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.StandardHistoryStoreSettings.SourceApplicationName">
+            <summary>
+                The name of the application to be include in history.
+            </summary>
+            <value>The name of the delivery provider.</value>
+            <remarks>Use to give a name to the system recording history.</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.AsyncLock">
+            <summary>
+                AsyncLock.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AsyncLock.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.AsyncLock" /> class.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AsyncLock.LockAsync">
+            <summary>
+                Create an async lock.
+            </summary>
+            <returns>Task&lt;Releaser&gt;.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.AsyncLock.Releaser">
+            <summary>
+                Struct Releaser
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AsyncLock.Releaser.Dispose">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.AsyncSemaphore">
+            <summary>
+                Class AsyncSemaphore.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AsyncSemaphore.#ctor(System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.AsyncSemaphore" /> class.
+            </summary>
+            <param name="initialCount">The initial count.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">initialCount</exception>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AsyncSemaphore.WaitAsync">
+            <summary>
+                Async wait.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AsyncSemaphore.Release">
+            <summary>
+                Releases this instance.
+            </summary>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IMailer`1">
+            <summary>
+                Interface IMailer
+            </summary>
+            <typeparam name="TSettings">The type of the t settings.</typeparam>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailer`1.Settings">
+            <summary>
+                Settings for the mailer service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IMailer">
+            <summary>
+                Interface IMailer
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailer.HistoryStore">
+            <summary>
+                Gets the history store.
+            </summary>
+            <value>The history store.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailer.PendingDeliverables">
+            <summary>
+                A collection of all pending delivery items tracked by this mailer instance.
+            </summary>
+            <value>The messages.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailer.Logger">
+            <summary>
+                Optional logger
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailer.DefaultSender">
+            <summary>
+                Gets the default message sender, usually specified by settings during mailer constructions.
+            </summary>
+            <value>The default sender.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.ReSendAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                ReSends the message from history data.
+            </summary>
+            <param name="id">The delivery item identifier to resend.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;System.Boolean&gt;.</returns>
+            The cancellation token.
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.GetMessageBuilder">
+            <summary>
+                Gets a message builder for the mailer's default sender.
+            </summary>
+            <returns>MessageBuilder.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.CreateMessage(System.Linq.Expressions.Expression{System.Func{NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep,NullDesk.Extensions.Mailer.Core.Fluent.IBuilderStepsCompleted}})">
+            <summary>
+                Use the fluent builder API to add a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messageBuilder">The message builder.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.CreateMessage(System.Linq.Expressions.Expression{System.Func{NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep,NullDesk.Extensions.Mailer.Core.MailerMessage}})">
+            <summary>
+                Use the fluent builder API to add a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messageBuilder">The message builder.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.AddMessage(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Adds a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="message">The message.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.AddMessages(System.Collections.Generic.IEnumerable{NullDesk.Extensions.Mailer.Core.MailerMessage})">
+            <summary>
+                Adds a collection of messages to the list of pending messages tracked by the mailer.
+            </summary>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.SendAllAsync(System.Threading.CancellationToken)">
+            <summary>
+                Attempts to send all un-sent messages tracked by the mailer instance.
+            </summary>
+            <param name="token">The cancellation token.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailer.SendAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Sends one pending message with the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="autoCloseConnection">if set to <c>true</c> automaticly close the connection when the message is sent.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IEnumerable&lt;MessageDeliveryItem&gt;&gt;.</returns>
+            The cancellation token.
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IMailerFactory">
+            <summary>
+                Factory class for obtaining mailer instances.
+                Factory class for obtaining mailer instances.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailerFactory.MailerRegistrations">
+            <summary>
+                Gets a collection of registered mailer functions.
+            </summary>
+            <value>The mailers.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailerFactory.GetMailer">
+            <summary>
+            Gets an instance of the first registered standard mailer.
+            </summary>
+            <returns>IMailer.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailerFactory.Register``1(System.Func{``0})">
+            <summary>
+                Registers a function that can be use to create a configured mailer instance.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mailerFunc">The mailer function.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.IMailerFactory.GetMailer``1">
+            <summary>
+            Gets an instance of a registered mailer for the specified type.
+            </summary>
+            <typeparam name="T">The type of mailer instance you wish to create</typeparam>
+            <returns>IMailer.</returns>
+            <remarks>If more than one function for the mailer type exists, will use the first matching function.</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IMailerSettings">
+            <summary>
+                Mailer settings marker interface
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailerSettings.FromEmailAddress">
+            <summary>
+                From Email Address
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailerSettings.FromDisplayName">
+            <summary>
+                From display name.
+            </summary>
+            <value>From display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailerSettings.ReplyToEmailAddress">
+            <summary>
+                Reply to email address.
+            </summary>
+            <value>The reply to email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMailerSettings.ReplyToDisplayName">
+            <summary>
+                Reply to display name.
+            </summary>
+            <value>The display name of the reply to address.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IProxyMailer`2">
+            <summary>
+                Interface for safety mailer proxy types
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IProxyMailer`2.Mailer">
+            <summary>
+                Gets the underlying mailer instance wrapped by the proxy.
+            </summary>
+            <value>The mailer.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IProxyMailer`2.Settings">
+            <summary>
+            The settings for the proxy mailer.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IProxyMailerSettings">
+            <summary>
+            Marker Interface for Proxy Mailer Settings
+            </summary>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.Mailer`1">
+            <summary>
+                Base IMailer implementation.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IMailer" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.#ctor(`0,Microsoft.Extensions.Logging.ILogger,NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+                Initializes a new instance of the <see cref="N:NullDesk.Extensions.Mailer" /> class.
+            </summary>
+            <param name="settings">The mailer settings.</param>
+            <param name="logger">The logger.</param>
+            <param name="historyStore">The history store.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Mailer`1.PendingDeliveryItems">
+            <summary>
+                A collection of all pending delivery items tracked by this mailer instance.
+            </summary>
+            <value>The messages.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Mailer`1.HistoryStore">
+            <summary>
+                Gets the history store.
+            </summary>
+            <value>The history store.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Mailer`1.Settings">
+            <summary>
+                Settings for the mailer service
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Mailer`1.Logger">
+            <summary>
+                Optional logger
+            </summary>
+            <value>The logger.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.Mailer`1.DefaultSender">
+            <summary>
+                Gets the default message sender, usually specified by settings during mailer constructions.
+            </summary>
+            <value>The default sender.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.GetMessageBuilder">
+            <summary>
+                Gets a message builder for the mailer's default sender.
+            </summary>
+            <returns>MessageBuilder.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.CreateMessage(System.Linq.Expressions.Expression{System.Func{NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep,NullDesk.Extensions.Mailer.Core.Fluent.IBuilderStepsCompleted}})">
+            <summary>
+                Use the fluent builder API to add a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messageBuilder">The message builder.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.CreateMessage(System.Linq.Expressions.Expression{System.Func{NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep,NullDesk.Extensions.Mailer.Core.MailerMessage}})">
+            <summary>
+                Use the fluent builder API to add a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messageBuilder">The message builder.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.AddMessages(System.Collections.Generic.IEnumerable{NullDesk.Extensions.Mailer.Core.MailerMessage})">
+            <summary>
+                Adds a collection of messages to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messages">The messages to add.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.AddMessage(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Adds a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="message">The message.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.SendAllAsync(System.Threading.CancellationToken)">
+            <summary>
+                Send all pending messages tracked by the mailer instance.
+            </summary>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;IEnumerable&lt;MessageDeliveryItem&gt;&gt; for each message sent.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.SendAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Sends one pending delivery item with the specified identifier.
+            </summary>
+            <param name="id">The delivery item identifier.</param>
+            <param name="autoCloseConnection">
+                If set to <c>true</c> will close connection immediately after delivering the message.
+                If caller is sending multiple messages, optionally set to false to leave the mail service connection open.
+            </param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;IEnumerable&lt;MessageDeliveryItem&gt;&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.ReSendAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                ReSends the message from history data.
+            </summary>
+            <param name="id">The delivery item identifier to resend.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;System.Boolean&gt;.</returns>
+            <exception cref="T:System.ArgumentException">
+                Message with the specified id not found in the history store, unable to
+                resend message.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+                DeliveryItem is not re-sendable. The message may have originally been delivered with attachments, but attachment
+                serialization may have been disabled for the history store
+            </exception>
+            The cancellation token.
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.Dispose">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.DeliverMessageAsync(NullDesk.Extensions.Mailer.Core.DeliveryItem,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                When overridden in a derived class, uses the mailer's underlying mail delivery service to send the specified
+                message and return the service's native message identifier (or null if not applicable).
+            </summary>
+            <param name="deliveryItem">The delivery item containing the message you wish to send.</param>
+            <param name="autoCloseConnection">if set to <c>true</c> [automatic close connection].</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;String&gt; a service provider specific message ID.</returns>
+            The cancellation token.
+            <remarks>The implementor should return a provider specific ID value.</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.Mailer`1.CloseMailClientConnectionAsync(System.Threading.CancellationToken)">
+            <summary>
+                Closes any active mail client connections.
+            </summary>
+            <param name="token">The cancellation token.</param>
+            <returns>Task.</returns>
+            <remarks>Used to close connections if DeliverMessageAsync was used with autoCloseConnection set to false.</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.MailerFactory">
+            <summary>
+                Factory class for obtaining mailer instances.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactory.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.MailerFactory" /> class.
+            </summary>
+            <param name="defaultLoggerFactory">The default logger factory.</param>
+            <param name="defaultHistoryStore">The default history store.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerFactory.DefaultHistoryStore">
+            <summary>
+                The default history store to use when no history store is supplied for registrations.
+            </summary>
+            <value>The default history store.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerFactory.DefaultLoggerFactory">
+            <summary>
+                The default logger factory to use when no loggers are supplied for registrations.
+            </summary>
+            <value>The default logger factory.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerFactory.MailerRegistrations">
+            <summary>
+                Gets a collection of registered mailer functions.
+            </summary>
+            <value>The mailers.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactory.GetMailer">
+            <summary>
+            Gets an instance of the first registered mailer or proxy.
+            </summary>
+            <returns>IMailer.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactory.Register``1(System.Func{``0})">
+            <summary>
+                Registers a function that can be use to create a configured mailer instance.
+            </summary>
+            <typeparam name="TMailer"></typeparam>
+            <param name="mailerFunc">The mailer function.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactory.GetMailer``1">
+            <summary>
+                Gets an instance of a registered mailer for the specified type.
+            </summary>
+            <remarks>
+                If more than one function for the mailer type exists, will use the first matching function.
+                Will return the first function for either the specified type, or a proxy of the specified type.
+            </remarks>
+            <typeparam name="TMailer">The type of mailer instance you wish to create</typeparam>
+            <returns>IMailer</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactory.Register``2(``1,Microsoft.Extensions.Logging.ILogger,NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+                Registers the specified mailer type.
+            </summary>
+            <typeparam name="TMailer"></typeparam>
+            <typeparam name="TMailerSettings">The type of the t settings.</typeparam>
+            <param name="settings">The settings.</param>
+            <param name="logger">The logger.</param>
+            <param name="store">The store.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactory.Register``4(NullDesk.Extensions.Mailer.Core.IProxyMailerSettings,``3,Microsoft.Extensions.Logging.ILogger,NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+            Registers the specified mailer type using a safety mailer proxy.
+            </summary>
+            <typeparam name="TProxy">The type of the t proxy.</typeparam>
+            <typeparam name="TProxySettings">The type of the t proxy settings.</typeparam>
+            <typeparam name="TMailer">The type of the t mailer.</typeparam>
+            <typeparam name="TMailerSettings">The type of the t settings.</typeparam>
+            <param name="settings">The settings.</param>
+            <param name="proxySettings">The proxy settings.</param>
+            <param name="logger">The logger.</param>
+            <param name="store">The store.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerFactory.ConfigureHistoryStoreLogger(NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+                Configures the history store logger.
+            </summary>
+            <param name="historyStore">The history store.</param>
+            <returns>IHistoryStore.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.NullMailer">
+            <summary>
+                A mailer instance that does nothing.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.Mailer`1" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullMailer.#ctor(NullDesk.Extensions.Mailer.Core.NullMailerSettings,Microsoft.Extensions.Logging.ILogger,NullDesk.Extensions.Mailer.Core.IHistoryStore)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.NullMailer" /> class.
+            </summary>
+            <param name="settings">The mailer settings.</param>
+            <param name="logger">The logger.</param>
+            <param name="historyStore">The history store.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullMailer.Dispose">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullMailer.DeliverMessageAsync(NullDesk.Extensions.Mailer.Core.DeliveryItem,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                When overridden in a derived class, uses the mailer's underlying mail delivery service to send the specified
+                message .
+            </summary>
+            <param name="deliveryItem">The delivery item containing the message you wish to send.</param>
+            <param name="autoCloseConnection">if set to <c>true</c> automatically close connection affter sending the message.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;DeliveryItem&gt;.</returns>
+            The cancellation token.
+            <remarks>The implementor should return a provider specific ID value.</remarks>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.NullMailer.CloseMailClientConnectionAsync(System.Threading.CancellationToken)">
+            <summary>
+                Closes any active mail client connections.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>Task.</returns>
+            The cancellation token.
+            <remarks>Used to close connections if DeliverMessageAsync was used with autoCloseConnection set to false.</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.NullMailerSettings">
+            <summary>
+                Class NullMailerSettings.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IMailerSettings" />
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullMailerSettings.FromEmailAddress">
+            <summary>
+                Dummy From Email Address
+            </summary>
+            <value>From email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullMailerSettings.FromDisplayName">
+            <summary>
+                Dummy From display name.
+            </summary>
+            <value>From display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullMailerSettings.ReplyToEmailAddress">
+            <summary>
+                Reply to email address.
+            </summary>
+            <value>The reply to email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.NullMailerSettings.ReplyToDisplayName">
+            <summary>
+                Reply to display name.
+            </summary>
+            <value>The display name of the reply to address.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.SafetyMailer`1">
+            <summary>
+                A proxy implementation of IMailer that can ensure that all recipient addresses are always overridden with a known
+                'safe' recipient email address.
+            </summary>
+            <remarks>
+                Useful for deploying non-production versions of applications with email enabled, but ensuring that real users never
+                accidentally receive email.
+                The display name for the recipient will be modified to show the original display name and original destination
+                email address.
+            </remarks>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IMailer" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.#ctor(`0,NullDesk.Extensions.Mailer.Core.SafetyMailerSettings)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.SafetyMailer`1" /> class.
+            </summary>
+            <param name="mailer">The mailer.</param>
+            <param name="safetyMailerSettings">The safety mailer settings.</param>
+            <exception cref="T:System.ArgumentException">Safety mailer cannot proxy another implementation of ISafetyMailer</exception>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.Dispose">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.HistoryStore">
+            <summary>
+                Gets the history store.
+            </summary>
+            <value>The history store.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.PendingDeliverables">
+            <summary>
+                A collection of all pending delivery items tracked by this mailer instance.
+            </summary>
+            <value>The messages.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.Logger">
+            <summary>
+                Optional logger
+            </summary>
+            <value>The logger.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.DefaultSender">
+            <summary>
+                Gets the default message sender, usually specified by settings during mailer constructions.
+            </summary>
+            <value>The default sender.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.ReSendAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                ReSends the message from history data.
+            </summary>
+            <param name="id">The delivery item identifier to resend.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;System.Boolean&gt;.</returns>
+            The cancellation token.
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.GetMessageBuilder">
+            <summary>
+                Gets a message builder for the mailer's default sender.
+            </summary>
+            <returns>MessageBuilder.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.CreateMessage(System.Linq.Expressions.Expression{System.Func{NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep,NullDesk.Extensions.Mailer.Core.Fluent.IBuilderStepsCompleted}})">
+            <summary>
+                Use the fluent builder API to add a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messageBuilder">The message builder.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.CreateMessage(System.Linq.Expressions.Expression{System.Func{NullDesk.Extensions.Mailer.Core.Fluent.MessageBuilder.BuildSubjectStep,NullDesk.Extensions.Mailer.Core.MailerMessage}})">
+            <summary>
+                Use the fluent builder API to add a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messageBuilder">The message builder.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.AddMessage(NullDesk.Extensions.Mailer.Core.MailerMessage)">
+            <summary>
+                Adds a message to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="message">The message.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.AddMessages(System.Collections.Generic.IEnumerable{NullDesk.Extensions.Mailer.Core.MailerMessage})">
+            <summary>
+                Adds a collection of messages to the list of pending messages tracked by the mailer.
+            </summary>
+            <param name="messages">The messages.</param>
+            <returns>A collection of delivery item identifiers.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.SendAllAsync(System.Threading.CancellationToken)">
+            <summary>
+                Attempts to send all un-sent messages tracked by the mailer instance.
+            </summary>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;IEnumerable&lt;DeliveryItem&gt;&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.SendAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Sends one pending message with the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="autoCloseConnection">if set to <c>true</c> automaticly close the connection when the message is sent.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IEnumerable&lt;MessageDeliveryItem&gt;&gt;.</returns>
+            The cancellation token.
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.Mailer">
+            <summary>
+                Gets the underlying mailer instance wrapped by the proxy.
+            </summary>
+            <value>The mailer.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailer`1.Settings">
+            <summary>
+                The settings for the proxy mailer.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.SafetyMailerSettings">
+            <summary>
+                Settings for use with SafetyMailer.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailerSettings.SafeRecipientEmailAddress">
+            <summary>
+                The safe recipient email address that will be used instead of the messages original recipient email address.
+            </summary>
+            <value>The safe recipient email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SafetyMailerSettings.PrependDisplayNameWithText">
+            <summary>
+                Text to prepend to the recipient display name when safe recipient address has been overwritten; defaults to
+                "(safe)".
+            </summary>
+            <value>The prepend display name text.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.SmtpMailerSettings">
+            <summary>
+                Settings for SMTP Email Services.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SmtpMailerSettings.SmtpServer">
+            <summary>
+                The SMTP server host name.
+            </summary>
+            <value>The SMTP server.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SmtpMailerSettings.SmtpPort">
+            <summary>
+                SMTP server port number.
+            </summary>
+            <value>The SMTP port.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SmtpMailerSettings.FromEmailAddress">
+            <summary>
+                From email address.
+            </summary>
+            <value>From email.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SmtpMailerSettings.FromDisplayName">
+            <summary>
+                From display name.
+            </summary>
+            <value>From display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SmtpMailerSettings.ReplyToEmailAddress">
+            <summary>
+                Reply to email address.
+            </summary>
+            <value>The reply to email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.SmtpMailerSettings.ReplyToDisplayName">
+            <summary>
+                Reply to display name.
+            </summary>
+            <value>The display name of the reply to address.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.AttachmentStreamJsonConverter">
+            <summary>
+                Json converter for attachment stream dictionaries
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AttachmentStreamJsonConverter.CanConvert(System.Type)">
+            <summary>
+                Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns><c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AttachmentStreamJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+                Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>The object value.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.AttachmentStreamJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+                Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.ContentBody">
+            <summary>
+                A message body containing html and/or plain text content
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.ContentBody.HtmlContent">
+            <summary>
+                An HTML message body.
+            </summary>
+            <remarks>
+                If substitutions are provided, they will be used here.
+            </remarks>
+            <value>The content of the HTML.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.ContentBody.PlainTextContent">
+            <summary>
+                A plain text message body.
+            </summary>
+            <remarks>
+                If substitutions are provided, they will be used here.
+            </remarks>
+            <value>The content of the plain text.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.ContentBody.Create">
+            <summary>
+                Creates a message body.
+            </summary>
+            <returns>ContentBody.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.DeliveryItem">
+            <summary>
+                Flattened mailer message for a single recipient with delivery meta-data.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DeliveryItem.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.DeliveryItem" /> class.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DeliveryItem.#ctor(NullDesk.Extensions.Mailer.Core.MailerMessage,NullDesk.Extensions.Mailer.Core.MessageRecipient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.Core.DeliveryItem" /> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="recipient">The recipient.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliveryItem.Body">
+            <summary>
+                Gets or sets the message body.
+            </summary>
+            <value>The body.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliveryItem.Attachments">
+            <summary>
+                A collection of attachments to include with the message.
+            </summary>
+            <value>The attachments.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliveryItem.Substitutions">
+            <summary>
+                A collection of tokens and replacement values to use with body contents, templates, and message subject.
+            </summary>
+            <remarks>
+                This collection contains the merged dictionary of personalized substitutions and general message substitutions.
+            </remarks>
+            <value>The substitutions.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliveryItem.IsResendable">
+            <summary>
+                Gets a value indicating whether this instance is resendable.
+            </summary>
+            <value><c>true</c> if this instance is resendable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.DeliveryItem.ProcessSubstitutions(System.String)">
+            <summary>
+                Get the specified content after processing this instance's substitutions.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.DeliverySummary">
+            <summary>
+                Summary of Delivery details.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.Id">
+            <summary>
+                The unique message identifier
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.DeliveryProvider">
+            <summary>
+                Gets or sets the delivery provider.
+            </summary>
+            <value>The delivery provider.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.ProviderMessageId">
+            <summary>
+                Gets or sets the provider's identifier for the message.
+            </summary>
+            <remarks>
+                Used to reference the message in the underlying mail system after delivery has been attempted.
+            </remarks>
+            <value>The provider message identifier.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.CreatedDate">
+            <summary>
+                Gets or sets the message created date.
+            </summary>
+            <value>The message date.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.IsSuccess">
+            <summary>
+                Gets or sets a value indicating whether the message was successfully sent.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.FromEmailAddress">
+            <summary>
+                Gets or sets the sender's email address.
+            </summary>
+            <value>The senders email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.FromDisplayName">
+            <summary>
+                Gets or sets the sender's display name for the sender.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.ReplyToEmailAddress">
+            <summary>
+                Gets or sets the reply to email address.
+            </summary>
+            <value>The email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.ReplyToDisplayName">
+            <summary>
+                Gets or sets the reply to display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.ToEmailAddress">
+            <summary>
+                Gets or sets the sent to email.
+            </summary>
+            <value>The sent to email.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.ToDisplayName">
+            <summary>
+                Gets or sets to display name.
+            </summary>
+            <value>To display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.Subject">
+            <summary>
+                The message subject.
+            </summary>
+            <remarks>
+                If substitutions are provided, they will be used here. Some services may ignore this value when using templates,
+                others will use this value in place of any subject defined in the template.
+            </remarks>
+            <value>The subject.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.ExceptionMessage">
+            <summary>
+                Gets or sets the exception message if an exception occurred.
+            </summary>
+            <value>The exception message.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.DeliverySummary.SourceApplicationName">
+            <summary>
+                The name of the application to be include in history.
+            </summary>
+            <remarks>Use to give a name to the system recording history.</remarks>
+            <value>The name of the delivery provider.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IMessageAddress">
+            <summary>
+                Interface IMailerAddress
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMessageAddress.DisplayName">
+            <summary>
+                Gets or sets the email address.
+            </summary>
+            <value>The email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.IMessageAddress.EmailAddress">
+            <summary>
+                Gets or sets the display name for the reply address.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.IMessageBody">
+            <summary>
+                Interface IMessageBody
+            </summary>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.MailerMessage">
+            <summary>
+                Represents an email message compatible with all NullDesk Mailers.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerMessage.Body">
+            <summary>
+                Gets or sets the message body.
+            </summary>
+            <value>The body.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerMessage.From">
+            <summary>
+                The reply to information for the message.
+            </summary>
+            <value>From.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerMessage.Recipients">
+            <summary>
+                The message recipients.
+            </summary>
+            <value>The recipients.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerMessage.Subject">
+            <summary>
+                The message subject.
+            </summary>
+            <remarks>
+                If substitutions are provided, they will be used here. Some services may ignore this value when using templates,
+                others will use this value in place of any subject defined in the template.
+            </remarks>
+            <value>The subject.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerMessage.Substitutions">
+            <summary>
+                A collection of tokens and replacement values to use with body contents, templates, and message subject.
+            </summary>
+            <remarks>
+                To override any of these values on a per-recipient basis, supply overriding values to the recipients'
+                PersonalizedSubstitutions property
+            </remarks>
+            <value>The substitution tokens and replacement values.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerMessage.Attachments">
+            <summary>
+                A collection of attachments to include with the message.
+            </summary>
+            <value>The attachments.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MailerMessage.IsDeliverable">
+            <summary>
+                Determines whether this instance is deliverable.
+            </summary>
+            <returns><c>true</c> if this instance is deliverable; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MailerMessage.Create">
+            <summary>
+                Creates a mailer message.
+            </summary>
+            <returns>MailerContentMessage.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.MessageBodyJsonConverter">
+            <summary>
+                Json converter for IMessageBody.
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MessageBodyJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+                Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MessageBodyJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+                Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>The object value.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.MessageBodyJsonConverter.CanConvert(System.Type)">
+            <summary>
+                Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns><c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.MessageRecipient">
+            <summary>
+                The email recipient's address and information
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MessageRecipient.PersonalizedSubstitutions">
+            <summary>
+                Optional collection of template substitution variables specific to the recipient.
+            </summary>
+            <remarks>
+                When sending email, the values specified here will be merged with, and override, any replacement variables defined
+                on for message as a whole. Use this to supply replacment substitutions that vary from one recipient to another.
+            </remarks>
+            <value>Template substitutions to use for this recipient only.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MessageRecipient.EmailAddress">
+            <summary>
+                Gets or sets the recipient's email address.
+            </summary>
+            <value>The email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MessageRecipient.DisplayName">
+            <summary>
+                Gets or sets the display name for the recipient.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.MessageSender">
+            <summary>
+                The email sender's address and information.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MessageSender.ReplyToEmailAddress">
+            <summary>
+                The message reply to address.
+            </summary>
+            <value>The reply to address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MessageSender.ReplyToDisplayName">
+            <summary>
+                The display name for the reply to address.
+            </summary>
+            <value>The reply to display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MessageSender.EmailAddress">
+            <summary>
+                The email address for the message sender.
+            </summary>
+            <value>The sender's email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.MessageSender.DisplayName">
+            <summary>
+                The display name for the sender .
+            </summary>
+            <value>The sender's display name.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.Core.TemplateBody">
+            <summary>
+                A message body that uses an external template.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.IMessageBody" />
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.Core.TemplateBody.TemplateName">
+            <summary>
+                The name of the template to send.
+            </summary>
+            <value>The template.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.Core.TemplateBody.Create">
+            <summary>
+                Creates a message body.
+            </summary>
+            <returns>TemplateBody.</returns>
+        </member>
+    </members>
+</doc>
