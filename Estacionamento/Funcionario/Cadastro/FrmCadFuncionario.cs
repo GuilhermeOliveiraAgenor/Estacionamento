@@ -42,7 +42,7 @@ namespace Estacionamento
             bool result = false;
             //passa os parametros do text para a classe
             funcionario.primeiroNome = txtNome.Text;
-            funcionario.primeiroNome = txtSobrenome.Text;
+            funcionario.Sobrenome = txtSobrenome.Text;
             funcionario.Cpf = txtCpf.Text;
             funcionario.Rg = txtRg.Text;
             funcionario.Profissao = txtProfissao.Text;
