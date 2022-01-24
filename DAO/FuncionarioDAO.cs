@@ -17,11 +17,11 @@ namespace Controller
     {
         //string de conexao
         private string conectar = ConfigurationManager.ConnectionStrings["conexao"].ConnectionString;
-
         public bool inserirFuncionario(Funcionario funcionario)
         {
             //conecta com a string de conexao
             SqlConnection conn = new SqlConnection(conectar);
+            byte[] foto = funcionario.GetFoto(funcionario.caminhoFoto);//recebe o resultado
 
             bool result = false;
             int cadastrar;
@@ -37,7 +37,8 @@ namespace Controller
                 cmdo.Parameters.Add("@Rg", SqlDbType.VarChar, 20).Value = funcionario.Rg;
                 cmdo.Parameters.Add("@Profissao", SqlDbType.VarChar, 40).Value = funcionario.Profissao;
                 cmdo.Parameters.Add("@Salario", SqlDbType.Decimal).Value = funcionario.Salario;
-
+                cmdo.Parameters.Add("@Foto", SqlDbType.Image, foto.Length).Value = foto;
+         
                 cadastrar = cmdo.ExecuteNonQuery();
                 //se linhas forem afetadas, o result retorna true
                 if (cadastrar >= 1)
@@ -90,6 +91,124 @@ namespace Controller
             }
             return dt;
         }
+
+        public bool alterarFuncionario(Funcionario funcionario)
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            byte[] foto = funcionario.GetFoto(funcionario.caminhoFoto);//recebe o resultado
+
+            bool result = false;
+            int alterar;
+
+            try
+            {
+                conn.Open();//abrir conexao
+                SqlCommand cmdo = new SqlCommand("alterarFuncionario", conn);//defini procedure
+                cmdo.CommandType = CommandType.StoredProcedure;
+                cmdo.Parameters.Add("@idFuncionario", SqlDbType.Int).Value = funcionario.idFuncionario;//parametros
+                cmdo.Parameters.Add("@primeiroNome", SqlDbType.VarChar, 60).Value = funcionario.primeiroNome;
+                cmdo.Parameters.Add("@Sobrenome", SqlDbType.VarChar, 100).Value = funcionario.Sobrenome;
+                cmdo.Parameters.Add("@Rg", SqlDbType.VarChar, 20).Value = funcionario.Rg;
+                cmdo.Parameters.Add("@Profissao", SqlDbType.VarChar, 40).Value = funcionario.Profissao;
+                cmdo.Parameters.Add("@Salario", SqlDbType.Decimal).Value = funcionario.Salario;
+                cmdo.Parameters.Add("@Foto", SqlDbType.Image, foto.Length).Value = foto;
+
+                alterar = cmdo.ExecuteNonQuery();//recebe o resultado
+
+                if (alterar >= 1)//se linhas forem afetadas, retorna true
+                {
+                    result = true;
+                }
+                if (alterar < 1)//se linhas nao forem afetadas, retorna false
+                {
+                    result = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                //retorna mensagem de erro
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return result;
+
+        }
+
+        public bool excluirFuncionario(int idFuncionario)
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            int excluir;
+            bool result = false;
+
+            try
+            {
+                conn.Open();//abrir conexao
+                SqlCommand cmdo = new SqlCommand("excluirFuncionario", conn);//defini text
+                cmdo.CommandType = CommandType.StoredProcedure;
+                cmdo.Parameters.Add("@idFuncionario", SqlDbType.Int).Value = idFuncionario;//parametro
+
+                excluir = cmdo.ExecuteNonQuery();//recebe o resultado
+
+                if (excluir >= 1)//se linhas forem afetadas, retorna true
+                {
+                    result = true;
+                }
+                if (excluir < 1)//se linhas nao forem afetadas, retorna false
+                {
+                    result = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                //retorna mensagem de erro
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return result; 
+
+        }
+        
+        public DataTable carregarFuncionario()
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select *from Funcionario";
+
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+        }
+
+
 
     }
 

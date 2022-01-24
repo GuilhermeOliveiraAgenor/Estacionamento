@@ -10,7 +10,9 @@ create or alter procedure inserirFuncionario
 @Cpf varchar(11),
 @Rg varchar(20),
 @Profissao varchar(40),
-@Salario decimal (10,2)
+@Salario decimal (10,2),
+@Foto varbinary(MAX)
+
 
 
 )
@@ -32,7 +34,7 @@ return -1
 end
 
 begin tran--insere
-insert into Funcionario (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values (@primeiroNome,@Sobrenome,@Cpf,@Rg,@Profissao,@Salario)
+insert into Funcionario (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario,Foto) values (@primeiroNome,@Sobrenome,@Cpf,@Rg,@Profissao,@Salario,@Foto)
 
 
 if @@ERROR <> ''
@@ -41,6 +43,50 @@ else
 commit tran
 go
 
+
+
+create or alter procedure alterarFuncionario
+(
+@idFuncionario int,
+@primeiroNome varchar(60),
+@Sobrenome varchar(100),
+@Rg varchar(20),
+@Profissao varchar(40),
+@Salario decimal (10,2),
+@Foto varbinary(MAX)
+
+)
+as
+
+
+--altera
+begin tran
+update Funcionario set primeiroNome = @primeiroNome, Sobrenome = @Sobrenome, Rg = @Rg, Profissao = @Profissao, Salario = @Salario, Foto = @Foto where idFuncionario = @idFuncionario
+
+if @@ERROR <> ''
+rollback tran
+else 
+commit tran
+go
+
+
+
+create or alter procedure excluirFuncionario
+(
+@idFuncionario int
+)
+as
+
+--exclui
+begin tran
+
+delete Funcionario from Funcionario where idFuncionario = @idFuncionario
+
+if @@ERROR <> ''
+rollback tran
+else
+commit tran
+go	
 
 
 

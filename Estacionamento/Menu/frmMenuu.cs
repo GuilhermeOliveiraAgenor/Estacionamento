@@ -32,7 +32,7 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
         }
-        //TODO: Menu - tela
+        //TODO: Menu - tela, relatorios adm e ver pdf
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();

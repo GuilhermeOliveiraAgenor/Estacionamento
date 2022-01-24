@@ -74,7 +74,7 @@ Cpf varchar(11),
 Rg varchar(20),
 Profissao varchar(40),
 Salario decimal (10,2),
-
+Foto varbinary(MAX)
 
 )
 
@@ -150,7 +150,7 @@ insert into Vaga (descricao,Patio) values ('Padrão','1')
 insert into Vaga (descricao,Patio) values ('Padrão','2')
 insert into Vaga (descricao,Patio) values ('Padrão','2')
 insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('18:30','19:30','10/06/2020','10/06/2020','1','1','1','5.00','1')
-insert into Funcionario (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('Roberto','uoiuoi','754785','797768','Cobrador','754754')
+insert into Funcionario (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('urur','ururt','456546','797768','Cobrador','54754')
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Alberto','10/10/1976','75278562','732752732', '93475347')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Fusca','Azul')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Celta','Verde')
@@ -178,7 +178,6 @@ drop table Estacionar
 drop table Pagamento
 drop table formaPagamento
 drop table Funcionario
-
 
 -- Selecionar carros que sejam corsas
 select Cliente.Nome, Cliente.Cpf, Veiculo.Placa,Veiculo.Categoria,Veiculo.Cor, Estacionar.idEstacionar
