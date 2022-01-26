@@ -154,7 +154,7 @@ insert into Funcionario (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Alberto','10/10/1976','75278562','732752732', '93475347')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Fusca','Azul')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Celta','Verde')
-insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,CodigoClienteVeiculo,Patio,Preco,Status) values ('18:30','00:00','06/11/2020','06/11/2020','2','2','0.00','Ocupado')
+insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,CodigoClienteVeiculo,Patio,Preco,Status) values ('18:30','00:00','20/01/2022','05/03/2021','1','2','10.00','-')
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Joao','18/07/1987','945376','894647', '994854794')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Chevrolet','Sedan','a','Preto')
 insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('16:00','00:00','20/10/2020','20/10/2020','1','2','1','5.00','1')
@@ -171,6 +171,32 @@ select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '
 
 
 /*Consultas*/
+
+select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -7, GETDATE())
+
+select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -30, GETDATE())
+
+select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where MONTH (dataSaida) = '01'
+
+select sum(Preco) from Estacionar where MONTH(dataSaida)
+select sum(Preco) from Estacionar where YEAR(dataSaida) = '2022'
+select sum(Preco) from Estacionar
+select sum(Preco) - (select sum(Salario) from Funcionario) from Estacionar
+
+
+
+select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc
+
+
+select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacionar where MONTH(dataSaida) = '12' and YEAR(dataSaida) = '2021' group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc
+
+
+
+
+update Estacionar set horarioEntrada = '14:00' where idEstacionar = '2'
+
+
+
 
 drop table Cliente
 drop table clienteVeiculo
@@ -203,7 +229,7 @@ select *from Cliente
 select *from Veiculo
 select *from Funcionario
 select *from Patio
-select *from Estacionar
+select *from Estacionar 
 select *from Vaga
 select *from Pagamento
 select *from formaPagamento

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Estacionamento.editarPedidos;
 using Estacionamento.Entrada;
+using Estacionamento.Funcionario;
+using Estacionamento.Funcionario.Relatorio;
 using Estacionamento.Login;
 using Estacionamento.Menu;
 using Estacionamento.Saida;
@@ -22,7 +24,7 @@ namespace Estacionamento
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCadFuncionario());
+            Application.Run(new frmRelatorio());
         }
     }
 }

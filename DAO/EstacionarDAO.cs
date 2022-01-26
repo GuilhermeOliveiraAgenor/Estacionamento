@@ -346,7 +346,6 @@ namespace Controller
 
             return result;
         }
-
         public DataTable PesqCpfOcupados(string cpf)
         {
             DataTable dt = new DataTable();
@@ -413,6 +412,266 @@ namespace Controller
 
             return result;
         }
+        public DataTable valor7dias()
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select sum(Preco) as Valor from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE())";
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+
+        }
+        public DataTable valor30dias()
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select sum(Preco) as Valor from Estacionar where dataSaida >= DATEADD(day, -30, GETDATE())";
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+
+        }
+        public DataTable veiculos7dias()
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -7, GETDATE())";
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+        }
+        public DataTable veiculos30dias()
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -30, GETDATE())";
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+        }
+        public DataTable valorMes(string mes, string ano)
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select sum(Preco) as Valor from Estacionar where MONTH(dataSaida) = @Mes and YEAR(dataSaida) = @Ano";
+                cmdo.Parameters.Add("@Mes", SqlDbType.VarChar).Value = mes;
+                cmdo.Parameters.Add("@Ano", SqlDbType.VarChar).Value = ano;
+
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+        }
+        public DataTable valorAno(string ano)
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select sum(Preco) as Valor from Estacionar where YEAR(dataSaida) = @Ano";
+                cmdo.Parameters.Add("@Ano", SqlDbType.VarChar).Value = ano;
+
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+        }
+        public DataTable valorTotal()
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select sum(Preco) as Valor from Estacionar";
+
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+        }
+
+        public DataTable horasMes(string mes, string ano)
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Carros from Estacionar where MONTH(dataSaida) = @Mes and YEAR(dataSaida) = @Ano group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Carros desc";
+                cmdo.Parameters.Add("@Mes", SqlDbType.VarChar).Value = mes;//parametro
+                cmdo.Parameters.Add("@Ano", SqlDbType.VarChar).Value = ano;
+
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+            
+            return dt;
+
+        }
+
+        public DataTable horas7dias()
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            SqlCommand cmdo = new SqlCommand();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();//abrir conexao
+                cmdo.Connection = conn;
+                cmdo.CommandType = CommandType.Text;//defini text
+                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc";
+
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                dt.Load(dr);//carrega o dt
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return dt;
+
+        }
+
 
     }
 }

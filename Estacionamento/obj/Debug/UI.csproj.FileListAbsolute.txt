@@ -105,3 +105,4 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacion
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\DAO.dll
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\DAO.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\DAO.dll.config
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Funcionario.Relatorio.frmRelatorio.resources

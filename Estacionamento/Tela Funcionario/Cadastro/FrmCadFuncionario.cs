@@ -18,7 +18,6 @@ namespace Estacionamento
     public partial class FrmCadFuncionario : Form
     {
         //iniciar as classes
-        Funcionario funcionario = new Funcionario();
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         DataTable dt = new DataTable();
         string modo = "";
@@ -95,6 +94,8 @@ namespace Estacionamento
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+
+           Funcionario funcionario = new Funcionario();
             //TODO: alterar, excluir funcionario e arrumar cadastro de funcionario
             bool result;
        
@@ -146,8 +147,9 @@ namespace Estacionamento
                     MessageBox.Show("Exclusão concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limparCampos();
                 }
-
+                
             }
+                
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -165,7 +167,7 @@ namespace Estacionamento
 
         private void btnCpf_Click(object sender, EventArgs e)
         {
-            string cpf = txtPesquisar.Text;//parametro
+            /*string cpf = txtPesquisar.Text;//parametro
 
             dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
 
@@ -192,7 +194,7 @@ namespace Estacionamento
             else
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)

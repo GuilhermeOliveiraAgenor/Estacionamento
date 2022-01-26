@@ -25,8 +25,7 @@ namespace Estacionamento.Menu
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         public void vagasOcupadas()
         {
-            dgvVeiculos.DataSource = estacionarDAO.carregarVeiculo();
-            dgvVeiculos.Refresh();
+            
         }
         public frmMenuu()
         {

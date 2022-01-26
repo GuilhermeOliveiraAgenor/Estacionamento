@@ -340,10 +340,10 @@
     <Compile Include="Cliente\Entrada\frmVerificar.Designer.cs">
       <DependentUpon>frmVerificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionario\Cadastro\FrmCadFuncionario.cs">
+    <Compile Include="Tela Funcionario\Cadastro\FrmCadFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionario\Cadastro\FrmCadFuncionario.Designer.cs">
+    <Compile Include="Tela Funcionario\Cadastro\FrmCadFuncionario.Designer.cs">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Login\frmLogin.cs">
@@ -351,6 +351,12 @@
     </Compile>
     <Compile Include="Cliente\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tela Funcionario\Cadastro\frmRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela Funcionario\Cadastro\frmRelatorio.Designer.cs">
+      <DependentUpon>frmRelatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\frmMenuu.cs">
       <SubType>Form</SubType>
@@ -384,11 +390,14 @@
     <EmbeddedResource Include="Cliente\Entrada\frmVerificar.resx">
       <DependentUpon>frmVerificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionario\Cadastro\FrmCadFuncionario.resx">
+    <EmbeddedResource Include="Tela Funcionario\Cadastro\FrmCadFuncionario.resx">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cliente\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tela Funcionario\Cadastro\frmRelatorio.resx">
+      <DependentUpon>frmRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmMenuu.resx">
       <DependentUpon>frmMenuu.cs</DependentUpon>
