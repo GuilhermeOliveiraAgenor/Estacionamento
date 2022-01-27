@@ -39,7 +39,6 @@ namespace Estacionamento.editarPedidos
         {
             DataTable dt = new DataTable();
             string cpf = txtPesquisarcodigo.Text;//o cpf recebido
-            bool result = false;
 
             dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado
 

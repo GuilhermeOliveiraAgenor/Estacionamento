@@ -51,6 +51,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lblHoras = new System.Windows.Forms.Label();
             this.lblPeriodocarro = new System.Windows.Forms.Label();
             this.lblCarros = new System.Windows.Forms.Label();
+            this.lbl7dias = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +116,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(165, 21);
             this.cmbMes.TabIndex = 185;
+            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
             // 
             // txtAno
             // 
@@ -250,6 +252,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbPesqMes.Name = "cmbPesqMes";
             this.cmbPesqMes.Size = new System.Drawing.Size(165, 21);
             this.cmbPesqMes.TabIndex = 200;
+            this.cmbPesqMes.SelectedIndexChanged += new System.EventHandler(this.cmbPesqMes_SelectedIndexChanged);
             // 
             // lblHora
             // 
@@ -269,6 +272,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lblHoras.Size = new System.Drawing.Size(174, 18);
             this.lblHoras.TabIndex = 207;
             this.lblHoras.Text = "Hora mais movimentada:";
+            this.lblHoras.Click += new System.EventHandler(this.lblHoras_Click_1);
             // 
             // lblPeriodocarro
             // 
@@ -289,11 +293,23 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lblCarros.Size = new System.Drawing.Size(0, 18);
             this.lblCarros.TabIndex = 208;
             // 
+            // lbl7dias
+            // 
+            this.lbl7dias.AutoSize = true;
+            this.lbl7dias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7dias.Location = new System.Drawing.Point(165, 704);
+            this.lbl7dias.Name = "lbl7dias";
+            this.lbl7dias.Size = new System.Drawing.Size(238, 18);
+            this.lbl7dias.TabIndex = 210;
+            this.lbl7dias.Text = "Hora mais movimentada em 7 dias";
+            this.lbl7dias.Click += new System.EventHandler(this.lbl7dias_Click);
+            // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.lbl7dias);
             this.Controls.Add(this.lblPeriodocarro);
             this.Controls.Add(this.lblCarros);
             this.Controls.Add(this.lblHoras);
@@ -349,5 +365,6 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.Label lblHoras;
         private System.Windows.Forms.Label lblPeriodocarro;
         private System.Windows.Forms.Label lblCarros;
+        private System.Windows.Forms.Label lbl7dias;
     }
 }

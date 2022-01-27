@@ -340,10 +340,10 @@
     <Compile Include="Cliente\Entrada\frmVerificar.Designer.cs">
       <DependentUpon>frmVerificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tela Funcionario\Cadastro\FrmCadFuncionario.cs">
+    <Compile Include="Funcionario\Cadastro\FrmCadFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tela Funcionario\Cadastro\FrmCadFuncionario.Designer.cs">
+    <Compile Include="Funcionario\Cadastro\FrmCadFuncionario.Designer.cs">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Login\frmLogin.cs">
@@ -352,10 +352,10 @@
     <Compile Include="Cliente\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tela Funcionario\Cadastro\frmRelatorio.cs">
+    <Compile Include="Funcionario\Cadastro\frmRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tela Funcionario\Cadastro\frmRelatorio.Designer.cs">
+    <Compile Include="Funcionario\Cadastro\frmRelatorio.Designer.cs">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\frmMenuu.cs">
@@ -390,13 +390,13 @@
     <EmbeddedResource Include="Cliente\Entrada\frmVerificar.resx">
       <DependentUpon>frmVerificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tela Funcionario\Cadastro\FrmCadFuncionario.resx">
+    <EmbeddedResource Include="Funcionario\Cadastro\FrmCadFuncionario.resx">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cliente\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tela Funcionario\Cadastro\frmRelatorio.resx">
+    <EmbeddedResource Include="Funcionario\Cadastro\frmRelatorio.resx">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmMenuu.resx">
@@ -452,6 +452,7 @@
     <None Include="Resources\mapa1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1486505375-edit-pen-change-option-pencil-write_81422.ico" />
     <Content Include="vehicle_car_vacation_holiday_transport_icon_196788.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -64,7 +64,7 @@ descricao varchar(10),
 
 )
 
-create table Funcionario
+create table Funcionarios
 (
 
 idFuncionario int identity primary key,
@@ -191,12 +191,14 @@ select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacion
 select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacionar where MONTH(dataSaida) = '12' and YEAR(dataSaida) = '2021' group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc
 
 
+select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -7, GETDATE())
+select sum(Preco) as Valor from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE())
 
+update Estacionar set horarioEntrada = '16:30' where idEstacionar = '6'
 
-update Estacionar set horarioEntrada = '14:00' where idEstacionar = '2'
+select DATEPART(HOUR,horarioEntrada) as Hora, COUNT(*) as Carros from Estacionar where MONTH(dataSaida) = '1' and YEAR(dataSaida) = '2022' group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Carros desc
 
-
-
+update Funcionarios set Rg = '1' where idFuncionario = '2'
 
 drop table Cliente
 drop table clienteVeiculo
@@ -227,7 +229,7 @@ where Dataentrada between CONVERT(date,GETDATE()) and Dataentrada order by Clien
 select *from clienteVeiculo
 select *from Cliente
 select *from Veiculo
-select *from Funcionario
+select *from Funcionarios
 select *from Patio
 select *from Estacionar 
 select *from Vaga

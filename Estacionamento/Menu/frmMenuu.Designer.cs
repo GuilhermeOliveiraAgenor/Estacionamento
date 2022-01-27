@@ -60,6 +60,11 @@ namespace Estacionamento.Menu
             this.btnFuncionario = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnAlterarpedido = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblCpf = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -81,11 +86,11 @@ namespace Estacionamento.Menu
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.ptbMapa = new System.Windows.Forms.PictureBox();
-            this.lblCpf = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtHora = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblPreco = new System.Windows.Forms.Label();
+            this.btnPesq = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
@@ -95,6 +100,7 @@ namespace Estacionamento.Menu
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -107,7 +113,6 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAlterarveiculo
@@ -202,7 +207,7 @@ namespace Estacionamento.Menu
             this.dgvVeiculos.AllowUserToAddRows = false;
             this.dgvVeiculos.AllowUserToDeleteRows = false;
             this.dgvVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVeiculos.Location = new System.Drawing.Point(423, 262);
+            this.dgvVeiculos.Location = new System.Drawing.Point(435, 299);
             this.dgvVeiculos.Name = "dgvVeiculos";
             this.dgvVeiculos.ReadOnly = true;
             this.dgvVeiculos.Size = new System.Drawing.Size(957, 428);
@@ -454,6 +459,55 @@ namespace Estacionamento.Menu
             this.btnAlterarpedido.UseVisualStyleBackColor = true;
             this.btnAlterarpedido.Click += new System.EventHandler(this.btnAlterarpedido_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.lblNome);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.lblCpf);
+            this.panel4.Location = new System.Drawing.Point(0, 45);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(207, 119);
+            this.panel4.TabIndex = 140;
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Location = new System.Drawing.Point(82, 27);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(0, 25);
+            this.lblNome.TabIndex = 206;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(35, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 23);
+            this.label10.TabIndex = 205;
+            this.label10.Text = "Nome:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(35, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 23);
+            this.label1.TabIndex = 204;
+            this.label1.Text = "Cpf:";
+            // 
+            // lblCpf
+            // 
+            this.lblCpf.AutoSize = true;
+            this.lblCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpf.Location = new System.Drawing.Point(68, 65);
+            this.lblCpf.Name = "lblCpf";
+            this.lblCpf.Size = new System.Drawing.Size(0, 25);
+            this.lblCpf.TabIndex = 203;
+            // 
             // pictureBox11
             // 
             this.pictureBox11.Location = new System.Drawing.Point(10, 337);
@@ -658,60 +712,59 @@ namespace Estacionamento.Menu
             this.ptbMapa.TabStop = false;
             this.ptbMapa.Click += new System.EventHandler(this.ptbMapa_Click);
             // 
-            // lblCpf
+            // txtHora
             // 
-            this.lblCpf.AutoSize = true;
-            this.lblCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpf.Location = new System.Drawing.Point(68, 65);
-            this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(0, 25);
-            this.lblCpf.TabIndex = 203;
+            this.txtHora.Location = new System.Drawing.Point(1532, 590);
+            this.txtHora.Name = "txtHora";
+            this.txtHora.Size = new System.Drawing.Size(143, 20);
+            this.txtHora.TabIndex = 203;
             // 
-            // label1
+            // contextMenuStrip1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 23);
-            this.label1.TabIndex = 204;
-            this.label1.Text = "Cpf:";
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // label10
+            // lblPreco
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(35, 27);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 23);
-            this.label10.TabIndex = 205;
-            this.label10.Text = "Nome:";
+            this.lblPreco.AutoSize = true;
+            this.lblPreco.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreco.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPreco.Location = new System.Drawing.Point(1600, 680);
+            this.lblPreco.Name = "lblPreco";
+            this.lblPreco.Size = new System.Drawing.Size(0, 25);
+            this.lblPreco.TabIndex = 206;
             // 
-            // lblNome
+            // btnPesq
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(82, 27);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(0, 25);
-            this.lblNome.TabIndex = 206;
+            this.btnPesq.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesq.Location = new System.Drawing.Point(1691, 581);
+            this.btnPesq.Name = "btnPesq";
+            this.btnPesq.Size = new System.Drawing.Size(93, 32);
+            this.btnPesq.TabIndex = 210;
+            this.btnPesq.Text = "Pesquisar";
+            this.btnPesq.UseVisualStyleBackColor = true;
+            this.btnPesq.Click += new System.EventHandler(this.btnPesq_Click);
             // 
-            // panel4
+            // label11
             // 
-            this.panel4.Controls.Add(this.lblNome);
-            this.panel4.Controls.Add(this.label10);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.lblCpf);
-            this.panel4.Location = new System.Drawing.Point(0, 45);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(207, 119);
-            this.panel4.TabIndex = 140;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(1576, 680);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 25);
+            this.label11.TabIndex = 211;
+            this.label11.Text = "R$";
             // 
             // frmMenuu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.btnPesq);
+            this.Controls.Add(this.lblPreco);
+            this.Controls.Add(this.txtHora);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ptbMapa);
             this.Controls.Add(this.lblPatio2);
@@ -748,6 +801,8 @@ namespace Estacionamento.Menu
             this.Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -760,8 +815,6 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -823,5 +876,10 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtHora;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label lblPreco;
+        private System.Windows.Forms.Button btnPesq;
+        private System.Windows.Forms.Label label11;
     }
 }

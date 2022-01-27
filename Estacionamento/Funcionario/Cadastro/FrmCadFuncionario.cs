@@ -19,9 +19,12 @@ namespace Estacionamento
     {
         //iniciar as classes
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        Funcionarios funcionario = new Funcionarios();
+
         DataTable dt = new DataTable();
         string modo = "";
         string caminhoFoto = "";
+        byte[] fotoFuncionario;
         int idFuncionario;
 
         public FrmCadFuncionario()
@@ -60,7 +63,8 @@ namespace Estacionamento
             {
                 ptbFoto.Load(caminhoFoto);//carrega a foto
             }
-        }
+
+       }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
@@ -95,13 +99,12 @@ namespace Estacionamento
         private void btnGravar_Click(object sender, EventArgs e)
         {
 
-           Funcionario funcionario = new Funcionario();
-            //TODO: alterar, excluir funcionario e arrumar cadastro de funcionario
+            //TODO: alterar funcionario
             bool result;
        
             if (modo == "Cadastrar")
             {
-                //passa os parametros do text para a classe
+                //*passa os parametros do text para a classe
                 funcionario.primeiroNome = txtPrimeironome.Text;
                 funcionario.Sobrenome = txtSobrenome.Text;
                 funcionario.Cpf = txtCpf.Text;
@@ -109,7 +112,7 @@ namespace Estacionamento
                 funcionario.Profissao = txtProfissao.Text;
                 funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
                 funcionario.caminhoFoto = caminhoFoto;
-
+                
                 result = funcionarioDAO.inserirFuncionario(funcionario);//retorna o resultado da funcao
 
                 if (result == true)
@@ -120,13 +123,13 @@ namespace Estacionamento
             }
             if (modo == "Alterar")
             {
+
                 funcionario.primeiroNome = txtPrimeironome.Text;//parametros
                 funcionario.Sobrenome = txtSobrenome.Text;
                 funcionario.Rg = txtRg.Text;
                 funcionario.Profissao = txtProfissao.Text;
                 funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
                 funcionario.idFuncionario = idFuncionario;
-                funcionario.caminhoFoto = caminhoFoto;
 
                 result = funcionarioDAO.alterarFuncionario(funcionario);
 
@@ -136,6 +139,20 @@ namespace Estacionamento
                     limparCampos();
                 }
 
+            }
+            if (modo == "alterarFoto")
+            {
+                funcionario.caminhoFoto = caminhoFoto;//parametro
+                funcionario.idFuncionario = idFuncionario;
+
+                result = funcionarioDAO.alterarFoto(funcionario);//recebe o resultado
+
+                if (result == true)
+                {
+                    MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+                
             }
             if (modo == "Excluir")
             {
@@ -167,39 +184,62 @@ namespace Estacionamento
 
         private void btnCpf_Click(object sender, EventArgs e)
         {
-            /*string cpf = txtPesquisar.Text;//parametro
+            string cpf = txtPesquisar.Text;//parametro
 
             dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
 
             if (dt.Rows.Count == 1)//se linhas forem afetadas, carrega o dt
             {
                 MessageBox.Show("Funcionario encontrado", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                foreach (DataRow row in dt.Rows)
-                {
-                    txtPrimeironome.Text = row["primeiroNome"].ToString();
-                    txtSobrenome.Text = row["Sobrenome"].ToString();
-                    txtRg.Text = row["Rg"].ToString();
-                    txtSalario.Text = row["Salario"].ToString();
-                    txtCpf.Text = row["Cpf"].ToString();
-                    txtProfissao.Text = row["Profissao"].ToString();
-                    idFuncionario = row["idFuncionario"].GetHashCode();
-                    funcionario.foto = (byte[])row["Foto"];
+                ptbEditar.Visible = true;
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        txtPrimeironome.Text = row["primeiroNome"].ToString();
+                        txtSobrenome.Text = row["Sobrenome"].ToString();
+                        txtRg.Text = row["Rg"].ToString();
+                        txtSalario.Text = row["Salario"].ToString();
+                        txtCpf.Text = row["Cpf"].ToString();
+                        txtProfissao.Text = row["Profissao"].ToString();
+                        idFuncionario = row["idFuncionario"].GetHashCode();
+                        fotoFuncionario = (byte[])row["Foto"];
+                        funcionario.foto = fotoFuncionario;
+                    
 
                     using (var foto = new MemoryStream(funcionario.foto))//carrega a foto
                     {
                         ptbFoto.Image = Image.FromStream(foto);//adiciona a foto
                     }
                 }
-            }
-            else
+                
+             }
+                else
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)
         {
             carregarFoto();
+        }
+
+        private void ptbEditar_Click(object sender, EventArgs e)
+        {
+            var openFile = new OpenFileDialog();
+            openFile.Filter = "Arquivos de imagens jpg e png|*.jpg; *png";//define os tipos de arquivos
+            openFile.Multiselect = false;
+
+            modo = "alterarFoto";
+
+            if (openFile.ShowDialog() == DialogResult.OK)//se selecionar a foto, coloca o nome do arquivo na variável
+            {
+                caminhoFoto = openFile.FileName;
+            }
+            if (caminhoFoto != "")//se estiver com alguma coisa na variável
+            {
+                ptbFoto.Load(caminhoFoto);//carrega a foto
+            }
         }
     }
 }

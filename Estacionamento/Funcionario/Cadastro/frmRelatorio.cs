@@ -23,16 +23,16 @@ namespace Estacionamento.Funcionario.Relatorio
         {
             DataTable dt = new DataTable();
 
-            string mes = cmbMes.Text;
+            string mes = cmbMes.Text;//parametros
             string ano = txtAno.Text;
 
-            dt = estacionarDAO.valorMes(mes, ano);
+            dt = estacionarDAO.valorMes(mes, ano);//recebe o resultado
 
             if (dt.Rows.Count >= 1)
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    lblValor.Text = row["Valor"].ToString();
+                    lblValor.Text = row["Valor"].ToString();//carrega a informaçao
                 }
             }
             if(lblValor.Text == "")
@@ -52,8 +52,8 @@ namespace Estacionamento.Funcionario.Relatorio
 
         private void frmRelatorio_Load(object sender, EventArgs e)
         {
-            //TODO: Arrumar pesquisa de hora 
-            dgvRelatorio.DataSource = estacionarDAO.veiculosHoje();
+            //TODO: tela
+            dgvRelatorio.DataSource = estacionarDAO.veiculosHoje();//carrega o grid
             dgvRelatorio.Refresh();
         }
 
@@ -62,12 +62,12 @@ namespace Estacionamento.Funcionario.Relatorio
             DataTable dt = new DataTable();
             
 
-            if (cmbPesquisa.Text == "7 dias")
+            if (cmbPesquisa.Text == "7 dias")//se o text for igual a 7 dias, carrega o grid
             {
-                dgvRelatorio.DataSource = estacionarDAO.veiculos7dias();
+                dgvRelatorio.DataSource = estacionarDAO.veiculos7dias();//adiciona informação no grid
                 dgvRelatorio.Refresh();
 
-                dt = estacionarDAO.valor7dias();
+                dt = estacionarDAO.valor7dias();//recebe o resultado
 
                 if (dt.Rows.Count >= 1)
                 {
@@ -122,15 +122,15 @@ namespace Estacionamento.Funcionario.Relatorio
         {
             DataTable dt = new DataTable();
 
-            string ano = txtAno.Text;
+            string ano = txtAno.Text;//parametro
 
-            dt = estacionarDAO.valorAno(ano);
+            dt = estacionarDAO.valorAno(ano);//recebe o resultado
 
             if (dt.Rows.Count >= 1)
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    lblValor.Text = row["Valor"].ToString();
+                    lblValor.Text = row["Valor"].ToString();//carrega a informaçao
                 }
                 
             }
@@ -151,43 +151,23 @@ namespace Estacionamento.Funcionario.Relatorio
         {
             DataTable dt = new DataTable();
 
-            string mes = cmbPesqMes.Text;
+            string mes = cmbPesqMes.Text;//parametro
             string ano = txtPesqAno.Text;
 
-            dt = estacionarDAO.horasMes(mes,ano);
+            dt = estacionarDAO.horasMes(mes,ano);//recebe o resultado
 
             if (dt.Rows.Count >= 1)
             {
-                foreach (DataRow row in dt.Rows)
-                {
-                    lblHora.Text = row["Horas"].ToString();
-                    lblCarros.Text = row["Carros"].ToString();
-                    if (lblHora.Text == "" || lblCarros.Text == "")
-                    {
-                        MessageBox.Show("Nenhum hora encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //mensagem de erro
-                    }
-
-                }
+                dgvRelatorio.DataSource = estacionarDAO.horasMes(mes,ano);//carrega o grid
+                dgvRelatorio.Refresh();
             }
-            
-        }
-        private void lblPeriodo_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-
-            dt = estacionarDAO.horas7dias();
-
-            if (dt.Rows.Count >= 1)
+            if(dt.Rows.Count < 1)
             {
-                foreach (DataRow row in dt.Rows)
-                {
-                    lblHora.Text = row["Horas"].ToString();
-                    lblCarros.Text = row["Carros"].ToString();
-                }
+                MessageBox.Show("Nenhum hora encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //mensagem de erro
             }
-        }
 
+        }
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -195,20 +175,43 @@ namespace Estacionamento.Funcionario.Relatorio
 
         private void lblHoras_Click(object sender, EventArgs e)
         {
+                      
+        }
 
+        private void lblHoras_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl7dias_Click(object sender, EventArgs e)
+        {
             DataTable dt = new DataTable();
 
-            dt = estacionarDAO.horas7dias();
+            dt = estacionarDAO.horas7dias();//recebe o resultado
 
             if (dt.Rows.Count >= 1)
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    lblHora.Text = row["Horas"].ToString();
+                    dgvRelatorio.DataSource = estacionarDAO.horas7dias();//carrega o grid
+                    dgvRelatorio.Refresh();
                 }
             }
-           
+            if (dt.Rows.Count < 1)
+            {
+                MessageBox.Show("Nenhum valor encontrado. R$ 0,00", "Valor = 0.00", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //mensagem de erro
+            }
         }
 
+        private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbPesqMes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

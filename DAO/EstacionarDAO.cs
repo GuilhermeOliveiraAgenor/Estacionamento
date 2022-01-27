@@ -412,6 +412,7 @@ namespace Controller
 
             return result;
         }
+
         public DataTable valor7dias()
         {
             SqlConnection conn = new SqlConnection(conectar);
@@ -621,7 +622,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Carros from Estacionar where MONTH(dataSaida) = @Mes and YEAR(dataSaida) = @Ano group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Carros desc";
+                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Hora, COUNT(*) as Carros from Estacionar where MONTH(dataSaida) = @Mes and YEAR(dataSaida) = @Ano group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Carros desc";
                 cmdo.Parameters.Add("@Mes", SqlDbType.VarChar).Value = mes;//parametro
                 cmdo.Parameters.Add("@Ano", SqlDbType.VarChar).Value = ano;
 
@@ -653,7 +654,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc";
+                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Hora, COUNT(*) as Sessões from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc";
 
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
                 dt.Load(dr);//carrega o dt

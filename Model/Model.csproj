@@ -301,7 +301,7 @@
     <Compile Include="clienteVeiculo.cs" />
     <Compile Include="Estacionar.cs" />
     <Compile Include="formaPagamento.cs" />
-    <Compile Include="Funcionario.cs" />
+    <Compile Include="Funcionarios.cs" />
     <Compile Include="nivelAcesso.cs" />
     <Compile Include="Pagamento.cs" />
     <Compile Include="Patio.cs" />

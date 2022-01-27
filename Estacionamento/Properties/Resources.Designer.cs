@@ -63,6 +63,16 @@ namespace Estacionamento.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1486505375_edit_pen_change_option_pencil_write_81422 {
+            get {
+                object obj = ResourceManager.GetObject("1486505375-edit-pen-change-option-pencil-write_81422", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cidade {
             get {
                 object obj = ResourceManager.GetObject("cidade", resourceCulture);

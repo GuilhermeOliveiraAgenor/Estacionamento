@@ -51,9 +51,11 @@ namespace Estacionamento
             this.label5 = new System.Windows.Forms.Label();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.btnCpf = new System.Windows.Forms.Button();
-            this.ptbFoto = new System.Windows.Forms.PictureBox();
             this.btnCarregar = new System.Windows.Forms.Button();
+            this.ptbEditar = new System.Windows.Forms.PictureBox();
+            this.ptbFoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -263,6 +265,30 @@ namespace Estacionamento
             this.btnCpf.UseVisualStyleBackColor = true;
             this.btnCpf.Click += new System.EventHandler(this.btnCpf_Click);
             // 
+            // btnCarregar
+            // 
+            this.btnCarregar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarregar.Location = new System.Drawing.Point(1582, 718);
+            this.btnCarregar.Name = "btnCarregar";
+            this.btnCarregar.Size = new System.Drawing.Size(94, 35);
+            this.btnCarregar.TabIndex = 190;
+            this.btnCarregar.Text = "Carregar";
+            this.btnCarregar.UseVisualStyleBackColor = true;
+            this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
+            // 
+            // ptbEditar
+            // 
+            this.ptbEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.ptbEditar.Image = global::Estacionamento.Properties.Resources._1486505375_edit_pen_change_option_pencil_write_81422;
+            this.ptbEditar.Location = new System.Drawing.Point(1790, 651);
+            this.ptbEditar.Name = "ptbEditar";
+            this.ptbEditar.Size = new System.Drawing.Size(46, 41);
+            this.ptbEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbEditar.TabIndex = 191;
+            this.ptbEditar.TabStop = false;
+            this.ptbEditar.Visible = false;
+            this.ptbEditar.Click += new System.EventHandler(this.ptbEditar_Click);
+            // 
             // ptbFoto
             // 
             this.ptbFoto.BackColor = System.Drawing.SystemColors.Control;
@@ -273,22 +299,12 @@ namespace Estacionamento
             this.ptbFoto.TabIndex = 189;
             this.ptbFoto.TabStop = false;
             // 
-            // btnCarregar
-            // 
-            this.btnCarregar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarregar.Location = new System.Drawing.Point(1573, 740);
-            this.btnCarregar.Name = "btnCarregar";
-            this.btnCarregar.Size = new System.Drawing.Size(94, 35);
-            this.btnCarregar.TabIndex = 190;
-            this.btnCarregar.Text = "Carregar";
-            this.btnCarregar.UseVisualStyleBackColor = true;
-            this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
-            // 
             // FrmCadFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbEditar);
             this.Controls.Add(this.btnCarregar);
             this.Controls.Add(this.ptbFoto);
             this.Controls.Add(this.btnCpf);
@@ -317,6 +333,7 @@ namespace Estacionamento
             this.Text = "FrmCadFuncionario";
             this.Load += new System.EventHandler(this.FrmCadFuncionario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -348,5 +365,6 @@ namespace Estacionamento
         private System.Windows.Forms.Button btnCpf;
         private System.Windows.Forms.PictureBox ptbFoto;
         private System.Windows.Forms.Button btnCarregar;
+        private System.Windows.Forms.PictureBox ptbEditar;
     }
 }

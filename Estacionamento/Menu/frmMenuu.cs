@@ -31,7 +31,7 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
         }
-        //TODO: Menu - tela, relatorios adm e ver pdf
+        //TODO: Menu - ver pdf
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -203,6 +203,21 @@ namespace Estacionamento.Menu
             frmAlterarEstacionar frm = new frmAlterarEstacionar();
             frm.Show();
             this.Hide();
+        }
+
+        private void btnPesq_Click(object sender, EventArgs e)
+        {
+
+           decimal Valor;
+           TimeSpan Hora = Convert.ToDateTime(txtHora.Text).TimeOfDay;//recebe o parametro
+           decimal Minutos = Convert.ToDecimal(Hora.TotalMinutes.ToString());//converte para minutos
+
+            Valor = (Minutos * 15) / 100;
+
+            Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
+
+            lblPreco.Text = Valor.ToString();//o valor vai para o text
+                      
         }
     }
 }

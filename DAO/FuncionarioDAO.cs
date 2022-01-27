@@ -17,7 +17,7 @@ namespace Controller
     {
         //string de conexao
         private string conectar = ConfigurationManager.ConnectionStrings["conexao"].ConnectionString;
-        public bool inserirFuncionario(Funcionario funcionario)
+        public bool inserirFuncionario(Funcionarios funcionario)
         {
             //conecta com a string de conexao
             SqlConnection conn = new SqlConnection(conectar);
@@ -74,7 +74,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select *from Funcionario where Cpf = @Cpf";
+                cmdo.CommandText = "select *from Funcionarios where Cpf = @Cpf";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar,11).Value = cpf;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();
@@ -92,10 +92,9 @@ namespace Controller
             return dt;
         }
 
-        public bool alterarFuncionario(Funcionario funcionario)
+        public bool alterarFuncionario(Funcionarios funcionario)
         {
             SqlConnection conn = new SqlConnection(conectar);
-            byte[] foto = funcionario.GetFoto(funcionario.caminhoFoto);//recebe o resultado
 
             bool result = false;
             int alterar;
@@ -111,7 +110,6 @@ namespace Controller
                 cmdo.Parameters.Add("@Rg", SqlDbType.VarChar, 20).Value = funcionario.Rg;
                 cmdo.Parameters.Add("@Profissao", SqlDbType.VarChar, 40).Value = funcionario.Profissao;
                 cmdo.Parameters.Add("@Salario", SqlDbType.Decimal).Value = funcionario.Salario;
-                cmdo.Parameters.Add("@Foto", SqlDbType.Image, foto.Length).Value = foto;
 
                 alterar = cmdo.ExecuteNonQuery();//recebe o resultado
 
@@ -189,7 +187,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select *from Funcionario";
+                cmdo.CommandText = "select *from Funcionarios";
 
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
                 dt.Load(dr);//carrega o dt
@@ -206,6 +204,47 @@ namespace Controller
             }
 
             return dt;
+        }
+
+        public bool alterarFoto(Funcionarios funcionario)
+        {
+            SqlConnection conn = new SqlConnection(conectar);
+            byte[] foto = funcionario.GetFoto(funcionario.caminhoFoto);//recebe o resultado
+            bool result = false;
+            int alterar;
+
+            try
+            {
+                conn.Open();//abrir conexao
+                SqlCommand cmdo = new SqlCommand("alterarFoto", conn);//defini procedure
+                cmdo.CommandType = CommandType.StoredProcedure;
+                cmdo.Parameters.Add("@Foto", SqlDbType.Image, foto.Length).Value = foto;//parametro
+                cmdo.Parameters.Add("@idFuncionario", SqlDbType.Int).Value = funcionario.idFuncionario;
+
+                alterar = cmdo.ExecuteNonQuery();//recebe o resultado
+
+                if (alterar >= 1)
+                {
+                    result = true;
+                }
+                if (alterar < 1)
+                {
+                    result = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                //retorna mensagem de erro
+            }
+            finally
+            {
+                conn.Close();//fechar conexao
+            }
+
+            return result;
+
         }
       
     }
