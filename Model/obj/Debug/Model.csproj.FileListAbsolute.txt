@@ -87,3 +87,6 @@ C:\Users\Guilherme\source\repos\Estacionamento\Model\bin\Debug\System.Interactiv
 C:\Users\Guilherme\source\repos\Estacionamento\Model\bin\Debug\System.Memory.xml
 C:\Users\Guilherme\source\repos\Estacionamento\Model\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Guilherme\source\repos\Estacionamento\Model\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Guilherme\source\repos\Estacionamento\Model\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Guilherme\source\repos\Estacionamento\Model\bin\Debug\itextsharp.dll
+C:\Users\Guilherme\source\repos\Estacionamento\Model\bin\Debug\itextsharp.xml

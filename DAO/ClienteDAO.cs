@@ -57,36 +57,6 @@ namespace Controller
 
         }
 
-        public DataTable selecionarCliente()
-        {
-            SqlConnection conn = new SqlConnection();
-            SqlCommand cmdo = new SqlCommand();
-            DataTable dt = new DataTable();
-
-            try
-            {
-                conn.Open();//abrir conexao
-                cmdo.Connection = conn;
-                cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select *from Cliente";
-                SqlDataReader dr = cmdo.ExecuteReader();
-                dt.Load(dr);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                //retorna mensagem de erro
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return dt;
-
-        }
-
         public DataTable PesqClienteCpf(string cpf)
         {
             SqlConnection conn = new SqlConnection(conectar);

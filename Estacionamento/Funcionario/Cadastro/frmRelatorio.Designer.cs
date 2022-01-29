@@ -52,15 +52,16 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lblPeriodocarro = new System.Windows.Forms.Label();
             this.lblCarros = new System.Windows.Forms.Label();
             this.lbl7dias = new System.Windows.Forms.Label();
+            this.lblPdf = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvRelatorio
             // 
             this.dgvRelatorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRelatorio.Location = new System.Drawing.Point(539, 178);
+            this.dgvRelatorio.Location = new System.Drawing.Point(616, 224);
             this.dgvRelatorio.Name = "dgvRelatorio";
-            this.dgvRelatorio.Size = new System.Drawing.Size(961, 509);
+            this.dgvRelatorio.Size = new System.Drawing.Size(671, 358);
             this.dgvRelatorio.TabIndex = 0;
             // 
             // btnSairmenu
@@ -304,11 +305,23 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lbl7dias.Text = "Hora mais movimentada em 7 dias";
             this.lbl7dias.Click += new System.EventHandler(this.lbl7dias_Click);
             // 
+            // lblPdf
+            // 
+            this.lblPdf.AutoSize = true;
+            this.lblPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPdf.Location = new System.Drawing.Point(1490, 733);
+            this.lblPdf.Name = "lblPdf";
+            this.lblPdf.Size = new System.Drawing.Size(168, 18);
+            this.lblPdf.TabIndex = 212;
+            this.lblPdf.Text = "Quadro de Funcionários";
+            this.lblPdf.Click += new System.EventHandler(this.lblPdf_Click);
+            // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.lblPdf);
             this.Controls.Add(this.lbl7dias);
             this.Controls.Add(this.lblPeriodocarro);
             this.Controls.Add(this.lblCarros);
@@ -366,5 +379,6 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.Label lblPeriodocarro;
         private System.Windows.Forms.Label lblCarros;
         private System.Windows.Forms.Label lbl7dias;
+        private System.Windows.Forms.Label lblPdf;
     }
 }

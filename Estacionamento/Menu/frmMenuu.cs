@@ -31,7 +31,7 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
         }
-        //TODO: Menu - ver pdf
+        //TODO: Menu - tela e criar tela alterar dados do usuário logado
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -90,7 +90,7 @@ namespace Estacionamento.Menu
             frm.Show();
             this.Hide();
 
-            //TODO: Fazer saida - ver como fazer pdf
+            //TODO: Fazer saida - tela
         }
 
         private void btnAlterarveiculo_Click(object sender, EventArgs e)
