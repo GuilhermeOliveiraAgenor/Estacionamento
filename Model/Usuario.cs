@@ -15,5 +15,7 @@ namespace Model
         public string Senha { get; set; }
 
         public int Acesso { get; set; }
+
+        public int idFuncionario { get; set; }
     }
 }

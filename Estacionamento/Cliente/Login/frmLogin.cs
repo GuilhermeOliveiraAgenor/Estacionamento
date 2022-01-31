@@ -58,11 +58,13 @@ namespace Estacionamento.Login
                 {
                     Nivel = row["Acesso"].GetHashCode();//recebe o nivel de acesso
                     
-                    if (Nivel == 1)//se o nivel pesquisado for igual ao código, faz o login. Nivel - Funcionario
+                    if (Nivel == 1)//se o nivel pesquisado for igual ao código, faz o login. Nivel 1 - Funcionario
                     {
                         MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
                         frmmenu.btnFuncionario.Enabled = false;
+                        frmmenu.btnRelatorio.Visible = false;
+                        frmmenu.ptbRelatorio.Visible = false;
                         frmmenu.Show();
                         this.Hide();
                     }

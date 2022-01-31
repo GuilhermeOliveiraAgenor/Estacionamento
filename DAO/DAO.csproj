@@ -284,6 +284,7 @@
     <Compile Include="EstacionarDAO.cs" />
     <Compile Include="formaPagamentoDAO.cs" />
     <Compile Include="FuncionarioDAO.cs" />
+    <Compile Include="nivelAcessoDAO.cs" />
     <Compile Include="PagamentoDAO.cs" />
     <Compile Include="PatioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

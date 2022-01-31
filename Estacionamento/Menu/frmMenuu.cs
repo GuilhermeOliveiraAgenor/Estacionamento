@@ -4,6 +4,7 @@ using Estacionamento.editarPedidos;
 using Estacionamento.Entrada;
 using Estacionamento.Login;
 using Estacionamento.Saida;
+using Estacionamento.Usuarios;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
         }
-        //TODO: Menu - tela e criar tela alterar dados do usuário logado
+        //TODO: Menu - tela e menuStrip nas telas
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -61,8 +62,7 @@ namespace Estacionamento.Menu
             {
                 foreach(DataRow row in dt2.Rows)
                 {
-                    lblNome.Text = row["primeiroNome"].ToString();
-                    lblCpf.Text = row["Cpf"].ToString();
+                    lblNome.Text = row["primeiroNome"].ToString();            
                 }
             }
 
@@ -200,7 +200,7 @@ namespace Estacionamento.Menu
 
         private void btnFuncionario_Click(object sender, EventArgs e)
         {
-            frmAlterarEstacionar frm = new frmAlterarEstacionar();
+            FrmCadFuncionario frm = new FrmCadFuncionario();
             frm.Show();
             this.Hide();
         }
@@ -218,6 +218,13 @@ namespace Estacionamento.Menu
 
             lblPreco.Text = Valor.ToString();//o valor vai para o text
                       
+        }
+
+        private void lblDados_Click(object sender, EventArgs e)
+        {
+            frmConfirmarSenha frm = new frmConfirmarSenha();
+            frm.Show();
+            this.Hide();
         }
     }
 }

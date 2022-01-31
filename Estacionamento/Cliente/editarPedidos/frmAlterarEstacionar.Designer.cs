@@ -105,6 +105,7 @@ namespace Estacionamento.editarPedidos
             // 
             // cmbPatio
             // 
+            this.cmbPatio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPatio.FormattingEnabled = true;
             this.cmbPatio.Items.AddRange(new object[] {
             "1",
@@ -116,6 +117,7 @@ namespace Estacionamento.editarPedidos
             // 
             // cmbcodigoVeiculo
             // 
+            this.cmbcodigoVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbcodigoVeiculo.FormattingEnabled = true;
             this.cmbcodigoVeiculo.Location = new System.Drawing.Point(326, 356);
             this.cmbcodigoVeiculo.Name = "cmbcodigoVeiculo";

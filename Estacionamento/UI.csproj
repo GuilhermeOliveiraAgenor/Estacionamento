@@ -378,6 +378,18 @@
     <Compile Include="Cliente\Saida\frmSaida.Designer.cs">
       <DependentUpon>frmSaida.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\frmAlterarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\frmAlterarSenha.Designer.cs">
+      <DependentUpon>frmAlterarSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\frmConfirmarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\frmConfirmarSenha.Designer.cs">
+      <DependentUpon>frmConfirmarSenha.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Cliente\editarPedidos\frmAlterarCliente.resx">
       <DependentUpon>frmAlterarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +432,12 @@
     </Compile>
     <EmbeddedResource Include="Cliente\Saida\frmSaida.resx">
       <DependentUpon>frmSaida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\frmAlterarSenha.resx">
+      <DependentUpon>frmAlterarSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\frmConfirmarSenha.resx">
+      <DependentUpon>frmConfirmarSenha.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

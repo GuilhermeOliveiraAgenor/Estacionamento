@@ -16,8 +16,9 @@ create or alter procedure inserirFuncionario
 
 
 )
-
 as
+
+declare @codigoFuncionario int--declara a variável código do cliente
 
 --cpf ja existe
 if exists (select Cpf from Funcionarios where Cpf = @Cpf)
@@ -36,6 +37,10 @@ end
 begin tran--insere
 insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario,Foto) values (@primeiroNome,@Sobrenome,@Cpf,@Rg,@Profissao,@Salario,@Foto)
 
+set @codigoFuncionario = SCOPE_IDENTITY()--pega o id identity da tabela funcionario
+
+insert into Usuario (Cpf,Senha,Acesso,codigoFuncionario) values (@Cpf,'estacionamento123','1',@codigoFuncionario)--insere usuario com senha provisória
+
 
 if @@ERROR <> ''
 rollback tran
@@ -52,11 +57,14 @@ create or alter procedure alterarFuncionario
 @Sobrenome varchar(100),
 @Rg varchar(20),
 @Profissao varchar(40),
-@Salario decimal (10,2)
+@Salario decimal (10,2),
+@Acesso int
 
 )
 as
 
+declare @idUsuario int;
+select @idUsuario = idUsuario from Usuario where codigoFuncionario = @idFuncionario
 
 --rg ja existe
 if exists (select Rg from Funcionarios where Rg = @Rg and idFuncionario != @idFuncionario)
@@ -70,6 +78,7 @@ end
 --altera
 begin tran
 update Funcionarios set primeiroNome = @primeiroNome, Sobrenome = @Sobrenome, Rg = @Rg, Profissao = @Profissao, Salario = @Salario where idFuncionario = @idFuncionario
+update Usuario set Acesso = @Acesso where idUsuario = @idUsuario
 
 if @@ERROR <> ''
 rollback tran

@@ -162,6 +162,7 @@ namespace Estacionamento.editarPedidos
             // 
             // cmbVeiculo
             // 
+            this.cmbVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVeiculo.FormattingEnabled = true;
             this.cmbVeiculo.Location = new System.Drawing.Point(409, 219);
             this.cmbVeiculo.Name = "cmbVeiculo";

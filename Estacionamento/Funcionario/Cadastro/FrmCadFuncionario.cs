@@ -12,6 +12,7 @@ using Controller;
 using Estacionamento;
 using Estacionamento.Login;
 using System.IO;
+using DAO;
 
 namespace Estacionamento
 {
@@ -20,12 +21,16 @@ namespace Estacionamento
         //iniciar as classes
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         Funcionarios funcionario = new Funcionarios();
+        nivelAcesso nivel = new nivelAcesso();
+        nivelAcessoDAO nivelDAO = new nivelAcessoDAO();
+        Usuario usuario = new Usuario();
 
         DataTable dt = new DataTable();
         string modo = "";
         string caminhoFoto = "";
         byte[] fotoFuncionario;
         int idFuncionario;
+        int acesso;
 
         public FrmCadFuncionario()
         {
@@ -86,7 +91,14 @@ namespace Estacionamento
 
         private void FrmCadFuncionario_Load(object sender, EventArgs e)
         {
+            List<nivelAcesso> nivel = nivelDAO.carregarAcesso();
             carregarFunc();
+
+            foreach (var item in nivel)
+            {
+                cmbAcesso.Items.Add(item.Nivel);
+            }
+
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -99,7 +111,7 @@ namespace Estacionamento
         private void btnGravar_Click(object sender, EventArgs e)
         {
 
-            //TODO: alterar funcionario
+            //TODO: alterar funcionarioDAO
             bool result;
        
             if (modo == "Cadastrar")
@@ -112,6 +124,7 @@ namespace Estacionamento
                 funcionario.Profissao = txtProfissao.Text;
                 funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
                 funcionario.caminhoFoto = caminhoFoto;
+                //verificar picture box vazio
                 
                 result = funcionarioDAO.inserirFuncionario(funcionario);//retorna o resultado da funcao
 
@@ -130,8 +143,9 @@ namespace Estacionamento
                 funcionario.Profissao = txtProfissao.Text;
                 funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
                 funcionario.idFuncionario = idFuncionario;
-
-                result = funcionarioDAO.alterarFuncionario(funcionario);
+                usuario.Acesso = acesso;
+                
+                result = funcionarioDAO.alterarFuncionario(funcionario,usuario);
 
                 if (result == true)
                 {
@@ -202,6 +216,8 @@ namespace Estacionamento
                         txtCpf.Text = row["Cpf"].ToString();
                         txtProfissao.Text = row["Profissao"].ToString();
                         idFuncionario = row["idFuncionario"].GetHashCode();
+                        acesso = row["idNivelAcesso"].GetHashCode();
+                        cmbAcesso.Text = row["Nivel"].ToString();
                         fotoFuncionario = (byte[])row["Foto"];
                         funcionario.foto = fotoFuncionario;
                     
@@ -239,6 +255,19 @@ namespace Estacionamento
             if (caminhoFoto != "")//se estiver com alguma coisa na variável
             {
                 ptbFoto.Load(caminhoFoto);//carrega a foto
+            }
+        }
+
+        private void cmbAcesso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<nivelAcesso> nivel = nivelDAO.carregarAcesso();
+
+            foreach (var item in nivel)
+            {
+                if (cmbAcesso.Text == item.Nivel)//se o item clicado for igual ao item da lista, retorna o id
+                {
+                    acesso = item.idNivelAcesso.GetHashCode();//retorna o id
+                }
             }
         }
     }

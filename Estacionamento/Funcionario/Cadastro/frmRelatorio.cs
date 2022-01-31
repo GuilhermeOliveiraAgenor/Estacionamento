@@ -225,7 +225,7 @@ namespace Estacionamento.Funcionario.Relatorio
 
             dt = funcionarioDAO.carregarFuncionario();
 
-            var nomeArquivo = @"C:\Funcionarios.pdf";//caminho do arquivi
+            var nomeArquivo = @"C:\Funcionarios.pdf"; //caminho do arquivi
             string dados = "";
             string texto1 = "Relatório sobre o quadro de funcionários atual de funcionários no estacionamento. Nós fizemos uma busca e encontramos esse resultado.";
             string texto2 = "Confira a tabela a seguir:";
@@ -237,6 +237,7 @@ namespace Estacionamento.Funcionario.Relatorio
             Paragraph pr1 = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 16, (int)System.Drawing.FontStyle.Italic));//defini tamanho e tipo da fonte
             pr1.Alignment = Element.ALIGN_CENTER;//coloca o texto centralizado
             pr1.Add("ESTACIONAMENTO ALFA PARK\n\n");
+           
 
             Paragraph pr2 = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, (int)System.Drawing.FontStyle.Regular)); ;//defini tamanho e tipo da fonte
 
@@ -245,7 +246,7 @@ namespace Estacionamento.Funcionario.Relatorio
 
             Paragraph pr3 = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, (int)System.Drawing.FontStyle.Regular)); ;//defini tamanho e tipo da fonte
             pr3.Alignment = Element.ALIGN_LEFT;
-            pr3.Add("\nRelatório gerado em " + DateTime.Now.ToLongTimeString());
+            pr3.Add("\nRelatório gerado às " + DateTime.Now.ToLongTimeString() + "\n"+ "Dia: " + DateTime.Now.ToShortDateString());
 
 
             PdfPTable tabela = new PdfPTable(4);//número de colunas da tabela
@@ -269,7 +270,6 @@ namespace Estacionamento.Funcionario.Relatorio
                 tabela.AddCell(dt.Rows[i].Field<string>("Profissao").ToString());
                 tabela.AddCell(dt.Rows[i].Field<decimal>("Salario").ToString());
             }
-
 
             documento.Open();//abre o documento
             documento.Add(pr1);//adiciona os paragrafos

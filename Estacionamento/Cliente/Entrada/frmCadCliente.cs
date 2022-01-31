@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Model;
 using Controller;
 using Estacionamento.Menu;
+using Estacionamento.Saida;
+using Estacionamento.editarPedidos;
 
 namespace Estacionamento.Entrada
 {
@@ -20,7 +22,10 @@ namespace Estacionamento.Entrada
         ClienteDAO clienteDAO = new ClienteDAO();
         VeiculoDAO veiculoDAO = new VeiculoDAO();
         clienteVeiculoDAO cliveiculoDAO = new clienteVeiculoDAO();
+        EstacionarDAO estacionarDAO = new EstacionarDAO();
         DataTable dt = new DataTable();
+        int patio1;
+        int patio2;
 
         public frmCadCliente()
         {
@@ -171,6 +176,46 @@ namespace Estacionamento.Entrada
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmVerificar().Show();
+        }
+
+        private void saídaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSaida().Show();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarEstacionar().Show();
+        }
+
+        private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+           
+
+            dt1 = estacionarDAO.vagasPatio1();
+
+            dt2 = estacionarDAO.vagasPatio2();
+
+            if (dt1.Rows.Count >= 1 && dt2.Rows.Count >= 1)
+            {
+                foreach (DataRow row1 in dt1.Rows)
+                {
+                    patio1 = row1["Patio1"].GetHashCode();
+                }
+                foreach (DataRow row2 in dt2.Rows)
+                {
+                    patio2 = row2["Patio2"].GetHashCode();
+                }
+                MessageBox.Show("As vagas no patio 1 são: " + patio1 +"\n" + "E no patio 2 são: " + patio2,"Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
     }
 }

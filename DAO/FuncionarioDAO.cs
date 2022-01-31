@@ -74,7 +74,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select *from Funcionarios where Cpf = @Cpf";
+                cmdo.CommandText = "select Funcionarios.idFuncionario,Funcionarios.primeiroNome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao, Funcionarios.Salario, Funcionarios.Foto, nivelAcesso.idNivelAcesso,nivelAcesso.Nivel from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = @Cpf";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar,11).Value = cpf;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();
@@ -92,7 +92,7 @@ namespace Controller
             return dt;
         }
 
-        public bool alterarFuncionario(Funcionarios funcionario)
+        public bool alterarFuncionario(Funcionarios funcionario, Usuario usuario)
         {
             SqlConnection conn = new SqlConnection(conectar);
 
@@ -110,6 +110,7 @@ namespace Controller
                 cmdo.Parameters.Add("@Rg", SqlDbType.VarChar, 20).Value = funcionario.Rg;
                 cmdo.Parameters.Add("@Profissao", SqlDbType.VarChar, 40).Value = funcionario.Profissao;
                 cmdo.Parameters.Add("@Salario", SqlDbType.Decimal).Value = funcionario.Salario;
+                cmdo.Parameters.Add("@Acesso", SqlDbType.Int).Value = usuario.Acesso;
 
                 alterar = cmdo.ExecuteNonQuery();//recebe o resultado
 

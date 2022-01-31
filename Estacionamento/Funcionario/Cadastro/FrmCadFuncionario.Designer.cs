@@ -54,6 +54,8 @@ namespace Estacionamento
             this.btnCarregar = new System.Windows.Forms.Button();
             this.ptbEditar = new System.Windows.Forms.PictureBox();
             this.ptbFoto = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbAcesso = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFoto)).BeginInit();
@@ -292,18 +294,40 @@ namespace Estacionamento
             // ptbFoto
             // 
             this.ptbFoto.BackColor = System.Drawing.SystemColors.Control;
-            this.ptbFoto.Location = new System.Drawing.Point(1477, 261);
+            this.ptbFoto.Location = new System.Drawing.Point(1477, 267);
             this.ptbFoto.Name = "ptbFoto";
             this.ptbFoto.Size = new System.Drawing.Size(307, 395);
             this.ptbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbFoto.TabIndex = 189;
             this.ptbFoto.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1045, 195);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 19);
+            this.label6.TabIndex = 193;
+            this.label6.Text = "Nivel Acesso";
+            // 
+            // cmbAcesso
+            // 
+            this.cmbAcesso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAcesso.FormattingEnabled = true;
+            this.cmbAcesso.Location = new System.Drawing.Point(1126, 193);
+            this.cmbAcesso.Name = "cmbAcesso";
+            this.cmbAcesso.Size = new System.Drawing.Size(121, 21);
+            this.cmbAcesso.TabIndex = 201;
+            this.cmbAcesso.SelectedIndexChanged += new System.EventHandler(this.cmbAcesso_SelectedIndexChanged);
+            // 
             // FrmCadFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.cmbAcesso);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.ptbEditar);
             this.Controls.Add(this.btnCarregar);
             this.Controls.Add(this.ptbFoto);
@@ -366,5 +390,7 @@ namespace Estacionamento
         private System.Windows.Forms.PictureBox ptbFoto;
         private System.Windows.Forms.Button btnCarregar;
         private System.Windows.Forms.PictureBox ptbEditar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbAcesso;
     }
 }

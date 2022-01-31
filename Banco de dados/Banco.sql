@@ -93,9 +93,9 @@ descricao varchar(30),
 
 )
 
-create table nivelAcesso
+create table nivelAcesso 
 (
-idNivelAcesso int identity primary key,
+idNivelAcesso int primary key,
 Nivel varchar(40)
 
 )
@@ -136,6 +136,9 @@ alter table clienteVeiculo add foreign key (codigo_Veiculo) references Veiculo(i
 alter table Usuario add Acesso int
 alter table	Usuario add foreign key (Acesso) references nivelAcesso(idNivelAcesso)
 
+alter table Usuario add codigoFuncionario int
+alter table Usuario add foreign key (codigoFuncionario) references Funcionarios(idFuncionario)
+
 
 go
 
@@ -150,7 +153,7 @@ insert into Vaga (descricao,Patio) values ('Padrão','1')
 insert into Vaga (descricao,Patio) values ('Padrão','2')
 insert into Vaga (descricao,Patio) values ('Padrão','2')
 insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('18:30','19:30','10/06/2020','10/06/2020','1','1','1','5.00','1')
-insert into Funcionario (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('urur','ururt','456546','797768','Cobrador','54754')
+insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('urur','ururt','456546','797768','Cobrador','54754')
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Alberto','10/10/1976','75278562','732752732', '93475347')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Fusca','Azul')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Celta','Verde')
@@ -160,9 +163,9 @@ insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Chevrolet','
 insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('16:00','00:00','20/10/2020','20/10/2020','1','2','1','5.00','1')
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('iytuy','18/07/1987','8657','894647', '994854794')
 insert into formaPagamento (descricao) values ('Débito')
-insert into nivelAcesso(Nivel) values ('Funcionario')
-insert into nivelAcesso(Nivel) values ('Administrador')
-insert into Usuario(Cpf, Senha, Acesso) values ('754785','estacionamento123','2')
+insert into nivelAcesso(idNivelAcesso,Nivel) values ('1','Funcionário')
+insert into nivelAcesso(idNivelAcesso,Nivel) values ('2','Administrador')
+insert into Usuario(Cpf, Senha, Acesso,codigoFuncionario) values ('456546','ola','1','1')
 
 
 select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '1' and Estacionar.Status = 'Ocupado') from Patio where Patio.Patio = '1'
@@ -172,40 +175,19 @@ select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '
 
 /*Consultas*/
 
-select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -7, GETDATE())
 
-select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -30, GETDATE())
+select Funcionarios.primeiroNome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao, Funcionarios.Salario, Funcionarios.Foto, nivelAcesso.Nivel from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = @Cpf
 
-select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where MONTH (dataSaida) = '01'
-
-select sum(Preco) from Estacionar where MONTH(dataSaida)
-select sum(Preco) from Estacionar where YEAR(dataSaida) = '2022'
-select sum(Preco) from Estacionar
-select sum(Preco) - (select sum(Salario) from Funcionario) from Estacionar
-
-
-
-select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc
-
-
-select DATEPART(HOUR,horarioEntrada) as Horas, COUNT(*) as Sessões from Estacionar where MONTH(dataSaida) = '12' and YEAR(dataSaida) = '2021' group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc
-
-
-select Cliente.Nome, Cliente.Cpf, Cliente.Email, Veiculo.descricaoVeiculo, clienteVeiculo.Placa, Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where dataSaida >= DATEADD(day, -7, GETDATE())
-select sum(Preco) as Valor from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE())
-
-update Estacionar set horarioEntrada = '16:30' where idEstacionar = '6'
-
-select DATEPART(HOUR,horarioEntrada) as Hora, COUNT(*) as Carros from Estacionar where MONTH(dataSaida) = '1' and YEAR(dataSaida) = '2022' group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Carros desc
-
-update Funcionarios set Rg = '1' where idFuncionario = '2'
 
 drop table Cliente
 drop table clienteVeiculo
 drop table Estacionar
 drop table Pagamento
 drop table formaPagamento
-drop table Funcionario
+drop table Funcionarios
+drop table Usuario
+drop table nivelAcesso
+
 
 -- Selecionar carros que sejam corsas
 select Cliente.Nome, Cliente.Cpf, Veiculo.Placa,Veiculo.Categoria,Veiculo.Cor, Estacionar.idEstacionar
@@ -234,7 +216,7 @@ select *from Patio
 select *from Estacionar 
 select *from Vaga
 select *from Pagamento
-select *from formaPagamento
+select *from formaPagamento 
 select *from Usuario
 select *from nivelAcesso
 

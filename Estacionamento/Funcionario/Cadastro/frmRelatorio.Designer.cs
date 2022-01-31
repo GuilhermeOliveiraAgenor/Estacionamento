@@ -86,6 +86,7 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             // cmbPesquisa
             // 
+            this.cmbPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPesquisa.FormattingEnabled = true;
             this.cmbPesquisa.Items.AddRange(new object[] {
             "7 dias",
@@ -99,6 +100,7 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             // cmbMes
             // 
+            this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMes.FormattingEnabled = true;
             this.cmbMes.Items.AddRange(new object[] {
             "01",
@@ -235,6 +237,7 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             // cmbPesqMes
             // 
+            this.cmbPesqMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPesqMes.FormattingEnabled = true;
             this.cmbPesqMes.Items.AddRange(new object[] {
             "01",

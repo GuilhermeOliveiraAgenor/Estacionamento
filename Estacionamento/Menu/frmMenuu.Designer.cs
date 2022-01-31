@@ -61,10 +61,9 @@ namespace Estacionamento.Menu
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnAlterarpedido = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblDados = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblCpf = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -91,6 +90,8 @@ namespace Estacionamento.Menu
             this.lblPreco = new System.Windows.Forms.Label();
             this.btnPesq = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.ptbRelatorio = new System.Windows.Forms.PictureBox();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
@@ -113,6 +114,7 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAlterarveiculo
@@ -370,9 +372,9 @@ namespace Estacionamento.Menu
             this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(-49, 643);
+            this.btnVoltar.Location = new System.Drawing.Point(-15, 640);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(269, 62);
+            this.btnVoltar.Size = new System.Drawing.Size(219, 62);
             this.btnVoltar.TabIndex = 6;
             this.btnVoltar.Text = "                    Listar veículos e \r\n                 clientes hoje";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -381,6 +383,8 @@ namespace Estacionamento.Menu
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.Menu.Controls.Add(this.ptbRelatorio);
+            this.Menu.Controls.Add(this.btnRelatorio);
             this.Menu.Controls.Add(this.pictureBox9);
             this.Menu.Controls.Add(this.btnFuncionario);
             this.Menu.Controls.Add(this.pictureBox5);
@@ -461,20 +465,30 @@ namespace Estacionamento.Menu
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lblDados);
             this.panel4.Controls.Add(this.lblNome);
             this.panel4.Controls.Add(this.label10);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.lblCpf);
             this.panel4.Location = new System.Drawing.Point(0, 45);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(207, 119);
             this.panel4.TabIndex = 140;
             // 
+            // lblDados
+            // 
+            this.lblDados.AutoSize = true;
+            this.lblDados.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDados.Location = new System.Drawing.Point(67, 90);
+            this.lblDados.Name = "lblDados";
+            this.lblDados.Size = new System.Drawing.Size(85, 23);
+            this.lblDados.TabIndex = 212;
+            this.lblDados.Text = "Meus dados";
+            this.lblDados.Click += new System.EventHandler(this.lblDados_Click);
+            // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(82, 27);
+            this.lblNome.Location = new System.Drawing.Point(66, 41);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(0, 25);
             this.lblNome.TabIndex = 206;
@@ -483,30 +497,11 @@ namespace Estacionamento.Menu
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(35, 27);
+            this.label10.Location = new System.Drawing.Point(21, 44);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 23);
             this.label10.TabIndex = 205;
             this.label10.Text = "Nome:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 23);
-            this.label1.TabIndex = 204;
-            this.label1.Text = "Cpf:";
-            // 
-            // lblCpf
-            // 
-            this.lblCpf.AutoSize = true;
-            this.lblCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpf.Location = new System.Drawing.Point(68, 65);
-            this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(0, 25);
-            this.lblCpf.TabIndex = 203;
             // 
             // pictureBox11
             // 
@@ -756,6 +751,29 @@ namespace Estacionamento.Menu
             this.label11.TabIndex = 211;
             this.label11.Text = "R$";
             // 
+            // ptbRelatorio
+            // 
+            this.ptbRelatorio.Location = new System.Drawing.Point(14, 715);
+            this.ptbRelatorio.Name = "ptbRelatorio";
+            this.ptbRelatorio.Size = new System.Drawing.Size(49, 41);
+            this.ptbRelatorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbRelatorio.TabIndex = 146;
+            this.ptbRelatorio.TabStop = false;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorio.Location = new System.Drawing.Point(3, 708);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(207, 59);
+            this.btnRelatorio.TabIndex = 145;
+            this.btnRelatorio.Text = "           Relatório";
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            // 
             // frmMenuu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,6 +833,7 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -871,8 +890,6 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.PictureBox pictureBox9;
         public System.Windows.Forms.Button btnFuncionario;
         private System.Windows.Forms.Button btnCpf;
-        private System.Windows.Forms.Label lblCpf;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Panel panel4;
@@ -881,5 +898,8 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Button btnPesq;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblDados;
+        public System.Windows.Forms.PictureBox ptbRelatorio;
+        public System.Windows.Forms.Button btnRelatorio;
     }
 }
