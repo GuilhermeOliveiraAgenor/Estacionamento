@@ -5,6 +5,9 @@ using Controller;
 using System.Data;
 using System.Collections.Generic;
 using Estacionamento.Menu;
+using Estacionamento.Login;
+using Estacionamento.editarPedidos;
+using Estacionamento.Saida;
 
 namespace Estacionamento.Entrada
 {
@@ -17,6 +20,8 @@ namespace Estacionamento.Entrada
         Exception ex = new Exception();
         int idCliente;
         int idVeiculo;
+        int patio1;
+        int patio2;
 
         public frmEntrada()
         {
@@ -27,7 +32,7 @@ namespace Estacionamento.Entrada
             if (lblCodigodocliente.Text == "")
             {
                 MessageBox.Show("Cpf não selecionado. Pesquisa na barra de pesquisa acima", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-            } 
+            }
         }
 
         public void carregarGrid()
@@ -40,7 +45,7 @@ namespace Estacionamento.Entrada
             cmbPatio.Text = "";
             cmbcodigoVeiculo.Text = "";
             lblCodigodocliente.Text = "";
-            cmbcodigoVeiculo.Items.Clear();  
+            cmbcodigoVeiculo.Items.Clear();
         }
         public void configurarPesq()
         {
@@ -63,12 +68,12 @@ namespace Estacionamento.Entrada
         }
 
         //TODO: Fazer entrada - tela
-     
+
         private void frmEntrada_Load(object sender, EventArgs e)
         {
             List<clienteVeiculo> veiculo = new List<clienteVeiculo>();
             string cpf = lblCodigodocliente.Text;//passa o parametros
-            
+
             DataTable dt = new DataTable();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
@@ -102,7 +107,7 @@ namespace Estacionamento.Entrada
                 {
                     cmbcodigoVeiculo.Items.Add(item.Placa);//adiciona as placas do cliente
                 }
-                
+
             }
 
         }
@@ -124,7 +129,7 @@ namespace Estacionamento.Entrada
             {
                 MessageBox.Show("Entrada realizada com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-           
+
 
         }
 
@@ -142,12 +147,12 @@ namespace Estacionamento.Entrada
         {
             List<clienteVeiculo> veiculo = new List<clienteVeiculo>();
             string cpf = txtPesquisar.Text;//passa o parametros
-           
+
             DataTable dt = new DataTable();
-            
+
             cmbcodigoVeiculo.Text = "";
             cmbPatio.Text = "";
-            
+
             dt = cliVeiculoDAO.PesqPlacaCpf(cpf);//recebe o resultado
 
             veiculo = cliVeiculoDAO.listVeiculosCpf(cpf);//recebe o resultado
@@ -156,10 +161,10 @@ namespace Estacionamento.Entrada
             {
                 configurarPesq();
                 MessageBox.Show("Cpf encontrado", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de concluido
-                
+
                 dgvCadastro.DataSource = cliVeiculoDAO.PesqPlacaCpf(cpf);//carrega o grid
                 txtPesquisar.Clear();
-                
+
                 foreach (var item in veiculo)
                 {
                     cmbcodigoVeiculo.Items.Add(item.Placa);//adiciona as placas do cliente
@@ -214,13 +219,66 @@ namespace Estacionamento.Entrada
             txtPesquisar.Clear();
             txtPesquisar.Focus();
             btnGravar.Enabled = false;
-            
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             frmMenuu frm = new frmMenuu();
             frm.Show();
+            this.Hide();
+        }
+
+        private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmVerificar().Show();
+            this.Hide();
+        }
+
+        private void saídaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSaida().Show();
+            this.Hide();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarEstacionar().Show();
+            this.Hide();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+            new frmLogin().Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmInserirCliveiculo().Show();
             this.Hide();
         }
     }

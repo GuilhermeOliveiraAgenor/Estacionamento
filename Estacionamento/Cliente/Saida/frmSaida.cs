@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
+using Estacionamento.editarPedidos;
 using Estacionamento.Entrada;
+using Estacionamento.Login;
 using Estacionamento.Menu;
 using Model;
 
@@ -192,6 +194,64 @@ namespace Estacionamento.Saida
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmVerificar().Show();
+            this.Hide();
+        }
+
+        private void saídaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSaida().Show();
+            this.Hide();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarEstacionar().Show();
+            this.Hide();
+        }
+
+        private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmInserirCliveiculo().Show();
+            this.Hide();
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+            new frmLogin().Show();
+            this.Hide();
         }
     }
 }

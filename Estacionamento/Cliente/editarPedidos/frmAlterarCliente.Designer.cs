@@ -39,11 +39,27 @@ namespace Estacionamento.editarPedidos
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnVoltaraomenu = new System.Windows.Forms.Button();
             this.btnAlterarcliente = new System.Windows.Forms.Button();
-            this.lblCelular = new System.Windows.Forms.Label();
             this.lblNomee = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtCliente = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.sessaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vagasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPesquisarcodigo
@@ -147,16 +163,6 @@ namespace Estacionamento.editarPedidos
             this.btnAlterarcliente.UseVisualStyleBackColor = true;
             this.btnAlterarcliente.Click += new System.EventHandler(this.btnAlterarcliente_Click);
             // 
-            // lblCelular
-            // 
-            this.lblCelular.AutoSize = true;
-            this.lblCelular.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelular.Location = new System.Drawing.Point(371, 306);
-            this.lblCelular.Name = "lblCelular";
-            this.lblCelular.Size = new System.Drawing.Size(49, 19);
-            this.lblCelular.TabIndex = 183;
-            this.lblCelular.Text = "Celular";
-            // 
             // lblNomee
             // 
             this.lblNomee.AutoSize = true;
@@ -167,13 +173,6 @@ namespace Estacionamento.editarPedidos
             this.lblNomee.TabIndex = 177;
             this.lblNomee.Text = "Nome";
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(480, 308);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(151, 20);
-            this.txtEmail.TabIndex = 169;
-            // 
             // txtCliente
             // 
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -182,11 +181,152 @@ namespace Estacionamento.editarPedidos
             this.txtCliente.Size = new System.Drawing.Size(151, 20);
             this.txtCliente.TabIndex = 163;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(371, 316);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 19);
+            this.label1.TabIndex = 189;
+            this.label1.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(480, 318);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(151, 20);
+            this.txtEmail.TabIndex = 188;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sessaoToolStripMenuItem,
+            this.editarToolStripMenuItem1,
+            this.sobreToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 24);
+            this.menuStrip1.TabIndex = 213;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // sessaoToolStripMenuItem
+            // 
+            this.sessaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.entradaToolStripMenuItem,
+            this.saídaToolStripMenuItem,
+            this.editarToolStripMenuItem,
+            this.vagasToolStripMenuItem});
+            this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
+            this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.sessaoToolStripMenuItem.Text = "Sessao";
+            // 
+            // entradaToolStripMenuItem
+            // 
+            this.entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
+            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.entradaToolStripMenuItem.Text = "Entrada";
+            this.entradaToolStripMenuItem.Click += new System.EventHandler(this.entradaToolStripMenuItem_Click);
+            // 
+            // saídaToolStripMenuItem
+            // 
+            this.saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
+            this.saídaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saídaToolStripMenuItem.Text = "Saída";
+            this.saídaToolStripMenuItem.Click += new System.EventHandler(this.saídaToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.editarToolStripMenuItem.Text = "Alterar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // vagasToolStripMenuItem
+            // 
+            this.vagasToolStripMenuItem.Name = "vagasToolStripMenuItem";
+            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.vagasToolStripMenuItem.Text = "Vagas";
+            this.vagasToolStripMenuItem.Click += new System.EventHandler(this.vagasToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem1
+            // 
+            this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clienteToolStripMenuItem,
+            this.veiculoToolStripMenuItem});
+            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(49, 20);
+            this.editarToolStripMenuItem1.Text = "Editar";
+            // 
+            // clienteToolStripMenuItem
+            // 
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Text = "Cliente";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
+            // 
+            // veiculoToolStripMenuItem
+            // 
+            this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veiculoToolStripMenuItem.Text = "Veiculo";
+            this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem,
+            this.sairToolStripMenuItem});
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.menuToolStripMenuItem.Text = "Menu";
+            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem,
+            this.fecharToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.loginToolStripMenuItem.Text = "Logout";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
+            // fecharToolStripMenuItem
+            // 
+            this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.fecharToolStripMenuItem.Text = "Fechar";
+            this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
+            // 
             // frmAlterarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnPesquisarcodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.txtPesquisarcodigo);
@@ -197,15 +337,15 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnVoltaraomenu);
             this.Controls.Add(this.btnAlterarcliente);
-            this.Controls.Add(this.lblCelular);
             this.Controls.Add(this.lblNomee);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtCliente);
             this.Name = "frmAlterarCliente";
             this.Text = "frmAlterarCliente";
             this.Load += new System.EventHandler(this.frmAlterarCliente_Load);
             this.DoubleClick += new System.EventHandler(this.frmAlterarCliente_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,9 +362,24 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnVoltaraomenu;
         private System.Windows.Forms.Button btnAlterarcliente;
-        private System.Windows.Forms.Label lblCelular;
         private System.Windows.Forms.Label lblNomee;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vagasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem veiculoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
     }
 }

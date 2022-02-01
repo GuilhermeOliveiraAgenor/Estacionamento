@@ -1,7 +1,12 @@
 ﻿using Controller;
+using Estacionamento.editarPedidos;
+using Estacionamento.Entrada;
+using Estacionamento.Login;
 using Estacionamento.Menu;
+using Estacionamento.Saida;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +25,8 @@ namespace Estacionamento.Funcionario.Relatorio
     public partial class frmRelatorio : Form
     {
         EstacionarDAO estacionarDAO = new EstacionarDAO();
+        int patio1;
+        int patio2;
         public frmRelatorio()
         {
             InitializeComponent();
@@ -280,6 +287,85 @@ namespace Estacionamento.Funcionario.Relatorio
 
             System.Diagnostics.Process.Start(@"C:\Funcionarios.pdf");
 
+        }
+
+        private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmVerificar().Show();
+            this.Hide();
+        }
+
+        private void saídaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSaida().Show();
+            this.Hide();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarEstacionar().Show();
+            this.Hide();
+        }
+
+        private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+
+
+            dt1 = estacionarDAO.vagasPatio1();
+
+            dt2 = estacionarDAO.vagasPatio2();
+
+            if (dt1.Rows.Count >= 1 && dt2.Rows.Count >= 1)
+            {
+                foreach (DataRow row1 in dt1.Rows)
+                {
+                    patio1 = row1["Patio1"].GetHashCode();
+                }
+                foreach (DataRow row2 in dt2.Rows)
+                {
+                    patio2 = row2["Patio2"].GetHashCode();
+                }
+                MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+            new frmLogin().Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmInserirCliveiculo().Show();
+            this.Hide();
         }
     }
 }

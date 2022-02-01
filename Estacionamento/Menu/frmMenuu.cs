@@ -26,13 +26,14 @@ namespace Estacionamento.Menu
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         public void vagasOcupadas()
         {
-            
+            dgvVeiculos.DataSource = estacionarDAO.carregarVeiculo();
+            dgvVeiculos.Refresh();
         }
         public frmMenuu()
         {
             InitializeComponent();
         }
-        //TODO: Menu - tela e menuStrip nas telas
+        //TODO: Menu - tela, selectionchanged, atualizar grid tela inserirCliveiculo e nas outras telas 
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();

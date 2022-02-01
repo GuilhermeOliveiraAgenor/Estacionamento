@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using Model;
 using Controller;
 using Estacionamento.Menu;
+using Estacionamento.Login;
+using Estacionamento.Saida;
+using Estacionamento.Entrada;
 
 namespace Estacionamento.editarPedidos
 {
@@ -17,7 +20,10 @@ namespace Estacionamento.editarPedidos
     {
         Cliente cliente = new Cliente();
         ClienteDAO clienteDAO = new ClienteDAO();
+        EstacionarDAO estacionarDAO = new EstacionarDAO();
         int idCliente;
+        int patio1;
+        int patio2;
 
         public frmAlterarCliente()
         {
@@ -42,7 +48,7 @@ namespace Estacionamento.editarPedidos
 
             dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado
 
-            if (dt.Rows.Count >= 1)//se encontrar resultados, preenche os texts
+            if (dt.Rows.Count == 1)//se encontrar resultados, preenche os texts
             {
                 foreach ( DataRow row in dt.Rows)
                 {
@@ -56,6 +62,8 @@ namespace Estacionamento.editarPedidos
             {
                 MessageBox.Show("Erro ao encontrar cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarcodigo.Focus();
+                carregarGrid();
+                
             }
         }
 
@@ -72,6 +80,7 @@ namespace Estacionamento.editarPedidos
             if (result == true)
             {
                 MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                carregarGrid();
             }
            
 
@@ -109,6 +118,7 @@ namespace Estacionamento.editarPedidos
             {
                 MessageBox.Show("Erro ao encontrar nome", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarnome.Focus();
+               
             }
 
         }
@@ -122,6 +132,83 @@ namespace Estacionamento.editarPedidos
         {
             frmMenuu frm = new frmMenuu();
             frm.Show();
+            this.Hide();
+        }
+
+        private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmVerificar().Show();
+            this.Hide();
+        }
+
+        private void saídaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            new frmSaida().Show();
+            this.Hide();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarEstacionar().Show();
+            this.Hide();
+        }
+
+        private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+
+
+            dt1 = estacionarDAO.vagasPatio1();
+
+            dt2 = estacionarDAO.vagasPatio2();
+
+            if (dt1.Rows.Count >= 1 && dt2.Rows.Count >= 1)
+            {
+                foreach (DataRow row1 in dt1.Rows)
+                {
+                    patio1 = row1["Patio1"].GetHashCode();
+                }
+                foreach (DataRow row2 in dt2.Rows)
+                {
+                    patio2 = row2["Patio2"].GetHashCode();
+                }
+                MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();    
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+            new frmLogin().Show();
             this.Hide();
         }
     }

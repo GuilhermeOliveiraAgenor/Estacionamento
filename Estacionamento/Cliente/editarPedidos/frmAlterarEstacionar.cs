@@ -1,5 +1,8 @@
 ﻿using Controller;
+using Estacionamento.Entrada;
+using Estacionamento.Login;
 using Estacionamento.Menu;
+using Estacionamento.Saida;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -22,6 +25,9 @@ namespace Estacionamento.editarPedidos
         DataTable dt = new DataTable();
         int idEstacionar;
         string modo;
+        int idClienteVeiculo;
+        int patio1;
+        int patio2;
         public frmAlterarEstacionar()
         {
             InitializeComponent();
@@ -30,17 +36,6 @@ namespace Estacionamento.editarPedidos
         {
             dgvEstacionar.DataSource = estacionarDAO.carregarVeiculo();
             dgvEstacionar.Refresh();
-        }
-        public void irMenu()
-        {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
-            this.Hide();
-        }
-
-        private void frmAlterarEstacionar_Load(object sender, EventArgs e)
-        {
-            vagasOcupadas();
 
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
@@ -61,8 +56,18 @@ namespace Estacionamento.editarPedidos
                 }
 
             }
+        }
+        public void irMenu()
+        {
+            frmMenuu frm = new frmMenuu();
+            frm.Show();
+            this.Hide();
+        }
 
-
+        private void frmAlterarEstacionar_Load(object sender, EventArgs e)
+        {
+            vagasOcupadas();
+            
         }
 
         private void btnPesquisarcodigo_Click(object sender, EventArgs e)
@@ -80,23 +85,25 @@ namespace Estacionamento.editarPedidos
                     lblHora.Text = row["horarioEntrada"].ToString();//passa as informaçoes
                     lblData.Text = row["dataEntrada"].ToString();
                     cmbPatio.Text = row["Patio"].ToString();
-                    cmbcodigoVeiculo.Text = row["Placa"].ToString();
+                    cmbPlaca.Text = row["Placa"].ToString();
                     idEstacionar = Convert.ToInt32(row["idEstacionar"].GetHashCode());
+                    idClienteVeiculo = row["IdClienteVeiculo"].GetHashCode(); 
                 }
                 foreach (var item in cliVeiculo)
                 {
-                    cmbcodigoVeiculo.Items.Add(item.Placa);//adiciona na combobox
-                    cmbcodigoVeiculo.ValueMember = item.IdClienteVeiculo.ToString();//recebe o id da combobox
+                    cmbPlaca.Items.Add(item.Placa);//adiciona na combobox
                 }
-
+                dgvEstacionar.DataSource = estacionarDAO.PesqCpfOcupados(cpf);
             }
-
 
             if (dt.Rows.Count < 1)
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
+                vagasOcupadas();
             }
+
+            
 
         }
 
@@ -112,9 +119,9 @@ namespace Estacionamento.editarPedidos
 
             foreach (var item in cliVeiculo)
             {
-                if (cmbcodigoVeiculo.Text == item.Placa)//se o text for igual ao item selecionado, retorna id
+                if (cmbPlaca.Text == item.Placa)//se o text for igual ao item selecionado, retorna id
                 {
-                    cmbcodigoVeiculo.ValueMember = item.IdClienteVeiculo.ToString();//recebe o id da combobox
+                    cmbPlaca.ValueMember = item.IdClienteVeiculo.ToString();//recebe o id da combobox
                 }
             }
         }
@@ -132,7 +139,7 @@ namespace Estacionamento.editarPedidos
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             modo = "excluir";//coloca modo excluir
-            MessageBox.Show("Clique em gravar para continuar","Gravar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Clique em gravar para continuar", "Gravar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -145,13 +152,14 @@ namespace Estacionamento.editarPedidos
             {
                 estacionar.idEstacionar = idEstacionar;
                 estacionar.Patio = Convert.ToInt32(cmbPatio.Text);//parametro
-                estacionar.CodigoClienteVeiculo = Convert.ToInt32(cmbcodigoVeiculo.ValueMember);
+                estacionar.CodigoClienteVeiculo = idClienteVeiculo;
 
                 result = estacionarDAO.alterarEstacionar(estacionar);//recebe o resultado
 
                 if (result == true)
                 {
                     MessageBox.Show("Alteração concluída", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    vagasOcupadas();
                 }
             }
             if (modo == "excluir")
@@ -163,6 +171,7 @@ namespace Estacionamento.editarPedidos
                 if (result == true)
                 {
                     MessageBox.Show("Exclusão concluída", "Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    vagasOcupadas();
                 }
                 if (result == false)
                 {
@@ -172,5 +181,166 @@ namespace Estacionamento.editarPedidos
 
             }
         }
-    }
+
+        private void cmbPlaca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<clienteVeiculo> cliVeiculo = cliVeiculoDAO.listarVeiculos();
+
+            foreach (var item in cliVeiculo)
+            {
+                if (cmbPlaca.Text == item.Placa)
+                {
+                    idClienteVeiculo = item.IdClienteVeiculo.GetHashCode();
+                }
+            }
+
+        }
+
+        private void btnVoltaraomenu_Click(object sender, EventArgs e)
+        {
+            frmMenuu frm = new frmMenuu();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmVerificar().Show();
+            this.Hide();
+        }
+
+        private void saídaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            new frmSaida().Show();
+            this.Hide();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarEstacionar().Show();
+            this.Hide();
+        }
+
+        private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+
+
+            dt1 = estacionarDAO.vagasPatio1();
+
+            dt2 = estacionarDAO.vagasPatio2();
+
+            if (dt1.Rows.Count >= 1 && dt2.Rows.Count >= 1)
+            {
+                foreach (DataRow row1 in dt1.Rows)
+                {
+                    patio1 = row1["Patio1"].GetHashCode();
+                }
+                foreach (DataRow row2 in dt2.Rows)
+                {
+                    patio2 = row2["Patio2"].GetHashCode();
+                }
+                MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+            new frmLogin().Show();
+            this.Hide();
+        }
+
+        private void entradaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmVerificar().Show();
+            this.Hide();
+        }
+
+        private void saídaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmSaida().Show();
+            this.Hide();
+        }
+
+        private void editarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmAlterarEstacionar().Show();
+            this.Hide();
+        }
+
+        private void clienteToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmInserirCliveiculo().Show();
+            this.Hide();
+        }
+
+        private void menuToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();
+        }
+
+        private void sairToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+            new frmLogin().Show();
+            this.Hide();
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
+    } 
 }

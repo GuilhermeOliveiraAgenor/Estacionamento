@@ -105,7 +105,7 @@ namespace Controller
                 conn.Open();
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;
-                cmdo.CommandText = "select clienteVeiculo.Placa,clienteVeiculo.IdClienteVeiculo,clienteVeiculo.codigo_Cliente,clienteVeiculo.codigo_Veiculo from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente where Cliente.Cpf = @Cpf";
+                cmdo.CommandText = "select clienteVeiculo.Placa,clienteVeiculo.IdClienteVeiculo from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente where Cliente.Cpf = @Cpf";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar, 11).Value = cpf;
                 SqlDataReader dr = cmdo.ExecuteReader();
                 while (dr.Read())
@@ -114,8 +114,6 @@ namespace Controller
                     {
                         IdClienteVeiculo = Convert.ToInt32(dr["IdClienteVeiculo"].ToString()),
                         Placa = dr["Placa"].ToString(),
-                        codigo_Cliente = Convert.ToInt32(dr["codigo_Cliente"].ToString()),
-                        codigo_Veiculo = Convert.ToInt32(dr["codigo_Veiculo"].ToString())
                     });
                     ;
                 }

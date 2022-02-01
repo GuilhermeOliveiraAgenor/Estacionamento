@@ -12,6 +12,7 @@ using Controller;
 using Estacionamento.Menu;
 using Estacionamento.Saida;
 using Estacionamento.editarPedidos;
+using Estacionamento.Login;
 
 namespace Estacionamento.Entrada
 {
@@ -181,16 +182,19 @@ namespace Estacionamento.Entrada
         private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmVerificar().Show();
+            this.Hide();
         }
 
         private void saídaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmSaida().Show();
+            this.Hide();
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmAlterarEstacionar().Show();
+            this.Hide();
         }
 
         private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -217,5 +221,41 @@ namespace Estacionamento.Entrada
             }
 
         }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmInserirCliveiculo().Show();
+            this.Hide();
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginUsuario.logout();
+            new frmLogin().Show();
+            this.Hide();
+        }
+
     }
 }

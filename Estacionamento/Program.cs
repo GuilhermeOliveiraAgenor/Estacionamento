@@ -10,7 +10,7 @@ using Estacionamento.Funcionario.Relatorio;
 using Estacionamento.Login;
 using Estacionamento.Menu;
 using Estacionamento.Saida;
-
+using Estacionamento.Usuarios;
 
 namespace Estacionamento
 {
@@ -24,7 +24,7 @@ namespace Estacionamento
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCadCliente());
+            Application.Run(new frmAlterarEstacionar());
         }
     }
 }
