@@ -56,6 +56,8 @@ namespace Estacionamento.Menu
             this.label2 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.Menu = new System.Windows.Forms.Panel();
+            this.ptbRelatorio = new System.Windows.Forms.PictureBox();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btnFuncionario = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -90,8 +92,6 @@ namespace Estacionamento.Menu
             this.lblPreco = new System.Windows.Forms.Label();
             this.btnPesq = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.ptbRelatorio = new System.Windows.Forms.PictureBox();
-            this.btnRelatorio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
@@ -99,6 +99,7 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
@@ -114,7 +115,6 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAlterarveiculo
@@ -414,6 +414,30 @@ namespace Estacionamento.Menu
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(207, 1061);
             this.Menu.TabIndex = 187;
+            // 
+            // ptbRelatorio
+            // 
+            this.ptbRelatorio.Location = new System.Drawing.Point(14, 715);
+            this.ptbRelatorio.Name = "ptbRelatorio";
+            this.ptbRelatorio.Size = new System.Drawing.Size(49, 41);
+            this.ptbRelatorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbRelatorio.TabIndex = 146;
+            this.ptbRelatorio.TabStop = false;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorio.Location = new System.Drawing.Point(3, 708);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(207, 59);
+            this.btnRelatorio.TabIndex = 145;
+            this.btnRelatorio.Text = "           Relatório";
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // pictureBox9
             // 
@@ -751,29 +775,6 @@ namespace Estacionamento.Menu
             this.label11.TabIndex = 211;
             this.label11.Text = "R$";
             // 
-            // ptbRelatorio
-            // 
-            this.ptbRelatorio.Location = new System.Drawing.Point(14, 715);
-            this.ptbRelatorio.Name = "ptbRelatorio";
-            this.ptbRelatorio.Size = new System.Drawing.Size(49, 41);
-            this.ptbRelatorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbRelatorio.TabIndex = 146;
-            this.ptbRelatorio.TabStop = false;
-            // 
-            // btnRelatorio
-            // 
-            this.btnRelatorio.FlatAppearance.BorderSize = 0;
-            this.btnRelatorio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelatorio.Location = new System.Drawing.Point(3, 708);
-            this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(207, 59);
-            this.btnRelatorio.TabIndex = 145;
-            this.btnRelatorio.Text = "           Relatório";
-            this.btnRelatorio.UseVisualStyleBackColor = true;
-            // 
             // frmMenuu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -817,6 +818,7 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -833,7 +835,6 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,6 +38,26 @@ namespace Estacionamento.Entrada
         public void carregarGrid()
         {
             dgvCadastro.DataSource = estacionarDAO.carregarVeiculo();
+       
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+
+            dt1 = estacionarDAO.vagasPatio1();
+
+            dt2 = estacionarDAO.vagasPatio2();
+
+            if (dt1.Rows.Count <= 1 && dt2.Rows.Count <= 1)
+            {
+                foreach (DataRow row in dt1.Rows)
+                {
+                    lblPatio1.Text = row["Patio1"].ToString();
+                }
+                foreach (DataRow row1 in dt2.Rows)
+                {
+                    lblPatio2.Text = row1["Patio2"].ToString();
+                }
+            }
+
         }
 
         public void limparCampos()
@@ -75,31 +95,12 @@ namespace Estacionamento.Entrada
             string cpf = lblCodigodocliente.Text;//passa o parametros
 
             DataTable dt = new DataTable();
-            DataTable dt1 = new DataTable();
-            DataTable dt2 = new DataTable();
-
+           
             carregarGrid();
 
-            dt = cliVeiculoDAO.PesqPlacaCpf(cpf);//recebe o resultado
-
-            dt1 = estacionarDAO.vagasPatio1();
-
-            dt2 = estacionarDAO.vagasPatio2();
+            dt = cliVeiculoDAO.pesqCpf(cpf);//recebe o resultado
 
             veiculo = cliVeiculoDAO.listVeiculosCpf(cpf);
-
-            if (dt1.Rows.Count <= 1 && dt2.Rows.Count <= 1)
-            {
-                foreach (DataRow row in dt1.Rows)
-                {
-                    lblPatio1.Text = row["Patio1"].ToString();
-                }
-                foreach (DataRow row1 in dt2.Rows)
-                {
-                    lblPatio2.Text = row1["Patio2"].ToString();
-                }
-            }
-
 
             if (dt.Rows.Count >= 1)
             {
@@ -128,6 +129,7 @@ namespace Estacionamento.Entrada
             if (result == true)
             {
                 MessageBox.Show("Entrada realizada com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                carregarGrid();
             }
 
 
@@ -153,7 +155,7 @@ namespace Estacionamento.Entrada
             cmbcodigoVeiculo.Text = "";
             cmbPatio.Text = "";
 
-            dt = cliVeiculoDAO.PesqPlacaCpf(cpf);//recebe o resultado
+            dt = cliVeiculoDAO.pesqCpf(cpf);//recebe o resultado
 
             veiculo = cliVeiculoDAO.listVeiculosCpf(cpf);//recebe o resultado
 
@@ -162,7 +164,7 @@ namespace Estacionamento.Entrada
                 configurarPesq();
                 MessageBox.Show("Cpf encontrado", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de concluido
 
-                dgvCadastro.DataSource = cliVeiculoDAO.PesqPlacaCpf(cpf);//carrega o grid
+                dgvCadastro.DataSource = cliVeiculoDAO.pesqCpf(cpf);//carrega o grid
                 txtPesquisar.Clear();
 
                 foreach (var item in veiculo)
@@ -175,7 +177,7 @@ namespace Estacionamento.Entrada
             {
                 MessageBox.Show("Erro ao encontrar Cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 limparPesq();
-
+                carregarGrid();
             }
         }
 

@@ -33,8 +33,4 @@ else
 commit tran
 go
 
-exec alterarSenha
-@Senha = '1',
-@Cpf = '74574'
-
 

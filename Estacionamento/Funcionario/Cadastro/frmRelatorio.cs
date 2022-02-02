@@ -55,6 +55,11 @@ namespace Estacionamento.Funcionario.Relatorio
             }
 
         }
+        public void carregarGrid()
+        {
+            dgvRelatorio.DataSource = estacionarDAO.veiculosHoje();//carrega o grid
+            dgvRelatorio.Refresh();
+        }
         private void btnSairmenu_Click(object sender, EventArgs e)
         {
             frmMenuu frm = new frmMenuu();
@@ -124,6 +129,7 @@ namespace Estacionamento.Funcionario.Relatorio
             {
                 MessageBox.Show("Nenhum valor encontrado. R$ 0,00", "Valor = 0.00", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
+                carregarGrid();
             }
 
 
@@ -177,6 +183,8 @@ namespace Estacionamento.Funcionario.Relatorio
             {
                 MessageBox.Show("Nenhum hora encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
+                carregarGrid(); 
+
             }
 
         }
@@ -214,16 +222,6 @@ namespace Estacionamento.Funcionario.Relatorio
                 MessageBox.Show("Nenhum valor encontrado. R$ 0,00", "Valor = 0.00", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
             }
-        }
-
-        private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbPesqMes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
         private void lblPdf_Click(object sender, EventArgs e)
         {

@@ -16,7 +16,5 @@ namespace Model
 
         public string descricaoVeiculo { get; set; }
 
-        public string Cor { get; set; }
-
     }
 }

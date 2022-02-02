@@ -38,9 +38,24 @@ namespace Estacionamento.Saida
         public void carregarGrid()
         {
             DataTable dt = new DataTable();
+            DataTable dt1 = new DataTable();
 
+            dt = estacionarDAO.vagasPatio1();//recebe o resultado
+
+            dt1 = estacionarDAO.vagasPatio2();
+
+            if (dt.Rows.Count <= 1 && dt1.Rows.Count <= 1)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    lblPatio1.Text = row["Patio1"].ToString();
+                }
+                foreach (DataRow row1 in dt1.Rows)
+                {
+                    lblPatio2.Text = row1["Patio2"].ToString();
+                }
+            }
             dgvEstacionamento.DataSource = estacionarDAO.carregarVeiculo();
-            dgvEstacionamento.Refresh();
         }
         private void btnCodigo_Click(object sender, EventArgs e)
         {
@@ -99,6 +114,7 @@ namespace Estacionamento.Saida
             if (result == true)
             {
                 MessageBox.Show("Saida concluída com sucesso","Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                carregarGrid();
             }
             
 
@@ -108,34 +124,15 @@ namespace Estacionamento.Saida
             List<formaPagamento> forma = new List<formaPagamento>();
             DataTable dt = new DataTable();
             DataTable dt1 = new DataTable();
-            
-            carregarGrid();
 
-            dt = estacionarDAO.vagasPatio1();//recebe o resultado
-
-            dt1 = estacionarDAO.vagasPatio2();
+            carregarGrid(); 
 
             forma = formaDAO.carregarDescricao();
-
-            if (dt.Rows.Count <= 1 && dt1.Rows.Count <= 1)
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-                    lblPatio1.Text = row["Patio1"].ToString();
-                }
-                foreach (DataRow row1 in dt1.Rows)
-                {
-                    lblPatio2.Text = row1["Patio2"].ToString();
-                }
-            }
 
             foreach (var item in forma)
             {
                 cmbFormadepagamento.Items.Add(item.descricao);//adiciona a informação na combobox
             }
-
-            carregarGrid();
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

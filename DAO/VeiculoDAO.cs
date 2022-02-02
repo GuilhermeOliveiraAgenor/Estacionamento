@@ -30,7 +30,6 @@ namespace Controller
                 cmdo.Parameters.Add("@Categoria", SqlDbType.VarChar, 20).Value = veiculo.Categoria;
                 cmdo.Parameters.Add("@Marca", SqlDbType.VarChar, 20).Value = veiculo.Marca;
                 cmdo.Parameters.Add("@descricaoVeiculo", SqlDbType.VarChar, 40).Value = veiculo.descricaoVeiculo;
-                cmdo.Parameters.Add("@Cor", SqlDbType.VarChar, 20).Value = veiculo.Cor;
 
                 cadastrar = cmdo.ExecuteNonQuery();//recebe o resultado
 
@@ -81,7 +80,6 @@ namespace Controller
                         Categoria = dr["Categoria"].ToString(),
                         Marca = dr["Marca"].ToString(),
                         descricaoVeiculo = dr["descricaoVeiculo"].ToString(),
-                        Cor = dr["Cor"].ToString()
                     });
                 }
 

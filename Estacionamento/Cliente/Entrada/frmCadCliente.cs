@@ -36,7 +36,6 @@ namespace Estacionamento.Entrada
 
             dgvCadastro.DataSource = cliveiculoDAO.CarregarClienteVeiculo();//carrega o grid
             dgvCadastro.Refresh();
-
         }
 
         public void limparCampos()
@@ -81,9 +80,11 @@ namespace Estacionamento.Entrada
             if (result == true)
             {
                 MessageBox.Show("Cadastro Concluido", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de erro
+                carregarGrid();
                 frmEntrada frm = new frmEntrada(txtCpf.Text);
                 frm.Show();
                 this.Hide();
+               
             }
 
         }
@@ -97,13 +98,13 @@ namespace Estacionamento.Entrada
             if (dt.Rows.Count >= 1)
             {
                 dgvCadastro.DataSource = cliveiculoDAO.pesqPlaca(placa);//carrega no grid
-                dgvCadastro.Refresh();
                 txtPesquisarplaca.Clear();
             }
             if (dt.Rows.Count < 1)
             {
                 MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarplaca.Focus();
+                carregarGrid();
             }
 
         }
@@ -112,18 +113,18 @@ namespace Estacionamento.Entrada
         {
             string cpf = txtPesquisarcodigo.Text;//parametro
 
-            dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado da pesquisa
+            dt = cliveiculoDAO.pesqCpf(cpf);//recebe o resultado da pesquisa
 
-            if (dt.Rows.Count == 1)//se linhas forem afetadas, carrega o grid
+            if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o grid
             {
-                dgvCadastro.DataSource = clienteDAO.PesqClienteCpf(cpf);//carrega o grid
-                dgvCadastro.Refresh();
+                dgvCadastro.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega o grid
                 txtPesquisarcodigo.Clear();
             }
             if (dt.Rows.Count < 1)//se não afetar linhas, retorna erro
             {
                 MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarcodigo.Focus();
+                carregarGrid();
             }
         }
 

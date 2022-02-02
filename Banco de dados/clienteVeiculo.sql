@@ -68,7 +68,7 @@ create or alter procedure InserirVeiculoCv
 as
 
 declare @id int;
-select @id = idCliente from Cliente where Cpf = @Cpf
+select @id = idCliente from Cliente where Cpf = @Cpf--seleciona o id do cliente pelo cpf
 
 
 if exists (select Placa from clienteVeiculo where Placa = @Placa)-- se existir essa placa, retorna erro
@@ -77,13 +77,14 @@ raiserror ('A placa ja existe',16,1)
 return -1
 end
 
+--se nao existir cpf, retorna erro
 if not exists (select Cpf from Cliente where Cpf = @Cpf)
 begin 
 raiserror ('O cpf nao existe',16,1)
 return -1 
 end
 
-
+--insere
 begin tran
 insert into clienteVeiculo (Placa,codigo_Cliente, codigo_Veiculo) values (@Placa, @id,@codigo_Veiculo)
 

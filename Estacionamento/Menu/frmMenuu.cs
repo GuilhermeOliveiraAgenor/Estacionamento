@@ -2,6 +2,7 @@
 using DAO;
 using Estacionamento.editarPedidos;
 using Estacionamento.Entrada;
+using Estacionamento.Funcionario.Relatorio;
 using Estacionamento.Login;
 using Estacionamento.Saida;
 using Estacionamento.Usuarios;
@@ -33,7 +34,7 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
         }
-        //TODO: Menu - tela, selectionchanged, atualizar grid tela inserirCliveiculo e nas outras telas 
+        //TODO: Menu - tela, selectionchanged, colocar id = 0 e configurar campos
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -226,6 +227,11 @@ namespace Estacionamento.Menu
             frmConfirmarSenha frm = new frmConfirmarSenha();
             frm.Show();
             this.Hide();
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            new frmRelatorio().Show();
         }
     }
 }

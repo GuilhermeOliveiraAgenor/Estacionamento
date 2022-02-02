@@ -7,8 +7,8 @@ create or alter procedure inserirVeiculo
 --paramêtros
 @Categoria varchar(20),
 @Marca varchar (20),
-@descricaoVeiculo varchar(40),
-@Cor varchar(20)
+@descricaoVeiculo varchar(40)
+
 
 )
 as
@@ -21,7 +21,7 @@ return -1
 end
 
 begin tran--insere
-insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values (@Categoria,@Marca,@descricaoVeiculo,@Cor)
+insert into Veiculo (Categoria,Marca,descricaoVeiculo) values (@Categoria,@Marca,@descricaoVeiculo)
 
 if @@ERROR <> ''
 rollback tran

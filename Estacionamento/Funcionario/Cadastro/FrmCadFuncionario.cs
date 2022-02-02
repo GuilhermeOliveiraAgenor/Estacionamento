@@ -48,10 +48,12 @@ namespace Estacionamento
         {
             //limpa os campos textbox
             txtPrimeironome.Clear();
+            txtSobrenome.Clear();
             txtCpf.Clear();
             txtRg.Clear();
             txtSalario.Clear();
             txtProfissao.Clear();
+            idFuncionario = 0;
             ptbFoto.Image = null;
         }
 
@@ -85,9 +87,7 @@ namespace Estacionamento
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             //vai para tela de login
-            frmLogin frmlogin = new frmLogin();
-            frmlogin.Show();
-            this.Hide();
+            new frmMenuu().Show();
 
         }
 
@@ -139,17 +139,17 @@ namespace Estacionamento
                 {
                     MessageBox.Show("Cadastro concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limparCampos();
+                    carregarFunc();
                 }
             }
             if (modo == "Alterar")
             {
-
+                funcionario.idFuncionario = idFuncionario;
                 funcionario.primeiroNome = txtPrimeironome.Text;//parametros
                 funcionario.Sobrenome = txtSobrenome.Text;
                 funcionario.Rg = txtRg.Text;
                 funcionario.Profissao = txtProfissao.Text;
                 funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
-                funcionario.idFuncionario = idFuncionario;
                 usuario.Acesso = acesso;
                 
                 result = funcionarioDAO.alterarFuncionario(funcionario,usuario);
@@ -158,6 +158,7 @@ namespace Estacionamento
                 {
                     MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limparCampos();
+                    carregarFunc();
                 }
 
             }
@@ -171,7 +172,7 @@ namespace Estacionamento
                 if (result == true)
                 {
                     MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    carregarFunc();
                 }
                 
             }
@@ -184,6 +185,7 @@ namespace Estacionamento
                 {
                     MessageBox.Show("Exclusão concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limparCampos();
+                    carregarFunc();
                 }
                 
             }
@@ -209,7 +211,7 @@ namespace Estacionamento
 
             dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
 
-            if (dt.Rows.Count == 1)//se linhas forem afetadas, carrega o dt
+            if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o dt
             {
                 MessageBox.Show("Funcionario encontrado", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ptbEditar.Visible = true;
@@ -239,6 +241,8 @@ namespace Estacionamento
                 else
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                carregarFunc();
+                limparCampos();
             }
         }
 

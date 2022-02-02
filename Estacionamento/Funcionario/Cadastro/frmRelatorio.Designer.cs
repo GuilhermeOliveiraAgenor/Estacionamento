@@ -135,7 +135,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(165, 21);
             this.cmbMes.TabIndex = 185;
-            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
             // 
             // txtAno
             // 
@@ -272,7 +271,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbPesqMes.Name = "cmbPesqMes";
             this.cmbPesqMes.Size = new System.Drawing.Size(165, 21);
             this.cmbPesqMes.TabIndex = 200;
-            this.cmbPesqMes.SelectedIndexChanged += new System.EventHandler(this.cmbPesqMes_SelectedIndexChanged);
             // 
             // lblHora
             // 
@@ -399,14 +397,14 @@ namespace Estacionamento.Funcionario.Relatorio
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // veiculoToolStripMenuItem
             // 
             this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
-            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.veiculoToolStripMenuItem.Text = "Veiculo";
             this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
             // 

@@ -162,7 +162,7 @@ insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Joao','18/07/1987','
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Chevrolet','Sedan','a','Preto')
 insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('16:00','00:00','20/10/2020','20/10/2020','1','2','1','5.00','1')
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('iytuy','18/07/1987','8657','894647', '994854794')
-insert into formaPagamento (descricao) values ('Débito')
+insert into formaPagamento (descricao) values ('Crédito')
 insert into nivelAcesso(idNivelAcesso,Nivel) values ('1','Funcionário')
 insert into nivelAcesso(idNivelAcesso,Nivel) values ('2','Administrador')
 insert into Usuario(Cpf, Senha, Acesso,codigoFuncionario) values ('456546','ola','1','1')
@@ -199,6 +199,7 @@ drop table formaPagamento
 drop table Funcionarios
 drop table Usuario
 drop table nivelAcesso
+
 
 delete Estacionar from Estacionar where idEstacionar = '12'
 

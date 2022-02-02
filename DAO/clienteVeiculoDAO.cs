@@ -171,37 +171,6 @@ namespace Controller
             return cliVeiculo;
 
         }
-
-        public DataTable PesqPlacaCpf(string cpf)
-        {
-            SqlConnection conn = new SqlConnection(conectar);
-            SqlCommand cmdo = new SqlCommand();
-            DataTable dt = new DataTable();
-
-            try
-            {
-                conn.Open();
-                cmdo.Connection = conn;
-                cmdo.CommandType = CommandType.Text;
-                cmdo.CommandText = "select Cliente.Nome, clienteVeiculo.Placa,Veiculo.descricaoVeiculo,Veiculo.Cor from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where Cliente.Cpf = @Cpf";
-                cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar, 11).Value = cpf;
-                SqlDataReader dr = cmdo.ExecuteReader();
-                dt.Load(dr);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            finally
-            {
-                conn.Close();
-            }
-            return dt;
-
-        }
-
         public DataTable CarregarClienteVeiculo()
         {
             SqlConnection conn = new SqlConnection(conectar);
@@ -213,7 +182,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini comando tipo text
-                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, Cliente.Email, clienteVeiculo.Placa,Veiculo.descricaoVeiculo, Veiculo.Cor from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo";
+                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, Cliente.Email, clienteVeiculo.Placa,Veiculo.descricaoVeiculo from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo";
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
 
                 dt.Load(dr);//carrega as informações
@@ -242,7 +211,7 @@ namespace Controller
                 conn.Open();//abri conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//definir comando text
-                cmdo.CommandText = "select Cliente.Nome,Cliente.Cpf,clienteVeiculo.Placa, Veiculo.descricaoVeiculo,Veiculo.Marca, Veiculo.Cor from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo  where Cliente.Cpf = @Cpf";
+                cmdo.CommandText = "select Cliente.Nome,Cliente.Cpf,clienteVeiculo.Placa, Veiculo.descricaoVeiculo,Veiculo.Marca from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo  where Cliente.Cpf = @Cpf";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar, 11).Value = cpf;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();

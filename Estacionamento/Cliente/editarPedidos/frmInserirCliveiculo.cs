@@ -61,10 +61,7 @@ namespace Estacionamento.editarPedidos
 
             if (dt.Rows.Count >= 1)
             {
-                foreach (DataRow row in dt.Rows)
-                {
-                    dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
-                }
+                dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
                 txtPesquisar.Clear();
             }
             if (dt.Rows.Count < 1)
@@ -72,6 +69,7 @@ namespace Estacionamento.editarPedidos
 
                 MessageBox.Show("Cpf não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisar.Focus();
+                carregarGrid();
             }
 
         }
@@ -89,6 +87,7 @@ namespace Estacionamento.editarPedidos
             if (result == true)
             {
                 MessageBox.Show("Cadastro concluido", "Cadastrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                carregarGrid();
             }
            
         }

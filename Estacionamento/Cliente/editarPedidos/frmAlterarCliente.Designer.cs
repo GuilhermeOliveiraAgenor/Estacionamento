@@ -65,7 +65,7 @@ namespace Estacionamento.editarPedidos
             // btnPesquisarcodigo
             // 
             this.btnPesquisarcodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarcodigo.Location = new System.Drawing.Point(1117, 106);
+            this.btnPesquisarcodigo.Location = new System.Drawing.Point(1318, 105);
             this.btnPesquisarcodigo.Name = "btnPesquisarcodigo";
             this.btnPesquisarcodigo.Size = new System.Drawing.Size(95, 31);
             this.btnPesquisarcodigo.TabIndex = 175;
@@ -77,7 +77,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(884, 111);
+            this.lblCodigo.Location = new System.Drawing.Point(1085, 110);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(26, 19);
             this.lblCodigo.TabIndex = 187;
@@ -85,7 +85,7 @@ namespace Estacionamento.editarPedidos
             // 
             // txtPesquisarcodigo
             // 
-            this.txtPesquisarcodigo.Location = new System.Drawing.Point(945, 108);
+            this.txtPesquisarcodigo.Location = new System.Drawing.Point(1146, 107);
             this.txtPesquisarcodigo.Name = "txtPesquisarcodigo";
             this.txtPesquisarcodigo.Size = new System.Drawing.Size(154, 20);
             this.txtPesquisarcodigo.TabIndex = 174;
@@ -93,7 +93,7 @@ namespace Estacionamento.editarPedidos
             // btnPesquisar
             // 
             this.btnPesquisar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(1117, 65);
+            this.btnPesquisar.Location = new System.Drawing.Point(1318, 64);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(95, 28);
             this.btnPesquisar.TabIndex = 173;
@@ -105,7 +105,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(884, 73);
+            this.lblNome.Location = new System.Drawing.Point(1085, 72);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 19);
             this.lblNome.TabIndex = 186;
@@ -113,7 +113,7 @@ namespace Estacionamento.editarPedidos
             // 
             // txtPesquisarnome
             // 
-            this.txtPesquisarnome.Location = new System.Drawing.Point(945, 70);
+            this.txtPesquisarnome.Location = new System.Drawing.Point(1146, 69);
             this.txtPesquisarnome.Name = "txtPesquisarnome";
             this.txtPesquisarnome.Size = new System.Drawing.Size(154, 20);
             this.txtPesquisarnome.TabIndex = 172;
@@ -262,14 +262,14 @@ namespace Estacionamento.editarPedidos
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // veiculoToolStripMenuItem
             // 
             this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
-            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.veiculoToolStripMenuItem.Text = "Veiculo";
             this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
             // 
