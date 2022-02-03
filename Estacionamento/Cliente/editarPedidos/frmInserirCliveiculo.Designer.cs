@@ -73,15 +73,16 @@ namespace Estacionamento.editarPedidos
             // 
             // txtPesquisar
             // 
-            this.txtPesquisar.Location = new System.Drawing.Point(1059, 78);
+            this.txtPesquisar.Location = new System.Drawing.Point(1479, 76);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(154, 20);
             this.txtPesquisar.TabIndex = 233;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             // 
             // btnCodigo
             // 
             this.btnCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCodigo.Location = new System.Drawing.Point(1244, 68);
+            this.btnCodigo.Location = new System.Drawing.Point(1664, 66);
             this.btnCodigo.Name = "btnCodigo";
             this.btnCodigo.Size = new System.Drawing.Size(108, 41);
             this.btnCodigo.TabIndex = 232;
@@ -93,11 +94,12 @@ namespace Estacionamento.editarPedidos
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1005, 76);
+            this.label1.Location = new System.Drawing.Point(1425, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 19);
             this.label1.TabIndex = 231;
             this.label1.Text = "Cpf";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -119,7 +121,7 @@ namespace Estacionamento.editarPedidos
             // btnCadastrarveiculo
             // 
             this.btnCadastrarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarveiculo.Location = new System.Drawing.Point(404, 565);
+            this.btnCadastrarveiculo.Location = new System.Drawing.Point(397, 554);
             this.btnCadastrarveiculo.Name = "btnCadastrarveiculo";
             this.btnCadastrarveiculo.Size = new System.Drawing.Size(99, 41);
             this.btnCadastrarveiculo.TabIndex = 218;
@@ -164,6 +166,7 @@ namespace Estacionamento.editarPedidos
             this.btnCancelarfuncionario.TabIndex = 216;
             this.btnCancelarfuncionario.Text = "Cancelar";
             this.btnCancelarfuncionario.UseVisualStyleBackColor = true;
+            this.btnCancelarfuncionario.Click += new System.EventHandler(this.btnCancelarfuncionario_Click);
             // 
             // btnSair
             // 

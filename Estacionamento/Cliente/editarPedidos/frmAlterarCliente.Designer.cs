@@ -126,7 +126,7 @@ namespace Estacionamento.editarPedidos
             this.dgvClientes.Location = new System.Drawing.Point(790, 202);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(660, 270);
+            this.dgvClientes.Size = new System.Drawing.Size(510, 262);
             this.dgvClientes.TabIndex = 185;
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
@@ -140,6 +140,7 @@ namespace Estacionamento.editarPedidos
             this.btnCancelar.TabIndex = 171;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnVoltaraomenu
             // 

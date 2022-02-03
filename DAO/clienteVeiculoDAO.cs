@@ -49,7 +49,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //retorna erro    
             }
             finally
@@ -81,8 +81,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -102,13 +102,13 @@ namespace Controller
 
             try
             {
-                conn.Open();
+                conn.Open();//abrir conexao
                 cmdo.Connection = conn;
-                cmdo.CommandType = CommandType.Text;
+                cmdo.CommandType = CommandType.Text;//defini text
                 cmdo.CommandText = "select clienteVeiculo.Placa,clienteVeiculo.IdClienteVeiculo from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente where Cliente.Cpf = @Cpf";
-                cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar, 11).Value = cpf;
-                SqlDataReader dr = cmdo.ExecuteReader();
-                while (dr.Read())
+                cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar, 11).Value = cpf;//parametro
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                while (dr.Read())//carrega as informaçoes
                 {
                     cliVeiculo.Add(new clienteVeiculo()
                     {
@@ -120,12 +120,13 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro    
             }
 
             finally
             {
-                conn.Close();
+                conn.Close();//fechar conexao
             }
             return cliVeiculo;
 
@@ -142,12 +143,12 @@ namespace Controller
 
             try
             {
-                conn.Open();
+                conn.Open();//abrir conexao
                 cmdo.Connection = conn;
-                cmdo.CommandType = CommandType.Text;
+                cmdo.CommandType = CommandType.Text;//defini text
                 cmdo.CommandText = "select clienteVeiculo.Placa,clienteVeiculo.IdClienteVeiculo, Veiculo.idVeiculo from clienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo";
-                SqlDataReader dr = cmdo.ExecuteReader();
-                while (dr.Read())
+                SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
+                while (dr.Read())//carrega as informaçoes
                 {
                     cliVeiculo.Add(new clienteVeiculo()
                     {
@@ -161,7 +162,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro   
             }
 
             finally
@@ -189,12 +191,13 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro    
             }
 
             finally
             {
-                conn.Close();
+                conn.Close();//fechar conexao
             }
             return dt;
 
@@ -220,12 +223,12 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
-                conn.Close();
+                conn.Close();//fechar conexao
             }
 
             return dt;

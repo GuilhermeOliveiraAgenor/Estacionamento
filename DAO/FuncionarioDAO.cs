@@ -21,7 +21,7 @@ namespace Controller
         {
             //conecta com a string de conexao
             SqlConnection conn = new SqlConnection(conectar);
-            byte[] foto = funcionario.GetFoto(funcionario.caminhoFoto);//recebe o resultado
+           byte[] foto = funcionario.GetFoto(funcionario.caminhoFoto);//recebe o resultado
 
             bool result = false;
             int cadastrar;
@@ -52,7 +52,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //retorna mensagem de erro
             }
             finally
@@ -83,7 +83,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -126,7 +127,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao alterar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //retorna mensagem de erro
             }
             finally
@@ -165,7 +166,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao excluir. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //retorna mensagem de erro
             }
             finally
@@ -197,7 +198,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -236,7 +238,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao alterar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao alterar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //retorna mensagem de erro
             }
             finally

@@ -39,6 +39,12 @@ namespace Estacionamento.editarPedidos
             dgvVeiculos.Refresh();
         }
 
+        public void limparCampos()
+        {
+            txtCodigocliente.Clear();
+            cmbVeiculo.Text = "";
+            txtPlaca.Clear();
+        }
         private void frmInserirCliveiculo_Load(object sender, EventArgs e)
         {
             List<Veiculo> veiculos = veiculoDAO.carregarVeiculo();//recebe o resultado
@@ -64,9 +70,8 @@ namespace Estacionamento.editarPedidos
                 dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
                 txtPesquisar.Clear();
             }
-            if (dt.Rows.Count < 1)
+            else
             {
-
                 MessageBox.Show("Cpf não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisar.Focus();
                 carregarGrid();
@@ -88,6 +93,7 @@ namespace Estacionamento.editarPedidos
             {
                 MessageBox.Show("Cadastro concluido", "Cadastrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 carregarGrid();
+                limparCampos();
             }
            
         }
@@ -194,6 +200,21 @@ namespace Estacionamento.editarPedidos
             loginUsuario.logout();
             new frmLogin().Show();
             this.Hide();
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelarfuncionario_Click(object sender, EventArgs e)
+        {
+            limparCampos();
         }
     }
 }

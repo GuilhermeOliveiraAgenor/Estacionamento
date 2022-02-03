@@ -175,6 +175,12 @@ select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '
 
 /*Consultas*/
 
+select Estacionar.idEstacionar, Estacionar.horarioEntrada, clienteVeiculo.Placa from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo where Placa = 'UI786' and Status = 'Ocupado'
+
+select Funcionarios.idFuncionario,Funcionarios.primeiroNome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao, Funcionarios.Salario, Funcionarios.Foto, nivelAcesso.idNivelAcesso,nivelAcesso.Nivel from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = ''
+               
+
+
 select clienteVeiculo.Placa,clienteVeiculo.IdClienteVeiculo,clienteVeiculo.codigo_Cliente,clienteVeiculo.codigo_Veiculo 
 from clienteVeiculo 
 inner join Cliente 
@@ -201,7 +207,6 @@ drop table Usuario
 drop table nivelAcesso
 
 
-delete Estacionar from Estacionar where idEstacionar = '12'
 
 -- Selecionar carros que sejam corsas
 select Cliente.Nome, Cliente.Cpf, Veiculo.Placa,Veiculo.Categoria,Veiculo.Cor, Estacionar.idEstacionar

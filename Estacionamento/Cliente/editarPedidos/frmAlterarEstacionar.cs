@@ -32,6 +32,13 @@ namespace Estacionamento.editarPedidos
         {
             InitializeComponent();
         }
+
+        public void desbloquearCampo()
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnGravar.Enabled = true;
+        }
         public void vagasOcupadas()
         {
             dgvEstacionar.DataSource = estacionarDAO.carregarVeiculo();
@@ -64,6 +71,17 @@ namespace Estacionamento.editarPedidos
             this.Hide();
         }
 
+        public void limparCampos()
+        {
+            lblHora.Text = "";
+            lblData.Text = "";
+            cmbPatio.Text = "";
+            cmbPlaca.Text = "";
+            cmbPlaca.Items.Clear();
+            idClienteVeiculo = 0;
+            idEstacionar = 0;
+        }
+
         private void frmAlterarEstacionar_Load(object sender, EventArgs e)
         {
             vagasOcupadas();
@@ -74,12 +92,18 @@ namespace Estacionamento.editarPedidos
         {
             string cpf = txtPesquisar.Text;//parametro
 
+            cmbPatio.Text = "";
+            cmbPlaca.Text = "";
+
             dt = estacionarDAO.PesqCpfOcupados(cpf);//recebe o resultado
 
             cliVeiculo = cliVeiculoDAO.listVeiculosCpf(cpf);
 
             if (dt.Rows.Count >= 1)
             {
+                 cmbPlaca.Items.Clear();//limpa o combobox
+                txtPesquisar.Clear();
+
                 foreach (DataRow row in dt.Rows)
                 {
                     lblHora.Text = row["horarioEntrada"].ToString();//passa as informaçoes
@@ -95,24 +119,17 @@ namespace Estacionamento.editarPedidos
                 }
                 dgvEstacionar.DataSource = estacionarDAO.PesqCpfOcupados(cpf);
             }
-
-            if (dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
                 vagasOcupadas();
+                limparCampos();
             }
 
             
 
         }
-
-        private void btnGravar_Click(object sender, EventArgs e)
-        {
-            modo = "alterar";//coloca a variavel em alterar
-            MessageBox.Show("Clique em gravar para continuar", "Gravar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void cmbcodigoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
             cliVeiculo = cliVeiculoDAO.listarVeiculos();//recebe o resultado
@@ -130,17 +147,12 @@ namespace Estacionamento.editarPedidos
         {
             irMenu();
         }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            irMenu();
-        }
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             modo = "excluir";//coloca modo excluir
             MessageBox.Show("Clique em gravar para continuar", "Gravar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            btnAlterar.Enabled = false;
+            btnGravar.Enabled = true;
         }
 
         private void btnGravar_Click_1(object sender, EventArgs e)
@@ -160,6 +172,10 @@ namespace Estacionamento.editarPedidos
                 {
                     MessageBox.Show("Alteração concluída", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     vagasOcupadas();
+                    limparCampos();
+                    txtPesquisar.Clear();
+                    btnExcluir.Enabled = true;
+                    btnGravar.Enabled = false;
                 }
             }
             if (modo == "excluir")
@@ -172,6 +188,10 @@ namespace Estacionamento.editarPedidos
                 {
                     MessageBox.Show("Exclusão concluída", "Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     vagasOcupadas();
+                    limparCampos();
+                    txtPesquisar.Clear();
+                    btnAlterar.Enabled = true;
+                    btnGravar.Enabled = false;
                 }
                 if (result == false)
                 {
@@ -341,6 +361,26 @@ namespace Estacionamento.editarPedidos
         private void lblNome_Click(object sender, EventArgs e)
         {
 
+        }
+        private void frmAlterarEstacionar_DoubleClick(object sender, EventArgs e)
+        {
+            vagasOcupadas();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            modo = "alterar";//coloca a variavel em alterar
+            MessageBox.Show("Clique em gravar para continuar", "Gravar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnExcluir.Enabled = false;
+            btnGravar.Enabled = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            btnGravar.Enabled = false;
+            btnExcluir.Enabled = true;
+            btnAlterar.Enabled = true;
         }
     } 
 }

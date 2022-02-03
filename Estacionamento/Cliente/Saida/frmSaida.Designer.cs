@@ -76,10 +76,11 @@ namespace Estacionamento.Saida
             // 
             // txtPesquisar
             // 
-            this.txtPesquisar.Location = new System.Drawing.Point(1631, 47);
+            this.txtPesquisar.Location = new System.Drawing.Point(1634, 66);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(121, 20);
             this.txtPesquisar.TabIndex = 204;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             // 
             // label3
             // 
@@ -166,7 +167,7 @@ namespace Estacionamento.Saida
             // btnCodigo
             // 
             this.btnCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCodigo.Location = new System.Drawing.Point(1769, 39);
+            this.btnCodigo.Location = new System.Drawing.Point(1772, 58);
             this.btnCodigo.Name = "btnCodigo";
             this.btnCodigo.Size = new System.Drawing.Size(100, 37);
             this.btnCodigo.TabIndex = 182;
@@ -178,11 +179,12 @@ namespace Estacionamento.Saida
             // 
             this.lblpesquisa.AutoSize = true;
             this.lblpesquisa.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpesquisa.Location = new System.Drawing.Point(1575, 47);
+            this.lblpesquisa.Location = new System.Drawing.Point(1578, 66);
             this.lblpesquisa.Name = "lblpesquisa";
             this.lblpesquisa.Size = new System.Drawing.Size(40, 19);
             this.lblpesquisa.TabIndex = 181;
             this.lblpesquisa.Text = "Placa";
+            this.lblpesquisa.Click += new System.EventHandler(this.lblpesquisa_Click);
             // 
             // btnSaida
             // 
@@ -214,6 +216,7 @@ namespace Estacionamento.Saida
             // 
             // cmbFormadepagamento
             // 
+            this.cmbFormadepagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFormadepagamento.FormattingEnabled = true;
             this.cmbFormadepagamento.Location = new System.Drawing.Point(1151, 118);
             this.cmbFormadepagamento.Name = "cmbFormadepagamento";
@@ -410,14 +413,14 @@ namespace Estacionamento.Saida
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -433,14 +436,14 @@ namespace Estacionamento.Saida
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.loginToolStripMenuItem.Text = "Logout";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // fecharToolStripMenuItem
             // 
             this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
@@ -476,8 +479,9 @@ namespace Estacionamento.Saida
             this.Controls.Add(this.lblpesquisa);
             this.Controls.Add(this.btnSaida);
             this.Name = "frmSaida";
-            this.Text = "frmSaida";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmSaida_Load);
+            this.DoubleClick += new System.EventHandler(this.frmSaida_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstacionamento)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

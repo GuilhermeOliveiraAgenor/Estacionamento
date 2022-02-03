@@ -34,7 +34,7 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
         }
-        //TODO: Menu - tela, selectionchanged, colocar id = 0 e configurar campos
+        //TODO: Menu - tela, selectionchanged, colocar id = 0, configurar campos e foto de funcionario
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();

@@ -57,6 +57,20 @@ namespace Estacionamento.Saida
             }
             dgvEstacionamento.DataSource = estacionarDAO.carregarVeiculo();
         }
+
+        public void limparCampos()
+        {
+            lblPlaca.Text = "";
+            lblHoraEntrada.Text = "";
+            lblCalcular.Text = "";
+            lblPrecohora.Text = "";
+            cmbFormadepagamento.Text = "";
+            txtPesquisar.Clear();
+            dgvEstacionamento.Enabled = true;
+            codigoEstacionar = 0;
+            horaEntrada = Convert.ToDateTime("00:00");
+        }
+
         private void btnCodigo_Click(object sender, EventArgs e)
         {
             string placa = txtPesquisar.Text;
@@ -66,12 +80,17 @@ namespace Estacionamento.Saida
 
              dt = estacionarDAO.pesqVeiculo(placa);//recebe o resultado
 
-             if (dt.Rows.Count >= 1)//se linhas forem afetadas, as informações vao ser carregadas
+             if (dt.Rows.Count == 1)//se linhas forem afetadas, as informações vao ser carregadas
              {
+
+                dgvEstacionamento.Enabled = false;
+                btnSaida.Enabled = false;
+
                  foreach (DataRow row in dt.Rows)
                  {
                     lblPlaca.Text = row["Placa"].ToString();
-                    horaEntrada = Convert.ToDateTime(row["horarioEntrada"].ToString());
+                    lblHoraEntrada.Text = row["horarioEntrada"].ToString();
+                    horaEntrada = Convert.ToDateTime(lblHoraEntrada.Text);
                     codigoEstacionar = row["idEstacionar"].GetHashCode();
 
                  }
@@ -83,16 +102,21 @@ namespace Estacionamento.Saida
                
                  Min = Convert.ToDecimal(horas.TotalMinutes.ToString());
                 Valor = (Min * 15) / 100;
-                   
-                 lblPrecohora.Text = Valor.ToString();//o valor vai para o text
+               
+                Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
+
+                lblPrecohora.Text = Valor.ToString();//o valor vai para o text
 
                 txtPesquisar.Clear();
-               
-        }
+            }
             else
             {
-               MessageBox.Show("Erro ao encontrar cliente.","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                MessageBox.Show("Erro ao encontrar cliente.","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisar.Focus();
+                cmbFormadepagamento.Text = "";
+                btnSaida.Enabled = false;
+                carregarGrid();
+                limparCampos();
             }
             
 }
@@ -115,6 +139,7 @@ namespace Estacionamento.Saida
             {
                 MessageBox.Show("Saida concluída com sucesso","Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 carregarGrid();
+                limparCampos();
             }
             
 
@@ -144,6 +169,8 @@ namespace Estacionamento.Saida
         private void dgvEstacionamento_SelectionChanged(object sender, EventArgs e)
         {
             int linha = 0;
+
+            btnSaida.Enabled = false;
 
            horaSaida = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
 
@@ -249,6 +276,22 @@ namespace Estacionamento.Saida
             loginUsuario.logout();
             new frmLogin().Show();
             this.Hide();
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblpesquisa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmSaida_DoubleClick(object sender, EventArgs e)
+        {
+            carregarGrid();
+            limparCampos();
         }
     }
 }

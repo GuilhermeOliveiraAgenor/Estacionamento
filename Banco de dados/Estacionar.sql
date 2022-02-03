@@ -24,21 +24,19 @@ select @vagas = COUNT(idEstacionar) from Estacionar where Patio = @Patio and Est
 declare @limite int;--seleciona o limite das vagas do patio
 select @limite = Vagas from Patio where Patio.idPatio = @Patio
 
-
+/*
 -- se tiver clientes que já estão no estacionados, retorna erro
 if exists(select idCliente from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo where Cliente.idCliente = @cliente and Estacionar.Status = 'Ocupado')
 begin 
 raiserror ('O cliente já está no estacionamento',16,1)
 return -1
 end
-
+*/
 if @vagas >= @limite--se as vagas ocupadas forem maiores ou igual ao limite do patio, retorna erro
 begin
 raiserror('Esse patio esta lotado',16,1)
 return -1
 end
-
-
 
 
 --insere

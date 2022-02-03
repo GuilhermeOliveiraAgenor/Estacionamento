@@ -42,8 +42,6 @@ namespace Estacionamento.Entrada
             this.btnVoltaraomenu = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblCpf = new System.Windows.Forms.Label();
-            this.dtpDatanasc = new System.Windows.Forms.DateTimePicker();
-            this.lblDatanasc = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.txtNomee = new System.Windows.Forms.TextBox();
@@ -142,7 +140,7 @@ namespace Estacionamento.Entrada
             this.dgvCadastro.AllowUserToAddRows = false;
             this.dgvCadastro.AllowUserToDeleteRows = false;
             this.dgvCadastro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCadastro.Location = new System.Drawing.Point(1076, 230);
+            this.dgvCadastro.Location = new System.Drawing.Point(1086, 200);
             this.dgvCadastro.Name = "dgvCadastro";
             this.dgvCadastro.ReadOnly = true;
             this.dgvCadastro.Size = new System.Drawing.Size(665, 397);
@@ -152,7 +150,7 @@ namespace Estacionamento.Entrada
             // 
             this.lblPlaca.AutoSize = true;
             this.lblPlaca.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaca.Location = new System.Drawing.Point(544, 415);
+            this.lblPlaca.Location = new System.Drawing.Point(544, 287);
             this.lblPlaca.Name = "lblPlaca";
             this.lblPlaca.Size = new System.Drawing.Size(40, 19);
             this.lblPlaca.TabIndex = 190;
@@ -160,7 +158,7 @@ namespace Estacionamento.Entrada
             // 
             // txtPlaca
             // 
-            this.txtPlaca.Location = new System.Drawing.Point(663, 414);
+            this.txtPlaca.Location = new System.Drawing.Point(663, 286);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(154, 20);
             this.txtPlaca.TabIndex = 177;
@@ -198,25 +196,6 @@ namespace Estacionamento.Entrada
             this.lblCpf.Text = "Cpf";
             this.lblCpf.Click += new System.EventHandler(this.lblCpf_Click);
             // 
-            // dtpDatanasc
-            // 
-            this.dtpDatanasc.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDatanasc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDatanasc.Location = new System.Drawing.Point(712, 163);
-            this.dtpDatanasc.Name = "dtpDatanasc";
-            this.dtpDatanasc.Size = new System.Drawing.Size(105, 22);
-            this.dtpDatanasc.TabIndex = 170;
-            // 
-            // lblDatanasc
-            // 
-            this.lblDatanasc.AutoSize = true;
-            this.lblDatanasc.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatanasc.Location = new System.Drawing.Point(553, 163);
-            this.lblDatanasc.Name = "lblDatanasc";
-            this.lblDatanasc.Size = new System.Drawing.Size(114, 19);
-            this.lblDatanasc.TabIndex = 186;
-            this.lblDatanasc.Text = "Data de nascimento";
-            // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
@@ -246,7 +225,7 @@ namespace Estacionamento.Entrada
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(111, 417);
+            this.label1.Location = new System.Drawing.Point(317, 415);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 19);
             this.label1.TabIndex = 208;
@@ -256,7 +235,7 @@ namespace Estacionamento.Entrada
             // 
             this.cmbcodVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbcodVeiculo.FormattingEnabled = true;
-            this.cmbcodVeiculo.Location = new System.Drawing.Point(230, 417);
+            this.cmbcodVeiculo.Location = new System.Drawing.Point(436, 415);
             this.cmbcodVeiculo.Name = "cmbcodVeiculo";
             this.cmbcodVeiculo.Size = new System.Drawing.Size(154, 21);
             this.cmbcodVeiculo.TabIndex = 209;
@@ -266,7 +245,7 @@ namespace Estacionamento.Entrada
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(544, 285);
+            this.label3.Location = new System.Drawing.Point(544, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 19);
             this.label3.TabIndex = 211;
@@ -274,7 +253,7 @@ namespace Estacionamento.Entrada
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(663, 284);
+            this.txtEmail.Location = new System.Drawing.Point(663, 163);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(154, 20);
             this.txtEmail.TabIndex = 210;
@@ -423,8 +402,6 @@ namespace Estacionamento.Entrada
             this.Controls.Add(this.btnVoltaraomenu);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblCpf);
-            this.Controls.Add(this.dtpDatanasc);
-            this.Controls.Add(this.lblDatanasc);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.menuStrip1);
@@ -455,8 +432,6 @@ namespace Estacionamento.Entrada
         private System.Windows.Forms.Button btnVoltaraomenu;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblCpf;
-        private System.Windows.Forms.DateTimePicker dtpDatanasc;
-        private System.Windows.Forms.Label lblDatanasc;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.TextBox txtNomee;

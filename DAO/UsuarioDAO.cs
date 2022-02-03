@@ -34,7 +34,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao fazer login - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
             }
             finally
@@ -74,7 +74,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao alterar - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             finally
@@ -107,8 +107,8 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //retorna erro  
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro 
             }
             finally
             {

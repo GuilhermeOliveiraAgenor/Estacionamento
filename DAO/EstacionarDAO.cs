@@ -85,7 +85,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao fazer a saída - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
             }
 
@@ -108,16 +108,17 @@ namespace Controller
                 conn.Open();//abre conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini tipo text
-                cmdo.CommandText = "select Estacionar.idEstacionar, clienteVeiculo.codigo_Cliente, clienteVeiculo.codigo_Veiculo,clienteVeiculo.Placa, Estacionar.horarioEntrada from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on Cliente.idCliente = clienteVeiculo.codigo_Cliente where Estacionar.Status = 'Ocupado' and clienteVeiculo.Placa = @Placa";
+                cmdo.CommandText = "select Estacionar.idEstacionar, Estacionar.horarioEntrada, clienteVeiculo.Placa from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo where Placa = @Placa and Status = 'Ocupado'";
                 cmdo.Parameters.Add("@Placa", SqlDbType.VarChar,10).Value = Placa;//passa parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o valor
                 dt.Load(dr);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -147,8 +148,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
 
             finally
@@ -178,8 +179,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -209,7 +210,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -238,7 +240,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -268,7 +271,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -297,7 +301,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -336,7 +341,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao alterar - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
             }
             finally
@@ -366,7 +371,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -403,7 +409,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao excluir. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -431,7 +438,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -459,7 +467,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -487,7 +496,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -514,7 +524,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -544,7 +555,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -573,7 +585,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -601,7 +614,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -632,7 +646,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {
@@ -662,7 +677,8 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro
             }
             finally
             {

@@ -36,6 +36,14 @@ namespace Estacionamento.editarPedidos
             dgvClientes.DataSource = clienteDAO.carregarClientes();
         
         }
+
+        public void limparCampos()
+        {
+            txtCliente.Clear();
+            txtEmail.Clear();
+            idCliente = 0;
+            dgvClientes.Enabled = true;
+        }
         private void frmAlterarCliente_Load(object sender, EventArgs e)
         {
             carregarGrid();
@@ -57,13 +65,16 @@ namespace Estacionamento.editarPedidos
                     idCliente = Convert.ToInt32(row["idCliente"].ToString());
                 }
                 txtPesquisarcodigo.Clear();
+                dgvClientes.Enabled = false;
             }
-            if (dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Erro ao encontrar cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarcodigo.Focus();
                 carregarGrid();
+                limparCampos();
                 
+
             }
         }
 
@@ -81,6 +92,9 @@ namespace Estacionamento.editarPedidos
             {
                 MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 carregarGrid();
+                limparCampos();
+                txtPesquisarcodigo.Clear();
+                txtPesquisarnome.Clear();
             }
            
 
@@ -113,12 +127,14 @@ namespace Estacionamento.editarPedidos
             {
                 dgvClientes.DataSource = clienteDAO.PesqClienteNome(nome);//informações no grid
                 txtPesquisarnome.Clear();
+                dgvClientes.Enabled = true;
             }
-            if (dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Erro ao encontrar nome", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarnome.Focus();
-               
+                carregarGrid();
+                limparCampos();
             }
 
         }
@@ -126,6 +142,7 @@ namespace Estacionamento.editarPedidos
         private void frmAlterarCliente_DoubleClick(object sender, EventArgs e)
         {
             carregarGrid();
+            limparCampos();
         }
 
         private void btnVoltaraomenu_Click(object sender, EventArgs e)
@@ -211,5 +228,13 @@ namespace Estacionamento.editarPedidos
             new frmLogin().Show();
             this.Hide();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            txtPesquisarcodigo.Clear();
+            txtPesquisarnome.Clear();
+        }
+
     }
 }

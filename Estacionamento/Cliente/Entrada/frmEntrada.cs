@@ -130,6 +130,10 @@ namespace Estacionamento.Entrada
             {
                 MessageBox.Show("Entrada realizada com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 carregarGrid();
+                limparCampos();
+                txtPesquisar.Clear();
+                txtPesquisar.Focus();
+                btnGravar.Enabled = false;
             }
 
 
@@ -173,7 +177,7 @@ namespace Estacionamento.Entrada
                 }
 
             }
-            if (dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Erro ao encontrar Cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 limparPesq();
@@ -282,6 +286,16 @@ namespace Estacionamento.Entrada
         {
             new frmInserirCliveiculo().Show();
             this.Hide();
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

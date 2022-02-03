@@ -44,6 +44,8 @@ namespace Estacionamento.Entrada
             txtPlaca.Clear();
             txtEmail.Clear();
             txtCpf.Clear();
+            txtPesquisarcodigo.Clear();
+            txtPesquisarplaca.Clear();
             cmbcodVeiculo.Text = "";
         }
     
@@ -81,6 +83,7 @@ namespace Estacionamento.Entrada
             {
                 MessageBox.Show("Cadastro Concluido", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de erro
                 carregarGrid();
+                limparCampos();
                 frmEntrada frm = new frmEntrada(txtCpf.Text);
                 frm.Show();
                 this.Hide();
@@ -100,7 +103,7 @@ namespace Estacionamento.Entrada
                 dgvCadastro.DataSource = cliveiculoDAO.pesqPlaca(placa);//carrega no grid
                 txtPesquisarplaca.Clear();
             }
-            if (dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarplaca.Focus();
@@ -120,7 +123,7 @@ namespace Estacionamento.Entrada
                 dgvCadastro.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega o grid
                 txtPesquisarcodigo.Clear();
             }
-            if (dt.Rows.Count < 1)//se não afetar linhas, retorna erro
+            else//se não afetar linhas, retorna erro
             {
                 MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarcodigo.Focus();

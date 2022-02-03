@@ -477,6 +477,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1486505375-edit-pen-change-option-pencil-write_81422.ico" />
+    <None Include="Resources\icone_perfil.jpg" />
     <Content Include="vehicle_car_vacation_holiday_transport_icon_196788.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
