@@ -27,18 +27,6 @@ namespace Estacionamento.Menu
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         public void vagasOcupadas()
         {
-            dgvVeiculos.DataSource = estacionarDAO.carregarVeiculo();
-            dgvVeiculos.Refresh();
-        }
-        public frmMenuu()
-        {
-            InitializeComponent();
-        }
-        //TODO: Menu - tela, selectionchanged, colocar id = 0, configurar campos e foto de funcionario
-        private void frmMenuu_Load(object sender, EventArgs e)
-        {
-            string cpf = loginUsuario.getCpf();
-
             DataTable dt = new DataTable();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
@@ -46,8 +34,6 @@ namespace Estacionamento.Menu
             dt = estacionarDAO.vagasPatio1();//recebe o resultado
 
             dt1 = estacionarDAO.vagasPatio2();
-
-            dt2 = funcionarioDAO.selecionarFuncionario(cpf);
 
             if (dt.Rows.Count <= 1 && dt1.Rows.Count <= 1)//se linhas forem afetadas, carrega as informaçoes
             {
@@ -60,6 +46,23 @@ namespace Estacionamento.Menu
                     lblPatio2.Text = row1["Patio2"].ToString();
                 }
             }
+
+            dgvVeiculos.DataSource = estacionarDAO.carregarVeiculo();
+            dgvVeiculos.Refresh();
+        }
+        public frmMenuu()
+        {
+            InitializeComponent();
+        }
+        //TODO: Menu - tela, configurar campos, nao digitar na combobox, maskedtextbox em hora e preco, arrumar decimal com mais casas decimais 
+        private void frmMenuu_Load(object sender, EventArgs e)
+        {
+            string cpf = loginUsuario.getCpf();
+
+            DataTable dt2 = new DataTable();
+
+            dt2 = funcionarioDAO.selecionarFuncionario(cpf);
+
             if (dt2.Rows.Count >= 1)//se linhas forem afetadas, carrega a informaçao
             {
                 foreach(DataRow row in dt2.Rows)
@@ -142,10 +145,11 @@ namespace Estacionamento.Menu
                 dgvVeiculos.Refresh();
                 txtPesquisarplaca.Clear();
             }
-            if (dt.Rows.Count < 1)//se linhas nao forem afetadas
+            else//se linhas nao forem afetadas
             {
                 MessageBox.Show("Erro ao encontrar placa", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarplaca.Focus();
+                vagasOcupadas();
             }
         }
 
@@ -163,10 +167,11 @@ namespace Estacionamento.Menu
                 dgvVeiculos.Refresh();
                 txtCpf.Clear();
             }
-            if (dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Erro ao encontrar cpf", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtCpf.Focus();
+                vagasOcupadas();
             }
         }
 

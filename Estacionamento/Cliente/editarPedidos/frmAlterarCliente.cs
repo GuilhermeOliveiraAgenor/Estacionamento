@@ -34,7 +34,7 @@ namespace Estacionamento.editarPedidos
         {
             DataTable dt = new DataTable();
             dgvClientes.DataSource = clienteDAO.carregarClientes();
-        
+
         }
 
         public void limparCampos()
@@ -44,10 +44,42 @@ namespace Estacionamento.editarPedidos
             idCliente = 0;
             dgvClientes.Enabled = true;
         }
+
+        public void verificarCampos()
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtCliente.Text, @"([a-zA-Zà-úÀ-Ú]|\s)+$"))//digitar somente letras
+            {
+                
+                txtCliente.Focus();
+                
+            }
+            else
+            {
+                btnAlterarcliente.Enabled = true;
+            }
+            
+            /*if (!System.Text.RegularExpressions.Regex.IsMatch(txtCliente.Text, @"[0-9]+$"))//digitar somente letras
+            {
+                MessageBox.Show("Digite apenas letras");
+                txtCliente.Focus();
+            }*/
+            //^([a-zA-Zà-úÀ-Ú0-9]|\s)+$
+
+        }
         private void frmAlterarCliente_Load(object sender, EventArgs e)
         {
             carregarGrid();
         }
+
+        public void bloquearBotao()
+        {
+            btnAlterarcliente.Enabled = false;
+        }
+        public void desbloquearBotao()
+        {
+            btnAlterarcliente.Enabled = true;
+        }
+
 
         private void btnPesquisarcodigo_Click(object sender, EventArgs e)
         {
@@ -58,7 +90,7 @@ namespace Estacionamento.editarPedidos
 
             if (dt.Rows.Count == 1)//se encontrar resultados, preenche os texts
             {
-                foreach ( DataRow row in dt.Rows)
+                foreach (DataRow row in dt.Rows)
                 {
                     txtCliente.Text = row["Nome"].ToString();
                     txtEmail.Text = row["Email"].ToString();
@@ -73,7 +105,7 @@ namespace Estacionamento.editarPedidos
                 txtPesquisarcodigo.Focus();
                 carregarGrid();
                 limparCampos();
-                
+
 
             }
         }
@@ -88,19 +120,28 @@ namespace Estacionamento.editarPedidos
 
             result = clienteDAO.editarCliente(cliente);//recebe o resultado
 
-            if (result == true)
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtCliente.Text, @"([a-zA-Zà-úÀ-Ú]|\s)+$"))//digitar somente letras
             {
-                MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                carregarGrid();
-                limparCampos();
-                txtPesquisarcodigo.Clear();
-                txtPesquisarnome.Clear();
+
+                txtCliente.Focus();
             }
-           
+            else
+            {
+                if (result == true)
+                {
+                    MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    carregarGrid();
+                    limparCampos();
+                    txtPesquisarcodigo.Clear();
+                    txtPesquisarnome.Clear();
+                }
 
-        }
+            }
 
-        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+            }
+
+            private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
             int linha;
 
@@ -122,6 +163,7 @@ namespace Estacionamento.editarPedidos
             DataTable dt = new DataTable();
 
             dt = clienteDAO.PesqClienteNome(nome);//recebe o resultado
+
 
             if (dt.Rows.Count >= 1)
             {
@@ -209,7 +251,7 @@ namespace Estacionamento.editarPedidos
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
-            this.Hide();    
+            this.Hide();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)

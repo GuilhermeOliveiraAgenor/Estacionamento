@@ -92,6 +92,7 @@ namespace Estacionamento.Menu
             this.lblPreco = new System.Windows.Forms.Label();
             this.btnPesq = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
@@ -733,7 +734,7 @@ namespace Estacionamento.Menu
             // 
             // txtHora
             // 
-            this.txtHora.Location = new System.Drawing.Point(1532, 590);
+            this.txtHora.Location = new System.Drawing.Point(1559, 607);
             this.txtHora.Name = "txtHora";
             this.txtHora.Size = new System.Drawing.Size(143, 20);
             this.txtHora.TabIndex = 203;
@@ -748,7 +749,7 @@ namespace Estacionamento.Menu
             this.lblPreco.AutoSize = true;
             this.lblPreco.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPreco.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPreco.Location = new System.Drawing.Point(1600, 680);
+            this.lblPreco.Location = new System.Drawing.Point(1627, 697);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(0, 25);
             this.lblPreco.TabIndex = 206;
@@ -756,7 +757,7 @@ namespace Estacionamento.Menu
             // btnPesq
             // 
             this.btnPesq.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesq.Location = new System.Drawing.Point(1691, 581);
+            this.btnPesq.Location = new System.Drawing.Point(1718, 598);
             this.btnPesq.Name = "btnPesq";
             this.btnPesq.Size = new System.Drawing.Size(93, 32);
             this.btnPesq.TabIndex = 210;
@@ -769,17 +770,28 @@ namespace Estacionamento.Menu
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(1576, 680);
+            this.label11.Location = new System.Drawing.Point(1603, 697);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 25);
             this.label11.TabIndex = 211;
             this.label11.Text = "R$";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1587, 532);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 23);
+            this.label1.TabIndex = 212;
+            this.label1.Text = "Vagas livres";
             // 
             // frmMenuu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnPesq);
             this.Controls.Add(this.lblPreco);
@@ -902,5 +914,6 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Label lblDados;
         public System.Windows.Forms.PictureBox ptbRelatorio;
         public System.Windows.Forms.Button btnRelatorio;
+        private System.Windows.Forms.Label label1;
     }
 }

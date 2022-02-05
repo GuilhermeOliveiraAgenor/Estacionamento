@@ -247,8 +247,9 @@ namespace Estacionamento
             // 
             // btnGravar
             // 
+            this.btnGravar.Enabled = false;
             this.btnGravar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGravar.Location = new System.Drawing.Point(626, 740);
+            this.btnGravar.Location = new System.Drawing.Point(636, 740);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(96, 35);
             this.btnGravar.TabIndex = 185;

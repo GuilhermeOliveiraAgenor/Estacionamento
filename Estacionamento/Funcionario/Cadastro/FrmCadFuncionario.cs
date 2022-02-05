@@ -17,6 +17,7 @@ using Estacionamento.editarPedidos;
 using Estacionamento.Menu;
 using Estacionamento.Saida;
 using Estacionamento.Entrada;
+using System.Data.SqlClient;
 
 namespace Estacionamento
 {
@@ -33,6 +34,7 @@ namespace Estacionamento
         DataTable dt = new DataTable();
         string modo = "";
         string caminhoFoto = "";
+        string perfilPadrao = "../../Resources/icone_perfil.jpg";
         byte[] fotoFuncionario;
         int idFuncionario;
         int acesso;
@@ -53,8 +55,11 @@ namespace Estacionamento
             txtRg.Clear();
             txtSalario.Clear();
             txtProfissao.Clear();
+            cmbAcesso.Text = "";
+            cmbAcesso.Enabled = true;
             idFuncionario = 0;
-            ptbFoto.Image = null;
+            acesso = 0;
+            ptbFoto.Load(perfilPadrao);
         }
 
         public void carregarFunc()
@@ -78,16 +83,27 @@ namespace Estacionamento
                 ptbFoto.Load(caminhoFoto);//carrega a foto
             }
 
-       }
+        }
+        public void desbloquearCampo()
+        {
+            btnGravar.Enabled = false;
+            btnCadastrar.Enabled = true;
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            txtCpf.Enabled = true;
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
+            desbloquearCampo();
+            btnGravar.Enabled = false;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             //vai para tela de login
             new frmMenuu().Show();
+            this.Hide();
 
         }
 
@@ -112,35 +128,45 @@ namespace Estacionamento
         {
             modo = "Cadastrar";
             MessageBox.Show("Clique em gravar para continuar","Clique para concluir",MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            limparCampos();
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+            cmbAcesso.Enabled = false;
+            btnGravar.Enabled = true;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
             //TODO: tela
             bool result;
-       
+            
             if (modo == "Cadastrar")
             {
-                //*passa os parametros do text para a classe
-                funcionario.primeiroNome = txtPrimeironome.Text;
-                funcionario.Sobrenome = txtSobrenome.Text;
-                funcionario.Cpf = txtCpf.Text;
-                funcionario.Rg = txtRg.Text;
-                funcionario.Profissao = txtProfissao.Text;
-                funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
-                funcionario.caminhoFoto = caminhoFoto;
-                //verificar picture box vazio
-                
-                result = funcionarioDAO.inserirFuncionario(funcionario);//retorna o resultado da funcao
-
-                if (result == true)
+                if (caminhoFoto == "")//verificar picture box vazio
                 {
-                    MessageBox.Show("Cadastro concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    limparCampos();
-                    carregarFunc();
+
+                    caminhoFoto = perfilPadrao;//adiciona a foto de perfil
                 }
+
+                 //*passa os parametros do text para a classe
+                 funcionario.primeiroNome = txtPrimeironome.Text;
+                 funcionario.Sobrenome = txtSobrenome.Text;
+                 funcionario.Cpf = txtCpf.Text;
+                 funcionario.Rg = txtRg.Text;
+                 funcionario.Profissao = txtProfissao.Text;
+                 funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
+                 funcionario.caminhoFoto = caminhoFoto;
+                
+                 result = funcionarioDAO.inserirFuncionario(funcionario);//retorna o resultado da funcao
+
+                    if (result == true)
+                    {
+                        MessageBox.Show("Cadastro concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        limparCampos();
+                        desbloquearCampo();
+                        carregarFunc();
+                    }
+                    
             }
             if (modo == "Alterar")
             {
@@ -158,8 +184,10 @@ namespace Estacionamento
                 {
                     MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limparCampos();
+                    desbloquearCampo();
                     carregarFunc();
                 }
+                
 
             }
             if (modo == "alterarFoto")
@@ -173,6 +201,9 @@ namespace Estacionamento
                 {
                     MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     carregarFunc();
+                    limparCampos();
+                    desbloquearCampo();
+                    txtPesquisar.Clear();
                 }
                 
             }
@@ -185,6 +216,7 @@ namespace Estacionamento
                 {
                     MessageBox.Show("Exclusão concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limparCampos();
+                    desbloquearCampo();
                     carregarFunc();
                 }
                 
@@ -197,12 +229,20 @@ namespace Estacionamento
             modo = "Alterar";
             MessageBox.Show("Clique em gravar para continuar", "Clique para concluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtCpf.Enabled = false;
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnGravar.Enabled = true;
+            cmbAcesso.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             modo = "Excluir";
             MessageBox.Show("Clique em gravar para continuar", "Clique para concluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnCadastrar.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnGravar.Enabled = true;
+            cmbAcesso.Enabled = false;
         }
 
         private void btnCpf_Click(object sender, EventArgs e)
@@ -215,7 +255,7 @@ namespace Estacionamento
             {
                 MessageBox.Show("Funcionario encontrado", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ptbEditar.Visible = true;
-
+              
                     foreach (DataRow row in dt.Rows)
                     {
                         txtPrimeironome.Text = row["primeiroNome"].ToString();
@@ -243,6 +283,7 @@ namespace Estacionamento
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 carregarFunc();
                 limparCampos();
+                ptbEditar.Visible = false;
             }
         }
 
@@ -266,7 +307,12 @@ namespace Estacionamento
             if (caminhoFoto != "")//se estiver com alguma coisa na variável
             {
                 ptbFoto.Load(caminhoFoto);//carrega a foto
+                btnAlterar.Enabled = false;
+                btnCadastrar.Enabled = false;
+                btnExcluir.Enabled = false;
+                btnGravar.Enabled = true;
             }
+          
         }
 
         private void cmbAcesso_SelectedIndexChanged(object sender, EventArgs e)

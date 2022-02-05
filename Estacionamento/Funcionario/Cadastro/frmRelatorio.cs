@@ -179,7 +179,7 @@ namespace Estacionamento.Funcionario.Relatorio
                 dgvRelatorio.DataSource = estacionarDAO.horasMes(mes,ano);//carrega o grid
                 dgvRelatorio.Refresh();
             }
-            if(dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Nenhum hora encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro

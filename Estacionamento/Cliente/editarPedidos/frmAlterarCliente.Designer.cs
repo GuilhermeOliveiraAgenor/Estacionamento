@@ -168,7 +168,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.lblNomee.AutoSize = true;
             this.lblNomee.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomee.Location = new System.Drawing.Point(362, 253);
+            this.lblNomee.Location = new System.Drawing.Point(362, 247);
             this.lblNomee.Name = "lblNomee";
             this.lblNomee.Size = new System.Drawing.Size(38, 19);
             this.lblNomee.TabIndex = 177;
@@ -177,7 +177,7 @@ namespace Estacionamento.editarPedidos
             // txtCliente
             // 
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(480, 252);
+            this.txtCliente.Location = new System.Drawing.Point(480, 246);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(151, 20);
             this.txtCliente.TabIndex = 163;
