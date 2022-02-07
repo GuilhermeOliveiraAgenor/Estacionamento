@@ -58,6 +58,7 @@ namespace Estacionamento.Usuarios
             // txtSenha
             // 
             this.txtSenha.Location = new System.Drawing.Point(395, 213);
+            this.txtSenha.MaxLength = 50;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(165, 20);
             this.txtSenha.TabIndex = 194;

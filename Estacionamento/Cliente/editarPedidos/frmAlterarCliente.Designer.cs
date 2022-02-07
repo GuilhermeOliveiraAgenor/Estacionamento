@@ -31,7 +31,6 @@ namespace Estacionamento.editarPedidos
         {
             this.btnPesquisarcodigo = new System.Windows.Forms.Button();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtPesquisarcodigo = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtPesquisarnome = new System.Windows.Forms.TextBox();
@@ -58,6 +57,7 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtPesquisarcodigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -83,13 +83,6 @@ namespace Estacionamento.editarPedidos
             this.lblCodigo.TabIndex = 187;
             this.lblCodigo.Text = "Cpf";
             // 
-            // txtPesquisarcodigo
-            // 
-            this.txtPesquisarcodigo.Location = new System.Drawing.Point(1146, 107);
-            this.txtPesquisarcodigo.Name = "txtPesquisarcodigo";
-            this.txtPesquisarcodigo.Size = new System.Drawing.Size(154, 20);
-            this.txtPesquisarcodigo.TabIndex = 174;
-            // 
             // btnPesquisar
             // 
             this.btnPesquisar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,9 +107,11 @@ namespace Estacionamento.editarPedidos
             // txtPesquisarnome
             // 
             this.txtPesquisarnome.Location = new System.Drawing.Point(1146, 69);
+            this.txtPesquisarnome.MaxLength = 150;
             this.txtPesquisarnome.Name = "txtPesquisarnome";
             this.txtPesquisarnome.Size = new System.Drawing.Size(154, 20);
             this.txtPesquisarnome.TabIndex = 172;
+            this.txtPesquisarnome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarnome_KeyPress);
             // 
             // dgvClientes
             // 
@@ -178,9 +173,11 @@ namespace Estacionamento.editarPedidos
             // 
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.Location = new System.Drawing.Point(480, 246);
+            this.txtCliente.MaxLength = 150;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(151, 20);
             this.txtCliente.TabIndex = 163;
+            this.txtCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCliente_KeyPress);
             // 
             // label1
             // 
@@ -195,6 +192,7 @@ namespace Estacionamento.editarPedidos
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(480, 318);
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(151, 20);
             this.txtEmail.TabIndex = 188;
@@ -320,17 +318,26 @@ namespace Estacionamento.editarPedidos
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
+            // txtPesquisarcodigo
+            // 
+            this.txtPesquisarcodigo.Location = new System.Drawing.Point(1146, 112);
+            this.txtPesquisarcodigo.MaxLength = 11;
+            this.txtPesquisarcodigo.Name = "txtPesquisarcodigo";
+            this.txtPesquisarcodigo.Size = new System.Drawing.Size(154, 20);
+            this.txtPesquisarcodigo.TabIndex = 214;
+            this.txtPesquisarcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarcodigo_KeyPress);
+            // 
             // frmAlterarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.txtPesquisarcodigo);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnPesquisarcodigo);
             this.Controls.Add(this.lblCodigo);
-            this.Controls.Add(this.txtPesquisarcodigo);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtPesquisarnome);
@@ -355,7 +362,6 @@ namespace Estacionamento.editarPedidos
         #endregion
         private System.Windows.Forms.Button btnPesquisarcodigo;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox txtPesquisarcodigo;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtPesquisarnome;
@@ -382,5 +388,6 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtPesquisarcodigo;
     }
 }

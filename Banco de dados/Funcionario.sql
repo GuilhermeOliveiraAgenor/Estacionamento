@@ -117,13 +117,19 @@ as
 --exclui
 begin tran
 
+delete Usuario from Usuario where codigoFuncionario = @idFuncionario
 delete Funcionarios from Funcionarios where idFuncionario = @idFuncionario
+
 
 if @@ERROR <> ''
 rollback tran
 else
 commit tran
 go	
+
+
+exec excluirFuncionario
+@idFuncionario = '7'
 
 
 

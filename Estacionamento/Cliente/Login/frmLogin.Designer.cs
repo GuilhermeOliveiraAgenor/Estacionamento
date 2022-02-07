@@ -35,7 +35,6 @@ namespace Estacionamento.Login
             this.ptbSenha = new System.Windows.Forms.PictureBox();
             this.btnSairmenu = new System.Windows.Forms.Button();
             this.btnLoginfuncionario = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,7 +64,6 @@ namespace Estacionamento.Login
             this.panel1.Controls.Add(this.ptbSenha);
             this.panel1.Controls.Add(this.btnSairmenu);
             this.panel1.Controls.Add(this.btnLoginfuncionario);
-            this.panel1.Controls.Add(this.btnCadastrar);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtCpf);
             this.panel1.Controls.Add(this.label4);
@@ -108,24 +106,13 @@ namespace Estacionamento.Login
             // btnLoginfuncionario
             // 
             this.btnLoginfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginfuncionario.Location = new System.Drawing.Point(215, 300);
+            this.btnLoginfuncionario.Location = new System.Drawing.Point(152, 289);
             this.btnLoginfuncionario.Name = "btnLoginfuncionario";
             this.btnLoginfuncionario.Size = new System.Drawing.Size(98, 34);
             this.btnLoginfuncionario.TabIndex = 4;
             this.btnLoginfuncionario.Text = "Login";
             this.btnLoginfuncionario.UseVisualStyleBackColor = true;
             this.btnLoginfuncionario.Click += new System.EventHandler(this.btnLoginfuncionario_Click);
-            // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(86, 300);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(99, 34);
-            this.btnCadastrar.TabIndex = 3;
-            this.btnCadastrar.Text = "Cadastrar Funcionario";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // label2
             // 
@@ -141,9 +128,11 @@ namespace Estacionamento.Login
             // 
             this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.Location = new System.Drawing.Point(152, 136);
+            this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(126, 27);
             this.txtCpf.TabIndex = 1;
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // label4
             // 
@@ -159,6 +148,7 @@ namespace Estacionamento.Login
             // 
             this.txtSenha.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(152, 213);
+            this.txtSenha.MaxLength = 50;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(126, 27);
             this.txtSenha.TabIndex = 2;
@@ -200,7 +190,6 @@ namespace Estacionamento.Login
         private System.Windows.Forms.PictureBox ptbSenha;
         private System.Windows.Forms.Button btnSairmenu;
         private System.Windows.Forms.Button btnLoginfuncionario;
-        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.Label label4;

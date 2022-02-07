@@ -59,7 +59,7 @@ create or alter procedure Saida
 @idEstacionar int,
 @horarioSaida time,
 @dataSaida date,
-@Preco decimal(6,2),
+@Preco decimal(10,2),
 @CodigoFormaPagamento int
 
 

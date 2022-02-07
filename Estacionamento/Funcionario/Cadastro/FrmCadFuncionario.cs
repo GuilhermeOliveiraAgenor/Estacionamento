@@ -127,7 +127,7 @@ namespace Estacionamento
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             modo = "Cadastrar";
-            MessageBox.Show("Clique em gravar para continuar","Clique para concluir",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Clique em gravar para continuar", "Clique para concluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
             limparCampos();
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
@@ -139,25 +139,35 @@ namespace Estacionamento
         {
             //TODO: tela
             bool result;
-            
-            if (modo == "Cadastrar")
+
+            if (String.IsNullOrEmpty(txtPrimeironome.Text) || String.IsNullOrEmpty(txtSobrenome.Text) || String.IsNullOrEmpty(txtCpf.Text)//verificar campos vazios
+                || String.IsNullOrEmpty(txtSalario.Text) || String.IsNullOrEmpty(txtProfissao.Text))
             {
-                if (caminhoFoto == "")//verificar picture box vazio
-                {
-
-                    caminhoFoto = perfilPadrao;//adiciona a foto de perfil
-                }
-
-                 //*passa os parametros do text para a classe
-                 funcionario.primeiroNome = txtPrimeironome.Text;
-                 funcionario.Sobrenome = txtSobrenome.Text;
-                 funcionario.Cpf = txtCpf.Text;
-                 funcionario.Rg = txtRg.Text;
-                 funcionario.Profissao = txtProfissao.Text;
-                 funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
-                 funcionario.caminhoFoto = caminhoFoto;
+                MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 
-                 result = funcionarioDAO.inserirFuncionario(funcionario);//retorna o resultado da funcao
+            }
+
+            else
+            {
+               
+                if (modo == "Cadastrar")
+                {
+                    if (caminhoFoto == "")//verificar picture box vazio
+                    {
+
+                        caminhoFoto = perfilPadrao;//adiciona a foto de perfil
+                    }
+
+                    //*passa os parametros do text para a classe
+                    funcionario.primeiroNome = txtPrimeironome.Text;
+                    funcionario.Sobrenome = txtSobrenome.Text;
+                    funcionario.Cpf = txtCpf.Text;
+                    funcionario.Rg = txtRg.Text;
+                    funcionario.Profissao = txtProfissao.Text;
+                    funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
+                    funcionario.caminhoFoto = caminhoFoto;
+
+                    result = funcionarioDAO.inserirFuncionario(funcionario);//retorna o resultado da funcao
 
                     if (result == true)
                     {
@@ -166,62 +176,64 @@ namespace Estacionamento
                         desbloquearCampo();
                         carregarFunc();
                     }
-                    
-            }
-            if (modo == "Alterar")
-            {
-                funcionario.idFuncionario = idFuncionario;
-                funcionario.primeiroNome = txtPrimeironome.Text;//parametros
-                funcionario.Sobrenome = txtSobrenome.Text;
-                funcionario.Rg = txtRg.Text;
-                funcionario.Profissao = txtProfissao.Text;
-                funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
-                usuario.Acesso = acesso;
-                
-                result = funcionarioDAO.alterarFuncionario(funcionario,usuario);
 
-                if (result == true)
-                {
-                    MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    limparCampos();
-                    desbloquearCampo();
-                    carregarFunc();
                 }
-                
-
-            }
-            if (modo == "alterarFoto")
-            {
-                funcionario.caminhoFoto = caminhoFoto;//parametro
-                funcionario.idFuncionario = idFuncionario;
-
-                result = funcionarioDAO.alterarFoto(funcionario);//recebe o resultado
-
-                if (result == true)
+                if (modo == "Alterar")
                 {
-                    MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    carregarFunc();
-                    limparCampos();
-                    desbloquearCampo();
-                    txtPesquisar.Clear();
-                }
-                
-            }
-            if (modo == "Excluir")
-            {
- 
-                result = funcionarioDAO.excluirFuncionario(idFuncionario);//recebe o resultado
+                    funcionario.idFuncionario = idFuncionario;
+                    funcionario.primeiroNome = txtPrimeironome.Text;//parametros
+                    funcionario.Sobrenome = txtSobrenome.Text;
+                    funcionario.Rg = txtRg.Text;
+                    funcionario.Profissao = txtProfissao.Text;
+                    funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
+                    usuario.Acesso = acesso;
 
-                if (result == true)
-                {
-                    MessageBox.Show("Exclusão concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    limparCampos();
-                    desbloquearCampo();
-                    carregarFunc();
+                    result = funcionarioDAO.alterarFuncionario(funcionario, usuario);
+
+                    if (result == true)
+                    {
+                        MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        limparCampos();
+                        desbloquearCampo();
+                        carregarFunc();
+                    }
+
+
                 }
-                
+                if (modo == "alterarFoto")
+                {
+                    funcionario.caminhoFoto = caminhoFoto;//parametro
+                    funcionario.idFuncionario = idFuncionario;
+
+                    result = funcionarioDAO.alterarFoto(funcionario);//recebe o resultado
+
+                    if (result == true)
+                    {
+                        MessageBox.Show("Alteração concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        carregarFunc();
+                        limparCampos();
+                        desbloquearCampo();
+                        txtPesquisar.Clear();
+                    }
+
+                }
+                if (modo == "Excluir")
+                {
+                    int codigo = idFuncionario;
+
+                    result = funcionarioDAO.excluirFuncionario(codigo);//recebe o resultado
+
+                    if (result == true)
+                    {
+                        MessageBox.Show("Exclusão concluida com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        limparCampos();
+                        desbloquearCampo();
+                        carregarFunc();
+                    }
+
+                }
             }
-                
+
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -236,6 +248,7 @@ namespace Estacionamento
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
+        
         {
             modo = "Excluir";
             MessageBox.Show("Clique em gravar para continuar", "Clique para concluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -253,32 +266,31 @@ namespace Estacionamento
 
             if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o dt
             {
-                MessageBox.Show("Funcionario encontrado", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ptbEditar.Visible = true;
-              
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        txtPrimeironome.Text = row["primeiroNome"].ToString();
-                        txtSobrenome.Text = row["Sobrenome"].ToString();
-                        txtRg.Text = row["Rg"].ToString();
-                        txtSalario.Text = row["Salario"].ToString();
-                        txtCpf.Text = row["Cpf"].ToString();
-                        txtProfissao.Text = row["Profissao"].ToString();
-                        idFuncionario = row["idFuncionario"].GetHashCode();
-                        acesso = row["idNivelAcesso"].GetHashCode();
-                        cmbAcesso.Text = row["Nivel"].ToString();
-                        fotoFuncionario = (byte[])row["Foto"];
-                        funcionario.foto = fotoFuncionario;
-                    
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    txtPrimeironome.Text = row["primeiroNome"].ToString();
+                    txtSobrenome.Text = row["Sobrenome"].ToString();
+                    txtRg.Text = row["Rg"].ToString();
+                    txtSalario.Text = row["Salario"].ToString();
+                    txtCpf.Text = row["Cpf"].ToString();
+                    txtProfissao.Text = row["Profissao"].ToString();
+                    idFuncionario = row["idFuncionario"].GetHashCode();
+                    acesso = row["idNivelAcesso"].GetHashCode();
+                    cmbAcesso.Text = row["Nivel"].ToString();
+                    fotoFuncionario = (byte[])row["Foto"];
+                    funcionario.foto = fotoFuncionario;
+
 
                     using (var foto = new MemoryStream(funcionario.foto))//carrega a foto
                     {
                         ptbFoto.Image = Image.FromStream(foto);//adiciona a foto
                     }
                 }
-                
-             }
-                else
+
+            }
+            else
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 carregarFunc();
@@ -312,7 +324,7 @@ namespace Estacionamento
                 btnExcluir.Enabled = false;
                 btnGravar.Enabled = true;
             }
-          
+
         }
 
         private void cmbAcesso_SelectedIndexChanged(object sender, EventArgs e)
@@ -403,6 +415,61 @@ namespace Estacionamento
         {
             new frmInserirCliveiculo().Show();
             this.Hide();
+        }
+
+        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtPrimeironome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
+                e.Handled = true;
+        }
+
+        private void txtSobrenome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
+                e.Handled = true;
+        }
+
+        private void txtRg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtProfissao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
+                e.Handled = true;
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsControl(e.KeyChar) && !Char.IsDigit(e.KeyChar) && (e.KeyChar != ',') || (e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtSalario_MouseHover(object sender, EventArgs e)
+        {
+            lblSalario.Text = "Digite o salário com uma vírgula. Exemplo: 1000.0";
+        }
+
+        private void txtSalario_MouseLeave(object sender, EventArgs e)
+        {
+            lblSalario.Text = "";
         }
     }
 }

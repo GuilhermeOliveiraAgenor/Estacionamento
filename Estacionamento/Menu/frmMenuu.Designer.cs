@@ -87,12 +87,12 @@ namespace Estacionamento.Menu
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.ptbMapa = new System.Windows.Forms.PictureBox();
-            this.txtHora = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblPreco = new System.Windows.Forms.Label();
             this.btnPesq = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.mskHora = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
@@ -201,9 +201,11 @@ namespace Estacionamento.Menu
             // txtPesquisarplaca
             // 
             this.txtPesquisarplaca.Location = new System.Drawing.Point(1601, 95);
+            this.txtPesquisarplaca.MaxLength = 7;
             this.txtPesquisarplaca.Name = "txtPesquisarplaca";
             this.txtPesquisarplaca.Size = new System.Drawing.Size(125, 20);
             this.txtPesquisarplaca.TabIndex = 175;
+            this.txtPesquisarplaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarplaca_KeyPress);
             // 
             // dgvVeiculos
             // 
@@ -229,9 +231,11 @@ namespace Estacionamento.Menu
             // txtCpf
             // 
             this.txtCpf.Location = new System.Drawing.Point(1601, 138);
+            this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(125, 20);
             this.txtCpf.TabIndex = 189;
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // panel1
             // 
@@ -732,13 +736,6 @@ namespace Estacionamento.Menu
             this.ptbMapa.TabStop = false;
             this.ptbMapa.Click += new System.EventHandler(this.ptbMapa_Click);
             // 
-            // txtHora
-            // 
-            this.txtHora.Location = new System.Drawing.Point(1559, 607);
-            this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(143, 20);
-            this.txtHora.TabIndex = 203;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -782,20 +779,28 @@ namespace Estacionamento.Menu
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(1587, 532);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 23);
+            this.label1.Size = new System.Drawing.Size(86, 23);
             this.label1.TabIndex = 212;
-            this.label1.Text = "Vagas livres";
+            this.label1.Text = "Calculadora";
+            // 
+            // mskHora
+            // 
+            this.mskHora.Location = new System.Drawing.Point(1545, 607);
+            this.mskHora.Mask = "99:99";
+            this.mskHora.Name = "mskHora";
+            this.mskHora.Size = new System.Drawing.Size(138, 20);
+            this.mskHora.TabIndex = 213;
             // 
             // frmMenuu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.mskHora);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnPesq);
             this.Controls.Add(this.lblPreco);
-            this.Controls.Add(this.txtHora);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ptbMapa);
             this.Controls.Add(this.lblPatio2);
@@ -906,7 +911,6 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Button btnPesq;
@@ -915,5 +919,6 @@ namespace Estacionamento.Menu
         public System.Windows.Forms.PictureBox ptbRelatorio;
         public System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox mskHora;
     }
 }

@@ -365,5 +365,17 @@ namespace Estacionamento.Funcionario.Relatorio
             new frmInserirCliveiculo().Show();
             this.Hide();
         }
+
+        private void txtAno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtPesqAno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
     }
 }

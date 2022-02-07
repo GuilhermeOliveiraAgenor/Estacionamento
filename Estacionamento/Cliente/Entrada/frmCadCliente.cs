@@ -65,52 +65,41 @@ namespace Estacionamento.Entrada
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
-        {
-         
+        {       
             bool result = false;
 
             //parametros
 
-            cliente.Nome = txtNomee.Text;
-            cliente.Cpf = txtCpf.Text;
-            cliente.Email = txtEmail.Text;
-            cliveiculo.codigo_Veiculo = Convert.ToInt32(cmbcodVeiculo.ValueMember);
-            cliveiculo.Placa = txtPlaca.Text;
-
-            result = cliveiculoDAO.InserirClienteVeiculo(cliente, cliveiculo);//recebe o resultado
-
-            if (result == true)
+            if (String.IsNullOrEmpty(txtNomee.Text) || String.IsNullOrEmpty(txtCpf.Text) || String.IsNullOrEmpty(txtEmail.Text)//verificar campos vazios
+                || String.IsNullOrEmpty(txtPlaca.Text) || String.IsNullOrEmpty(cmbcodVeiculo.ValueMember))
             {
-                MessageBox.Show("Cadastro Concluido", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de erro
-                carregarGrid();
-                limparCampos();
-                frmEntrada frm = new frmEntrada(txtCpf.Text);
-                frm.Show();
-                this.Hide();
-               
+                MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-        }
-
-        private void btnPesquisarnome_Click(object sender, EventArgs e)
-        {
-            string placa = txtPesquisarplaca.Text;
-
-            dt = cliveiculoDAO.pesqPlaca(placa);//recebe o resultado
-
-            if (dt.Rows.Count >= 1)
-            {
-                dgvCadastro.DataSource = cliveiculoDAO.pesqPlaca(placa);//carrega no grid
-                txtPesquisarplaca.Clear();
-            }
             else
             {
-                MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisarplaca.Focus();
-                carregarGrid();
+                cliente.Nome = txtNomee.Text;
+                cliente.Cpf = txtCpf.Text;
+                cliente.Email = txtEmail.Text;
+                cliveiculo.codigo_Veiculo = Convert.ToInt32(cmbcodVeiculo.ValueMember);
+                cliveiculo.Placa = txtPlaca.Text.ToUpper();
+
+                result = cliveiculoDAO.InserirClienteVeiculo(cliente, cliveiculo);//recebe o resultado
+
+                if (result == true)
+                {
+                    MessageBox.Show("Cadastro Concluido", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de erro
+                    carregarGrid();
+                    limparCampos();
+                    frmEntrada frm = new frmEntrada(cliente.Cpf);
+                    frm.Show();
+                    this.Hide();
+                }
             }
 
         }
+
+            
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -261,5 +250,53 @@ namespace Estacionamento.Entrada
             this.Hide();
         }
 
+        private void txtPesquisarcodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtPesquisarplaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
+                e.Handled = true;
+        }
+
+        private void txtPlaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
+                e.Handled = true;
+        }
+
+        private void txtNomee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
+                e.Handled = true;
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void btnPesquisarplaca_Click(object sender, EventArgs e)
+        {
+            string placa = txtPesquisarplaca.Text.ToUpper();
+
+            dt = cliveiculoDAO.pesqPlaca(placa);//recebe o resultado
+
+            if (dt.Rows.Count >= 1)
+            {
+                dgvCadastro.DataSource = cliveiculoDAO.pesqPlaca(placa);//carrega no grid
+                txtPesquisarplaca.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                txtPesquisarplaca.Focus();
+                carregarGrid();
+            }
+        }
     }
 }

@@ -293,5 +293,11 @@ namespace Estacionamento.Saida
             carregarGrid();
             limparCampos();
         }
+
+        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
+                e.Handled = true;
+        }
     }
 }

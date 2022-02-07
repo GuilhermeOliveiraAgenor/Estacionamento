@@ -83,19 +83,25 @@ namespace Estacionamento.editarPedidos
         {
             bool result = false;
 
-            cliveiculo.codigo_Veiculo = Convert.ToInt32(cmbVeiculo.ValueMember);//parametros
-            cliveiculo.Placa = txtPlaca.Text;
-            cliente.Cpf = txtCodigocliente.Text;
-
-            result = cliveiculoDAO.inserirVeiculocv(cliveiculo, cliente);//recebe o resultado
-
-            if (result == true)
+            if (String.IsNullOrEmpty(txtCodigocliente.Text) || String.IsNullOrEmpty(txtPlaca.Text) || String.IsNullOrEmpty(cmbVeiculo.ValueMember))//verificar campos vazios
             {
-                MessageBox.Show("Cadastro concluido", "Cadastrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                carregarGrid();
-                limparCampos();
+                MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
+            else
+            {
+                cliveiculo.codigo_Veiculo = Convert.ToInt32(cmbVeiculo.ValueMember);//parametros
+                cliveiculo.Placa = txtPlaca.Text.ToUpper();
+                cliente.Cpf = txtCodigocliente.Text;
+
+                result = cliveiculoDAO.inserirVeiculocv(cliveiculo, cliente);//recebe o resultado
+
+                if (result == true)
+                {
+                    MessageBox.Show("Cadastro concluido", "Cadastrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    carregarGrid();
+                    limparCampos();
+                }
+            }   
         }
 
         private void cmbVeiculo_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,6 +221,24 @@ namespace Estacionamento.editarPedidos
         private void btnCancelarfuncionario_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        private void txtCodigocliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+       
+        private void txtPlaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
+                e.Handled = true;
         }
     }
 }

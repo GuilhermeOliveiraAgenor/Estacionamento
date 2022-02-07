@@ -26,21 +26,30 @@ namespace Estacionamento.Usuarios
         {
             DataTable dt = new DataTable();
 
-            usuario.Senha = txtSenha.Text; 
-
-            dt = usuarioDAO.selecionarSenha(usuario);
-
-            if (dt.Rows.Count == 1)
+            if (String.IsNullOrEmpty(txtSenha.Text))//verificar campo vazio
             {
-                frmAlterarSenha frm = new frmAlterarSenha();
-                frm.Show();
-                this.Hide();
+                MessageBox.Show("Preencha o campo", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (dt.Rows.Count < 1)
+
+            else
             {
-                MessageBox.Show("Erro ao fazer login. Verifique os campos e tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //mensagem de erro
-                txtSenha.Focus();
+
+                usuario.Senha = txtSenha.Text;
+
+                dt = usuarioDAO.selecionarSenha(usuario);
+
+                if (dt.Rows.Count == 1)
+                {
+                    frmAlterarSenha frm = new frmAlterarSenha();
+                    frm.Show();
+                    this.Hide();
+                }
+                if (dt.Rows.Count < 1)
+                {
+                    MessageBox.Show("Erro ao fazer login. Verifique os campos e tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //mensagem de erro
+                    txtSenha.Focus();
+                }
             }
         }
 

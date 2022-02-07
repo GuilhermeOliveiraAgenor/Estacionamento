@@ -36,14 +36,22 @@ namespace Estacionamento.Usuarios
             bool result = false;
             string cpf = loginUsuario.getCpf();//parametro
 
-            usuario.Senha = txtConfirmar.Text;
-            usuario.Cpf = cpf;
-        
-            result = usuarioDAO.alterarSenha(usuario);//recebe o resultado
-           
-            if (result == true)
+            if (String.IsNullOrEmpty(txtConfirmar.Text) || String.IsNullOrEmpty(txtNovaSenha.Text))//verificar campo vazio
             {
-               MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else
+            {
+                usuario.Senha = txtConfirmar.Text;
+                usuario.Cpf = cpf;
+
+                result = usuarioDAO.alterarSenha(usuario);//recebe o resultado
+
+                if (result == true)
+                {
+                    MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             
 

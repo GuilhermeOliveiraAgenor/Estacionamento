@@ -119,23 +119,31 @@ namespace Estacionamento.Entrada
 
             verificar();
 
-            estacionar.Patio = Convert.ToInt32(cmbPatio.Text);//passa os parametros
-            estacionar.dataEntrada = Convert.ToDateTime(dtpData.Text);
-            estacionar.horarioEntrada = Convert.ToDateTime(lblHora.Text);
-            estacionar.CodigoClienteVeiculo = Convert.ToInt32(cmbcodigoVeiculo.ValueMember);
-
-            result = estacionarDAO.Entrada(estacionar);//recebe o resultado
-
-            if (result == true)
+            if (String.IsNullOrEmpty(cmbPatio.Text) || String.IsNullOrEmpty(cmbcodigoVeiculo.ValueMember))//verificar campos vazios
             {
-                MessageBox.Show("Entrada realizada com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                carregarGrid();
-                limparCampos();
-                txtPesquisar.Clear();
-                txtPesquisar.Focus();
-                btnGravar.Enabled = false;
+                MessageBox.Show("Selecione os itens", "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+            else
+            {
+
+                estacionar.Patio = Convert.ToInt32(cmbPatio.Text);//passa os parametros
+                estacionar.dataEntrada = Convert.ToDateTime(dtpData.Text);
+                estacionar.horarioEntrada = Convert.ToDateTime(lblHora.Text);
+                estacionar.CodigoClienteVeiculo = Convert.ToInt32(cmbcodigoVeiculo.ValueMember);
+
+                result = estacionarDAO.Entrada(estacionar);//recebe o resultado
+
+                if (result == true)
+                {
+                    MessageBox.Show("Entrada realizada com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    carregarGrid();
+                    limparCampos();
+                    txtPesquisar.Clear();
+                    txtPesquisar.Focus();
+                    btnGravar.Enabled = false;
+                }
+            }
 
         }
 
@@ -296,6 +304,12 @@ namespace Estacionamento.Entrada
         private void lblNome_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
         }
     }
 }

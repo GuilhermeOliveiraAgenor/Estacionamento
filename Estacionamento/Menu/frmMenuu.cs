@@ -54,7 +54,8 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
         }
-        //TODO: Menu - tela, configurar campos, nao digitar na combobox, maskedtextbox em hora e preco, arrumar decimal com mais casas decimais 
+
+        //TODO: Menu - tela, configurar campos, nao digitar na combobox, ver senha e data da entrada
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -135,7 +136,7 @@ namespace Estacionamento.Menu
         {
             DataTable dt = new DataTable();
 
-            string placa = txtPesquisarplaca.Text;//recebe os parametros
+            string placa = txtPesquisarplaca.Text.ToUpper();//recebe os parametros
 
             dt = estacionarDAO.pesqPlaca(placa);//recebe o resultado
 
@@ -216,7 +217,7 @@ namespace Estacionamento.Menu
         {
 
            decimal Valor;
-           TimeSpan Hora = Convert.ToDateTime(txtHora.Text).TimeOfDay;//recebe o parametro
+           TimeSpan Hora = Convert.ToDateTime(mskHora.Text).TimeOfDay;//recebe o parametro
            decimal Minutos = Convert.ToDecimal(Hora.TotalMinutes.ToString());//converte para minutos
 
             Valor = (Minutos * 15) / 100;
@@ -237,6 +238,18 @@ namespace Estacionamento.Menu
         private void btnRelatorio_Click(object sender, EventArgs e)
         {
             new frmRelatorio().Show();
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtPesquisarplaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
+                e.Handled = true;
         }
     }
 }

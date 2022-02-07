@@ -162,43 +162,60 @@ namespace Estacionamento.editarPedidos
 
             if (modo == "alterar")
             {
-                estacionar.idEstacionar = idEstacionar;
-                estacionar.Patio = Convert.ToInt32(cmbPatio.Text);//parametro
-                estacionar.CodigoClienteVeiculo = idClienteVeiculo;
-
-                result = estacionarDAO.alterarEstacionar(estacionar);//recebe o resultado
-
-                if (result == true)
+                if (String.IsNullOrEmpty(cmbPatio.Text) || String.IsNullOrEmpty(cmbPlaca.Text))//campos vazios
                 {
-                    MessageBox.Show("Alteração concluída", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    vagasOcupadas();
-                    limparCampos();
-                    txtPesquisar.Clear();
-                    btnExcluir.Enabled = true;
-                    btnGravar.Enabled = false;
+                    MessageBox.Show("Preencha os campos","Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                else
+                {
+                    estacionar.idEstacionar = idEstacionar;
+                    estacionar.Patio = Convert.ToInt32(cmbPatio.Text);//parametro
+                    estacionar.CodigoClienteVeiculo = idClienteVeiculo;
+
+                    result = estacionarDAO.alterarEstacionar(estacionar);//recebe o resultado
+
+                    if (result == true)
+                    {
+                        MessageBox.Show("Alteração concluída", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        vagasOcupadas();
+                        limparCampos();
+                        txtPesquisar.Clear();
+                        btnExcluir.Enabled = true;
+                        btnGravar.Enabled = false;
+                    }
                 }
             }
+
             if (modo == "excluir")
             {
                 int codigo = idEstacionar;
 
-                result = estacionarDAO.excluirEstacionar(idEstacionar);
-
-                if (result == true)
+                if (idEstacionar == 0)//campos vazios
                 {
-                    MessageBox.Show("Exclusão concluída", "Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    vagasOcupadas();
-                    limparCampos();
-                    txtPesquisar.Clear();
-                    btnAlterar.Enabled = true;
-                    btnGravar.Enabled = false;
-                }
-                if (result == false)
-                {
-                    MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    MessageBox.Show("Pesquise novamente", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
+                else
+                {
+                    result = estacionarDAO.excluirEstacionar(idEstacionar);
+
+                    if (result == true)
+                    {
+                        MessageBox.Show("Exclusão concluída", "Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        vagasOcupadas();
+                        limparCampos();
+                        txtPesquisar.Clear();
+                        btnAlterar.Enabled = true;
+                        btnGravar.Enabled = false;
+                    }
+                    
+                    if (result == false)
+                    {
+                        MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                }
             }
         }
 
@@ -381,6 +398,12 @@ namespace Estacionamento.editarPedidos
             btnGravar.Enabled = false;
             btnExcluir.Enabled = true;
             btnAlterar.Enabled = true;
+        }
+
+        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
         }
     } 
 }

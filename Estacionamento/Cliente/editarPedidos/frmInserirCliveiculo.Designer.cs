@@ -37,7 +37,6 @@ namespace Estacionamento.editarPedidos
             this.txtCodigocliente = new System.Windows.Forms.TextBox();
             this.btnCadastrarveiculo = new System.Windows.Forms.Button();
             this.lblPlaca = new System.Windows.Forms.Label();
-            this.txtPlaca = new System.Windows.Forms.TextBox();
             this.dgvVeiculos = new System.Windows.Forms.DataGridView();
             this.btnCancelarfuncionario = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -57,6 +56,7 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtPlaca = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,10 +74,10 @@ namespace Estacionamento.editarPedidos
             // txtPesquisar
             // 
             this.txtPesquisar.Location = new System.Drawing.Point(1479, 76);
+            this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(154, 20);
             this.txtPesquisar.TabIndex = 233;
-            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             // 
             // btnCodigo
             // 
@@ -99,7 +99,6 @@ namespace Estacionamento.editarPedidos
             this.label1.Size = new System.Drawing.Size(26, 19);
             this.label1.TabIndex = 231;
             this.label1.Text = "Cpf";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -114,6 +113,7 @@ namespace Estacionamento.editarPedidos
             // txtCodigocliente
             // 
             this.txtCodigocliente.Location = new System.Drawing.Point(413, 257);
+            this.txtCodigocliente.MaxLength = 11;
             this.txtCodigocliente.Name = "txtCodigocliente";
             this.txtCodigocliente.Size = new System.Drawing.Size(154, 20);
             this.txtCodigocliente.TabIndex = 227;
@@ -138,13 +138,6 @@ namespace Estacionamento.editarPedidos
             this.lblPlaca.Size = new System.Drawing.Size(40, 19);
             this.lblPlaca.TabIndex = 222;
             this.lblPlaca.Text = "Placa";
-            // 
-            // txtPlaca
-            // 
-            this.txtPlaca.Location = new System.Drawing.Point(413, 355);
-            this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(154, 20);
-            this.txtPlaca.TabIndex = 219;
             // 
             // dgvVeiculos
             // 
@@ -310,11 +303,21 @@ namespace Estacionamento.editarPedidos
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
+            // txtPlaca
+            // 
+            this.txtPlaca.Location = new System.Drawing.Point(413, 358);
+            this.txtPlaca.MaxLength = 7;
+            this.txtPlaca.Name = "txtPlaca";
+            this.txtPlaca.Size = new System.Drawing.Size(154, 20);
+            this.txtPlaca.TabIndex = 238;
+            this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
+            // 
             // frmInserirCliveiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cmbVeiculo);
             this.Controls.Add(this.label4);
@@ -325,7 +328,6 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.txtCodigocliente);
             this.Controls.Add(this.btnCadastrarveiculo);
             this.Controls.Add(this.lblPlaca);
-            this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.dgvVeiculos);
             this.Controls.Add(this.btnCancelarfuncionario);
             this.Controls.Add(this.btnSair);
@@ -350,7 +352,6 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.TextBox txtCodigocliente;
         private System.Windows.Forms.Button btnCadastrarveiculo;
         private System.Windows.Forms.Label lblPlaca;
-        private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.DataGridView dgvVeiculos;
         private System.Windows.Forms.Button btnCancelarfuncionario;
         private System.Windows.Forms.Button btnSair;
@@ -370,5 +371,6 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vagasToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtPlaca;
     }
 }

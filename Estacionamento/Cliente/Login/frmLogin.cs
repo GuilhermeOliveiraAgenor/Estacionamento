@@ -45,46 +45,53 @@ namespace Estacionamento.Login
             frmMenuu frmmenu = new frmMenuu();//vai para o menu
             int Nivel;//codigo do nivel do acesso
 
-            
-            //passa os parametros
-            usuario.Cpf = txtCpf.Text;
-            usuario.Senha = txtSenha.Text;
-
-            dt = usuarioDAO.Login(usuario);//recebe o valor do DataTable
-            //se uma linha for afetada, faz o login
-            if (dt.Rows.Count == 1)
+            if (String.IsNullOrEmpty(txtCpf.Text) || String.IsNullOrEmpty(txtSenha.Text))//verificar campos vazios
             {
-                foreach (DataRow row in dt.Rows)//carrega a informaçoes
-                {
-                    Nivel = row["Acesso"].GetHashCode();//recebe o nivel de acesso
-                    
-                    if (Nivel == 1)//se o nivel pesquisado for igual ao código, faz o login. Nivel 1 - Funcionario
-                    {
-                        MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
-                        frmmenu.btnFuncionario.Enabled = false;
-                        frmmenu.btnRelatorio.Visible = false;
-                        frmmenu.ptbRelatorio.Visible = false;
-                        frmmenu.Show();
-                        this.Hide();
-                    }
-                    if (Nivel == 2)//Nivel 2 - Administrador
-                    {
-                        MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
-                        frmmenu.Show();
-                        this.Hide();
+                MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    }
-                }
-                
-                
             }
+
             else
             {
-                MessageBox.Show("Erro ao fazer login. Verifique os campos e tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //mensagem de erro
+                //passa os parametros
+                usuario.Cpf = txtCpf.Text;
+                usuario.Senha = txtSenha.Text;
+
+                dt = usuarioDAO.Login(usuario);//recebe o valor do DataTable
+                                               //se uma linha for afetada, faz o login
+                if (dt.Rows.Count == 1)
+                {
+                    foreach (DataRow row in dt.Rows)//carrega a informaçoes
+                    {
+                        Nivel = row["Acesso"].GetHashCode();//recebe o nivel de acesso
+
+                        if (Nivel == 1)//se o nivel pesquisado for igual ao código, faz o login. Nivel 1 - Funcionario
+                        {
+                            MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
+                            frmmenu.btnFuncionario.Enabled = false;
+                            frmmenu.btnRelatorio.Visible = false;
+                            frmmenu.ptbRelatorio.Visible = false;
+                            frmmenu.Show();
+                            this.Hide();
+                        }
+                        if (Nivel == 2)//Nivel 2 - Administrador
+                        {
+                            MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
+                            frmmenu.Show();
+                            this.Hide();
+
+                        }
+                    }
+                }
+                if (dt.Rows.Count < 1)
+                {
+                    MessageBox.Show("Erro ao fazer login. Verifique os campos e tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //mensagem de erro
+                }
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,6 +109,12 @@ namespace Estacionamento.Login
         private void ptbFundo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
         }
     }  
 }

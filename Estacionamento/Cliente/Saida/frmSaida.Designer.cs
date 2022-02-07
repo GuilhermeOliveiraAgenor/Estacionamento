@@ -77,10 +77,12 @@ namespace Estacionamento.Saida
             // txtPesquisar
             // 
             this.txtPesquisar.Location = new System.Drawing.Point(1634, 66);
+            this.txtPesquisar.MaxLength = 7;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(121, 20);
             this.txtPesquisar.TabIndex = 204;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
+            this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             // 
             // label3
             // 

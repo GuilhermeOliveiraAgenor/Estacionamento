@@ -65,9 +65,11 @@ namespace Estacionamento.Entrada
             // txtCpf
             // 
             this.txtCpf.Location = new System.Drawing.Point(602, 196);
+            this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(154, 20);
             this.txtCpf.TabIndex = 217;
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // btnCodigo
             // 

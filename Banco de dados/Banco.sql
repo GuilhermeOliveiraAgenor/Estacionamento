@@ -40,7 +40,7 @@ horarioEntrada time ,
 horarioSaida time,
 dataEntrada date,
 dataSaida date,
-Preco decimal(6,2),
+Preco decimal(10,2),
 Status varchar(11) check (Status = 'Ocupado' or Status = '-')
 
 )
@@ -82,7 +82,7 @@ Foto varbinary(MAX)
 create table Pagamento
 (
 idPagamento int identity primary key,
-Preco decimal(6,2)
+Preco decimal(10,2)
 
 )
 
@@ -163,6 +163,7 @@ insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Chevrolet','
 insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('16:00','00:00','20/10/2020','20/10/2020','1','2','1','5.00','1')
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('iytuy','18/07/1987','8657','894647', '994854794')
 insert into formaPagamento (descricao) values ('Crédito')
+insert into formaPagamento (descricao) values ('Débito')
 insert into nivelAcesso(idNivelAcesso,Nivel) values ('1','Funcionário')
 insert into nivelAcesso(idNivelAcesso,Nivel) values ('2','Administrador')
 insert into Usuario(Cpf, Senha, Acesso,codigoFuncionario) values ('456546','ola','1','1')
@@ -175,10 +176,11 @@ select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '
 
 /*Consultas*/
 
+update Estacionar set Preco = '1200000.00' where idEstacionar = '1'
+
 select Estacionar.idEstacionar, Estacionar.horarioEntrada, clienteVeiculo.Placa from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo where Placa = 'UI786' and Status = 'Ocupado'
 
 select Funcionarios.idFuncionario,Funcionarios.primeiroNome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao, Funcionarios.Salario, Funcionarios.Foto, nivelAcesso.idNivelAcesso,nivelAcesso.Nivel from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = ''
-               
 
 
 select clienteVeiculo.Placa,clienteVeiculo.IdClienteVeiculo,clienteVeiculo.codigo_Cliente,clienteVeiculo.codigo_Veiculo 
@@ -238,6 +240,7 @@ select *from Pagamento
 select *from formaPagamento 
 select *from Usuario
 select *from nivelAcesso
+
 
 select Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Pagamento.Preco, formaPagamento.descricao, clienteVeiculo.Placa
 from Estacionar 

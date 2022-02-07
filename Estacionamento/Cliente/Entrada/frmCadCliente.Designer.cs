@@ -29,7 +29,7 @@ namespace Estacionamento.Entrada
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnPesquisarnome = new System.Windows.Forms.Button();
+            this.btnPesquisarplaca = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPesquisarplaca = new System.Windows.Forms.TextBox();
@@ -68,21 +68,21 @@ namespace Estacionamento.Entrada
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnPesquisarnome
+            // btnPesquisarplaca
             // 
-            this.btnPesquisarnome.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarnome.Location = new System.Drawing.Point(1735, 128);
-            this.btnPesquisarnome.Name = "btnPesquisarnome";
-            this.btnPesquisarnome.Size = new System.Drawing.Size(98, 34);
-            this.btnPesquisarnome.TabIndex = 201;
-            this.btnPesquisarnome.Text = "Pesquisar";
-            this.btnPesquisarnome.UseVisualStyleBackColor = true;
-            this.btnPesquisarnome.Click += new System.EventHandler(this.btnPesquisarnome_Click);
+            this.btnPesquisarplaca.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarplaca.Location = new System.Drawing.Point(1735, 128);
+            this.btnPesquisarplaca.Name = "btnPesquisarplaca";
+            this.btnPesquisarplaca.Size = new System.Drawing.Size(98, 34);
+            this.btnPesquisarplaca.TabIndex = 201;
+            this.btnPesquisarplaca.Text = "Pesquisar";
+            this.btnPesquisarplaca.UseVisualStyleBackColor = true;
+            this.btnPesquisarplaca.Click += new System.EventHandler(this.btnPesquisarplaca_Click);
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(1735, 52);
+            this.btnPesquisar.Location = new System.Drawing.Point(1735, 62);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(98, 36);
             this.btnPesquisar.TabIndex = 200;
@@ -103,15 +103,17 @@ namespace Estacionamento.Entrada
             // txtPesquisarplaca
             // 
             this.txtPesquisarplaca.Location = new System.Drawing.Point(1574, 138);
+            this.txtPesquisarplaca.MaxLength = 7;
             this.txtPesquisarplaca.Name = "txtPesquisarplaca";
             this.txtPesquisarplaca.Size = new System.Drawing.Size(125, 20);
             this.txtPesquisarplaca.TabIndex = 202;
+            this.txtPesquisarplaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarplaca_KeyPress);
             // 
             // lblPesquisacodigo
             // 
             this.lblPesquisacodigo.AutoSize = true;
             this.lblPesquisacodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPesquisacodigo.Location = new System.Drawing.Point(1457, 61);
+            this.lblPesquisacodigo.Location = new System.Drawing.Point(1457, 71);
             this.lblPesquisacodigo.Name = "lblPesquisacodigo";
             this.lblPesquisacodigo.Size = new System.Drawing.Size(26, 19);
             this.lblPesquisacodigo.TabIndex = 203;
@@ -119,10 +121,12 @@ namespace Estacionamento.Entrada
             // 
             // txtPesquisarcodigo
             // 
-            this.txtPesquisarcodigo.Location = new System.Drawing.Point(1574, 62);
+            this.txtPesquisarcodigo.Location = new System.Drawing.Point(1574, 72);
+            this.txtPesquisarcodigo.MaxLength = 11;
             this.txtPesquisarcodigo.Name = "txtPesquisarcodigo";
             this.txtPesquisarcodigo.Size = new System.Drawing.Size(125, 20);
             this.txtPesquisarcodigo.TabIndex = 199;
+            this.txtPesquisarcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarcodigo_KeyPress);
             // 
             // btnCancelar
             // 
@@ -159,9 +163,11 @@ namespace Estacionamento.Entrada
             // txtPlaca
             // 
             this.txtPlaca.Location = new System.Drawing.Point(663, 286);
+            this.txtPlaca.MaxLength = 7;
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(154, 20);
             this.txtPlaca.TabIndex = 177;
+            this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
             // 
             // btnVoltaraomenu
             // 
@@ -209,17 +215,21 @@ namespace Estacionamento.Entrada
             // txtCpf
             // 
             this.txtCpf.Location = new System.Drawing.Point(230, 284);
+            this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(154, 20);
             this.txtCpf.TabIndex = 171;
             this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // txtNomee
             // 
             this.txtNomee.Location = new System.Drawing.Point(230, 160);
+            this.txtNomee.MaxLength = 150;
             this.txtNomee.Name = "txtNomee";
             this.txtNomee.Size = new System.Drawing.Size(154, 20);
             this.txtNomee.TabIndex = 206;
+            this.txtNomee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomee_KeyPress);
             // 
             // label1
             // 
@@ -254,6 +264,7 @@ namespace Estacionamento.Entrada
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(663, 163);
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(154, 20);
             this.txtEmail.TabIndex = 210;
@@ -389,7 +400,7 @@ namespace Estacionamento.Entrada
             this.Controls.Add(this.cmbcodVeiculo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomee);
-            this.Controls.Add(this.btnPesquisarnome);
+            this.Controls.Add(this.btnPesquisarplaca);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPesquisarplaca);
@@ -419,7 +430,7 @@ namespace Estacionamento.Entrada
         }
 
         #endregion
-        private System.Windows.Forms.Button btnPesquisarnome;
+        private System.Windows.Forms.Button btnPesquisarplaca;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPesquisarplaca;

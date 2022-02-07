@@ -83,10 +83,12 @@ namespace Estacionamento.Entrada
             // txtPesquisar
             // 
             this.txtPesquisar.Location = new System.Drawing.Point(1334, 72);
+            this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(118, 20);
             this.txtPesquisar.TabIndex = 189;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
+            this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             // 
             // lblNome
             // 

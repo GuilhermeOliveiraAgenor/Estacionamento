@@ -44,28 +44,6 @@ namespace Estacionamento.editarPedidos
             idCliente = 0;
             dgvClientes.Enabled = true;
         }
-
-        public void verificarCampos()
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtCliente.Text, @"([a-zA-Zà-úÀ-Ú]|\s)+$"))//digitar somente letras
-            {
-                
-                txtCliente.Focus();
-                
-            }
-            else
-            {
-                btnAlterarcliente.Enabled = true;
-            }
-            
-            /*if (!System.Text.RegularExpressions.Regex.IsMatch(txtCliente.Text, @"[0-9]+$"))//digitar somente letras
-            {
-                MessageBox.Show("Digite apenas letras");
-                txtCliente.Focus();
-            }*/
-            //^([a-zA-Zà-úÀ-Ú0-9]|\s)+$
-
-        }
         private void frmAlterarCliente_Load(object sender, EventArgs e)
         {
             carregarGrid();
@@ -96,7 +74,7 @@ namespace Estacionamento.editarPedidos
                     txtEmail.Text = row["Email"].ToString();
                     idCliente = Convert.ToInt32(row["idCliente"].ToString());
                 }
-                txtPesquisarcodigo.Clear();
+               txtPesquisarcodigo.Clear();
                 dgvClientes.Enabled = false;
             }
             else
@@ -114,20 +92,20 @@ namespace Estacionamento.editarPedidos
         {
             bool result = false;
 
-            cliente.Nome = txtCliente.Text;//parametros
-            cliente.Email = txtEmail.Text;
-            cliente.idCliente = idCliente;
-
-            result = clienteDAO.editarCliente(cliente);//recebe o resultado
-
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtCliente.Text, @"([a-zA-Zà-úÀ-Ú]|\s)+$"))//digitar somente letras
+            if (String.IsNullOrEmpty(txtCliente.Text) || String.IsNullOrEmpty(txtEmail.Text))//verificar campos vazios
             {
-
-                txtCliente.Focus();
+                MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
             else
             {
+
+                cliente.Nome = txtCliente.Text;//parametros
+                cliente.Email = txtEmail.Text;
+                cliente.idCliente = idCliente;
+
+                result = clienteDAO.editarCliente(cliente);//recebe o resultado
+
                 if (result == true)
                 {
                     MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -136,10 +114,9 @@ namespace Estacionamento.editarPedidos
                     txtPesquisarcodigo.Clear();
                     txtPesquisarnome.Clear();
                 }
-
             }
 
-            }
+        }
 
             private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
@@ -278,5 +255,21 @@ namespace Estacionamento.editarPedidos
             txtPesquisarnome.Clear();
         }
 
+        private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
+                e.Handled = true;
+        }
+        private void txtPesquisarnome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
+                e.Handled = true;
+        }
+
+        private void txtPesquisarcodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
     }
 }

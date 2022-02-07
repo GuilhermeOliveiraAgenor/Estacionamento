@@ -34,7 +34,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lblValor = new System.Windows.Forms.Label();
             this.cmbPesquisa = new System.Windows.Forms.ComboBox();
             this.cmbMes = new System.Windows.Forms.ComboBox();
-            this.txtAno = new System.Windows.Forms.TextBox();
             this.lblAno = new System.Windows.Forms.Label();
             this.lblMes = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtAno = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -135,13 +135,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(165, 21);
             this.cmbMes.TabIndex = 185;
-            // 
-            // txtAno
-            // 
-            this.txtAno.Location = new System.Drawing.Point(165, 217);
-            this.txtAno.Name = "txtAno";
-            this.txtAno.Size = new System.Drawing.Size(165, 20);
-            this.txtAno.TabIndex = 186;
             // 
             // lblAno
             // 
@@ -246,9 +239,11 @@ namespace Estacionamento.Funcionario.Relatorio
             // txtPesqAno
             // 
             this.txtPesqAno.Location = new System.Drawing.Point(203, 566);
+            this.txtPesqAno.MaxLength = 4;
             this.txtPesqAno.Name = "txtPesqAno";
             this.txtPesqAno.Size = new System.Drawing.Size(165, 20);
             this.txtPesqAno.TabIndex = 201;
+            this.txtPesqAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesqAno_KeyPress);
             // 
             // cmbPesqMes
             // 
@@ -454,6 +449,15 @@ namespace Estacionamento.Funcionario.Relatorio
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
+            // txtAno
+            // 
+            this.txtAno.Location = new System.Drawing.Point(165, 217);
+            this.txtAno.MaxLength = 4;
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(165, 20);
+            this.txtAno.TabIndex = 186;
+            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress);
+            // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,7 +506,6 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.Label lblValor;
         private System.Windows.Forms.ComboBox cmbPesquisa;
         private System.Windows.Forms.ComboBox cmbMes;
-        private System.Windows.Forms.TextBox txtAno;
         private System.Windows.Forms.Label lblAno;
         private System.Windows.Forms.Label lblMes;
         private System.Windows.Forms.Label label1;
@@ -536,5 +539,6 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtAno;
     }
 }
