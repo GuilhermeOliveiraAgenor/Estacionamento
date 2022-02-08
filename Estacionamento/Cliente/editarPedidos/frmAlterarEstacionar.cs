@@ -162,9 +162,9 @@ namespace Estacionamento.editarPedidos
 
             if (modo == "alterar")
             {
-                if (String.IsNullOrEmpty(cmbPatio.Text) || String.IsNullOrEmpty(cmbPlaca.Text))//campos vazios
+                if (String.IsNullOrEmpty(cmbPatio.Text) || String.IsNullOrEmpty(cmbPlaca.Text) || idClienteVeiculo == 0 || idEstacionar == 0)//campos vazios
                 {
-                    MessageBox.Show("Preencha os campos","Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Preencha os campos ou selecione novamente o cliente","Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else

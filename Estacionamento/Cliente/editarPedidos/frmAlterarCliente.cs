@@ -92,9 +92,9 @@ namespace Estacionamento.editarPedidos
         {
             bool result = false;
 
-            if (String.IsNullOrEmpty(txtCliente.Text) || String.IsNullOrEmpty(txtEmail.Text))//verificar campos vazios
+            if (String.IsNullOrEmpty(txtCliente.Text) || String.IsNullOrEmpty(txtEmail.Text) || idCliente == 0)//verificar campos vazios
             {
-                MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha os campos ou selecione o cliente novamente", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             else

@@ -251,7 +251,6 @@ namespace Estacionamento
             // 
             // btnGravar
             // 
-            this.btnGravar.Enabled = false;
             this.btnGravar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGravar.Location = new System.Drawing.Point(636, 740);
             this.btnGravar.Name = "btnGravar";
@@ -292,6 +291,7 @@ namespace Estacionamento
             // 
             // btnCarregar
             // 
+            this.btnCarregar.Enabled = false;
             this.btnCarregar.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCarregar.Location = new System.Drawing.Point(1582, 718);
             this.btnCarregar.Name = "btnCarregar";
@@ -311,7 +311,6 @@ namespace Estacionamento
             this.ptbEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbEditar.TabIndex = 191;
             this.ptbEditar.TabStop = false;
-            this.ptbEditar.Visible = false;
             this.ptbEditar.Click += new System.EventHandler(this.ptbEditar_Click);
             // 
             // ptbFoto

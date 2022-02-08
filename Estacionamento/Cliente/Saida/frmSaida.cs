@@ -126,22 +126,30 @@ namespace Estacionamento.Saida
         {
             bool result = false;
 
-            estacionar.horarioSaida = horaSaida;//parametros
-            estacionar.dataSaida = Convert.ToDateTime(dtpData.Text);
-            estacionar.Preco = Convert.ToDecimal(lblPrecohora.Text);
-            estacionar.idEstacionar = codigoEstacionar;
-            pagamento.CodigoFormaPagamento = Convert.ToInt32(cmbFormadepagamento.ValueMember);
-            
-
-            result = estacionarDAO.Saida(estacionar, pagamento);//recebe o resultado
-
-            if (result == true)
+            if (codigoEstacionar == 0 || String.IsNullOrEmpty(lblPrecohora.Text) || String.IsNullOrEmpty(cmbFormadepagamento.ValueMember))//verificar campos vazios
             {
-                MessageBox.Show("Saida concluída com sucesso","Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                carregarGrid();
-                limparCampos();
+                MessageBox.Show("Preencha os campos ou selecione a veiculo novamente", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
+            else
+            {
+
+                estacionar.horarioSaida = horaSaida;//parametros
+                estacionar.dataSaida = Convert.ToDateTime(dtpData.Text);
+                estacionar.Preco = Convert.ToDecimal(lblPrecohora.Text);
+                estacionar.idEstacionar = codigoEstacionar;
+                pagamento.CodigoFormaPagamento = Convert.ToInt32(cmbFormadepagamento.ValueMember);
+
+
+                result = estacionarDAO.Saida(estacionar, pagamento);//recebe o resultado
+
+                if (result == true)
+                {
+                    MessageBox.Show("Saida concluída com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    carregarGrid();
+                    limparCampos();
+                }
+            }
 
         }
         private void frmSaida_Load(object sender, EventArgs e)
@@ -298,6 +306,11 @@ namespace Estacionamento.Saida
         {
             if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
                 e.Handled = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
         }
     }
 }

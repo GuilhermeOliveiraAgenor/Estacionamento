@@ -60,6 +60,9 @@ namespace Estacionamento
             idFuncionario = 0;
             acesso = 0;
             ptbFoto.Load(perfilPadrao);
+            btnGravar.Enabled = false;
+            btnCarregar.Enabled = false;
+            ptbEditar.Visible = true;
         }
 
         public void carregarFunc()
@@ -132,7 +135,9 @@ namespace Estacionamento
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
             cmbAcesso.Enabled = false;
+            ptbEditar.Visible = false;
             btnGravar.Enabled = true;
+            btnCarregar.Enabled = true;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -214,6 +219,7 @@ namespace Estacionamento
                         limparCampos();
                         desbloquearCampo();
                         txtPesquisar.Clear();
+                        ptbEditar.Visible = false;
                     }
 
                 }
@@ -244,6 +250,8 @@ namespace Estacionamento
             btnCadastrar.Enabled = false;
             btnExcluir.Enabled = false;
             btnGravar.Enabled = true;
+            btnCarregar.Enabled = false;
+            ptbEditar.Visible = false;
             cmbAcesso.Enabled = true;
         }
 
@@ -255,6 +263,8 @@ namespace Estacionamento
             btnCadastrar.Enabled = false;
             btnAlterar.Enabled = false;
             btnGravar.Enabled = true;
+            ptbEditar.Visible = false;
+            btnCarregar.Enabled = false;
             cmbAcesso.Enabled = false;
         }
 
@@ -311,11 +321,13 @@ namespace Estacionamento
             openFile.Multiselect = false;
 
             modo = "alterarFoto";
+            caminhoFoto = "";
 
             if (openFile.ShowDialog() == DialogResult.OK)//se selecionar a foto, coloca o nome do arquivo na variável
             {
                 caminhoFoto = openFile.FileName;
             }
+
             if (caminhoFoto != "")//se estiver com alguma coisa na variável
             {
                 ptbFoto.Load(caminhoFoto);//carrega a foto
@@ -323,6 +335,10 @@ namespace Estacionamento
                 btnCadastrar.Enabled = false;
                 btnExcluir.Enabled = false;
                 btnGravar.Enabled = true;
+            }
+            else
+            {
+                txtPesquisar.Focus();
             }
 
         }
