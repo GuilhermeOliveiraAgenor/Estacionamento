@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Estacionamento.editarPedidos
 {
-    public partial class frmInserirCliveiculo : Form
+    public partial class frmInserirVeiculo : Form
     {
         clienteVeiculo cliveiculo = new clienteVeiculo();
         clienteVeiculoDAO cliveiculoDAO = new clienteVeiculoDAO();
@@ -27,7 +27,7 @@ namespace Estacionamento.editarPedidos
         int patio1;
         int patio2;
 
-        public frmInserirCliveiculo()
+        public frmInserirVeiculo()
         {
             InitializeComponent();
         }
@@ -40,6 +40,13 @@ namespace Estacionamento.editarPedidos
         }
 
         public void limparCampos()
+        {
+            txtCodigocliente.Clear();
+            cmbVeiculo.Text = "";
+            txtPlaca.Clear();
+            txtPesquisar.Clear();
+        }
+        public void limparPesquisa()
         {
             txtCodigocliente.Clear();
             cmbVeiculo.Text = "";
@@ -68,12 +75,12 @@ namespace Estacionamento.editarPedidos
             if (dt.Rows.Count >= 1)
             {
                 dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
-                txtPesquisar.Clear();
             }
             else
             {
                 MessageBox.Show("Cpf não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisar.Focus();
+                limparPesquisa();
                 carregarGrid();
             }
 
@@ -126,8 +133,7 @@ namespace Estacionamento.editarPedidos
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
 
@@ -181,7 +187,7 @@ namespace Estacionamento.editarPedidos
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
 
@@ -207,28 +213,10 @@ namespace Estacionamento.editarPedidos
             new frmLogin().Show();
             this.Hide();
         }
-
-        private void txtPesquisar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancelarfuncionario_Click(object sender, EventArgs e)
         {
             limparCampos();
         }
-
-        private void txtCodigocliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
-                e.Handled = true;
-        }
-
         private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
@@ -239,6 +227,17 @@ namespace Estacionamento.editarPedidos
         {
             if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
                 e.Handled = true;
+        }
+
+        private void txtCodigocliente_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void cmbVeiculo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

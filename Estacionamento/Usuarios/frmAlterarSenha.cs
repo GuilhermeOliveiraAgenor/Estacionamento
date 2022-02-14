@@ -40,7 +40,7 @@ namespace Estacionamento.Usuarios
             {
                 MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+            
             else
             {
                 usuario.Senha = txtConfirmar.Text;
@@ -59,8 +59,7 @@ namespace Estacionamento.Usuarios
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmConfirmarSenha().Show();
             this.Hide();
         }
 
@@ -139,8 +138,49 @@ namespace Estacionamento.Usuarios
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
+        }
+
+        private void ptbAtivarsenha_Click(object sender, EventArgs e)
+        {
+            ptbAtivarsenha.Visible = false;
+            txtNovaSenha.UseSystemPasswordChar = false;
+            txtConfirmar.UseSystemPasswordChar = false;
+        }
+
+        private void ptbSenha_Click(object sender, EventArgs e)
+        {
+            ptbAtivarsenha.Visible = true;
+            txtNovaSenha.UseSystemPasswordChar = true;
+            txtConfirmar.UseSystemPasswordChar = true;
+        }
+        private void txtConfirmar_TextChanged(object sender, EventArgs e)
+        {
+            if (txtConfirmar.Text != txtNovaSenha.Text)
+            {
+                lblSenha.Text = "As senhas não são iguais";
+                btnConfirmar.Enabled = false;
+            }
+            if (txtConfirmar.Text == txtNovaSenha.Text)
+            {
+                lblSenha.Text = "";
+                btnConfirmar.Enabled = true;
+            }
+        }
+
+        private void txtNovaSenha_TextChanged(object sender, EventArgs e)
+        {
+            if (txtConfirmar.Text != txtNovaSenha.Text)
+            {
+                lblSenha.Text = "As senhas não são iguais";
+                btnConfirmar.Enabled = false;
+            }
+            if (txtConfirmar.Text == txtNovaSenha.Text)
+            {
+                lblSenha.Text = "";
+                btnConfirmar.Enabled = true;
+            }
         }
     }
 }

@@ -105,16 +105,23 @@ namespace Estacionamento.Login
             frmmenu.Show();
             this.Hide();
         }
-
-        private void ptbFundo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
+        }
+
+        private void ptbAtivarsenha_Click(object sender, EventArgs e)
+        {
+            ptbAtivarsenha.Visible = false;
+            txtSenha.UseSystemPasswordChar = false;
+
+        }
+
+        private void ptbSenha_Click(object sender, EventArgs e)
+        {
+            txtSenha.UseSystemPasswordChar = true;
+            ptbAtivarsenha.Visible = true;
         }
     }  
 }

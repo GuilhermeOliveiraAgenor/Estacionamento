@@ -55,6 +55,7 @@ namespace Estacionamento
             txtRg.Clear();
             txtSalario.Clear();
             txtProfissao.Clear();
+            txtPesquisar.Clear();
             cmbAcesso.Text = "";
             cmbAcesso.Enabled = true;
             idFuncionario = 0;
@@ -63,6 +64,26 @@ namespace Estacionamento
             btnGravar.Enabled = false;
             btnCarregar.Enabled = false;
             ptbEditar.Visible = true;
+        }
+
+        public void limparPesquisa()
+        {
+            //limpa os campos textbox
+            txtPrimeironome.Clear();
+            txtSobrenome.Clear();
+            txtCpf.Clear();
+            txtRg.Clear();
+            txtSalario.Clear();
+            txtProfissao.Clear();
+            cmbAcesso.Text = "";
+            cmbAcesso.Enabled = true;
+            idFuncionario = 0;
+            acesso = 0;
+            ptbFoto.Load(perfilPadrao);
+            btnGravar.Enabled = false;
+            btnCarregar.Enabled = false;
+            ptbEditar.Visible = true;
+            txtPesquisar.Focus();
         }
 
         public void carregarFunc()
@@ -107,14 +128,7 @@ namespace Estacionamento
             //vai para tela de login
             new frmMenuu().Show();
             this.Hide();
-
         }
-
-        private void ptbAtivarsenha_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmCadFuncionario_Load(object sender, EventArgs e)
         {
             List<nivelAcesso> nivel = nivelDAO.carregarAcesso();
@@ -304,7 +318,7 @@ namespace Estacionamento
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 carregarFunc();
-                limparCampos();
+                limparPesquisa();
                 ptbEditar.Visible = false;
             }
         }
@@ -429,7 +443,7 @@ namespace Estacionamento
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
 
@@ -475,17 +489,22 @@ namespace Estacionamento
             {
                 e.Handled = true;
             }
-
+          
         }
 
         private void txtSalario_MouseHover(object sender, EventArgs e)
         {
-            lblSalario.Text = "Digite o salário com uma vírgula. Exemplo: 1000.0";
+            lblSalario.Text = "Digite o salário com uma vírgula. Exemplo: 1000,0";
         }
 
         private void txtSalario_MouseLeave(object sender, EventArgs e)
         {
             lblSalario.Text = "";
+        }
+
+        private void cmbAcesso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

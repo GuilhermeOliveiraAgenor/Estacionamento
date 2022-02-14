@@ -61,17 +61,27 @@ namespace Estacionamento.editarPedidos
                 {
                     lblPatio2.Text = row["Patio2"].ToString();
                 }
-
             }
         }
         public void irMenu()
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
 
         public void limparCampos()
+        {
+            lblHora.Text = "";
+            lblData.Text = "";
+            cmbPatio.Text = "";
+            cmbPlaca.Text = "";
+            cmbPlaca.Items.Clear();
+            txtPesquisar.Clear();
+            idClienteVeiculo = 0;
+            idEstacionar = 0;
+        }
+
+        public void limparPesquisa()
         {
             lblHora.Text = "";
             lblData.Text = "";
@@ -85,6 +95,7 @@ namespace Estacionamento.editarPedidos
         private void frmAlterarEstacionar_Load(object sender, EventArgs e)
         {
             vagasOcupadas();
+            //TODO: Mostrar id estacionar
             
         }
 
@@ -101,8 +112,7 @@ namespace Estacionamento.editarPedidos
 
             if (dt.Rows.Count >= 1)
             {
-                 cmbPlaca.Items.Clear();//limpa o combobox
-                txtPesquisar.Clear();
+                cmbPlaca.Items.Clear();//limpa o combobox
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -123,8 +133,9 @@ namespace Estacionamento.editarPedidos
             {
                 MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
+                txtPesquisar.Focus();
                 vagasOcupadas();
-                limparCampos();
+                limparPesquisa();
             }
 
             
@@ -180,7 +191,6 @@ namespace Estacionamento.editarPedidos
                         MessageBox.Show("Alteração concluída", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         vagasOcupadas();
                         limparCampos();
-                        txtPesquisar.Clear();
                         btnExcluir.Enabled = true;
                         btnGravar.Enabled = false;
                     }
@@ -205,7 +215,6 @@ namespace Estacionamento.editarPedidos
                         MessageBox.Show("Exclusão concluída", "Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         vagasOcupadas();
                         limparCampos();
-                        txtPesquisar.Clear();
                         btnAlterar.Enabled = true;
                         btnGravar.Enabled = false;
                     }
@@ -288,12 +297,6 @@ namespace Estacionamento.editarPedidos
             new frmAlterarCliente().Show();
             this.Hide();
         }
-
-        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
@@ -343,7 +346,7 @@ namespace Estacionamento.editarPedidos
 
         private void veiculoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
 
@@ -368,16 +371,6 @@ namespace Estacionamento.editarPedidos
             loginUsuario.logout();
             new frmLogin().Show();
             this.Hide();
-        }
-
-        private void txtPesquisar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNome_Click(object sender, EventArgs e)
-        {
-
         }
         private void frmAlterarEstacionar_DoubleClick(object sender, EventArgs e)
         {
@@ -404,6 +397,16 @@ namespace Estacionamento.editarPedidos
         {
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
+        }
+
+        private void cmbPatio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cmbPlaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     } 
 }

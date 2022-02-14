@@ -5,7 +5,6 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Model.dl
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Model.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.csproj.AssemblyReference.cache
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmAlterarCliente.resources
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmInserirCliveiculo.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Entrada.frmCadCliente.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Entrada.frmEntrada.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Entrada.frmVerificar.resources
@@ -111,3 +110,4 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\itextsha
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\itextsharp.xml
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Usuarios.frmAlterarSenha.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Usuarios.frmConfirmarSenha.resources
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmInserirVeiculo.resources

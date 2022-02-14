@@ -669,7 +669,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Hora, COUNT(*) as Sessões from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Sessões desc";
+                cmdo.CommandText = "select DATEPART(HOUR,horarioEntrada) as Hora, COUNT(*) as Carros from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,horarioEntrada) having COUNT(*) > 1 order by Carros desc";
 
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
                 dt.Load(dr);//carrega o dt

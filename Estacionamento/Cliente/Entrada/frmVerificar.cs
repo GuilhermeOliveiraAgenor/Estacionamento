@@ -49,42 +49,6 @@ namespace Estacionamento.Entrada
             this.Hide();
 
         }
-        
-        private void btnCodigo_Click(object sender, EventArgs e)
-        {
-            
-            DataTable dt = new DataTable();
-
-            //passar parametros
-            string cpf = txtCpf.Text;
-
-            dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado do datatable
-
-            if (dt.Rows.Count == 1)
-            {
-                MessageBox.Show("Cliente encontrado", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                frmEntrada frmentrada = new frmEntrada(txtCpf.Text);//vai para a tela de entrada
-                frmentrada.Show();
-                this.Hide();
-
-            }
-            if (dt.Rows.Count < 1)
-            {
-                DialogResult dr = MessageBox.Show("Erro ao encontrar cliente. Deseja cadastrar ?", "Erro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
-                {
-                    irCadastro();//vai para tela de cadastrar cliente
-                }
-                if (dr == DialogResult.No)
-                {
-                    txtCpf.Focus();
-                }
-              
-            }
-            
-        }
-        
         private void btnCadastro_Click(object sender, EventArgs e)
         {
             irCadastro();
@@ -97,16 +61,9 @@ namespace Estacionamento.Entrada
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
-
-        private void frmVerificar_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmVerificar().Show();
@@ -157,7 +114,7 @@ namespace Estacionamento.Entrada
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
 
@@ -183,10 +140,40 @@ namespace Estacionamento.Entrada
             new frmLogin().Show();
             this.Hide();
         }
+        private void btnCodigo_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            //passar parametros
+            string cpf = txtCpf.Text;
+
+            dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado do datatable
+
+            if (dt.Rows.Count == 1)
+            {
+                frmEntrada frmentrada = new frmEntrada(txtCpf.Text);//vai para a tela de entrada
+                frmentrada.Show();
+                this.Hide();
+
+            }
+            if (dt.Rows.Count < 1)
+            {
+                DialogResult dr = MessageBox.Show("Erro ao encontrar cliente. Deseja cadastrar ?", "Erro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    irCadastro();//vai para tela de cadastrar cliente
+                }
+                if (dr == DialogResult.No)
+                {
+                    txtCpf.Focus();
+                }
+
+            }
+        }
 
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+            if(!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
         }
     }

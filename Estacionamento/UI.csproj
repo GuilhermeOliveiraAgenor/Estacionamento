@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>vehicle_car_vacation_holiday_transport_icon_196788.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\vehicle_car_vacation_holiday_transport_icon_196788.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -352,10 +352,10 @@
     <Compile Include="Funcionario\Cadastro\FrmCadFuncionario.Designer.cs">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\Login\frmLogin.cs">
+    <Compile Include="Funcionario\Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cliente\Login\frmLogin.Designer.cs">
+    <Compile Include="Funcionario\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionario\Cadastro\frmRelatorio.cs">
@@ -411,7 +411,7 @@
     <EmbeddedResource Include="Funcionario\Cadastro\FrmCadFuncionario.resx">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cliente\Login\frmLogin.resx">
+    <EmbeddedResource Include="Funcionario\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionario\Cadastro\frmRelatorio.resx">
@@ -478,7 +478,11 @@
   <ItemGroup>
     <None Include="Resources\1486505375-edit-pen-change-option-pencil-write_81422.ico" />
     <None Include="Resources\icone_perfil.jpg" />
-    <Content Include="vehicle_car_vacation_holiday_transport_icon_196788.ico" />
+    <None Include="Resources\olho.png" />
+    <None Include="Resources\ver.png" />
+    <None Include="Resources\Citycons_car_icon-icons.com_67916.png" />
+    <Content Include="Resources\Citycons_car_icon-icons.com_67916.ico" />
+    <Content Include="Resources\vehicle_car_vacation_holiday_transport_icon_196788.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

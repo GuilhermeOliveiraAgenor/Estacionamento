@@ -25,6 +25,7 @@ namespace Estacionamento.Saida
         Pagamento pagamento = new Pagamento();
         DateTime horaEntrada = new DateTime();
         DateTime horaSaida = new DateTime();
+        DateTime data = new DateTime();
 
         int codigoEstacionar;
         decimal Valor;
@@ -67,6 +68,7 @@ namespace Estacionamento.Saida
             cmbFormadepagamento.Text = "";
             txtPesquisar.Clear();
             dgvEstacionamento.Enabled = true;
+            btnSaida.Enabled = false;
             codigoEstacionar = 0;
             horaEntrada = Convert.ToDateTime("00:00");
         }
@@ -77,8 +79,9 @@ namespace Estacionamento.Saida
             DataTable dt = new DataTable();
 
             horaSaida = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+            data = Convert.ToDateTime(DateTime.Now.ToString("D", System.Globalization.DateTimeFormatInfo.InvariantInfo));
 
-             dt = estacionarDAO.pesqVeiculo(placa);//recebe o resultado
+            dt = estacionarDAO.pesqVeiculo(placa);//recebe o resultado
 
              if (dt.Rows.Count == 1)//se linhas forem afetadas, as informações vao ser carregadas
              {
@@ -129,13 +132,13 @@ namespace Estacionamento.Saida
             if (codigoEstacionar == 0 || String.IsNullOrEmpty(lblPrecohora.Text) || String.IsNullOrEmpty(cmbFormadepagamento.ValueMember))//verificar campos vazios
             {
                 MessageBox.Show("Preencha os campos ou selecione a veiculo novamente", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            }   
 
             else
             {
 
                 estacionar.horarioSaida = horaSaida;//parametros
-                estacionar.dataSaida = Convert.ToDateTime(dtpData.Text);
+                estacionar.dataSaida = data;
                 estacionar.Preco = Convert.ToDecimal(lblPrecohora.Text);
                 estacionar.idEstacionar = codigoEstacionar;
                 pagamento.CodigoFormaPagamento = Convert.ToInt32(cmbFormadepagamento.ValueMember);
@@ -179,8 +182,10 @@ namespace Estacionamento.Saida
             int linha = 0;
 
             btnSaida.Enabled = false;
+            cmbFormadepagamento.Text = "";
+            horaSaida = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+            data = Convert.ToDateTime(DateTime.Now.ToString("D", System.Globalization.DateTimeFormatInfo.InvariantInfo));
 
-           horaSaida = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
 
             linha = dgvEstacionamento.CurrentRow.Index;
             codigoEstacionar = Convert.ToInt32(dgvEstacionamento[0, linha].Value.ToString());
@@ -204,8 +209,7 @@ namespace Estacionamento.Saida
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
 
@@ -222,12 +226,6 @@ namespace Estacionamento.Saida
             }
             btnSaida.Enabled = true;
         }
-
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmVerificar().Show();
@@ -245,12 +243,6 @@ namespace Estacionamento.Saida
             new frmAlterarEstacionar().Show();
             this.Hide();
         }
-
-        private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmAlterarCliente().Show();
@@ -259,7 +251,7 @@ namespace Estacionamento.Saida
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
 
@@ -285,17 +277,6 @@ namespace Estacionamento.Saida
             new frmLogin().Show();
             this.Hide();
         }
-
-        private void txtPesquisar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblpesquisa_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmSaida_DoubleClick(object sender, EventArgs e)
         {
             carregarGrid();
@@ -311,6 +292,11 @@ namespace Estacionamento.Saida
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        private void cmbFormadepagamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

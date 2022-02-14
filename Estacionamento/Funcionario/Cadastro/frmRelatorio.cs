@@ -31,6 +31,12 @@ namespace Estacionamento.Funcionario.Relatorio
         {
             InitializeComponent();
         }
+
+        public void limparCampoValor()
+        {
+            txtAno.Clear();
+            cmbMes.Text = "";
+        }
         public void pesqMes()
         {
             DataTable dt = new DataTable();
@@ -42,6 +48,7 @@ namespace Estacionamento.Funcionario.Relatorio
 
             if (dt.Rows.Count >= 1)
             {
+                limparCampoValor();
                 foreach (DataRow row in dt.Rows)
                 {
                     lblValor.Text = row["Valor"].ToString();//carrega a informaçao
@@ -58,20 +65,17 @@ namespace Estacionamento.Funcionario.Relatorio
         public void carregarGrid()
         {
             dgvRelatorio.DataSource = estacionarDAO.veiculosHoje();//carrega o grid
-            dgvRelatorio.Refresh();
         }
         private void btnSairmenu_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
 
         private void frmRelatorio_Load(object sender, EventArgs e)
         {
             //TODO: tela
-            dgvRelatorio.DataSource = estacionarDAO.veiculosHoje();//carrega o grid
-            dgvRelatorio.Refresh();
+            carregarGrid();
         }
 
         private void cmbPesquisa_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,6 +122,7 @@ namespace Estacionamento.Funcionario.Relatorio
 
                 if (dt.Rows.Count >= 1)
                 {
+                    dgvRelatorio.Columns.Clear();
                     foreach (DataRow row in dt.Rows)
                     {
                         lblValor.Text = row["Valor"].ToString();
@@ -146,6 +151,7 @@ namespace Estacionamento.Funcionario.Relatorio
 
             if (dt.Rows.Count >= 1)
             {
+                limparCampoValor();
                 foreach (DataRow row in dt.Rows)
                 {
                     lblValor.Text = row["Valor"].ToString();//carrega a informaçao
@@ -176,6 +182,8 @@ namespace Estacionamento.Funcionario.Relatorio
 
             if (dt.Rows.Count >= 1)
             {
+                txtPesqAno.Clear();
+                cmbPesqMes.Text = "";
                 dgvRelatorio.DataSource = estacionarDAO.horasMes(mes,ano);//carrega o grid
                 dgvRelatorio.Refresh();
             }
@@ -188,21 +196,6 @@ namespace Estacionamento.Funcionario.Relatorio
             }
 
         }
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblHoras_Click(object sender, EventArgs e)
-        {
-                      
-        }
-
-        private void lblHoras_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void lbl7dias_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -217,7 +210,7 @@ namespace Estacionamento.Funcionario.Relatorio
                     dgvRelatorio.Refresh();
                 }
             }
-            if (dt.Rows.Count < 1)
+            else
             {
                 MessageBox.Show("Nenhum valor encontrado. R$ 0,00", "Valor = 0.00", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //mensagem de erro
@@ -362,7 +355,7 @@ namespace Estacionamento.Funcionario.Relatorio
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
 
@@ -376,6 +369,26 @@ namespace Estacionamento.Funcionario.Relatorio
         {
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
+        }
+
+        private void frmRelatorio_DoubleClick(object sender, EventArgs e)
+        {
+            carregarGrid();
+        }
+
+        private void cmbMes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cmbPesqMes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cmbPesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Estacionamento.Login
         /// </summary>
         private void InitializeComponent()
         {
-            this.ptbFundo = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ptbAtivarsenha = new System.Windows.Forms.PictureBox();
             this.ptbSenha = new System.Windows.Forms.PictureBox();
@@ -40,22 +40,12 @@ namespace Estacionamento.Login
             this.label4 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbFundo)).BeginInit();
+            this.ptbFundo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbFundo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ptbFundo
-            // 
-            this.ptbFundo.Image = global::Estacionamento.Properties.Resources.cidade;
-            this.ptbFundo.Location = new System.Drawing.Point(0, -1);
-            this.ptbFundo.Name = "ptbFundo";
-            this.ptbFundo.Size = new System.Drawing.Size(1923, 1062);
-            this.ptbFundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbFundo.TabIndex = 1;
-            this.ptbFundo.TabStop = false;
-            this.ptbFundo.Click += new System.EventHandler(this.ptbFundo_Click);
             // 
             // panel1
             // 
@@ -69,32 +59,37 @@ namespace Estacionamento.Login
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtSenha);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(759, 311);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(406, 438);
+            this.panel1.Size = new System.Drawing.Size(419, 453);
             this.panel1.TabIndex = 2;
             // 
             // ptbAtivarsenha
             // 
-            this.ptbAtivarsenha.Location = new System.Drawing.Point(284, 213);
+            this.ptbAtivarsenha.Image = global::Estacionamento.Properties.Resources.olho;
+            this.ptbAtivarsenha.Location = new System.Drawing.Point(309, 216);
             this.ptbAtivarsenha.Name = "ptbAtivarsenha";
             this.ptbAtivarsenha.Size = new System.Drawing.Size(38, 39);
             this.ptbAtivarsenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbAtivarsenha.TabIndex = 159;
             this.ptbAtivarsenha.TabStop = false;
+            this.ptbAtivarsenha.Click += new System.EventHandler(this.ptbAtivarsenha_Click);
             // 
             // ptbSenha
             // 
-            this.ptbSenha.Location = new System.Drawing.Point(284, 213);
+            this.ptbSenha.Image = global::Estacionamento.Properties.Resources.ver;
+            this.ptbSenha.Location = new System.Drawing.Point(309, 216);
             this.ptbSenha.Name = "ptbSenha";
             this.ptbSenha.Size = new System.Drawing.Size(38, 39);
             this.ptbSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbSenha.TabIndex = 158;
             this.ptbSenha.TabStop = false;
+            this.ptbSenha.Click += new System.EventHandler(this.ptbSenha_Click);
             // 
             // btnSairmenu
             // 
-            this.btnSairmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSairmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairmenu.Location = new System.Drawing.Point(278, 386);
             this.btnSairmenu.Name = "btnSairmenu";
             this.btnSairmenu.Size = new System.Drawing.Size(98, 39);
@@ -105,8 +100,8 @@ namespace Estacionamento.Login
             // 
             // btnLoginfuncionario
             // 
-            this.btnLoginfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginfuncionario.Location = new System.Drawing.Point(152, 289);
+            this.btnLoginfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginfuncionario.Location = new System.Drawing.Point(164, 291);
             this.btnLoginfuncionario.Name = "btnLoginfuncionario";
             this.btnLoginfuncionario.Size = new System.Drawing.Size(98, 34);
             this.btnLoginfuncionario.TabIndex = 4;
@@ -118,51 +113,61 @@ namespace Estacionamento.Login
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(94, 50);
+            this.label2.Location = new System.Drawing.Point(61, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 39);
+            this.label2.Size = new System.Drawing.Size(286, 39);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Estacionamento";
+            this.label2.Text = "Estacionamento Alfa Park";
             // 
             // txtCpf
             // 
-            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpf.Location = new System.Drawing.Point(152, 136);
+            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.Location = new System.Drawing.Point(143, 139);
             this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(126, 27);
+            this.txtCpf.Size = new System.Drawing.Size(153, 30);
             this.txtCpf.TabIndex = 1;
             this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(91, 213);
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(82, 216);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 19);
+            this.label4.Size = new System.Drawing.Size(51, 24);
             this.label4.TabIndex = 0;
             this.label4.Text = "Senha";
             // 
             // txtSenha
             // 
-            this.txtSenha.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(152, 213);
+            this.txtSenha.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(143, 216);
             this.txtSenha.MaxLength = 50;
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(126, 27);
+            this.txtSenha.Size = new System.Drawing.Size(153, 30);
             this.txtSenha.TabIndex = 2;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(91, 139);
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(82, 142);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 19);
+            this.label5.Size = new System.Drawing.Size(31, 24);
             this.label5.TabIndex = 0;
             this.label5.Text = "Cpf";
+            // 
+            // ptbFundo
+            // 
+            this.ptbFundo.Image = global::Estacionamento.Properties.Resources.cidade;
+            this.ptbFundo.Location = new System.Drawing.Point(0, -1);
+            this.ptbFundo.Name = "ptbFundo";
+            this.ptbFundo.Size = new System.Drawing.Size(1923, 1062);
+            this.ptbFundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbFundo.TabIndex = 1;
+            this.ptbFundo.TabStop = false;
             // 
             // frmLogin
             // 
@@ -171,13 +176,15 @@ namespace Estacionamento.Login
             this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ptbFundo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
-            this.Text = "frmLogin";
-            ((System.ComponentModel.ISupportInitialize)(this.ptbFundo)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Login";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbFundo)).EndInit();
             this.ResumeLayout(false);
 
         }

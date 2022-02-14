@@ -1,7 +1,7 @@
 ﻿
 namespace Estacionamento.editarPedidos
 {
-    partial class frmInserirCliveiculo
+    partial class frmInserirVeiculo
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@ namespace Estacionamento.editarPedidos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInserirVeiculo));
             this.label4 = new System.Windows.Forms.Label();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.btnCodigo = new System.Windows.Forms.Button();
@@ -64,27 +65,28 @@ namespace Estacionamento.editarPedidos
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(273, 312);
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(280, 477);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 19);
+            this.label4.Size = new System.Drawing.Size(58, 24);
             this.label4.TabIndex = 235;
-            this.label4.Text = "Veiculo";
+            this.label4.Text = "Veículo";
             // 
             // txtPesquisar
             // 
-            this.txtPesquisar.Location = new System.Drawing.Point(1479, 76);
+            this.txtPesquisar.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisar.Location = new System.Drawing.Point(1558, 72);
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(154, 20);
+            this.txtPesquisar.Size = new System.Drawing.Size(113, 30);
             this.txtPesquisar.TabIndex = 233;
             // 
             // btnCodigo
             // 
-            this.btnCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCodigo.Location = new System.Drawing.Point(1664, 66);
+            this.btnCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCodigo.Location = new System.Drawing.Point(1699, 68);
             this.btnCodigo.Name = "btnCodigo";
-            this.btnCodigo.Size = new System.Drawing.Size(108, 41);
+            this.btnCodigo.Size = new System.Drawing.Size(106, 37);
             this.btnCodigo.TabIndex = 232;
             this.btnCodigo.Text = "Pesquisar";
             this.btnCodigo.UseVisualStyleBackColor = true;
@@ -93,37 +95,39 @@ namespace Estacionamento.editarPedidos
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1425, 74);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1510, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 19);
+            this.label1.Size = new System.Drawing.Size(31, 24);
             this.label1.TabIndex = 231;
             this.label1.Text = "Cpf";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(273, 258);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(166, 324);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 19);
+            this.label3.Size = new System.Drawing.Size(31, 24);
             this.label3.TabIndex = 230;
             this.label3.Text = "Cpf";
             // 
             // txtCodigocliente
             // 
-            this.txtCodigocliente.Location = new System.Drawing.Point(413, 257);
+            this.txtCodigocliente.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigocliente.Location = new System.Drawing.Point(233, 322);
             this.txtCodigocliente.MaxLength = 11;
             this.txtCodigocliente.Name = "txtCodigocliente";
-            this.txtCodigocliente.Size = new System.Drawing.Size(154, 20);
+            this.txtCodigocliente.Size = new System.Drawing.Size(127, 30);
             this.txtCodigocliente.TabIndex = 227;
+            this.txtCodigocliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigocliente_KeyPress_1);
             // 
             // btnCadastrarveiculo
             // 
-            this.btnCadastrarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarveiculo.Location = new System.Drawing.Point(397, 554);
+            this.btnCadastrarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarveiculo.Location = new System.Drawing.Point(408, 650);
             this.btnCadastrarveiculo.Name = "btnCadastrarveiculo";
-            this.btnCadastrarveiculo.Size = new System.Drawing.Size(99, 41);
+            this.btnCadastrarveiculo.Size = new System.Drawing.Size(102, 39);
             this.btnCadastrarveiculo.TabIndex = 218;
             this.btnCadastrarveiculo.Text = "Cadastrar";
             this.btnCadastrarveiculo.UseVisualStyleBackColor = true;
@@ -132,10 +136,10 @@ namespace Estacionamento.editarPedidos
             // lblPlaca
             // 
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaca.Location = new System.Drawing.Point(275, 356);
+            this.lblPlaca.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaca.Location = new System.Drawing.Point(525, 328);
             this.lblPlaca.Name = "lblPlaca";
-            this.lblPlaca.Size = new System.Drawing.Size(40, 19);
+            this.lblPlaca.Size = new System.Drawing.Size(48, 24);
             this.lblPlaca.TabIndex = 222;
             this.lblPlaca.Text = "Placa";
             // 
@@ -144,16 +148,16 @@ namespace Estacionamento.editarPedidos
             this.dgvVeiculos.AllowUserToAddRows = false;
             this.dgvVeiculos.AllowUserToDeleteRows = false;
             this.dgvVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVeiculos.Location = new System.Drawing.Point(965, 198);
+            this.dgvVeiculos.Location = new System.Drawing.Point(1027, 254);
             this.dgvVeiculos.Name = "dgvVeiculos";
             this.dgvVeiculos.ReadOnly = true;
-            this.dgvVeiculos.Size = new System.Drawing.Size(660, 308);
+            this.dgvVeiculos.Size = new System.Drawing.Size(671, 382);
             this.dgvVeiculos.TabIndex = 217;
             // 
             // btnCancelarfuncionario
             // 
-            this.btnCancelarfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarfuncionario.Location = new System.Drawing.Point(1123, 565);
+            this.btnCancelarfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarfuncionario.Location = new System.Drawing.Point(1321, 852);
             this.btnCancelarfuncionario.Name = "btnCancelarfuncionario";
             this.btnCancelarfuncionario.Size = new System.Drawing.Size(107, 47);
             this.btnCancelarfuncionario.TabIndex = 216;
@@ -163,10 +167,10 @@ namespace Estacionamento.editarPedidos
             // 
             // btnSair
             // 
-            this.btnSair.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(1244, 565);
+            this.btnSair.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Location = new System.Drawing.Point(1463, 852);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(107, 47);
+            this.btnSair.Size = new System.Drawing.Size(145, 47);
             this.btnSair.TabIndex = 215;
             this.btnSair.Text = "Sair para o menu";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -174,16 +178,18 @@ namespace Estacionamento.editarPedidos
             // 
             // cmbVeiculo
             // 
-            this.cmbVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVeiculo.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbVeiculo.FormattingEnabled = true;
-            this.cmbVeiculo.Location = new System.Drawing.Point(413, 310);
+            this.cmbVeiculo.Location = new System.Drawing.Point(387, 475);
             this.cmbVeiculo.Name = "cmbVeiculo";
-            this.cmbVeiculo.Size = new System.Drawing.Size(154, 21);
+            this.cmbVeiculo.Size = new System.Drawing.Size(213, 31);
             this.cmbVeiculo.TabIndex = 236;
             this.cmbVeiculo.SelectedIndexChanged += new System.EventHandler(this.cmbVeiculo_SelectedIndexChanged);
+            this.cmbVeiculo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbVeiculo_KeyPress);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sessaoToolStripMenuItem,
             this.editarToolStripMenuItem1,
@@ -191,7 +197,7 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
             this.menuStrip1.TabIndex = 237;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,34 +209,34 @@ namespace Estacionamento.editarPedidos
             this.editarToolStripMenuItem,
             this.vagasToolStripMenuItem});
             this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
-            this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.sessaoToolStripMenuItem.Text = "Sessao";
+            this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
+            this.sessaoToolStripMenuItem.Text = "Sessão";
             // 
             // entradaToolStripMenuItem
             // 
             this.entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
-            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
             this.entradaToolStripMenuItem.Text = "Entrada";
             this.entradaToolStripMenuItem.Click += new System.EventHandler(this.entradaToolStripMenuItem_Click);
             // 
             // saídaToolStripMenuItem
             // 
             this.saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
-            this.saídaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saídaToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
             this.saídaToolStripMenuItem.Text = "Saída";
             this.saídaToolStripMenuItem.Click += new System.EventHandler(this.saídaToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
             this.editarToolStripMenuItem.Text = "Alterar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // vagasToolStripMenuItem
             // 
             this.vagasToolStripMenuItem.Name = "vagasToolStripMenuItem";
-            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
             this.vagasToolStripMenuItem.Text = "Vagas";
             this.vagasToolStripMenuItem.Click += new System.EventHandler(this.vagasToolStripMenuItem_Click);
             // 
@@ -240,21 +246,21 @@ namespace Estacionamento.editarPedidos
             this.clienteToolStripMenuItem,
             this.veiculoToolStripMenuItem});
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(49, 20);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
             this.editarToolStripMenuItem1.Text = "Editar";
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // veiculoToolStripMenuItem
             // 
             this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
-            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.veiculoToolStripMenuItem.Text = "Veiculo";
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
+            this.veiculoToolStripMenuItem.Text = "Veículo";
             this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
@@ -263,20 +269,20 @@ namespace Estacionamento.editarPedidos
             this.menuToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -286,33 +292,34 @@ namespace Estacionamento.editarPedidos
             this.loginToolStripMenuItem,
             this.fecharToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
+            this.usuarioToolStripMenuItem.Text = "Usuário";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(139, 28);
             this.loginToolStripMenuItem.Text = "Logout";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // fecharToolStripMenuItem
             // 
             this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(139, 28);
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
             // txtPlaca
             // 
-            this.txtPlaca.Location = new System.Drawing.Point(413, 358);
+            this.txtPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca.Location = new System.Drawing.Point(606, 328);
             this.txtPlaca.MaxLength = 7;
             this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(154, 20);
+            this.txtPlaca.Size = new System.Drawing.Size(98, 30);
             this.txtPlaca.TabIndex = 238;
             this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
             // 
-            // frmInserirCliveiculo
+            // frmInserirVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -331,8 +338,10 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.dgvVeiculos);
             this.Controls.Add(this.btnCancelarfuncionario);
             this.Controls.Add(this.btnSair);
-            this.Name = "frmInserirCliveiculo";
-            this.Text = "frmInserirCliVeiculo";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmInserirVeiculo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Inserir Veículo";
             this.Load += new System.EventHandler(this.frmInserirCliveiculo_Load);
             this.DoubleClick += new System.EventHandler(this.frmInserirCliveiculo_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).EndInit();

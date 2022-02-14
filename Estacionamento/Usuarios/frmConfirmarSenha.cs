@@ -1,4 +1,5 @@
 ﻿using DAO;
+using Estacionamento.editarPedidos;
 using Estacionamento.Menu;
 using Model;
 using System;
@@ -52,20 +53,28 @@ namespace Estacionamento.Usuarios
                 }
             }
         }
-
-        private void frmEditarUsuario_Load(object sender, EventArgs e)
+        private void ptbAtivarsenha_Click(object sender, EventArgs e)
         {
-
+            ptbAtivarsenha.Visible = false;
+            txtSenha.UseSystemPasswordChar = false;
         }
 
-        private void lblAno_Click(object sender, EventArgs e)
+        private void ptbSenha_Click(object sender, EventArgs e)
         {
-
+            ptbAtivarsenha.Visible = true;
+            txtSenha.UseSystemPasswordChar = true;
         }
 
-        private void txtSenha_TextChanged(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
+            new frmMenuu().Show();
+            this.Hide();
+        }
 
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmInserirVeiculo().Show();
+            this.Hide();
         }
     }
 }

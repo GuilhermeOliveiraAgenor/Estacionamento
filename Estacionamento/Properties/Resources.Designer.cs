@@ -83,6 +83,16 @@ namespace Estacionamento.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Citycons_car_icon_icons_com_67916 {
+            get {
+                object obj = ResourceManager.GetObject("Citycons_car_icon-icons.com_67916", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icone_perfil {
             get {
                 object obj = ResourceManager.GetObject("icone_perfil", resourceCulture);
@@ -116,6 +126,26 @@ namespace Estacionamento.Properties {
         internal static System.Drawing.Bitmap mapa1 {
             get {
                 object obj = ResourceManager.GetObject("mapa1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap olho {
+            get {
+                object obj = ResourceManager.GetObject("olho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ver {
+            get {
+                object obj = ResourceManager.GetObject("ver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

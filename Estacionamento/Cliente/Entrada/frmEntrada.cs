@@ -18,6 +18,8 @@ namespace Estacionamento.Entrada
         EstacionarDAO estacionarDAO = new EstacionarDAO();
         clienteVeiculoDAO cliVeiculoDAO = new clienteVeiculoDAO();
         Exception ex = new Exception();
+        DateTime hora = new DateTime();
+        DateTime data = new DateTime();
         int idCliente;
         int idVeiculo;
         int patio1;
@@ -66,6 +68,8 @@ namespace Estacionamento.Entrada
             cmbcodigoVeiculo.Text = "";
             lblCodigodocliente.Text = "";
             cmbcodigoVeiculo.Items.Clear();
+            txtPesquisar.Clear();
+            txtPesquisar.Focus();
         }
         public void configurarPesq()
         {
@@ -116,6 +120,8 @@ namespace Estacionamento.Entrada
         private void btnGravar_Click(object sender, EventArgs e)
         {
             bool result = false;
+            hora = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+            data = Convert.ToDateTime(DateTime.Now.ToString("D", System.Globalization.DateTimeFormatInfo.InvariantInfo));
 
             verificar();
 
@@ -128,8 +134,8 @@ namespace Estacionamento.Entrada
             {
 
                 estacionar.Patio = Convert.ToInt32(cmbPatio.Text);//passa os parametros
-                estacionar.dataEntrada = Convert.ToDateTime(dtpData.Text);
-                estacionar.horarioEntrada = Convert.ToDateTime(lblHora.Text);
+                estacionar.dataEntrada = data;
+                estacionar.horarioEntrada = hora;
                 estacionar.CodigoClienteVeiculo = Convert.ToInt32(cmbcodigoVeiculo.ValueMember);
 
                 result = estacionarDAO.Entrada(estacionar);//recebe o resultado
@@ -139,8 +145,6 @@ namespace Estacionamento.Entrada
                     MessageBox.Show("Entrada realizada com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     carregarGrid();
                     limparCampos();
-                    txtPesquisar.Clear();
-                    txtPesquisar.Focus();
                     btnGravar.Enabled = false;
                 }
             }
@@ -177,8 +181,7 @@ namespace Estacionamento.Entrada
                 MessageBox.Show("Cpf encontrado", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de concluido
 
                 dgvCadastro.DataSource = cliVeiculoDAO.pesqCpf(cpf);//carrega o grid
-                txtPesquisar.Clear();
-
+             
                 foreach (var item in veiculo)
                 {
                     cmbcodigoVeiculo.Items.Add(item.Placa);//adiciona as placas do cliente
@@ -230,16 +233,13 @@ namespace Estacionamento.Entrada
         private void btnCancelarfuncionario_Click(object sender, EventArgs e)
         {
             limparCampos();
-            txtPesquisar.Clear();
-            txtPesquisar.Focus();
             btnGravar.Enabled = false;
 
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
 
@@ -292,24 +292,23 @@ namespace Estacionamento.Entrada
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
-
-        private void txtPesquisar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNome_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
+        }
+
+        private void cmbPatio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cmbcodigoVeiculo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -41,6 +41,18 @@ namespace Estacionamento.editarPedidos
         {
             txtCliente.Clear();
             txtEmail.Clear();
+            txtPesquisarnome.Clear();
+            txtPesquisarcodigo.Clear();
+            lblCpf.Text = "";
+            idCliente = 0;
+            dgvClientes.Enabled = true;
+        }
+
+        public void limparPesquisa()
+        {
+            txtCliente.Clear();
+            txtEmail.Clear();
+            lblCpf.Text = "";
             idCliente = 0;
             dgvClientes.Enabled = true;
         }
@@ -68,13 +80,14 @@ namespace Estacionamento.editarPedidos
 
             if (dt.Rows.Count == 1)//se encontrar resultados, preenche os texts
             {
+                lblCpf.Text = txtPesquisarcodigo.Text;
                 foreach (DataRow row in dt.Rows)
                 {
                     txtCliente.Text = row["Nome"].ToString();
                     txtEmail.Text = row["Email"].ToString();
                     idCliente = Convert.ToInt32(row["idCliente"].ToString());
                 }
-               txtPesquisarcodigo.Clear();
+              
                 dgvClientes.Enabled = false;
             }
             else
@@ -82,9 +95,7 @@ namespace Estacionamento.editarPedidos
                 MessageBox.Show("Erro ao encontrar cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarcodigo.Focus();
                 carregarGrid();
-                limparCampos();
-
-
+                limparPesquisa();
             }
         }
 
@@ -111,8 +122,6 @@ namespace Estacionamento.editarPedidos
                     MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     carregarGrid();
                     limparCampos();
-                    txtPesquisarcodigo.Clear();
-                    txtPesquisarnome.Clear();
                 }
             }
 
@@ -124,16 +133,11 @@ namespace Estacionamento.editarPedidos
 
             linha = dgvClientes.CurrentRow.Index;
             txtCliente.Text = dgvClientes[1, linha].Value.ToString();
+            lblCpf.Text = dgvClientes[2, linha].Value.ToString();
             txtEmail.Text = dgvClientes[3, linha].Value.ToString();
             idCliente = dgvClientes[0, linha].Value.GetHashCode();
 
         }
-
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             string nome = txtPesquisarnome.Text;//nome que vai ser pesquisado
@@ -145,7 +149,6 @@ namespace Estacionamento.editarPedidos
             if (dt.Rows.Count >= 1)
             {
                 dgvClientes.DataSource = clienteDAO.PesqClienteNome(nome);//informações no grid
-                txtPesquisarnome.Clear();
                 dgvClientes.Enabled = true;
             }
             else
@@ -153,7 +156,7 @@ namespace Estacionamento.editarPedidos
                 MessageBox.Show("Erro ao encontrar nome", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisarnome.Focus();
                 carregarGrid();
-                limparCampos();
+                limparPesquisa();
             }
 
         }
@@ -166,8 +169,7 @@ namespace Estacionamento.editarPedidos
 
         private void btnVoltaraomenu_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
 
@@ -219,12 +221,6 @@ namespace Estacionamento.editarPedidos
             new frmAlterarCliente().Show();
             this.Hide();
         }
-
-        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
@@ -251,8 +247,6 @@ namespace Estacionamento.editarPedidos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
-            txtPesquisarcodigo.Clear();
-            txtPesquisarnome.Clear();
         }
 
         private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -270,6 +264,12 @@ namespace Estacionamento.editarPedidos
         {
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmInserirVeiculo().Show();
+            this.Hide();
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Estacionamento.Menu
             InitializeComponent();
         }
 
-        //TODO: Menu - tela, configurar campos, nao digitar na combobox, ver senha, data da entrada, data saida e limpar campo pesquisa
+        //TODO: Menu - tela,  nao digitar na combobox, calculo de horas e mostrar cpf e idestacionar
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -101,7 +101,7 @@ namespace Estacionamento.Menu
 
         private void btnAlterarveiculo_Click(object sender, EventArgs e)
         {
-            frmInserirCliveiculo frm = new frmInserirCliveiculo();
+            frmInserirVeiculo frm = new frmInserirVeiculo();
             frm.Show();
             this.Hide();
         }
@@ -121,11 +121,6 @@ namespace Estacionamento.Menu
         {
             vagasOcupadas();
         }
-
-        private void btnNotificação_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnListar_Click(object sender, EventArgs e)
         {
             dgvVeiculos.DataSource = cliveiculoDAO.CarregarClienteVeiculo();
@@ -144,7 +139,6 @@ namespace Estacionamento.Menu
             {
                 dgvVeiculos.DataSource = estacionarDAO.pesqPlaca(placa);
                 dgvVeiculos.Refresh();
-                txtPesquisarplaca.Clear();
             }
             else//se linhas nao forem afetadas
             {
@@ -166,7 +160,6 @@ namespace Estacionamento.Menu
             {
                 dgvVeiculos.DataSource = estacionarDAO.pesqCpf(cpf);//carrega o grid
                 dgvVeiculos.Refresh();
-                txtCpf.Clear();
             }
             else
             {
@@ -238,6 +231,7 @@ namespace Estacionamento.Menu
         private void btnRelatorio_Click(object sender, EventArgs e)
         {
             new frmRelatorio().Show();
+            this.Hide();
         }
 
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)

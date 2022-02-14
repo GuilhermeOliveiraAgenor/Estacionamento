@@ -110,7 +110,6 @@ namespace Estacionamento.Entrada
             if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o grid
             {
                 dgvCadastro.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega o grid
-                txtPesquisarcodigo.Clear();
             }
             else//se não afetar linhas, retorna erro
             {
@@ -140,30 +139,9 @@ namespace Estacionamento.Entrada
             carregarGrid();
         }
 
-        private void txtRg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCpf_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRg_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCpf_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnVoltaraomenu_Click(object sender, EventArgs e)
         {
-            frmMenuu frm = new frmMenuu();
-            frm.Show();
+            new frmMenuu().Show();
             this.Hide();
         }
 
@@ -223,7 +201,7 @@ namespace Estacionamento.Entrada
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmInserirCliveiculo().Show();
+            new frmInserirVeiculo().Show();
             this.Hide();
         }
 
@@ -289,7 +267,6 @@ namespace Estacionamento.Entrada
             if (dt.Rows.Count >= 1)
             {
                 dgvCadastro.DataSource = cliveiculoDAO.pesqPlaca(placa);//carrega no grid
-                txtPesquisarplaca.Clear();
             }
             else
             {
@@ -297,6 +274,11 @@ namespace Estacionamento.Entrada
                 txtPesquisarplaca.Focus();
                 carregarGrid();
             }
+        }
+
+        private void cmbcodVeiculo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

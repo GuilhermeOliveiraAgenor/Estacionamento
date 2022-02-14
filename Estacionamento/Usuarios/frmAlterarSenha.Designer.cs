@@ -29,6 +29,7 @@ namespace Estacionamento.Usuarios
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlterarSenha));
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtConfirmar = new System.Windows.Forms.TextBox();
@@ -50,14 +51,20 @@ namespace Estacionamento.Usuarios
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ptbAtivarsenha = new System.Windows.Forms.PictureBox();
+            this.ptbSenha = new System.Windows.Forms.PictureBox();
+            this.lblSenha = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Location = new System.Drawing.Point(906, 508);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(88, 35);
+            this.btnConfirmar.Size = new System.Drawing.Size(102, 39);
             this.btnConfirmar.TabIndex = 199;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -66,44 +73,51 @@ namespace Estacionamento.Usuarios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(716, 418);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 18);
+            this.label1.Size = new System.Drawing.Size(121, 24);
             this.label1.TabIndex = 201;
             this.label1.Text = "Confirmar Senha\r\n";
             // 
             // txtConfirmar
             // 
+            this.txtConfirmar.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmar.Location = new System.Drawing.Point(868, 418);
             this.txtConfirmar.MaxLength = 50;
             this.txtConfirmar.Name = "txtConfirmar";
-            this.txtConfirmar.Size = new System.Drawing.Size(202, 20);
+            this.txtConfirmar.Size = new System.Drawing.Size(226, 30);
             this.txtConfirmar.TabIndex = 200;
+            this.txtConfirmar.UseSystemPasswordChar = true;
+            this.txtConfirmar.TextChanged += new System.EventHandler(this.txtConfirmar_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(749, 349);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 18);
+            this.label2.Size = new System.Drawing.Size(86, 24);
             this.label2.TabIndex = 203;
             this.label2.Text = "Nova senha";
             // 
             // txtNovaSenha
             // 
+            this.txtNovaSenha.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNovaSenha.Location = new System.Drawing.Point(868, 349);
             this.txtNovaSenha.MaxLength = 50;
             this.txtNovaSenha.Name = "txtNovaSenha";
-            this.txtNovaSenha.Size = new System.Drawing.Size(202, 20);
+            this.txtNovaSenha.Size = new System.Drawing.Size(226, 30);
             this.txtNovaSenha.TabIndex = 202;
+            this.txtNovaSenha.UseSystemPasswordChar = true;
+            this.txtNovaSenha.TextChanged += new System.EventHandler(this.txtNovaSenha_TextChanged);
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(1348, 855);
+            this.btnMenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Location = new System.Drawing.Point(1514, 842);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(88, 35);
+            this.btnMenu.Size = new System.Drawing.Size(100, 48);
             this.btnMenu.TabIndex = 204;
             this.btnMenu.Text = "Voltar";
             this.btnMenu.UseVisualStyleBackColor = true;
@@ -111,6 +125,7 @@ namespace Estacionamento.Usuarios
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sessaoToolStripMenuItem,
             this.editarToolStripMenuItem1,
@@ -118,7 +133,7 @@ namespace Estacionamento.Usuarios
             this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
             this.menuStrip1.TabIndex = 216;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,34 +145,34 @@ namespace Estacionamento.Usuarios
             this.editarToolStripMenuItem,
             this.vagasToolStripMenuItem});
             this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
-            this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.sessaoToolStripMenuItem.Text = "Sessao";
+            this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
+            this.sessaoToolStripMenuItem.Text = "Sessão";
             // 
             // entradaToolStripMenuItem
             // 
             this.entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
-            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.entradaToolStripMenuItem.Text = "Entrada";
             this.entradaToolStripMenuItem.Click += new System.EventHandler(this.entradaToolStripMenuItem_Click);
             // 
             // saídaToolStripMenuItem
             // 
             this.saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
-            this.saídaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saídaToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.saídaToolStripMenuItem.Text = "Saída";
             this.saídaToolStripMenuItem.Click += new System.EventHandler(this.saídaToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.editarToolStripMenuItem.Text = "Alterar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // vagasToolStripMenuItem
             // 
             this.vagasToolStripMenuItem.Name = "vagasToolStripMenuItem";
-            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.vagasToolStripMenuItem.Text = "Vagas";
             this.vagasToolStripMenuItem.Click += new System.EventHandler(this.vagasToolStripMenuItem_Click);
             // 
@@ -167,21 +182,21 @@ namespace Estacionamento.Usuarios
             this.clienteToolStripMenuItem,
             this.veiculoToolStripMenuItem});
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(49, 20);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
             this.editarToolStripMenuItem1.Text = "Editar";
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // veiculoToolStripMenuItem
             // 
             this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
-            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.veiculoToolStripMenuItem.Text = "Veiculo";
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
+            this.veiculoToolStripMenuItem.Text = "Veículo";
             this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
@@ -190,20 +205,20 @@ namespace Estacionamento.Usuarios
             this.menuToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -213,28 +228,62 @@ namespace Estacionamento.Usuarios
             this.loginToolStripMenuItem,
             this.fecharToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
+            this.usuarioToolStripMenuItem.Text = "Usuário";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.loginToolStripMenuItem.Text = "Logout";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // fecharToolStripMenuItem
             // 
             this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
+            // 
+            // ptbAtivarsenha
+            // 
+            this.ptbAtivarsenha.Image = global::Estacionamento.Properties.Resources.olho;
+            this.ptbAtivarsenha.Location = new System.Drawing.Point(1131, 378);
+            this.ptbAtivarsenha.Name = "ptbAtivarsenha";
+            this.ptbAtivarsenha.Size = new System.Drawing.Size(38, 39);
+            this.ptbAtivarsenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAtivarsenha.TabIndex = 218;
+            this.ptbAtivarsenha.TabStop = false;
+            this.ptbAtivarsenha.Click += new System.EventHandler(this.ptbAtivarsenha_Click);
+            // 
+            // ptbSenha
+            // 
+            this.ptbSenha.Image = global::Estacionamento.Properties.Resources.ver;
+            this.ptbSenha.Location = new System.Drawing.Point(1131, 378);
+            this.ptbSenha.Name = "ptbSenha";
+            this.ptbSenha.Size = new System.Drawing.Size(38, 39);
+            this.ptbSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbSenha.TabIndex = 217;
+            this.ptbSenha.TabStop = false;
+            this.ptbSenha.Click += new System.EventHandler(this.ptbSenha_Click);
+            // 
+            // lblSenha
+            // 
+            this.lblSenha.AutoSize = true;
+            this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.Location = new System.Drawing.Point(932, 466);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(0, 18);
+            this.lblSenha.TabIndex = 219;
             // 
             // frmAlterarSenha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.lblSenha);
+            this.Controls.Add(this.ptbAtivarsenha);
+            this.Controls.Add(this.ptbSenha);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label2);
@@ -242,10 +291,14 @@ namespace Estacionamento.Usuarios
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtConfirmar);
             this.Controls.Add(this.btnConfirmar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlterarSenha";
-            this.Text = "frmAlterarSenha";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Alterar Senha";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +327,8 @@ namespace Estacionamento.Usuarios
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.PictureBox ptbAtivarsenha;
+        private System.Windows.Forms.PictureBox ptbSenha;
+        private System.Windows.Forms.Label lblSenha;
     }
 }
