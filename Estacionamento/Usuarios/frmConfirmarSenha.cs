@@ -1,5 +1,6 @@
 ﻿using DAO;
 using Estacionamento.editarPedidos;
+using Estacionamento.Entrada;
 using Estacionamento.Menu;
 using Model;
 using System;
@@ -74,6 +75,17 @@ namespace Estacionamento.Usuarios
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmInserirVeiculo().Show();
+            this.Hide();
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
             this.Hide();
         }
     }

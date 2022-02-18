@@ -72,7 +72,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, clienteVeiculo.Placa, Veiculo.descricaoVeiculo from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where clienteVeiculo.Placa = @Placa ";
+                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, clienteVeiculo.Placa, Veiculo.descricaoVeiculo as Veículo from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where clienteVeiculo.Placa = @Placa ";
                 cmdo.Parameters.Add("@Placa", SqlDbType.VarChar,10).Value = placa;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();
@@ -173,6 +173,7 @@ namespace Controller
             return cliVeiculo;
 
         }
+
         public DataTable CarregarClienteVeiculo()
         {
             SqlConnection conn = new SqlConnection(conectar);
@@ -184,7 +185,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini comando tipo text
-                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, Cliente.Email, clienteVeiculo.Placa,Veiculo.descricaoVeiculo from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo";
+                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, Cliente.Email, clienteVeiculo.Placa,Veiculo.descricaoVeiculo as Veículo from clienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo";
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
 
                 dt.Load(dr);//carrega as informações
@@ -214,7 +215,7 @@ namespace Controller
                 conn.Open();//abri conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//definir comando text
-                cmdo.CommandText = "select Cliente.Nome,Cliente.Cpf,clienteVeiculo.Placa, Veiculo.descricaoVeiculo,Veiculo.Marca from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo  where Cliente.Cpf = @Cpf";
+                cmdo.CommandText = "select Cliente.Nome,Cliente.Cpf,clienteVeiculo.Placa, Veiculo.descricaoVeiculo as Veículo,Veiculo.Marca from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo  where Cliente.Cpf = @Cpf";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar, 11).Value = cpf;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();

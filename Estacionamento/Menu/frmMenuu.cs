@@ -55,7 +55,7 @@ namespace Estacionamento.Menu
             InitializeComponent();
         }
 
-        //TODO: Menu - tela,  nao digitar na combobox, calculo de horas e mostrar cpf e idestacionar
+        //TODO: Menu - tela, decidir se seleciona linha ou celula e textchanged nas pesquisas
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -194,14 +194,14 @@ namespace Estacionamento.Menu
 
         private void btnAlterarpedido_Click(object sender, EventArgs e)
         {
-            frmAlterarEstacionar frm = new frmAlterarEstacionar();
+            frmEditarEstacionar frm = new frmEditarEstacionar();
             frm.Show();
             this.Hide();
         }
 
         private void btnFuncionario_Click(object sender, EventArgs e)
         {
-            FrmCadFuncionario frm = new FrmCadFuncionario();
+            FrmEditarFuncionario frm = new FrmEditarFuncionario();
             frm.Show();
             this.Hide();
         }
@@ -244,6 +244,31 @@ namespace Estacionamento.Menu
         {
             if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
                 e.Handled = true;
+        }
+        private void txtCódigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void btnCodigo_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            int idEstacionar = Convert.ToInt32(txtCodigo.Text);
+
+            dt = estacionarDAO.pesqCodigo(idEstacionar);
+
+            if (dt.Rows.Count == 1)
+            {
+                dgvVeiculos.DataSource = estacionarDAO.pesqCodigo(idEstacionar);
+                txtCodigo.Clear();
+            }
+            else
+            {
+                vagasOcupadas();
+                txtCodigo.Focus();
+            }
+
         }
     }
 }

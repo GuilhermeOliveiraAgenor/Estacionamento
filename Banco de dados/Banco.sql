@@ -36,10 +36,8 @@ create table Estacionar
 (
 
 idEstacionar int identity primary key,
-horarioEntrada time ,
-horarioSaida time,
-dataEntrada date,
-dataSaida date,
+dataEntrada datetime,
+dataSaida datetime,
 Preco decimal(10,2),
 Status varchar(11) check (Status = 'Ocupado' or Status = '-')
 
@@ -157,7 +155,7 @@ insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) value
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Alberto','10/10/1976','75278562','732752732', '93475347')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Fusca','Azul')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Celta','Verde')
-insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,CodigoClienteVeiculo,Patio,Preco,Status) values ('17:30','00:00','10/11/2021','10/11/2021','1','2','10.00','-')
+insert into Estacionar (dataEntrada,dataSaida,CodigoClienteVeiculo,Patio,Preco,Status) values ('17:00:00 10/11/2021','19:00:00 10/11/2021','1','2','10.00','-')
 insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Joao','18/07/1987','945376','894647', '994854794')
 insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Chevrolet','Sedan','a','Preto')
 insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('16:00','00:00','20/01/2022','20/01/2022','1','2','1','5.00','1')
@@ -176,9 +174,14 @@ select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '
 
 /*Consultas*/
 
-update Estacionar set Preco = '1200000.00' where idEstacionar = '1'
+select DATEPART(HOUR,dataEntrada) as Hora, COUNT(*) as Carros from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,dataEntrada) having COUNT(*) > 1 order by Carros desc
 
-select Estacionar.idEstacionar, Estacionar.horarioEntrada, clienteVeiculo.Placa from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo where Placa = 'UI786' and Status = 'Ocupado'
+
+select Funcionarios.idFuncionario as Código, Funcionarios.primeiroNome as Nome, Funcionarios.Sobrenome, Funcionarios.Cpf, Funcionarios.Rg, Funcionarios.Profissao as Profissão, Funcionarios.Salario as Salário, nivelAcesso.Nivel Foto from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso
+
+		update Estacionar set dataEntrada = '15/02/2022 09:40' where idEstacionar = '1'
+
+select clienteVeiculo.Placa from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo where Placa = 'UI786' and Status = 'Ocupado'
 
 select Funcionarios.idFuncionario,Funcionarios.primeiroNome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao, Funcionarios.Salario, Funcionarios.Foto, nivelAcesso.idNivelAcesso,nivelAcesso.Nivel from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = ''
 

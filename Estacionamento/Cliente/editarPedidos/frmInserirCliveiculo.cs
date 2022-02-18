@@ -72,14 +72,24 @@ namespace Estacionamento.editarPedidos
 
             dt = cliveiculoDAO.pesqCpf(cpf);//recebe o resultado
 
-            if (dt.Rows.Count >= 1)
+            if (txtPesquisar.Text.Length == 11)
             {
-                dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
+                lblMensagem.Text = "";
+                if (dt.Rows.Count >= 1)
+                {
+                    dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
+                }
+                else
+                {
+                    MessageBox.Show("Cpf não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                    txtPesquisar.Focus();
+                    limparPesquisa();
+                    carregarGrid();
+                }
             }
             else
             {
-                MessageBox.Show("Cpf não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisar.Focus();
+                lblMensagem.Text = "Erro ao encontrar o cliente";
                 limparPesquisa();
                 carregarGrid();
             }
@@ -151,7 +161,7 @@ namespace Estacionamento.editarPedidos
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
 
@@ -178,13 +188,6 @@ namespace Estacionamento.editarPedidos
                 MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmInserirVeiculo().Show();
@@ -216,6 +219,7 @@ namespace Estacionamento.editarPedidos
         private void btnCancelarfuncionario_Click(object sender, EventArgs e)
         {
             limparCampos();
+            carregarGrid();
         }
         private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -238,6 +242,52 @@ namespace Estacionamento.editarPedidos
         private void cmbVeiculo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            string cpf = txtPesquisar.Text;//parametro
+            DataTable dt = new DataTable();
+
+            dt = cliveiculoDAO.pesqCpf(cpf);//recebe o resultado
+
+            if (txtPesquisar.Text.Length == 11)
+            {
+                lblMensagem.Text = "";
+                if (dt.Rows.Count >= 1)
+                {
+                    dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao encontrar o cliente";
+                    txtPesquisar.Focus();
+                    limparPesquisa();
+                    carregarGrid();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                limparPesquisa();
+                carregarGrid();
+            }
+        }
+
+        private void txtPesquisar_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
         }
     }
 }

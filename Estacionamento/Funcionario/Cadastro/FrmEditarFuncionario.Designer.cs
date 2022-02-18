@@ -1,7 +1,7 @@
 ﻿
 namespace Estacionamento
 {
-    partial class FrmCadFuncionario
+    partial class FrmEditarFuncionario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Estacionamento
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadFuncionario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarFuncionario));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProfissao = new System.Windows.Forms.TextBox();
@@ -64,6 +64,8 @@ namespace Estacionamento
             this.vagasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.veiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,7 +126,9 @@ namespace Estacionamento
             this.dgvFuncionario.AllowUserToAddRows = false;
             this.dgvFuncionario.AllowUserToDeleteRows = false;
             this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionario.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFuncionario.Location = new System.Drawing.Point(523, 360);
+            this.dgvFuncionario.MultiSelect = false;
             this.dgvFuncionario.Name = "dgvFuncionario";
             this.dgvFuncionario.ReadOnly = true;
             this.dgvFuncionario.Size = new System.Drawing.Size(741, 299);
@@ -225,6 +229,7 @@ namespace Estacionamento
             // 
             // txtCpf
             // 
+            this.txtCpf.Enabled = false;
             this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.Location = new System.Drawing.Point(759, 203);
             this.txtCpf.MaxLength = 11;
@@ -313,19 +318,18 @@ namespace Estacionamento
             // ptbEditar
             // 
             this.ptbEditar.BackColor = System.Drawing.SystemColors.Control;
-            this.ptbEditar.Image = global::Estacionamento.Properties.Resources._1486505375_edit_pen_change_option_pencil_write_81422;
             this.ptbEditar.Location = new System.Drawing.Point(1792, 658);
             this.ptbEditar.Name = "ptbEditar";
             this.ptbEditar.Size = new System.Drawing.Size(46, 41);
             this.ptbEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbEditar.TabIndex = 191;
             this.ptbEditar.TabStop = false;
+            this.ptbEditar.Visible = false;
             this.ptbEditar.Click += new System.EventHandler(this.ptbEditar_Click);
             // 
             // ptbFoto
             // 
             this.ptbFoto.BackColor = System.Drawing.SystemColors.Control;
-            this.ptbFoto.Image = global::Estacionamento.Properties.Resources.icone_perfil;
             this.ptbFoto.Location = new System.Drawing.Point(1479, 274);
             this.ptbFoto.Name = "ptbFoto";
             this.ptbFoto.Size = new System.Drawing.Size(307, 395);
@@ -418,15 +422,31 @@ namespace Estacionamento
             // 
             // clienteToolStripMenuItem
             // 
+            this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroToolStripMenuItem,
+            this.alterarToolStripMenuItem});
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.clienteToolStripMenuItem.Text = "Cliente";
-            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
+            // 
+            // cadastroToolStripMenuItem
+            // 
+            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
+            this.cadastroToolStripMenuItem.Text = "Cadastro";
+            this.cadastroToolStripMenuItem.Click += new System.EventHandler(this.cadastroToolStripMenuItem_Click);
+            // 
+            // alterarToolStripMenuItem
+            // 
+            this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
+            this.alterarToolStripMenuItem.Text = "Alterar";
+            this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
             // veiculoToolStripMenuItem
             // 
             this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
-            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.veiculoToolStripMenuItem.Text = "Veículo";
             this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
             // 
@@ -590,5 +610,7 @@ namespace Estacionamento
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label lblSalario;
+        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
     }
 }

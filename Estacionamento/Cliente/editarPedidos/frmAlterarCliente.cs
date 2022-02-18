@@ -85,7 +85,7 @@ namespace Estacionamento.editarPedidos
                 {
                     txtCliente.Text = row["Nome"].ToString();
                     txtEmail.Text = row["Email"].ToString();
-                    idCliente = Convert.ToInt32(row["idCliente"].ToString());
+                    idCliente = Convert.ToInt32(row["Código"].ToString());
                 }
               
                 dgvClientes.Enabled = false;
@@ -188,7 +188,7 @@ namespace Estacionamento.editarPedidos
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
 
@@ -214,12 +214,6 @@ namespace Estacionamento.editarPedidos
                 }
                 MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
         }
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -271,5 +265,18 @@ namespace Estacionamento.editarPedidos
             new frmInserirVeiculo().Show();
             this.Hide();
         }
+
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
+        }
+
     }
 }

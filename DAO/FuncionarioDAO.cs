@@ -74,7 +74,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select Funcionarios.idFuncionario,Funcionarios.primeiroNome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao, Funcionarios.Salario, Funcionarios.Foto, nivelAcesso.idNivelAcesso,nivelAcesso.Nivel from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = @Cpf";
+                cmdo.CommandText = "select Funcionarios.idFuncionario as Código,Funcionarios.primeiroNome as Nome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao as Profissão, Funcionarios.Salario as Salário, Funcionarios.Foto, nivelAcesso.idNivelAcesso,nivelAcesso.Nivel as Nível from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = @Cpf";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar,11).Value = cpf;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();
@@ -189,7 +189,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select *from Funcionarios";
+                cmdo.CommandText = "select Funcionarios.idFuncionario as Código, Funcionarios.primeiroNome as Nome, Funcionarios.Sobrenome, Funcionarios.Cpf, Funcionarios.Rg, Funcionarios.Profissao as Profissão, Funcionarios.Salario as Salário, nivelAcesso.Nivel as Nível from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso";
 
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
                 dt.Load(dr);//carrega o dt

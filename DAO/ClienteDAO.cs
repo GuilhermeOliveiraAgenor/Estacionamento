@@ -68,7 +68,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select *from Cliente where Cpf = @Cpf";
+                cmdo.CommandText = "select idCliente as Código, Nome, Cpf, Email from Cliente where Cpf = @Cpf";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar, 11).Value = cpf;//parametro
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado
                 dt.Load(dr);//carrega o dt
@@ -98,7 +98,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini o comando
-                cmdo.CommandText = "select *from Cliente";
+                cmdo.CommandText = "select idCliente as Código, Nome, Cpf, Email from Cliente";
                 SqlDataReader dr = cmdo.ExecuteReader();
                 dt.Load(dr);//carrega no dt
 
@@ -168,7 +168,7 @@ namespace Controller
                 conn.Open();//abrir comando
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini o tipo text
-                cmdo.CommandText = "select *from Cliente where Nome like @Nome";//seleciona os nomes que começa com o que foi pesquisado
+                cmdo.CommandText = "select idCliente as Código, Nome, Cpf, Email from Cliente where Nome like @Nome";//seleciona os nomes que começa com o que foi pesquisado
                 cmdo.Parameters.Add("@Nome", SqlDbType.VarChar, 150).Value = nome + '%';//parametro
                 SqlDataReader dr = cmdo.ExecuteReader();
                 dt.Load(dr);//carrega as informações

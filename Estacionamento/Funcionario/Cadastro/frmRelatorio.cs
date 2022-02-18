@@ -37,6 +37,16 @@ namespace Estacionamento.Funcionario.Relatorio
             txtAno.Clear();
             cmbMes.Text = "";
         }
+
+        public void limparCampos()
+        {
+            txtAno.Clear();
+            txtPesqAno.Clear();
+            cmbMes.Text = "";
+            cmbPesqMes.Text = "";
+            cmbPesquisa.Text = "";
+            lblValor.Text = "";
+        }
         public void pesqMes()
         {
             DataTable dt = new DataTable();
@@ -294,7 +304,7 @@ namespace Estacionamento.Funcionario.Relatorio
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
 
@@ -322,14 +332,6 @@ namespace Estacionamento.Funcionario.Relatorio
             }
 
         }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
-
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
@@ -389,6 +391,22 @@ namespace Estacionamento.Funcionario.Relatorio
         private void cmbPesquisa_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
         }
     }
 }

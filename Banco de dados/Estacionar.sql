@@ -4,8 +4,7 @@ go
 create or alter procedure Entrada
 (
 --parametros
-@horarioEntrada time ,
-@dataEntrada date,
+@dataEntrada datetime ,
 @CodigoClienteVeiculo int,
 @Patio int
 
@@ -41,7 +40,7 @@ end
 
 --insere
 begin tran
-insert into Estacionar(horarioEntrada,dataEntrada,Preco,CodigoClienteVeiculo,Patio,Status) values (@horarioEntrada,@dataEntrada,'0.00',@CodigoClienteVeiculo,@Patio,'Ocupado')
+insert into Estacionar(dataEntrada,Preco,CodigoClienteVeiculo,Patio,Status) values (@dataEntrada,'0.00',@CodigoClienteVeiculo,@Patio,'Ocupado')
 
 
 if @@ERROR <> ''
@@ -57,8 +56,7 @@ create or alter procedure Saida
 (
 --parametros
 @idEstacionar int,
-@horarioSaida time,
-@dataSaida date,
+@dataSaida datetime,
 @Preco decimal(10,2),
 @CodigoFormaPagamento int
 
@@ -83,7 +81,7 @@ return -1
 end
 
 
-update Estacionar set horarioSaida = @horarioSaida, dataSaida = @dataSaida,Preco = @Preco, Status = '-' where idEstacionar = @idEstacionar
+update Estacionar set dataSaida = @dataSaida,Preco = @Preco, Status = '-' where idEstacionar = @idEstacionar
 insert into Pagamento (Preco,CodigoFormaPagamento,codigoEstacionar) values (@Preco,@CodigoFormaPagamento,@idEstacionar)
 
 --email com informaçoes da sessão
@@ -93,37 +91,49 @@ set @HTML = '
 <head>
 	<title>Informações</title>
 	<style type="text/css">
-        table { padding:0; border-spacing: 0; border-collapse: collapse; color:black;}
+        table { padding:0; border-spacing: 0; border-collapse: collapse; color:black; margin-left:auto; margin-right: auto;}
         thead { background: #48D1CC; border: 1px solid #ddd; color:black;}
-        th { padding: 10px; font-weight: bold; border: 1px solid ; color: #191970; background-color: #20b2aa}
-        tr { padding: 0; }
-        td { padding: 5px; border: 1px solid #cacaca; margin:0; color:black; text-align: center; }
+        th { padding: 10px; font-weight: bold; border: 1px solid ; color: #191970; background-color: #20b2aa; text-align: center; font-size: 18px; }
+        tr { padding: 0;}
+        td { padding: 5px; border: 1px solid #cacaca; margin:0; color:black; text-align: center; font-size: 15px;}
+		div {text-align: center; font-family: Cambria,Georgia,serif;}
+		h1 {font-size: 35px; text-decoration: underline solid rgb(32,178,170);}
+		h2 {font-size: 25px;}
+		p  {font-size: 20px;}
+		h3 {text-align: left; font-size: 20px;}
 	</style>
 </head>
+<div>
+<h1>Estacionamento AlfaPark</h1>
 <h2>Olá. Tudo bem ? Estou passando aqui para deixar informações do seu atendimento</h2>
-<p>Obrigado por confiar na nossa equipe! Nós fazemos o melhor possível para atender você </p>
-<h3>Segue as informações abaixo</h3>
+<p> É uma alegria ter um cliente como você. Nós nos dedicamos ao máximo, porque temos você ao nosso lado! Obrigado pela confiança! </p>
+<br>
+<br>
+<br>
+<h3>Segue as informações abaixo:</h3>
 <table>
   <thead>
 		<tr>
-			<th>Hora Entrada</th>
-			<th>Hora Saida</th>
+			<th>Código</th>
 			<th>Data Entrada</th>
-			<th>Data Saida</th>
+			<th>Hora Entrada</th>
+			<th>Data Saída</th>
+			<th>Hora Saída</th>
 			<th>Placa</th>
-			<th>Preco</th>
+			<th>Preço</th>
 			<th>Forma de Pagamento</th>
 		</tr>
    </thead>
    <tbody>' +
 	CAST (
 	( 
-	/*select do email*/
+	/*select do email*/--107 data ,108 hora,113 dia e hora
 	select
-	td = Estacionar.horarioEntrada,'',
-	td = Estacionar.horarioSaida,'',
-    td = CONVERT(VARCHAR(19), Estacionar.dataEntrada, 103),'',
-	td = CONVERT(VARCHAR(19), Estacionar.dataSaida, 103),'',
+    td = Estacionar.idEstacionar,'',
+	td = CONVERT(VARCHAR(19), Estacionar.dataEntrada,107),'',
+	td = CONVERT(VARCHAR(19), Estacionar.dataEntrada,108),'',
+	td = CONVERT(VARCHAR(19), Estacionar.dataSaida,107),'',
+	td = CONVERT(VARCHAR(19), Estacionar.dataSaida,108),'',
 	td = clienteVeiculo.Placa,'',
 	td = Estacionar.Preco,'',
 	td = formaPagamento.descricao
@@ -139,6 +149,7 @@ set @HTML = '
 	) as nvarchar(MAX) ) + '
 	</tbody>
 </table>
+</div>
 '
 
 

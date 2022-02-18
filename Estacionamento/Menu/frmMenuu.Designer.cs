@@ -31,7 +31,6 @@ namespace Estacionamento.Menu
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuu));
-            this.btnAlterarveiculo = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,31 +48,21 @@ namespace Estacionamento.Menu
             this.ptbSair = new System.Windows.Forms.PictureBox();
             this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.btnEntrada = new System.Windows.Forms.Button();
-            this.btnSaída = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnCpf = new System.Windows.Forms.Button();
-            this.btnVagas = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.Menu = new System.Windows.Forms.Panel();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.ptbRelatorio = new System.Windows.Forms.PictureBox();
             this.btnRelatorio = new System.Windows.Forms.Button();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnFuncionario = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnAlterarpedido = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblDados = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnAlterarveiculo = new System.Windows.Forms.Button();
+            this.btnSaída = new System.Windows.Forms.Button();
+            this.btnVagas = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnSairmenu = new System.Windows.Forms.Button();
             this.btnVoltarmenu = new System.Windows.Forms.Button();
@@ -93,6 +82,9 @@ namespace Estacionamento.Menu
             this.label1 = new System.Windows.Forms.Label();
             this.mskHora = new System.Windows.Forms.MaskedTextBox();
             this.ptbMapa = new System.Windows.Forms.PictureBox();
+            this.btnCodigo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
@@ -101,50 +93,25 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAlterarveiculo
-            // 
-            this.btnAlterarveiculo.FlatAppearance.BorderSize = 0;
-            this.btnAlterarveiculo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAlterarveiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnAlterarveiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterarveiculo.Location = new System.Drawing.Point(3, 485);
-            this.btnAlterarveiculo.Name = "btnAlterarveiculo";
-            this.btnAlterarveiculo.Size = new System.Drawing.Size(207, 59);
-            this.btnAlterarveiculo.TabIndex = 138;
-            this.btnAlterarveiculo.Text = "           Alterar veículo";
-            this.btnAlterarveiculo.UseVisualStyleBackColor = true;
-            this.btnAlterarveiculo.Click += new System.EventHandler(this.btnAlterarveiculo_Click);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkBlue;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(209, 41);
+            this.panel3.Size = new System.Drawing.Size(253, 41);
             this.panel3.TabIndex = 126;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 497);
+            this.label4.Location = new System.Drawing.Point(68, 545);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 19);
             this.label4.TabIndex = 131;
@@ -153,7 +120,7 @@ namespace Estacionamento.Menu
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1618, 251);
+            this.label3.Location = new System.Drawing.Point(1632, 337);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 23);
             this.label3.TabIndex = 185;
@@ -162,7 +129,7 @@ namespace Estacionamento.Menu
             // button
             // 
             this.button.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button.Location = new System.Drawing.Point(1746, 82);
+            this.button.Location = new System.Drawing.Point(1743, 151);
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(106, 37);
             this.button.TabIndex = 174;
@@ -182,17 +149,17 @@ namespace Estacionamento.Menu
             // dtpData
             // 
             this.dtpData.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpData.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpData.Font = new System.Drawing.Font("Bahnschrift Condensed", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpData.Location = new System.Drawing.Point(767, 879);
             this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(355, 36);
+            this.dtpData.Size = new System.Drawing.Size(368, 35);
             this.dtpData.TabIndex = 178;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1541, 82);
+            this.label5.Location = new System.Drawing.Point(1538, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 24);
             this.label5.TabIndex = 183;
@@ -201,7 +168,7 @@ namespace Estacionamento.Menu
             // txtPesquisarplaca
             // 
             this.txtPesquisarplaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisarplaca.Location = new System.Drawing.Point(1601, 85);
+            this.txtPesquisarplaca.Location = new System.Drawing.Point(1598, 154);
             this.txtPesquisarplaca.MaxLength = 7;
             this.txtPesquisarplaca.Name = "txtPesquisarplaca";
             this.txtPesquisarplaca.Size = new System.Drawing.Size(125, 30);
@@ -213,7 +180,9 @@ namespace Estacionamento.Menu
             this.dgvVeiculos.AllowUserToAddRows = false;
             this.dgvVeiculos.AllowUserToDeleteRows = false;
             this.dgvVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVeiculos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvVeiculos.Location = new System.Drawing.Point(435, 299);
+            this.dgvVeiculos.MultiSelect = false;
             this.dgvVeiculos.Name = "dgvVeiculos";
             this.dgvVeiculos.ReadOnly = true;
             this.dgvVeiculos.Size = new System.Drawing.Size(957, 428);
@@ -223,7 +192,7 @@ namespace Estacionamento.Menu
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1541, 151);
+            this.label6.Location = new System.Drawing.Point(1538, 210);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 24);
             this.label6.TabIndex = 190;
@@ -232,7 +201,7 @@ namespace Estacionamento.Menu
             // txtCpf
             // 
             this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpf.Location = new System.Drawing.Point(1601, 154);
+            this.txtCpf.Location = new System.Drawing.Point(1598, 213);
             this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(125, 30);
@@ -293,55 +262,42 @@ namespace Estacionamento.Menu
             // 
             // btnEntrada
             // 
+            this.btnEntrada.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnEntrada.FlatAppearance.BorderSize = 0;
             this.btnEntrada.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnEntrada.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrada.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrada.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEntrada.Location = new System.Drawing.Point(3, 330);
+            this.btnEntrada.Location = new System.Drawing.Point(-3, 313);
             this.btnEntrada.Name = "btnEntrada";
-            this.btnEntrada.Size = new System.Drawing.Size(204, 41);
+            this.btnEntrada.Size = new System.Drawing.Size(256, 55);
             this.btnEntrada.TabIndex = 0;
             this.btnEntrada.Text = "Entrada";
-            this.btnEntrada.UseVisualStyleBackColor = true;
+            this.btnEntrada.UseVisualStyleBackColor = false;
             this.btnEntrada.Click += new System.EventHandler(this.btnEntrada_Click);
-            // 
-            // btnSaída
-            // 
-            this.btnSaída.FlatAppearance.BorderSize = 0;
-            this.btnSaída.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnSaída.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnSaída.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaída.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaída.Location = new System.Drawing.Point(0, 381);
-            this.btnSaída.Name = "btnSaída";
-            this.btnSaída.Size = new System.Drawing.Size(207, 41);
-            this.btnSaída.TabIndex = 1;
-            this.btnSaída.Text = "Saída";
-            this.btnSaída.UseVisualStyleBackColor = true;
-            this.btnSaída.Click += new System.EventHandler(this.btnSaída_Click);
             // 
             // btnCliente
             // 
+            this.btnCliente.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnCliente.FlatAppearance.BorderSize = 0;
             this.btnCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCliente.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCliente.Location = new System.Drawing.Point(0, 438);
+            this.btnCliente.Location = new System.Drawing.Point(-3, 423);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(207, 41);
+            this.btnCliente.Size = new System.Drawing.Size(256, 55);
             this.btnCliente.TabIndex = 2;
-            this.btnCliente.Text = "         Alterar cliente";
-            this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Text = "Alterar cliente";
+            this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // btnCpf
             // 
             this.btnCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCpf.Location = new System.Drawing.Point(1746, 151);
+            this.btnCpf.Location = new System.Drawing.Point(1743, 210);
             this.btnCpf.Name = "btnCpf";
             this.btnCpf.Size = new System.Drawing.Size(106, 37);
             this.btnCpf.TabIndex = 191;
@@ -349,159 +305,106 @@ namespace Estacionamento.Menu
             this.btnCpf.UseVisualStyleBackColor = true;
             this.btnCpf.Click += new System.EventHandler(this.btnCpf_Click);
             // 
-            // btnVagas
-            // 
-            this.btnVagas.FlatAppearance.BorderSize = 0;
-            this.btnVagas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnVagas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnVagas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVagas.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVagas.Location = new System.Drawing.Point(1, 744);
-            this.btnVagas.Name = "btnVagas";
-            this.btnVagas.Size = new System.Drawing.Size(204, 58);
-            this.btnVagas.TabIndex = 5;
-            this.btnVagas.Text = "      Listar vagas \r\n      ocupadas";
-            this.btnVagas.UseVisualStyleBackColor = true;
-            this.btnVagas.Click += new System.EventHandler(this.btnVagas_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 809);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 19);
-            this.label2.TabIndex = 8;
-            // 
             // btnVoltar
             // 
+            this.btnVoltar.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(-15, 800);
+            this.btnVoltar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnVoltar.Location = new System.Drawing.Point(0, 698);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(219, 62);
+            this.btnVoltar.Size = new System.Drawing.Size(253, 55);
             this.btnVoltar.TabIndex = 6;
-            this.btnVoltar.Text = "                    Listar veículos e \r\n                 clientes hoje";
-            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Text = "    Listar veículos e clientes hoje";
+            this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.Menu.Controls.Add(this.pictureBox10);
-            this.Menu.Controls.Add(this.ptbRelatorio);
             this.Menu.Controls.Add(this.btnRelatorio);
-            this.Menu.Controls.Add(this.pictureBox9);
+            this.Menu.Controls.Add(this.pictureBox10);
             this.Menu.Controls.Add(this.btnFuncionario);
-            this.Menu.Controls.Add(this.pictureBox5);
             this.Menu.Controls.Add(this.btnAlterarpedido);
             this.Menu.Controls.Add(this.panel4);
-            this.Menu.Controls.Add(this.pictureBox11);
             this.Menu.Controls.Add(this.btnAlterarveiculo);
             this.Menu.Controls.Add(this.panel3);
             this.Menu.Controls.Add(this.label4);
-            this.Menu.Controls.Add(this.pictureBox4);
-            this.Menu.Controls.Add(this.pictureBox3);
-            this.Menu.Controls.Add(this.pictureBox8);
-            this.Menu.Controls.Add(this.pictureBox2);
             this.Menu.Controls.Add(this.btnEntrada);
-            this.Menu.Controls.Add(this.pictureBox7);
             this.Menu.Controls.Add(this.btnSaída);
             this.Menu.Controls.Add(this.btnCliente);
-            this.Menu.Controls.Add(this.pictureBox6);
             this.Menu.Controls.Add(this.btnVagas);
-            this.Menu.Controls.Add(this.label2);
             this.Menu.Controls.Add(this.btnVoltar);
             this.Menu.Controls.Add(this.btnListar);
             this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.Menu.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(207, 1061);
+            this.Menu.Size = new System.Drawing.Size(253, 1061);
             this.Menu.TabIndex = 187;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRelatorio.Location = new System.Drawing.Point(-1, 810);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(254, 55);
+            this.btnRelatorio.TabIndex = 145;
+            this.btnRelatorio.Text = "           Relatório";
+            this.btnRelatorio.UseVisualStyleBackColor = false;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // pictureBox10
             // 
             this.pictureBox10.Image = global::Estacionamento.Properties.Resources.Citycons_car_icon_icons_com_67916;
             this.pictureBox10.Location = new System.Drawing.Point(-1, 37);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(210, 151);
+            this.pictureBox10.Size = new System.Drawing.Size(254, 151);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 214;
             this.pictureBox10.TabStop = false;
             // 
-            // ptbRelatorio
-            // 
-            this.ptbRelatorio.Location = new System.Drawing.Point(14, 875);
-            this.ptbRelatorio.Name = "ptbRelatorio";
-            this.ptbRelatorio.Size = new System.Drawing.Size(49, 41);
-            this.ptbRelatorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbRelatorio.TabIndex = 146;
-            this.ptbRelatorio.TabStop = false;
-            // 
-            // btnRelatorio
-            // 
-            this.btnRelatorio.FlatAppearance.BorderSize = 0;
-            this.btnRelatorio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelatorio.Location = new System.Drawing.Point(3, 868);
-            this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(207, 59);
-            this.btnRelatorio.TabIndex = 145;
-            this.btnRelatorio.Text = "           Relatório";
-            this.btnRelatorio.UseVisualStyleBackColor = true;
-            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Location = new System.Drawing.Point(10, 551);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(49, 41);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 144;
-            this.pictureBox9.TabStop = false;
-            // 
             // btnFuncionario
             // 
+            this.btnFuncionario.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnFuncionario.FlatAppearance.BorderSize = 0;
             this.btnFuncionario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnFuncionario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionario.Location = new System.Drawing.Point(0, 550);
+            this.btnFuncionario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFuncionario.Location = new System.Drawing.Point(-2, 755);
             this.btnFuncionario.Name = "btnFuncionario";
-            this.btnFuncionario.Size = new System.Drawing.Size(207, 59);
+            this.btnFuncionario.Size = new System.Drawing.Size(255, 55);
             this.btnFuncionario.TabIndex = 143;
             this.btnFuncionario.Text = "             Editar funcionário";
-            this.btnFuncionario.UseVisualStyleBackColor = true;
+            this.btnFuncionario.UseVisualStyleBackColor = false;
             this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(14, 616);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(49, 41);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 142;
-            this.pictureBox5.TabStop = false;
             // 
             // btnAlterarpedido
             // 
+            this.btnAlterarpedido.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnAlterarpedido.FlatAppearance.BorderSize = 0;
             this.btnAlterarpedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAlterarpedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnAlterarpedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterarpedido.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterarpedido.Location = new System.Drawing.Point(3, 609);
+            this.btnAlterarpedido.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAlterarpedido.Location = new System.Drawing.Point(1, 532);
             this.btnAlterarpedido.Name = "btnAlterarpedido";
-            this.btnAlterarpedido.Size = new System.Drawing.Size(207, 59);
+            this.btnAlterarpedido.Size = new System.Drawing.Size(252, 55);
             this.btnAlterarpedido.TabIndex = 141;
-            this.btnAlterarpedido.Text = "           Alterar sessão";
-            this.btnAlterarpedido.UseVisualStyleBackColor = true;
+            this.btnAlterarpedido.Text = "Editar sessão";
+            this.btnAlterarpedido.UseVisualStyleBackColor = false;
             this.btnAlterarpedido.Click += new System.EventHandler(this.btnAlterarpedido_Click);
             // 
             // panel4
@@ -512,14 +415,14 @@ namespace Estacionamento.Menu
             this.panel4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(2, 191);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(207, 119);
+            this.panel4.Size = new System.Drawing.Size(251, 119);
             this.panel4.TabIndex = 140;
             // 
             // lblDados
             // 
             this.lblDados.AutoSize = true;
             this.lblDados.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDados.Location = new System.Drawing.Point(67, 90);
+            this.lblDados.Location = new System.Drawing.Point(88, 90);
             this.lblDados.Name = "lblDados";
             this.lblDados.Size = new System.Drawing.Size(87, 24);
             this.lblDados.TabIndex = 212;
@@ -530,7 +433,7 @@ namespace Estacionamento.Menu
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(66, 41);
+            this.lblNome.Location = new System.Drawing.Point(73, 42);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(0, 24);
             this.lblNome.TabIndex = 206;
@@ -539,88 +442,78 @@ namespace Estacionamento.Menu
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(21, 44);
+            this.label10.Location = new System.Drawing.Point(28, 45);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 24);
             this.label10.TabIndex = 205;
             this.label10.Text = "Nome:";
             // 
-            // pictureBox11
+            // btnAlterarveiculo
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(10, 497);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(49, 41);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 139;
-            this.pictureBox11.TabStop = false;
+            this.btnAlterarveiculo.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnAlterarveiculo.FlatAppearance.BorderSize = 0;
+            this.btnAlterarveiculo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAlterarveiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnAlterarveiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterarveiculo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAlterarveiculo.Location = new System.Drawing.Point(-3, 478);
+            this.btnAlterarveiculo.Name = "btnAlterarveiculo";
+            this.btnAlterarveiculo.Size = new System.Drawing.Size(256, 55);
+            this.btnAlterarveiculo.TabIndex = 138;
+            this.btnAlterarveiculo.Text = " Cadastrar veículo";
+            this.btnAlterarveiculo.UseVisualStyleBackColor = false;
+            this.btnAlterarveiculo.Click += new System.EventHandler(this.btnAlterarveiculo_Click);
             // 
-            // pictureBox4
+            // btnSaída
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(17, 438);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(39, 41);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 125;
-            this.pictureBox4.TabStop = false;
+            this.btnSaída.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnSaída.FlatAppearance.BorderSize = 0;
+            this.btnSaída.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnSaída.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnSaída.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaída.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaída.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSaída.Location = new System.Drawing.Point(-3, 368);
+            this.btnSaída.Name = "btnSaída";
+            this.btnSaída.Size = new System.Drawing.Size(256, 55);
+            this.btnSaída.TabIndex = 1;
+            this.btnSaída.Text = "Saída";
+            this.btnSaída.UseVisualStyleBackColor = false;
+            this.btnSaída.Click += new System.EventHandler(this.btnSaída_Click);
             // 
-            // pictureBox3
+            // btnVagas
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(15, 334);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(43, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 124;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Location = new System.Drawing.Point(13, 800);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(43, 41);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 129;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(15, 381);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(43, 41);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 123;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(13, 732);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(43, 41);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 128;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(13, 674);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(43, 41);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 127;
-            this.pictureBox6.TabStop = false;
+            this.btnVagas.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnVagas.FlatAppearance.BorderSize = 0;
+            this.btnVagas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnVagas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnVagas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVagas.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVagas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnVagas.Location = new System.Drawing.Point(-3, 643);
+            this.btnVagas.Name = "btnVagas";
+            this.btnVagas.Size = new System.Drawing.Size(256, 55);
+            this.btnVagas.TabIndex = 5;
+            this.btnVagas.Text = "Listar vagas ocupadas";
+            this.btnVagas.UseVisualStyleBackColor = false;
+            this.btnVagas.Click += new System.EventHandler(this.btnVagas_Click);
             // 
             // btnListar
             // 
+            this.btnListar.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnListar.FlatAppearance.BorderSize = 0;
             this.btnListar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnListar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.Location = new System.Drawing.Point(4, 676);
+            this.btnListar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnListar.Location = new System.Drawing.Point(-1, 588);
             this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(204, 57);
+            this.btnListar.Size = new System.Drawing.Size(254, 55);
             this.btnListar.TabIndex = 4;
-            this.btnListar.Text = "         Listar veículos \r\n      e clientes";
-            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Text = "Listar veículos e clientes";
+            this.btnListar.UseVisualStyleBackColor = false;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // btnSairmenu
@@ -679,7 +572,7 @@ namespace Estacionamento.Menu
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1563, 313);
+            this.label7.Location = new System.Drawing.Point(1577, 399);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 23);
             this.label7.TabIndex = 197;
@@ -689,7 +582,7 @@ namespace Estacionamento.Menu
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1563, 364);
+            this.label8.Location = new System.Drawing.Point(1577, 450);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 23);
             this.label8.TabIndex = 198;
@@ -699,7 +592,7 @@ namespace Estacionamento.Menu
             // 
             this.lblPatio2.AutoSize = true;
             this.lblPatio2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio2.Location = new System.Drawing.Point(1649, 364);
+            this.lblPatio2.Location = new System.Drawing.Point(1663, 450);
             this.lblPatio2.Name = "lblPatio2";
             this.lblPatio2.Size = new System.Drawing.Size(0, 23);
             this.lblPatio2.TabIndex = 200;
@@ -708,7 +601,7 @@ namespace Estacionamento.Menu
             // 
             this.lblPatio1.AutoSize = true;
             this.lblPatio1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio1.Location = new System.Drawing.Point(1649, 313);
+            this.lblPatio1.Location = new System.Drawing.Point(1663, 399);
             this.lblPatio1.Name = "lblPatio1";
             this.lblPatio1.Size = new System.Drawing.Size(0, 23);
             this.lblPatio1.TabIndex = 199;
@@ -739,7 +632,7 @@ namespace Estacionamento.Menu
             this.lblPreco.AutoSize = true;
             this.lblPreco.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPreco.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPreco.Location = new System.Drawing.Point(1627, 697);
+            this.lblPreco.Location = new System.Drawing.Point(1627, 737);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(0, 24);
             this.lblPreco.TabIndex = 206;
@@ -747,7 +640,7 @@ namespace Estacionamento.Menu
             // btnPesq
             // 
             this.btnPesq.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesq.Location = new System.Drawing.Point(1718, 598);
+            this.btnPesq.Location = new System.Drawing.Point(1718, 638);
             this.btnPesq.Name = "btnPesq";
             this.btnPesq.Size = new System.Drawing.Size(106, 37);
             this.btnPesq.TabIndex = 210;
@@ -760,7 +653,7 @@ namespace Estacionamento.Menu
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(1603, 697);
+            this.label11.Location = new System.Drawing.Point(1603, 737);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 24);
             this.label11.TabIndex = 211;
@@ -770,7 +663,7 @@ namespace Estacionamento.Menu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1587, 532);
+            this.label1.Location = new System.Drawing.Point(1587, 572);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 24);
             this.label1.TabIndex = 212;
@@ -779,7 +672,7 @@ namespace Estacionamento.Menu
             // mskHora
             // 
             this.mskHora.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskHora.Location = new System.Drawing.Point(1545, 607);
+            this.mskHora.Location = new System.Drawing.Point(1545, 647);
             this.mskHora.Mask = "99:99";
             this.mskHora.Name = "mskHora";
             this.mskHora.Size = new System.Drawing.Size(138, 30);
@@ -796,11 +689,45 @@ namespace Estacionamento.Menu
             this.ptbMapa.TabStop = false;
             this.ptbMapa.Click += new System.EventHandler(this.ptbMapa_Click);
             // 
+            // btnCodigo
+            // 
+            this.btnCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCodigo.Location = new System.Drawing.Point(1743, 91);
+            this.btnCodigo.Name = "btnCodigo";
+            this.btnCodigo.Size = new System.Drawing.Size(106, 37);
+            this.btnCodigo.TabIndex = 214;
+            this.btnCodigo.Text = "Pesquisar";
+            this.btnCodigo.UseVisualStyleBackColor = true;
+            this.btnCodigo.Click += new System.EventHandler(this.btnCodigo_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1538, 96);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 24);
+            this.label2.TabIndex = 216;
+            this.label2.Text = "Código";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(1598, 94);
+            this.txtCodigo.MaxLength = 7;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(125, 30);
+            this.txtCodigo.TabIndex = 215;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCódigo_KeyPress);
+            // 
             // frmMenuu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.btnCodigo);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.mskHora);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
@@ -842,18 +769,8 @@ namespace Estacionamento.Menu
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRelatorio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbFechar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -864,8 +781,6 @@ namespace Estacionamento.Menu
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.Button btnAlterarveiculo;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -882,17 +797,8 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.PictureBox ptbNormal;
         private System.Windows.Forms.PictureBox ptbSair;
         private System.Windows.Forms.PictureBox ptbMinimizar;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnEntrada;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Button btnSaída;
         private System.Windows.Forms.Button btnCliente;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button btnVagas;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Panel Menu;
         private System.Windows.Forms.Button btnListar;
@@ -908,9 +814,7 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox ptbMapa;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button btnAlterarpedido;
-        private System.Windows.Forms.PictureBox pictureBox9;
         public System.Windows.Forms.Button btnFuncionario;
         private System.Windows.Forms.Button btnCpf;
         private System.Windows.Forms.Label label10;
@@ -921,10 +825,15 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Button btnPesq;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblDados;
-        public System.Windows.Forms.PictureBox ptbRelatorio;
-        public System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox mskHora;
+        public System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Button btnAlterarveiculo;
+        private System.Windows.Forms.Button btnSaída;
+        private System.Windows.Forms.Button btnVagas;
+        private System.Windows.Forms.Button btnCodigo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

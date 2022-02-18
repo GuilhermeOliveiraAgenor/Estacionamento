@@ -21,7 +21,7 @@ using System.Data.SqlClient;
 
 namespace Estacionamento
 {
-    public partial class FrmCadFuncionario : Form
+    public partial class FrmEditarFuncionario : Form
     {
         //iniciar as classes
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
@@ -41,7 +41,7 @@ namespace Estacionamento
         int patio1;
         int patio2;
 
-        public FrmCadFuncionario()
+        public FrmEditarFuncionario()
         {
             InitializeComponent();
         }
@@ -63,7 +63,7 @@ namespace Estacionamento
             ptbFoto.Load(perfilPadrao);
             btnGravar.Enabled = false;
             btnCarregar.Enabled = false;
-            ptbEditar.Visible = true;
+            ptbEditar.Visible = false;
         }
 
         public void limparPesquisa()
@@ -89,7 +89,6 @@ namespace Estacionamento
         public void carregarFunc()
         {
             dgvFuncionario.DataSource = funcionarioDAO.carregarFuncionario();
-            dgvFuncionario.Refresh();
         }
 
         public void carregarFoto()
@@ -115,6 +114,7 @@ namespace Estacionamento
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
             txtCpf.Enabled = true;
+            txtCpf.Enabled = false;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace Estacionamento
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            //vai para tela de login
+            //vai para o Menu
             new frmMenuu().Show();
             this.Hide();
         }
@@ -146,6 +146,7 @@ namespace Estacionamento
             modo = "Cadastrar";
             MessageBox.Show("Clique em gravar para continuar", "Clique para concluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
             limparCampos();
+            txtCpf.Enabled = true;
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
             cmbAcesso.Enabled = false;
@@ -158,6 +159,11 @@ namespace Estacionamento
         {
             //TODO: tela
             bool result;
+
+            if(modo == "")
+            {
+                MessageBox.Show("Selecione uma das opções para gravar", "Selecione", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             if (String.IsNullOrEmpty(txtPrimeironome.Text) || String.IsNullOrEmpty(txtSobrenome.Text) || String.IsNullOrEmpty(txtCpf.Text)//verificar campos vazios
                 || String.IsNullOrEmpty(txtSalario.Text) || String.IsNullOrEmpty(txtProfissao.Text))
@@ -265,7 +271,6 @@ namespace Estacionamento
             btnExcluir.Enabled = false;
             btnGravar.Enabled = true;
             btnCarregar.Enabled = false;
-            ptbEditar.Visible = false;
             cmbAcesso.Enabled = true;
         }
 
@@ -288,21 +293,31 @@ namespace Estacionamento
 
             dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
 
+            if(modo == "Cadastrar")
+            {
+                modo = "";
+                btnAlterar.Enabled = true;
+                btnCadastrar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnCarregar.Enabled = false;
+            }
+
             if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o dt
             {
                 ptbEditar.Visible = true;
+                txtCpf.Enabled = false;
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    txtPrimeironome.Text = row["primeiroNome"].ToString();
+                    txtPrimeironome.Text = row["Nome"].ToString();
                     txtSobrenome.Text = row["Sobrenome"].ToString();
                     txtRg.Text = row["Rg"].ToString();
-                    txtSalario.Text = row["Salario"].ToString();
+                    txtSalario.Text = row["Salário"].ToString();
                     txtCpf.Text = row["Cpf"].ToString();
-                    txtProfissao.Text = row["Profissao"].ToString();
-                    idFuncionario = row["idFuncionario"].GetHashCode();
+                    txtProfissao.Text = row["Profissão"].ToString();
+                    idFuncionario = row["Código"].GetHashCode();
                     acesso = row["idNivelAcesso"].GetHashCode();
-                    cmbAcesso.Text = row["Nivel"].ToString();
+                    cmbAcesso.Text = row["Nível"].ToString();
                     fotoFuncionario = (byte[])row["Foto"];
                     funcionario.foto = fotoFuncionario;
 
@@ -384,7 +399,7 @@ namespace Estacionamento
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
 
@@ -411,13 +426,6 @@ namespace Estacionamento
                 MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
@@ -505,6 +513,17 @@ namespace Estacionamento
         private void cmbAcesso_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
         }
     }
 }

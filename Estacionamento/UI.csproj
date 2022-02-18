@@ -36,7 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\vehicle_car_vacation_holiday_transport_icon_196788.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -316,11 +317,11 @@
     <Compile Include="Cliente\editarPedidos\frmAlterarCliente.Designer.cs">
       <DependentUpon>frmAlterarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\editarPedidos\frmAlterarEstacionar.cs">
+    <Compile Include="Cliente\editarPedidos\frmEditarEstacionar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cliente\editarPedidos\frmAlterarEstacionar.Designer.cs">
-      <DependentUpon>frmAlterarEstacionar.cs</DependentUpon>
+    <Compile Include="Cliente\editarPedidos\frmEditarEstacionar.Designer.cs">
+      <DependentUpon>frmEditarEstacionar.cs</DependentUpon>
     </Compile>
     <Compile Include="Cliente\editarPedidos\frmInserirCliveiculo.cs">
       <SubType>Form</SubType>
@@ -346,11 +347,11 @@
     <Compile Include="Cliente\Entrada\frmVerificar.Designer.cs">
       <DependentUpon>frmVerificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionario\Cadastro\FrmCadFuncionario.cs">
+    <Compile Include="Funcionario\Cadastro\FrmEditarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionario\Cadastro\FrmCadFuncionario.Designer.cs">
-      <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
+    <Compile Include="Funcionario\Cadastro\FrmEditarFuncionario.Designer.cs">
+      <DependentUpon>FrmEditarFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionario\Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -378,6 +379,11 @@
     <Compile Include="Cliente\Saida\frmSaida.Designer.cs">
       <DependentUpon>frmSaida.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\frmAlterarSenha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,8 +399,8 @@
     <EmbeddedResource Include="Cliente\editarPedidos\frmAlterarCliente.resx">
       <DependentUpon>frmAlterarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cliente\editarPedidos\frmAlterarEstacionar.resx">
-      <DependentUpon>frmAlterarEstacionar.cs</DependentUpon>
+    <EmbeddedResource Include="Cliente\editarPedidos\frmEditarEstacionar.resx">
+      <DependentUpon>frmEditarEstacionar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cliente\editarPedidos\frmInserirCliveiculo.resx">
       <DependentUpon>frmInserirCliveiculo.cs</DependentUpon>
@@ -408,8 +414,8 @@
     <EmbeddedResource Include="Cliente\Entrada\frmVerificar.resx">
       <DependentUpon>frmVerificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionario\Cadastro\FrmCadFuncionario.resx">
-      <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
+    <EmbeddedResource Include="Funcionario\Cadastro\FrmEditarFuncionario.resx">
+      <DependentUpon>FrmEditarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionario\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -422,14 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Cliente\Saida\frmSaida.resx">
       <DependentUpon>frmSaida.cs</DependentUpon>
     </EmbeddedResource>
@@ -470,19 +471,19 @@
     <None Include="Resources\mapa.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mapa %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\mapa1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\preferencessystemsearch_1043341.png" />
     <None Include="Resources\1486505375-edit-pen-change-option-pencil-write_81422.ico" />
     <None Include="Resources\icone_perfil.jpg" />
     <None Include="Resources\olho.png" />
     <None Include="Resources\ver.png" />
     <None Include="Resources\Citycons_car_icon-icons.com_67916.png" />
     <Content Include="Resources\Citycons_car_icon-icons.com_67916.ico" />
-    <Content Include="Resources\vehicle_car_vacation_holiday_transport_icon_196788.ico" />
+    <None Include="Resources\icons8-search-64.png" />
+    <None Include="Resources\icons8-magnifying-glass-64.png" />
+    <None Include="Resources\preferencessystemsearch_104334.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

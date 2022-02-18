@@ -36,29 +36,6 @@ namespace Estacionamento.Entrada
             this.Hide();
 
         }
-        public void irEntrada()
-        {
-            frmEntrada frmentrada = new frmEntrada();
-            frmentrada.Show();
-            this.Hide();
-        }
-        public void irCadastro()
-        {
-            frmCadCliente cadCliente = new frmCadCliente();
-            cadCliente.Show();
-            this.Hide();
-
-        }
-        private void btnCadastro_Click(object sender, EventArgs e)
-        {
-            irCadastro();
-        }
-
-        private void btnCliente_Click(object sender, EventArgs e)
-        {
-            irEntrada();
-        }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
@@ -78,7 +55,7 @@ namespace Estacionamento.Entrada
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
 
@@ -105,13 +82,6 @@ namespace Estacionamento.Entrada
                 MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmInserirVeiculo().Show();
@@ -161,7 +131,9 @@ namespace Estacionamento.Entrada
                 DialogResult dr = MessageBox.Show("Erro ao encontrar cliente. Deseja cadastrar ?", "Erro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
                 {
-                    irCadastro();//vai para tela de cadastrar cliente
+                    frmCadCliente cadCliente = new frmCadCliente(txtCpf.Text);
+                    cadCliente.Show();
+                    this.Hide();//vai para tela de cadastrar cliente
                 }
                 if (dr == DialogResult.No)
                 {
@@ -175,6 +147,17 @@ namespace Estacionamento.Entrada
         {
             if(!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
         }
     }
 }

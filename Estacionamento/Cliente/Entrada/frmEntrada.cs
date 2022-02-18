@@ -17,9 +17,7 @@ namespace Estacionamento.Entrada
         Estacionar estacionar = new Estacionar();
         EstacionarDAO estacionarDAO = new EstacionarDAO();
         clienteVeiculoDAO cliVeiculoDAO = new clienteVeiculoDAO();
-        Exception ex = new Exception();
-        DateTime hora = new DateTime();
-        DateTime data = new DateTime();
+        DateTime Entrada = new DateTime();
         int idCliente;
         int idVeiculo;
         int patio1;
@@ -120,8 +118,7 @@ namespace Estacionamento.Entrada
         private void btnGravar_Click(object sender, EventArgs e)
         {
             bool result = false;
-            hora = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
-            data = Convert.ToDateTime(DateTime.Now.ToString("D", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+            Entrada = Convert.ToDateTime(DateTime.Now.ToString("F", System.Globalization.DateTimeFormatInfo.InvariantInfo));
 
             verificar();
 
@@ -134,8 +131,7 @@ namespace Estacionamento.Entrada
             {
 
                 estacionar.Patio = Convert.ToInt32(cmbPatio.Text);//passa os parametros
-                estacionar.dataEntrada = data;
-                estacionar.horarioEntrada = hora;
+                estacionar.dataEntrada = Entrada;
                 estacionar.CodigoClienteVeiculo = Convert.ToInt32(cmbcodigoVeiculo.ValueMember);
 
                 result = estacionarDAO.Entrada(estacionar);//recebe o resultado
@@ -155,12 +151,6 @@ namespace Estacionamento.Entrada
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();//hora 
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPesquisarcodigo_Click(object sender, EventArgs e)
         {
             List<clienteVeiculo> veiculo = new List<clienteVeiculo>();
@@ -178,7 +168,6 @@ namespace Estacionamento.Entrada
             if (dt.Rows.Count >= 1)
             {
                 configurarPesq();
-                MessageBox.Show("Cpf encontrado", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);//mensagem de concluido
 
                 dgvCadastro.DataSource = cliVeiculoDAO.pesqCpf(cpf);//carrega o grid
              
@@ -217,12 +206,6 @@ namespace Estacionamento.Entrada
         {
             carregarGrid();
         }
-
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             frmVerificar frm = new frmVerificar();
@@ -257,16 +240,9 @@ namespace Estacionamento.Entrada
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
@@ -309,6 +285,22 @@ namespace Estacionamento.Entrada
         private void cmbcodigoVeiculo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

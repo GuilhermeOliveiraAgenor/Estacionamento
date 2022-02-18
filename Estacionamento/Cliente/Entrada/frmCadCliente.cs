@@ -32,6 +32,12 @@ namespace Estacionamento.Entrada
         {
             InitializeComponent();
         }
+
+        public frmCadCliente(string cpf)
+        {
+            InitializeComponent();
+            txtCpf.Text = cpf;
+        }
         public void carregarGrid(){
 
             dgvCadastro.DataSource = cliveiculoDAO.CarregarClienteVeiculo();//carrega o grid
@@ -148,6 +154,7 @@ namespace Estacionamento.Entrada
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
+            carregarGrid();
         }
 
         private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,7 +171,7 @@ namespace Estacionamento.Entrada
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
 
@@ -192,13 +199,6 @@ namespace Estacionamento.Entrada
             }
 
         }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmInserirVeiculo().Show();
@@ -279,6 +279,81 @@ namespace Estacionamento.Entrada
         private void cmbcodVeiculo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
+        }
+
+        private void txtPesquisarcodigo_TextChanged(object sender, EventArgs e)
+        {
+            string cpf = txtPesquisarcodigo.Text;//parametro
+
+            dt = cliveiculoDAO.pesqCpf(cpf);//recebe o resultado da pesquisa
+
+            if (txtPesquisarcodigo.Text.Length == 11)
+            {
+                lblMensagem.Text = "";
+                if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o grid
+                {
+                    dgvCadastro.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega o grid
+                }
+                else//se não afetar linhas, retorna erro
+                {
+                    lblMensagem.Text = "Erro ao encontrar o cliente";
+                    txtPesquisarcodigo.Focus();
+                    carregarGrid();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                carregarGrid();
+            }
+        }
+
+        private void txtPesquisarcodigo_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+
+        private void txtPesquisarplaca_TextChanged(object sender, EventArgs e)
+        {
+            string placa = txtPesquisarplaca.Text.ToUpper();
+
+            dt = cliveiculoDAO.pesqPlaca(placa);//recebe o resultado
+
+            if (txtPesquisarplaca.Text.Length == 7)
+            {
+                lblMensagem.Text = "";
+                if (dt.Rows.Count >= 1)
+                {
+                    dgvCadastro.DataSource = cliveiculoDAO.pesqPlaca(placa);//carrega no grid
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao encontrar cliente";//mensagem de erro
+                    txtPesquisarplaca.Focus();
+                    carregarGrid();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                carregarGrid();
+            }
+        }
+
+        private void txtPesquisarplaca_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
         }
     }
 }

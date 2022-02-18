@@ -28,7 +28,7 @@ namespace Estacionamento.Login
         
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            FrmCadFuncionario frmcad = new FrmCadFuncionario();
+            FrmEditarFuncionario frmcad = new FrmEditarFuncionario();
             frmcad.Show();
             this.Hide();
 
@@ -71,7 +71,6 @@ namespace Estacionamento.Login
                             loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
                             frmmenu.btnFuncionario.Enabled = false;
                             frmmenu.btnRelatorio.Visible = false;
-                            frmmenu.ptbRelatorio.Visible = false;
                             frmmenu.Show();
                             this.Hide();
                         }

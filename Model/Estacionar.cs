@@ -11,10 +11,6 @@ namespace Model
 
         public int idEstacionar { get; set; }
 
-        public DateTime horarioEntrada { get; set; }
-
-        public DateTime horarioSaida { get; set; }
-
         public DateTime dataEntrada { get; set; }
 
         public DateTime dataSaida { get; set; }

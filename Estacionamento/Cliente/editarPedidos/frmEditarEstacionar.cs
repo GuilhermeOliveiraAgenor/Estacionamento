@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Estacionamento.editarPedidos
 {
-    public partial class frmAlterarEstacionar : Form
+    public partial class frmEditarEstacionar : Form
     {
         Estacionar estacionar = new Estacionar();
         EstacionarDAO estacionarDAO = new EstacionarDAO();
@@ -28,7 +28,7 @@ namespace Estacionamento.editarPedidos
         int idClienteVeiculo;
         int patio1;
         int patio2;
-        public frmAlterarEstacionar()
+        public frmEditarEstacionar()
         {
             InitializeComponent();
         }
@@ -71,10 +71,10 @@ namespace Estacionamento.editarPedidos
 
         public void limparCampos()
         {
-            lblHora.Text = "";
             lblData.Text = "";
             cmbPatio.Text = "";
             cmbPlaca.Text = "";
+            lblMensagem.Text = "";
             cmbPlaca.Items.Clear();
             txtPesquisar.Clear();
             idClienteVeiculo = 0;
@@ -83,10 +83,10 @@ namespace Estacionamento.editarPedidos
 
         public void limparPesquisa()
         {
-            lblHora.Text = "";
             lblData.Text = "";
             cmbPatio.Text = "";
             cmbPlaca.Text = "";
+            lblData.Text = "";
             cmbPlaca.Items.Clear();
             idClienteVeiculo = 0;
             idEstacionar = 0;
@@ -96,7 +96,7 @@ namespace Estacionamento.editarPedidos
         {
             vagasOcupadas();
             //TODO: Mostrar id estacionar
-            
+
         }
 
         private void btnPesquisarcodigo_Click(object sender, EventArgs e)
@@ -110,35 +110,35 @@ namespace Estacionamento.editarPedidos
 
             cliVeiculo = cliVeiculoDAO.listVeiculosCpf(cpf);
 
-            if (dt.Rows.Count >= 1)
-            {
-                cmbPlaca.Items.Clear();//limpa o combobox
+            //if (txtPesquisar.Text.Length == 11)
+            //{
+                if (dt.Rows.Count == 1)
+                {
+                    cmbPlaca.Items.Clear();//limpa o combobox
 
-                foreach (DataRow row in dt.Rows)
-                {
-                    lblHora.Text = row["horarioEntrada"].ToString();//passa as informaçoes
-                    lblData.Text = row["dataEntrada"].ToString();
-                    cmbPatio.Text = row["Patio"].ToString();
-                    cmbPlaca.Text = row["Placa"].ToString();
-                    idEstacionar = Convert.ToInt32(row["idEstacionar"].GetHashCode());
-                    idClienteVeiculo = row["IdClienteVeiculo"].GetHashCode(); 
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        lblData.Text = row["Entrada"].ToString();//passa as informaçoes
+                        cmbPatio.Text = row["Pátio"].ToString();
+                        cmbPlaca.Text = row["Placa"].ToString();
+                        idEstacionar = Convert.ToInt32(row["Código"].GetHashCode());
+                    }
+                    foreach (var item in cliVeiculo)
+                    {
+                        cmbPlaca.Items.Add(item.Placa);//adiciona na combobox
+                    }
+
+                    dgvEstacionar.DataSource = estacionarDAO.PesqCpfOcupados(cpf);
                 }
-                foreach (var item in cliVeiculo)
-                {
-                    cmbPlaca.Items.Add(item.Placa);//adiciona na combobox
-                }
-                dgvEstacionar.DataSource = estacionarDAO.PesqCpfOcupados(cpf);
-            }
+               
+           // }
             else
             {
-                MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblMensagem.Text = "Erro ao encontrar cliente";
                 //mensagem de erro
-                txtPesquisar.Focus();
                 vagasOcupadas();
                 limparPesquisa();
             }
-
-            
 
         }
         private void cmbcodigoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
@@ -264,34 +264,9 @@ namespace Estacionamento.editarPedidos
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
-
-        private void vagasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DataTable dt1 = new DataTable();
-            DataTable dt2 = new DataTable();
-
-
-            dt1 = estacionarDAO.vagasPatio1();
-
-            dt2 = estacionarDAO.vagasPatio2();
-
-            if (dt1.Rows.Count >= 1 && dt2.Rows.Count >= 1)
-            {
-                foreach (DataRow row1 in dt1.Rows)
-                {
-                    patio1 = row1["Patio1"].GetHashCode();
-                }
-                foreach (DataRow row2 in dt2.Rows)
-                {
-                    patio2 = row2["Patio2"].GetHashCode();
-                }
-                MessageBox.Show("As vagas no patio 1 são: " + patio1 + "\n" + "E no patio 2 são: " + patio2, "Vagas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmAlterarCliente().Show();
@@ -334,16 +309,9 @@ namespace Estacionamento.editarPedidos
 
         private void editarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
-
-        private void clienteToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
         private void veiculoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             new frmInserirVeiculo().Show();
@@ -388,6 +356,7 @@ namespace Estacionamento.editarPedidos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
+            vagasOcupadas();
             btnGravar.Enabled = false;
             btnExcluir.Enabled = true;
             btnAlterar.Enabled = true;
@@ -407,6 +376,72 @@ namespace Estacionamento.editarPedidos
         private void cmbPlaca_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            string cpf = txtPesquisar.Text;//parametro
+
+            cmbPatio.Text = "";
+            cmbPlaca.Text = "";
+
+            dt = estacionarDAO.PesqCpfOcupados(cpf);//recebe o resultado
+
+            cliVeiculo = cliVeiculoDAO.listVeiculosCpf(cpf);
+
+            if (txtPesquisar.Text.Length == 11)
+            {
+                if (dt.Rows.Count == 1)
+                {
+                    cmbPlaca.Items.Clear();//limpa o combobox
+                    lblMensagem.Text = "";
+    
+                foreach (DataRow row in dt.Rows)
+                    {
+                        lblData.Text = row["Entrada"].ToString();//passa as informaçoes
+                        cmbPatio.Text = row["Pátio"].ToString();
+                        cmbPlaca.Text = row["Placa"].ToString();
+                        idEstacionar = Convert.ToInt32(row["Código"].GetHashCode());
+                    }
+                    foreach (var item in cliVeiculo)
+                    {
+                        cmbPlaca.Items.Add(item.Placa);//adiciona na combobox
+                    }
+
+                    dgvEstacionar.DataSource = estacionarDAO.PesqCpfOcupados(cpf);
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao encontrar cliente";
+                    //mensagem de erro
+                    vagasOcupadas();
+                    limparPesquisa();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                vagasOcupadas();
+                limparPesquisa();
+            }
+
+
+        }
+
+        private void txtPesquisar_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
         }
     } 
 }

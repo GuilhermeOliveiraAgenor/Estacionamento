@@ -23,9 +23,8 @@ namespace Estacionamento.Saida
         Estacionar estacionar = new Estacionar();
         formaPagamentoDAO formaDAO = new formaPagamentoDAO();
         Pagamento pagamento = new Pagamento();
-        DateTime horaEntrada = new DateTime();
-        DateTime horaSaida = new DateTime();
-        DateTime data = new DateTime();
+        DateTime Entrada = new DateTime();
+        DateTime Saida = new DateTime();
 
         int codigoEstacionar;
         decimal Valor;
@@ -59,27 +58,46 @@ namespace Estacionamento.Saida
             dgvEstacionamento.DataSource = estacionarDAO.carregarVeiculo();
         }
 
+        public void calcularPreco()
+        {
+            //calculo das horas
+            TimeSpan horas = Saida - Entrada;
+
+            lblDias.Text = Convert.ToString(horas.Days);
+            lblHoras.Text = Convert.ToString(horas.Hours);
+            lblMinutos.Text = Convert.ToString(horas.Minutes);
+            lblSegundos.Text = Convert.ToString(horas.Seconds);
+
+            Min = Convert.ToDecimal(horas.TotalMinutes.ToString());
+            Valor = (Min * 15) / 100;
+
+            Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
+
+            lblPrecohora.Text = Valor.ToString();//o valor vai para o text
+        }
         public void limparCampos()
         {
             lblPlaca.Text = "";
-            lblHoraEntrada.Text = "";
-            lblCalcular.Text = "";
+            lblEntrada.Text = "";
             lblPrecohora.Text = "";
+            lblCodigo.Text = "";
             cmbFormadepagamento.Text = "";
+            lblDias.Text = "";
+            lblHoras.Text = "";
+            lblMinutos.Text = "";
+            lblSegundos.Text = "";
             txtPesquisar.Clear();
             dgvEstacionamento.Enabled = true;
             btnSaida.Enabled = false;
             codigoEstacionar = 0;
-            horaEntrada = Convert.ToDateTime("00:00");
+            Saida = Convert.ToDateTime("00:00");
         }
-
         private void btnCodigo_Click(object sender, EventArgs e)
         {
             string placa = txtPesquisar.Text;
             DataTable dt = new DataTable();
 
-            horaSaida = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
-            data = Convert.ToDateTime(DateTime.Now.ToString("D", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+            Saida = Convert.ToDateTime(DateTime.Now.ToString("F", System.Globalization.DateTimeFormatInfo.InvariantInfo));
 
             dt = estacionarDAO.pesqVeiculo(placa);//recebe o resultado
 
@@ -92,23 +110,15 @@ namespace Estacionamento.Saida
                  foreach (DataRow row in dt.Rows)
                  {
                     lblPlaca.Text = row["Placa"].ToString();
-                    lblHoraEntrada.Text = row["horarioEntrada"].ToString();
-                    horaEntrada = Convert.ToDateTime(lblHoraEntrada.Text);
-                    codigoEstacionar = row["idEstacionar"].GetHashCode();
+                    Entrada = Convert.ToDateTime(row["Entrada"].ToString());
+                    lblEntrada.Text = Convert.ToString(Entrada);
+                    codigoEstacionar = row["Código"].GetHashCode();
 
                  }
 
-                //calculo das horas
-                TimeSpan horas = horaSaida - horaEntrada;
+                lblCodigo.Text = Convert.ToString(codigoEstacionar);
 
-                lblCalcular.Text = horas.ToString();
-               
-                 Min = Convert.ToDecimal(horas.TotalMinutes.ToString());
-                Valor = (Min * 15) / 100;
-               
-                Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
-
-                lblPrecohora.Text = Valor.ToString();//o valor vai para o text
+                calcularPreco();
 
                 txtPesquisar.Clear();
             }
@@ -136,13 +146,10 @@ namespace Estacionamento.Saida
 
             else
             {
-
-                estacionar.horarioSaida = horaSaida;//parametros
-                estacionar.dataSaida = data;
+                estacionar.dataSaida = Saida;//parametros
                 estacionar.Preco = Convert.ToDecimal(lblPrecohora.Text);
                 estacionar.idEstacionar = codigoEstacionar;
                 pagamento.CodigoFormaPagamento = Convert.ToInt32(cmbFormadepagamento.ValueMember);
-
 
                 result = estacionarDAO.Saida(estacionar, pagamento);//recebe o resultado
 
@@ -183,28 +190,19 @@ namespace Estacionamento.Saida
 
             btnSaida.Enabled = false;
             cmbFormadepagamento.Text = "";
-            horaSaida = Convert.ToDateTime(DateTime.Now.ToString("T", System.Globalization.DateTimeFormatInfo.InvariantInfo));
-            data = Convert.ToDateTime(DateTime.Now.ToString("D", System.Globalization.DateTimeFormatInfo.InvariantInfo));
-
+            Saida = Convert.ToDateTime(DateTime.Now.ToString("F", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+            
 
             linha = dgvEstacionamento.CurrentRow.Index;
             codigoEstacionar = Convert.ToInt32(dgvEstacionamento[0, linha].Value.ToString());
             lblPlaca.Text = dgvEstacionamento[4, linha].Value.ToString();
-            lblHoraEntrada.Text = dgvEstacionamento[5, linha].Value.ToString();
-           
-            horaEntrada = Convert.ToDateTime(lblHoraEntrada.Text);
-            //calculo das horas
-            TimeSpan horas = horaSaida - horaEntrada;
+            lblEntrada.Text = dgvEstacionamento[5, linha].Value.ToString();
 
-            lblCalcular.Text = horas.ToString();
+            Entrada = Convert.ToDateTime(lblEntrada.Text);
+            lblCodigo.Text = Convert.ToString(codigoEstacionar);
 
-            Min = Convert.ToDecimal(horas.TotalMinutes.ToString());
-            Valor = (Min * 15) / 100;
+            calcularPreco();
 
-            Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
-
-            lblPrecohora.Text = Valor.ToString();//o valor vai para o text
-            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -240,15 +238,9 @@ namespace Estacionamento.Saida
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAlterarEstacionar().Show();
+            new frmEditarEstacionar().Show();
             this.Hide();
         }
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmAlterarCliente().Show();
-            this.Hide();
-        }
-
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmInserirVeiculo().Show();
@@ -297,6 +289,17 @@ namespace Estacionamento.Saida
         private void cmbFormadepagamento_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCadCliente().Show();
+            this.Hide();
         }
     }
 }

@@ -8,7 +8,6 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacion
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Entrada.frmCadCliente.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Entrada.frmEntrada.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Entrada.frmVerificar.resources
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.FrmCadFuncionario.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Login.frmLogin.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Menu.frmMenuu.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Properties.Resources.resources
@@ -100,7 +99,6 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\System.I
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\System.Memory.xml
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmAlterarEstacionar.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\DAO.dll
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\DAO.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\DAO.dll.config
@@ -111,3 +109,5 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\itextsha
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Usuarios.frmAlterarSenha.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Usuarios.frmConfirmarSenha.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmInserirVeiculo.resources
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.FrmEditarFuncionario.resources
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmEditarEstacionar.resources

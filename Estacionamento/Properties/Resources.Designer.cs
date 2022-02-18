@@ -103,9 +103,9 @@ namespace Estacionamento.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mapa {
+        internal static System.Drawing.Bitmap icons8_magnifying_glass_64 {
             get {
-                object obj = ResourceManager.GetObject("mapa", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-magnifying-glass-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,19 @@ namespace Estacionamento.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mapa__1_ {
+        internal static System.Drawing.Bitmap icons8_search_64 {
             get {
-                object obj = ResourceManager.GetObject("mapa (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-search-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapa {
+            get {
+                object obj = ResourceManager.GetObject("mapa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +146,26 @@ namespace Estacionamento.Properties {
         internal static System.Drawing.Bitmap olho {
             get {
                 object obj = ResourceManager.GetObject("olho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap preferencessystemsearch_104334 {
+            get {
+                object obj = ResourceManager.GetObject("preferencessystemsearch_104334", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap preferencessystemsearch_1043341 {
+            get {
+                object obj = ResourceManager.GetObject("preferencessystemsearch_1043341", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
