@@ -55,7 +55,7 @@ namespace Estacionamento.Menu
             InitializeComponent();
         }
 
-        //TODO: Menu - tela, decidir se seleciona linha ou celula e textchanged nas pesquisas
+        //TODO: Menu - tela, botão de fechar minimizar e maximar funcionario
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -68,7 +68,7 @@ namespace Estacionamento.Menu
             {
                 foreach(DataRow row in dt2.Rows)
                 {
-                    lblNome.Text = row["primeiroNome"].ToString();            
+                    lblNome.Text = row["Nome"].ToString();            
                 }
             }
 
@@ -208,17 +208,15 @@ namespace Estacionamento.Menu
 
         private void btnPesq_Click(object sender, EventArgs e)
         {
-
-           decimal Valor;
-           TimeSpan Hora = Convert.ToDateTime(mskHora.Text).TimeOfDay;//recebe o parametro
-           decimal Minutos = Convert.ToDecimal(Hora.TotalMinutes.ToString());//converte para minutos
+            decimal Valor;
+            TimeSpan Hora = Convert.ToDateTime(mskHora.Text).TimeOfDay;//recebe o parametro
+            decimal Minutos = Convert.ToDecimal(Hora.TotalMinutes.ToString());//converte para minutos
 
             Valor = (Minutos * 15) / 100;
 
             Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
 
             lblPreco.Text = Valor.ToString();//o valor vai para o text
-                      
         }
 
         private void lblDados_Click(object sender, EventArgs e)
@@ -269,6 +267,200 @@ namespace Estacionamento.Menu
                 txtCodigo.Focus();
             }
 
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+
+        private void txtPesquisarplaca_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+
+        private void txtCpf_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+           
+            if (txtCodigo.Text.Length != 0)
+            {
+                int idEstacionar = Convert.ToInt32(txtCodigo.Text);
+
+                dt = estacionarDAO.pesqCodigo(idEstacionar);
+
+                if (dt.Rows.Count == 1)
+                {
+                    lblMensagem.Text = "";
+                    dgvVeiculos.DataSource = estacionarDAO.pesqCodigo(idEstacionar);
+                }
+                if (dt.Rows.Count < 1)
+                {
+                    lblMensagem.Text = "Erro ao encontrar cliente";
+                    txtCodigo.Focus();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+            }
+        }
+
+            private void txtPesquisarplaca_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            string placa = txtPesquisarplaca.Text.ToUpper();//recebe os parametros
+
+            dt = estacionarDAO.pesqPlaca(placa);//recebe o resultado
+
+            if(txtPesquisarplaca.Text.Length == 7)
+            {
+
+                if (dt.Rows.Count >= 1)//se as linhas forem afetadas, carrega o grid
+                {
+                    lblMensagem.Text = "";
+                    dgvVeiculos.DataSource = estacionarDAO.pesqPlaca(placa);
+                }
+                else//se linhas nao forem afetadas
+                {
+                    lblMensagem.Text = "Erro ao encontrar cliente";//mensagem de erro
+                    txtPesquisarplaca.Focus();
+                    vagasOcupadas();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+            }
+        }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            string cpf = txtCpf.Text;//passa o parametro
+
+            dt = estacionarDAO.pesqCpf(cpf);//recebe o resultado
+
+            if (txtCpf.Text.Length == 11)
+            {
+
+                if (dt.Rows.Count >= 1)
+                {
+                    lblMensagem.Text = "";
+                    dgvVeiculos.DataSource = estacionarDAO.pesqCpf(cpf);//carrega o grid
+                    dgvVeiculos.Refresh();
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao encontrar cliente";//mensagem de erro
+                    txtCpf.Focus();
+                    vagasOcupadas();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            int idEstacionar = Convert.ToInt32(txtCodigo.Text);
+
+            dt = estacionarDAO.pesqCodigo(idEstacionar);
+
+            if (dt.Rows.Count == 1)
+            {
+                lblMensagem.Text = "";
+                dgvVeiculos.DataSource = estacionarDAO.pesqCodigo(idEstacionar);
+                txtCodigo.Clear();
+            }
+            else
+            {
+                lblMensagem.Text = "Erro ao encontrar cliente";
+                vagasOcupadas();
+                txtCodigo.Focus();
+            }
+
+        }
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtCodigo.Clear();
+            txtPesquisarplaca.Clear();
+            txtCpf.Clear();
+            mskHora.Clear();
+        }
+
+        private void mskHora_TextChanged(object sender, EventArgs e)
+        {
+            mskHora.Focus();
+
+            if (mskHora.Text.Length == 5)
+            {
+                decimal Valor;
+                TimeSpan Hora = Convert.ToDateTime(mskHora.Text).TimeOfDay;//recebe o parametro
+                decimal Minutos = Convert.ToDecimal(Hora.TotalMinutes.ToString());//converte para minutos
+
+                Valor = (Minutos * 15) / 100;
+
+                Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
+
+                lblPreco.Text = Valor.ToString();//o valor vai para o text
+            }
+            else
+            {
+                lblPreco.Text = "";
+            }
+            
+        }
+
+        private void dgvEstacionamento_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            if (Menu.Width == 253)
+            {
+                Menu.Width = 92;
+            }
+            else
+            {
+                Menu.Width = 252;
+            }
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

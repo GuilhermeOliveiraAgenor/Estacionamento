@@ -29,6 +29,9 @@ namespace Estacionamento.editarPedidos
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarEstacionar));
             this.label3 = new System.Windows.Forms.Label();
             this.lblPatio1 = new System.Windows.Forms.Label();
@@ -36,7 +39,6 @@ namespace Estacionamento.editarPedidos
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPatio = new System.Windows.Forms.ComboBox();
-            this.dgvEstacionar = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
@@ -46,7 +48,12 @@ namespace Estacionamento.editarPedidos
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.cmbPlaca = new System.Windows.Forms.ComboBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPesquisar = new System.Windows.Forms.TextBox();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.lblMensagem = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvEstacionar = new System.Windows.Forms.DataGridView();
             this.sessaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,23 +69,28 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPesquisar = new System.Windows.Forms.TextBox();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.btnPesquisarcodigo = new System.Windows.Forms.Button();
-            this.lblMensagem = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstacionar)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(831, 729);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1182, 243);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 24);
+            this.label3.Size = new System.Drawing.Size(134, 25);
             this.label3.TabIndex = 227;
             this.label3.Text = "Vagas disponíveis";
             // 
@@ -86,7 +98,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.lblPatio1.AutoSize = true;
             this.lblPatio1.Font = new System.Drawing.Font("Bahnschrift Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio1.Location = new System.Drawing.Point(845, 767);
+            this.lblPatio1.Location = new System.Drawing.Point(1196, 281);
             this.lblPatio1.Name = "lblPatio1";
             this.lblPatio1.Size = new System.Drawing.Size(0, 24);
             this.lblPatio1.TabIndex = 226;
@@ -95,7 +107,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.lblPatio2.AutoSize = true;
             this.lblPatio2.Font = new System.Drawing.Font("Bahnschrift Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio2.Location = new System.Drawing.Point(845, 803);
+            this.lblPatio2.Location = new System.Drawing.Point(1196, 317);
             this.lblPatio2.Name = "lblPatio2";
             this.lblPatio2.Size = new System.Drawing.Size(0, 24);
             this.lblPatio2.TabIndex = 225;
@@ -104,7 +116,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(756, 804);
+            this.label2.Location = new System.Drawing.Point(1107, 318);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 23);
             this.label2.TabIndex = 224;
@@ -115,7 +127,7 @@ namespace Estacionamento.editarPedidos
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(757, 768);
+            this.label1.Location = new System.Drawing.Point(1108, 282);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 23);
             this.label1.TabIndex = 223;
@@ -128,31 +140,16 @@ namespace Estacionamento.editarPedidos
             this.cmbPatio.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.cmbPatio.Location = new System.Drawing.Point(329, 320);
+            this.cmbPatio.Location = new System.Drawing.Point(337, 162);
             this.cmbPatio.Name = "cmbPatio";
             this.cmbPatio.Size = new System.Drawing.Size(48, 31);
             this.cmbPatio.TabIndex = 222;
             this.cmbPatio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPatio_KeyPress);
             // 
-            // dgvEstacionar
-            // 
-            this.dgvEstacionar.AllowUserToAddRows = false;
-            this.dgvEstacionar.AllowUserToDeleteRows = false;
-            this.dgvEstacionar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstacionar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvEstacionar.Location = new System.Drawing.Point(835, 220);
-            this.dgvEstacionar.MultiSelect = false;
-            this.dgvEstacionar.Name = "dgvEstacionar";
-            this.dgvEstacionar.ReadOnly = true;
-            this.dgvEstacionar.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dgvEstacionar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstacionar.Size = new System.Drawing.Size(939, 361);
-            this.dgvEstacionar.TabIndex = 216;
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(1442, 855);
+            this.btnCancelar.Location = new System.Drawing.Point(1535, 452);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(111, 48);
             this.btnCancelar.TabIndex = 215;
@@ -163,7 +160,7 @@ namespace Estacionamento.editarPedidos
             // btnAlterar
             // 
             this.btnAlterar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Location = new System.Drawing.Point(150, 623);
+            this.btnAlterar.Location = new System.Drawing.Point(205, 427);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(102, 39);
             this.btnAlterar.TabIndex = 213;
@@ -174,7 +171,7 @@ namespace Estacionamento.editarPedidos
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(1606, 855);
+            this.btnVoltar.Location = new System.Drawing.Point(1699, 452);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(107, 48);
             this.btnVoltar.TabIndex = 212;
@@ -185,36 +182,36 @@ namespace Estacionamento.editarPedidos
             // lblCodigocarro
             // 
             this.lblCodigocarro.AutoSize = true;
-            this.lblCodigocarro.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigocarro.Location = new System.Drawing.Point(244, 440);
+            this.lblCodigocarro.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigocarro.Location = new System.Drawing.Point(252, 282);
             this.lblCodigocarro.Name = "lblCodigocarro";
-            this.lblCodigocarro.Size = new System.Drawing.Size(48, 24);
+            this.lblCodigocarro.Size = new System.Drawing.Size(52, 25);
             this.lblCodigocarro.TabIndex = 211;
             this.lblCodigocarro.Text = "Placa";
             // 
             // lblPatio
             // 
             this.lblPatio.AutoSize = true;
-            this.lblPatio.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio.Location = new System.Drawing.Point(252, 318);
+            this.lblPatio.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatio.Location = new System.Drawing.Point(260, 160);
             this.lblPatio.Name = "lblPatio";
-            this.lblPatio.Size = new System.Drawing.Size(44, 24);
+            this.lblPatio.Size = new System.Drawing.Size(47, 25);
             this.lblPatio.TabIndex = 210;
             this.lblPatio.Text = "Pátio";
             // 
             // lblData
             // 
             this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(326, 211);
+            this.lblData.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Location = new System.Drawing.Point(634, 161);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(0, 23);
+            this.lblData.Size = new System.Drawing.Size(0, 25);
             this.lblData.TabIndex = 232;
             // 
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Location = new System.Drawing.Point(282, 623);
+            this.btnExcluir.Location = new System.Drawing.Point(337, 427);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(102, 39);
             this.btnExcluir.TabIndex = 233;
@@ -226,7 +223,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.btnGravar.Enabled = false;
             this.btnGravar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGravar.Location = new System.Drawing.Point(483, 623);
+            this.btnGravar.Location = new System.Drawing.Point(538, 427);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
             this.btnGravar.TabIndex = 234;
@@ -238,26 +235,108 @@ namespace Estacionamento.editarPedidos
             // 
             this.cmbPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPlaca.FormattingEnabled = true;
-            this.cmbPlaca.Location = new System.Drawing.Point(329, 440);
+            this.cmbPlaca.Location = new System.Drawing.Point(337, 282);
             this.cmbPlaca.Name = "cmbPlaca";
             this.cmbPlaca.Size = new System.Drawing.Size(137, 31);
             this.cmbPlaca.TabIndex = 235;
             this.cmbPlaca.SelectedIndexChanged += new System.EventHandler(this.cmbPlaca_SelectedIndexChanged);
             this.cmbPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPlaca_KeyPress);
             // 
-            // menuStrip1
+            // label4
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sessaoToolStripMenuItem,
-            this.editarToolStripMenuItem1,
-            this.sobreToolStripMenuItem,
-            this.usuarioToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
-            this.menuStrip1.TabIndex = 236;
-            this.menuStrip1.Text = "menuStrip1";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(560, 160);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 25);
+            this.label4.TabIndex = 237;
+            this.label4.Text = "Entrada";
+            // 
+            // txtPesquisar
+            // 
+            this.txtPesquisar.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisar.Location = new System.Drawing.Point(152, 70);
+            this.txtPesquisar.MaxLength = 11;
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(121, 30);
+            this.txtPesquisar.TabIndex = 217;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
+            this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
+            this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Location = new System.Drawing.Point(104, 72);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(34, 25);
+            this.lblNome.TabIndex = 219;
+            this.lblNome.Text = "Cpf";
+            // 
+            // lblMensagem
+            // 
+            this.lblMensagem.AutoSize = true;
+            this.lblMensagem.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensagem.Location = new System.Drawing.Point(978, 86);
+            this.lblMensagem.Name = "lblMensagem";
+            this.lblMensagem.Size = new System.Drawing.Size(0, 25);
+            this.lblMensagem.TabIndex = 238;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtPesquisar);
+            this.groupBox1.Controls.Add(this.lblNome);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(1535, 67);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(346, 152);
+            this.groupBox1.TabIndex = 239;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // dgvEstacionar
+            // 
+            this.dgvEstacionar.AllowUserToAddRows = false;
+            this.dgvEstacionar.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvEstacionar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEstacionar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEstacionar.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvEstacionar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvEstacionar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvEstacionar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEstacionar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEstacionar.ColumnHeadersHeight = 40;
+            this.dgvEstacionar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEstacionar.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvEstacionar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvEstacionar.EnableHeadersVisualStyles = false;
+            this.dgvEstacionar.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvEstacionar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvEstacionar.Location = new System.Drawing.Point(67, 582);
+            this.dgvEstacionar.MultiSelect = false;
+            this.dgvEstacionar.Name = "dgvEstacionar";
+            this.dgvEstacionar.ReadOnly = true;
+            this.dgvEstacionar.RowHeadersVisible = false;
+            this.dgvEstacionar.RowTemplate.Height = 50;
+            this.dgvEstacionar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvEstacionar.Size = new System.Drawing.Size(1785, 445);
+            this.dgvEstacionar.TabIndex = 240;
             // 
             // sessaoToolStripMenuItem
             // 
@@ -265,6 +344,7 @@ namespace Estacionamento.editarPedidos
             this.entradaToolStripMenuItem,
             this.saídaToolStripMenuItem,
             this.editarToolStripMenuItem});
+            this.sessaoToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
             this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
             this.sessaoToolStripMenuItem.Text = "Sessão";
@@ -295,6 +375,7 @@ namespace Estacionamento.editarPedidos
             this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clienteToolStripMenuItem,
             this.veiculoToolStripMenuItem});
+            this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
             this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
             this.editarToolStripMenuItem1.Text = "Editar";
@@ -334,6 +415,7 @@ namespace Estacionamento.editarPedidos
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.sairToolStripMenuItem});
+            this.sobreToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
             this.sobreToolStripMenuItem.Text = "Sobre";
@@ -357,6 +439,7 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
             this.fecharToolStripMenuItem});
+            this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
             this.usuarioToolStripMenuItem.Text = "Usuário";
@@ -375,67 +458,85 @@ namespace Estacionamento.editarPedidos
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click_1);
             // 
-            // label4
+            // menuStrip1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(252, 210);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 24);
-            this.label4.TabIndex = 237;
-            this.label4.Text = "Entrada";
+            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sessaoToolStripMenuItem,
+            this.editarToolStripMenuItem1,
+            this.sobreToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
+            this.menuStrip1.TabIndex = 236;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // txtPesquisar
+            // ptbNormal
             // 
-            this.txtPesquisar.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisar.Location = new System.Drawing.Point(1570, 85);
-            this.txtPesquisar.MaxLength = 11;
-            this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(121, 30);
-            this.txtPesquisar.TabIndex = 217;
-            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
-            this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
-            this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
+            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbNormal.Location = new System.Drawing.Point(1817, 4);
+            this.ptbNormal.Name = "ptbNormal";
+            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
+            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbNormal.TabIndex = 243;
+            this.ptbNormal.TabStop = false;
+            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click_1);
             // 
-            // lblNome
+            // ptbMaximar
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(1522, 87);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(31, 24);
-            this.lblNome.TabIndex = 219;
-            this.lblNome.Text = "Cpf";
+            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.maximizar1;
+            this.ptbMaximar.Location = new System.Drawing.Point(1817, 4);
+            this.ptbMaximar.Name = "ptbMaximar";
+            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximar.TabIndex = 241;
+            this.ptbMaximar.TabStop = false;
+            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
             // 
-            // btnPesquisarcodigo
+            // ptbSair
             // 
-            this.btnPesquisarcodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarcodigo.Location = new System.Drawing.Point(1721, 80);
-            this.btnPesquisarcodigo.Name = "btnPesquisarcodigo";
-            this.btnPesquisarcodigo.Size = new System.Drawing.Size(106, 37);
-            this.btnPesquisarcodigo.TabIndex = 218;
-            this.btnPesquisarcodigo.Text = "Pesquisar";
-            this.btnPesquisarcodigo.UseVisualStyleBackColor = true;
-            this.btnPesquisarcodigo.Click += new System.EventHandler(this.btnPesquisarcodigo_Click);
+            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Location = new System.Drawing.Point(1872, 4);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(32, 32);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSair.TabIndex = 244;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
             // 
-            // lblMensagem
+            // ptbMinimizar
             // 
-            this.lblMensagem.AutoSize = true;
-            this.lblMensagem.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensagem.Location = new System.Drawing.Point(978, 86);
-            this.lblMensagem.Name = "lblMensagem";
-            this.lblMensagem.Size = new System.Drawing.Size(0, 24);
-            this.lblMensagem.TabIndex = 238;
+            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Location = new System.Drawing.Point(1758, 4);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 242;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
             // frmEditarEstacionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbSair);
+            this.Controls.Add(this.ptbMaximar);
+            this.Controls.Add(this.ptbNormal);
+            this.Controls.Add(this.ptbMinimizar);
+            this.Controls.Add(this.dgvEstacionar);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMensagem);
-            this.Controls.Add(this.btnPesquisarcodigo);
-            this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cmbPlaca);
@@ -448,21 +549,27 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbPatio);
-            this.Controls.Add(this.dgvEstacionar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.lblCodigocarro);
             this.Controls.Add(this.lblPatio);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEditarEstacionar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar Sessão";
             this.Load += new System.EventHandler(this.frmAlterarEstacionar_Load);
             this.DoubleClick += new System.EventHandler(this.frmAlterarEstacionar_DoubleClick);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstacionar)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,7 +583,6 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbPatio;
-        private System.Windows.Forms.DataGridView dgvEstacionar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnVoltar;
@@ -486,13 +592,20 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.ComboBox cmbPlaca;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPesquisar;
+        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Label lblMensagem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvEstacionar;
         private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veiculoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -500,12 +613,10 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtPesquisar;
-        private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Button btnPesquisarcodigo;
-        private System.Windows.Forms.Label lblMensagem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.PictureBox ptbNormal;
+        private System.Windows.Forms.PictureBox ptbMaximar;
+        private System.Windows.Forms.PictureBox ptbSair;
+        private System.Windows.Forms.PictureBox ptbMinimizar;
     }
 }

@@ -29,16 +29,17 @@ namespace Estacionamento.editarPedidos
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInserirVeiculo));
             this.label4 = new System.Windows.Forms.Label();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
-            this.btnCodigo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodigocliente = new System.Windows.Forms.TextBox();
             this.btnCadastrarveiculo = new System.Windows.Forms.Button();
             this.lblPlaca = new System.Windows.Forms.Label();
-            this.dgvVeiculos = new System.Windows.Forms.DataGridView();
             this.btnCancelarfuncionario = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.cmbVeiculo = new System.Windows.Forms.ComboBox();
@@ -61,24 +62,35 @@ namespace Estacionamento.editarPedidos
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.lblMensagem = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvVeiculos = new System.Windows.Forms.DataGridView();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(280, 477);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 24);
+            this.label4.Size = new System.Drawing.Size(61, 25);
             this.label4.TabIndex = 235;
             this.label4.Text = "Veículo";
             // 
             // txtPesquisar
             // 
             this.txtPesquisar.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisar.Location = new System.Drawing.Point(1587, 80);
+            this.txtPesquisar.Location = new System.Drawing.Point(146, 61);
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(113, 30);
@@ -86,22 +98,11 @@ namespace Estacionamento.editarPedidos
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
             // 
-            // btnCodigo
-            // 
-            this.btnCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCodigo.Location = new System.Drawing.Point(1728, 76);
-            this.btnCodigo.Name = "btnCodigo";
-            this.btnCodigo.Size = new System.Drawing.Size(106, 37);
-            this.btnCodigo.TabIndex = 232;
-            this.btnCodigo.Text = "Pesquisar";
-            this.btnCodigo.UseVisualStyleBackColor = true;
-            this.btnCodigo.Click += new System.EventHandler(this.btnCodigo_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1539, 82);
+            this.label1.Location = new System.Drawing.Point(98, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 24);
             this.label1.TabIndex = 231;
@@ -148,20 +149,6 @@ namespace Estacionamento.editarPedidos
             this.lblPlaca.TabIndex = 222;
             this.lblPlaca.Text = "Placa";
             // 
-            // dgvVeiculos
-            // 
-            this.dgvVeiculos.AllowUserToAddRows = false;
-            this.dgvVeiculos.AllowUserToDeleteRows = false;
-            this.dgvVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVeiculos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvVeiculos.Location = new System.Drawing.Point(1027, 254);
-            this.dgvVeiculos.MultiSelect = false;
-            this.dgvVeiculos.Name = "dgvVeiculos";
-            this.dgvVeiculos.ReadOnly = true;
-            this.dgvVeiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVeiculos.Size = new System.Drawing.Size(671, 382);
-            this.dgvVeiculos.TabIndex = 217;
-            // 
             // btnCancelarfuncionario
             // 
             this.btnCancelarfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,6 +184,7 @@ namespace Estacionamento.editarPedidos
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sessaoToolStripMenuItem,
@@ -205,7 +193,8 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 237;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -216,6 +205,7 @@ namespace Estacionamento.editarPedidos
             this.saídaToolStripMenuItem,
             this.editarToolStripMenuItem,
             this.vagasToolStripMenuItem});
+            this.sessaoToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
             this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
             this.sessaoToolStripMenuItem.Text = "Sessão";
@@ -253,6 +243,7 @@ namespace Estacionamento.editarPedidos
             this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clienteToolStripMenuItem,
             this.veiculoToolStripMenuItem});
+            this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
             this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
             this.editarToolStripMenuItem1.Text = "Editar";
@@ -292,6 +283,7 @@ namespace Estacionamento.editarPedidos
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.sairToolStripMenuItem});
+            this.sobreToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
             this.sobreToolStripMenuItem.Text = "Sobre";
@@ -315,6 +307,7 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
             this.fecharToolStripMenuItem});
+            this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
             this.usuarioToolStripMenuItem.Text = "Usuário";
@@ -352,35 +345,150 @@ namespace Estacionamento.editarPedidos
             this.lblMensagem.Size = new System.Drawing.Size(0, 25);
             this.lblMensagem.TabIndex = 239;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtPesquisar);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(1501, 84);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(346, 152);
+            this.groupBox1.TabIndex = 240;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // dgvVeiculos
+            // 
+            this.dgvVeiculos.AllowUserToAddRows = false;
+            this.dgvVeiculos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvVeiculos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVeiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVeiculos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvVeiculos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVeiculos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvVeiculos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVeiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvVeiculos.ColumnHeadersHeight = 40;
+            this.dgvVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVeiculos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvVeiculos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvVeiculos.EnableHeadersVisualStyles = false;
+            this.dgvVeiculos.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvVeiculos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvVeiculos.Location = new System.Drawing.Point(949, 341);
+            this.dgvVeiculos.MultiSelect = false;
+            this.dgvVeiculos.Name = "dgvVeiculos";
+            this.dgvVeiculos.ReadOnly = true;
+            this.dgvVeiculos.RowHeadersVisible = false;
+            this.dgvVeiculos.RowTemplate.Height = 50;
+            this.dgvVeiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvVeiculos.Size = new System.Drawing.Size(898, 416);
+            this.dgvVeiculos.TabIndex = 241;
+            // 
+            // ptbSair
+            // 
+            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Location = new System.Drawing.Point(1880, 5);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(32, 32);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSair.TabIndex = 248;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
+            // 
+            // ptbMaximar
+            // 
+            this.ptbMaximar.BackColor = System.Drawing.Color.White;
+            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.maximizar1;
+            this.ptbMaximar.Location = new System.Drawing.Point(1825, 5);
+            this.ptbMaximar.Name = "ptbMaximar";
+            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximar.TabIndex = 245;
+            this.ptbMaximar.TabStop = false;
+            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
+            // 
+            // ptbNormal
+            // 
+            this.ptbNormal.BackColor = System.Drawing.Color.White;
+            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbNormal.Location = new System.Drawing.Point(1825, 5);
+            this.ptbNormal.Name = "ptbNormal";
+            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
+            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbNormal.TabIndex = 247;
+            this.ptbNormal.TabStop = false;
+            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.BackColor = System.Drawing.Color.White;
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Location = new System.Drawing.Point(1766, 5);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 246;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
+            // 
             // frmInserirVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbSair);
+            this.Controls.Add(this.ptbMaximar);
+            this.Controls.Add(this.ptbNormal);
+            this.Controls.Add(this.ptbMinimizar);
+            this.Controls.Add(this.dgvVeiculos);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMensagem);
             this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cmbVeiculo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtPesquisar);
-            this.Controls.Add(this.btnCodigo);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCodigocliente);
             this.Controls.Add(this.btnCadastrarveiculo);
             this.Controls.Add(this.lblPlaca);
-            this.Controls.Add(this.dgvVeiculos);
             this.Controls.Add(this.btnCancelarfuncionario);
             this.Controls.Add(this.btnSair);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInserirVeiculo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inserir Veículo";
             this.Load += new System.EventHandler(this.frmInserirCliveiculo_Load);
             this.DoubleClick += new System.EventHandler(this.frmInserirCliveiculo_DoubleClick);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,13 +497,11 @@ namespace Estacionamento.editarPedidos
         #endregion
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPesquisar;
-        private System.Windows.Forms.Button btnCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigocliente;
         private System.Windows.Forms.Button btnCadastrarveiculo;
         private System.Windows.Forms.Label lblPlaca;
-        private System.Windows.Forms.DataGridView dgvVeiculos;
         private System.Windows.Forms.Button btnCancelarfuncionario;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.ComboBox cmbVeiculo;
@@ -418,5 +524,11 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
         private System.Windows.Forms.Label lblMensagem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvVeiculos;
+        private System.Windows.Forms.PictureBox ptbSair;
+        private System.Windows.Forms.PictureBox ptbMaximar;
+        private System.Windows.Forms.PictureBox ptbNormal;
+        private System.Windows.Forms.PictureBox ptbMinimizar;
     }
 }

@@ -151,61 +151,6 @@ namespace Estacionamento.Funcionario.Relatorio
 
 
         }
-        private void btnAno_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-
-            string ano = txtAno.Text;//parametro
-
-            dt = estacionarDAO.valorAno(ano);//recebe o resultado
-
-            if (dt.Rows.Count >= 1)
-            {
-                limparCampoValor();
-                foreach (DataRow row in dt.Rows)
-                {
-                    lblValor.Text = row["Valor"].ToString();//carrega a informaçao
-                }
-                
-            }
-            if (lblValor.Text == "")
-            {
-                MessageBox.Show("Nenhum valor encontrado. R$ 0,00", "Valor = 0.00", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //mensagem de erro
-            }
-
-        }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            pesqMes();
-        }
-
-        private void btnPesq_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-
-            string mes = cmbPesqMes.Text;//parametro
-            string ano = txtPesqAno.Text;
-
-            dt = estacionarDAO.horasMes(mes,ano);//recebe o resultado
-
-            if (dt.Rows.Count >= 1)
-            {
-                txtPesqAno.Clear();
-                cmbPesqMes.Text = "";
-                dgvRelatorio.DataSource = estacionarDAO.horasMes(mes,ano);//carrega o grid
-                dgvRelatorio.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Nenhum hora encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //mensagem de erro
-                carregarGrid(); 
-
-            }
-
-        }
         private void lbl7dias_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -408,5 +353,84 @@ namespace Estacionamento.Funcionario.Relatorio
             new frmCadCliente().Show();
             this.Hide();
         }
+
+        private void ptbAno_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            string ano = txtAno.Text;//parametro
+
+            dt = estacionarDAO.valorAno(ano);//recebe o resultado
+
+            if (dt.Rows.Count >= 1)
+            {
+                limparCampoValor();
+                foreach (DataRow row in dt.Rows)
+                {
+                    lblValor.Text = row["Valor"].ToString();//carrega a informaçao
+                }
+
+            }
+            if (lblValor.Text == "")
+            {
+                MessageBox.Show("Nenhum valor encontrado. R$ 0,00", "Valor = 0.00", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //mensagem de erro
+            }
+
+        }
+
+        private void ptbMes_Click(object sender, EventArgs e)
+        {
+            pesqMes();
+        }
+
+        private void ptbHora_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            string mes = cmbPesqMes.Text;//parametro
+            string ano = txtPesqAno.Text;
+
+            dt = estacionarDAO.horasMes(mes, ano);//recebe o resultado
+
+            if (dt.Rows.Count >= 1)
+            {
+                txtPesqAno.Clear();
+                cmbPesqMes.Text = "";
+                dgvRelatorio.DataSource = estacionarDAO.horasMes(mes, ano);//carrega o grid
+                dgvRelatorio.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Nenhum hora encontrada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //mensagem de erro
+                carregarGrid();
+
+            }
+        }
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

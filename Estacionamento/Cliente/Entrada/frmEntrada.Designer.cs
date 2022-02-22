@@ -30,12 +30,13 @@ namespace Estacionamento.Entrada
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntrada));
-            this.btnPesquisarcodigo = new System.Windows.Forms.Button();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
-            this.dgvCadastro = new System.Windows.Forms.DataGridView();
             this.btnCancelarfuncionario = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
@@ -68,39 +69,41 @@ namespace Estacionamento.Entrada
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCadastro)).BeginInit();
+            this.lblMensagem = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvCadastro = new System.Windows.Forms.DataGridView();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCadastro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnPesquisarcodigo
-            // 
-            this.btnPesquisarcodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarcodigo.Location = new System.Drawing.Point(1755, 66);
-            this.btnPesquisarcodigo.Name = "btnPesquisarcodigo";
-            this.btnPesquisarcodigo.Size = new System.Drawing.Size(106, 37);
-            this.btnPesquisarcodigo.TabIndex = 190;
-            this.btnPesquisarcodigo.Text = "Pesquisar";
-            this.btnPesquisarcodigo.UseVisualStyleBackColor = true;
-            this.btnPesquisarcodigo.Click += new System.EventHandler(this.btnPesquisarcodigo_Click);
             // 
             // txtPesquisar
             // 
             this.txtPesquisar.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisar.Location = new System.Drawing.Point(1607, 71);
+            this.txtPesquisar.Location = new System.Drawing.Point(171, 71);
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(118, 30);
             this.txtPesquisar.TabIndex = 189;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
+            this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(1542, 72);
+            this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Location = new System.Drawing.Point(106, 72);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(31, 24);
+            this.lblNome.Size = new System.Drawing.Size(34, 25);
             this.lblNome.TabIndex = 191;
             this.lblNome.Text = "Cpf";
             // 
@@ -108,28 +111,15 @@ namespace Estacionamento.Entrada
             // 
             this.dtpData.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(871, 858);
+            this.dtpData.Location = new System.Drawing.Point(1067, 405);
             this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(122, 30);
+            this.dtpData.Size = new System.Drawing.Size(134, 30);
             this.dtpData.TabIndex = 185;
-            // 
-            // dgvCadastro
-            // 
-            this.dgvCadastro.AllowUserToAddRows = false;
-            this.dgvCadastro.AllowUserToDeleteRows = false;
-            this.dgvCadastro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCadastro.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCadastro.Location = new System.Drawing.Point(871, 204);
-            this.dgvCadastro.MultiSelect = false;
-            this.dgvCadastro.Name = "dgvCadastro";
-            this.dgvCadastro.ReadOnly = true;
-            this.dgvCadastro.Size = new System.Drawing.Size(939, 361);
-            this.dgvCadastro.TabIndex = 182;
             // 
             // btnCancelarfuncionario
             // 
             this.btnCancelarfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarfuncionario.Location = new System.Drawing.Point(1466, 841);
+            this.btnCancelarfuncionario.Location = new System.Drawing.Point(1493, 499);
             this.btnCancelarfuncionario.Name = "btnCancelarfuncionario";
             this.btnCancelarfuncionario.Size = new System.Drawing.Size(107, 47);
             this.btnCancelarfuncionario.TabIndex = 181;
@@ -140,7 +130,7 @@ namespace Estacionamento.Entrada
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(1629, 841);
+            this.btnSair.Location = new System.Drawing.Point(1656, 499);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(157, 47);
             this.btnSair.TabIndex = 180;
@@ -151,7 +141,7 @@ namespace Estacionamento.Entrada
             // btnGravar
             // 
             this.btnGravar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGravar.Location = new System.Drawing.Point(354, 584);
+            this.btnGravar.Location = new System.Drawing.Point(395, 482);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
             this.btnGravar.TabIndex = 179;
@@ -162,30 +152,30 @@ namespace Estacionamento.Entrada
             // lblCodigocarro
             // 
             this.lblCodigocarro.AutoSize = true;
-            this.lblCodigocarro.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigocarro.Location = new System.Drawing.Point(246, 406);
+            this.lblCodigocarro.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigocarro.Location = new System.Drawing.Point(262, 357);
             this.lblCodigocarro.Name = "lblCodigocarro";
-            this.lblCodigocarro.Size = new System.Drawing.Size(48, 24);
+            this.lblCodigocarro.Size = new System.Drawing.Size(52, 25);
             this.lblCodigocarro.TabIndex = 176;
             this.lblCodigocarro.Text = "Placa";
             // 
             // lblPatio
             // 
             this.lblPatio.AutoSize = true;
-            this.lblPatio.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio.Location = new System.Drawing.Point(250, 286);
+            this.lblPatio.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatio.Location = new System.Drawing.Point(266, 237);
             this.lblPatio.Name = "lblPatio";
-            this.lblPatio.Size = new System.Drawing.Size(44, 24);
+            this.lblPatio.Size = new System.Drawing.Size(47, 25);
             this.lblPatio.TabIndex = 175;
             this.lblPatio.Text = "Pátio";
             // 
             // lblCodigodocliente
             // 
             this.lblCodigodocliente.AutoSize = true;
-            this.lblCodigodocliente.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigodocliente.Location = new System.Drawing.Point(399, 184);
+            this.lblCodigodocliente.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigodocliente.Location = new System.Drawing.Point(415, 135);
             this.lblCodigodocliente.Name = "lblCodigodocliente";
-            this.lblCodigodocliente.Size = new System.Drawing.Size(0, 23);
+            this.lblCodigodocliente.Size = new System.Drawing.Size(0, 25);
             this.lblCodigodocliente.TabIndex = 174;
             // 
             // timer1
@@ -198,7 +188,7 @@ namespace Estacionamento.Entrada
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(878, 826);
+            this.lblHora.Location = new System.Drawing.Point(1074, 373);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(0, 29);
             this.lblHora.TabIndex = 199;
@@ -207,7 +197,7 @@ namespace Estacionamento.Entrada
             // 
             this.cmbcodigoVeiculo.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbcodigoVeiculo.FormattingEnabled = true;
-            this.cmbcodigoVeiculo.Location = new System.Drawing.Point(379, 404);
+            this.cmbcodigoVeiculo.Location = new System.Drawing.Point(395, 355);
             this.cmbcodigoVeiculo.Name = "cmbcodigoVeiculo";
             this.cmbcodigoVeiculo.Size = new System.Drawing.Size(121, 31);
             this.cmbcodigoVeiculo.TabIndex = 200;
@@ -217,10 +207,10 @@ namespace Estacionamento.Entrada
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(263, 184);
+            this.lblCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(279, 135);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(31, 24);
+            this.lblCodigo.Size = new System.Drawing.Size(34, 25);
             this.lblCodigo.TabIndex = 202;
             this.lblCodigo.Text = "Cpf";
             // 
@@ -231,7 +221,7 @@ namespace Estacionamento.Entrada
             this.cmbPatio.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.cmbPatio.Location = new System.Drawing.Point(379, 288);
+            this.cmbPatio.Location = new System.Drawing.Point(395, 239);
             this.cmbPatio.Name = "cmbPatio";
             this.cmbPatio.Size = new System.Drawing.Size(56, 31);
             this.cmbPatio.TabIndex = 203;
@@ -242,7 +232,7 @@ namespace Estacionamento.Entrada
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(792, 701);
+            this.label1.Location = new System.Drawing.Point(1045, 264);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 23);
             this.label1.TabIndex = 204;
@@ -252,7 +242,7 @@ namespace Estacionamento.Entrada
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(791, 737);
+            this.label2.Location = new System.Drawing.Point(1044, 300);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 23);
             this.label2.TabIndex = 205;
@@ -262,7 +252,7 @@ namespace Estacionamento.Entrada
             // 
             this.lblPatio2.AutoSize = true;
             this.lblPatio2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio2.Location = new System.Drawing.Point(894, 737);
+            this.lblPatio2.Location = new System.Drawing.Point(1147, 300);
             this.lblPatio2.Name = "lblPatio2";
             this.lblPatio2.Size = new System.Drawing.Size(0, 23);
             this.lblPatio2.TabIndex = 206;
@@ -271,7 +261,7 @@ namespace Estacionamento.Entrada
             // 
             this.lblPatio1.AutoSize = true;
             this.lblPatio1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio1.Location = new System.Drawing.Point(894, 701);
+            this.lblPatio1.Location = new System.Drawing.Point(1147, 264);
             this.lblPatio1.Name = "lblPatio1";
             this.lblPatio1.Size = new System.Drawing.Size(0, 23);
             this.lblPatio1.TabIndex = 207;
@@ -280,15 +270,16 @@ namespace Estacionamento.Entrada
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(852, 657);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1062, 222);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 24);
+            this.label3.Size = new System.Drawing.Size(134, 25);
             this.label3.TabIndex = 208;
             this.label3.Text = "Vagas disponíveis";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sessaoToolStripMenuItem,
@@ -297,7 +288,8 @@ namespace Estacionamento.Entrada
             this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 213;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -307,6 +299,7 @@ namespace Estacionamento.Entrada
             this.entradaToolStripMenuItem,
             this.saídaToolStripMenuItem,
             this.editarToolStripMenuItem});
+            this.sessaoToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
             this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
             this.sessaoToolStripMenuItem.Text = "Sessão";
@@ -337,6 +330,7 @@ namespace Estacionamento.Entrada
             this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clienteToolStripMenuItem,
             this.veiculoToolStripMenuItem});
+            this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
             this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
             this.editarToolStripMenuItem1.Text = "Editar";
@@ -376,6 +370,7 @@ namespace Estacionamento.Entrada
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.sairToolStripMenuItem});
+            this.sobreToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
             this.sobreToolStripMenuItem.Text = "Sobre";
@@ -399,6 +394,7 @@ namespace Estacionamento.Entrada
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
             this.fecharToolStripMenuItem});
+            this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
             this.usuarioToolStripMenuItem.Text = "Usuário";
@@ -417,11 +413,133 @@ namespace Estacionamento.Entrada
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
+            // lblMensagem
+            // 
+            this.lblMensagem.AutoSize = true;
+            this.lblMensagem.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensagem.Location = new System.Drawing.Point(1081, 100);
+            this.lblMensagem.Name = "lblMensagem";
+            this.lblMensagem.Size = new System.Drawing.Size(0, 25);
+            this.lblMensagem.TabIndex = 214;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtPesquisar);
+            this.groupBox1.Controls.Add(this.lblNome);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(1447, 69);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(408, 163);
+            this.groupBox1.TabIndex = 215;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // dgvCadastro
+            // 
+            this.dgvCadastro.AllowUserToAddRows = false;
+            this.dgvCadastro.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvCadastro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCadastro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCadastro.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvCadastro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCadastro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvCadastro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCadastro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCadastro.ColumnHeadersHeight = 40;
+            this.dgvCadastro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCadastro.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCadastro.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvCadastro.EnableHeadersVisualStyles = false;
+            this.dgvCadastro.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvCadastro.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvCadastro.Location = new System.Drawing.Point(111, 613);
+            this.dgvCadastro.MultiSelect = false;
+            this.dgvCadastro.Name = "dgvCadastro";
+            this.dgvCadastro.ReadOnly = true;
+            this.dgvCadastro.RowHeadersVisible = false;
+            this.dgvCadastro.RowTemplate.Height = 50;
+            this.dgvCadastro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvCadastro.Size = new System.Drawing.Size(1702, 378);
+            this.dgvCadastro.TabIndex = 242;
+            // 
+            // ptbNormal
+            // 
+            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.ptbNormal.Location = new System.Drawing.Point(1823, 4);
+            this.ptbNormal.Name = "ptbNormal";
+            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
+            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbNormal.TabIndex = 256;
+            this.ptbNormal.TabStop = false;
+            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click_1);
+            // 
+            // ptbSair
+            // 
+            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Location = new System.Drawing.Point(1880, 2);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(32, 32);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSair.TabIndex = 255;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
+            // 
+            // ptbMaximar
+            // 
+            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbMaximar.Location = new System.Drawing.Point(1823, 4);
+            this.ptbMaximar.Name = "ptbMaximar";
+            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximar.TabIndex = 253;
+            this.ptbMaximar.TabStop = false;
+            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Location = new System.Drawing.Point(1766, 4);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 254;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
+            // 
             // frmEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbNormal);
+            this.Controls.Add(this.ptbSair);
+            this.Controls.Add(this.ptbMaximar);
+            this.Controls.Add(this.ptbMinimizar);
+            this.Controls.Add(this.dgvCadastro);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblMensagem);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblPatio1);
@@ -432,37 +550,38 @@ namespace Estacionamento.Entrada
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.cmbcodigoVeiculo);
             this.Controls.Add(this.lblHora);
-            this.Controls.Add(this.btnPesquisarcodigo);
-            this.Controls.Add(this.txtPesquisar);
-            this.Controls.Add(this.lblNome);
             this.Controls.Add(this.dtpData);
-            this.Controls.Add(this.dgvCadastro);
             this.Controls.Add(this.btnCancelarfuncionario);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.lblCodigocarro);
             this.Controls.Add(this.lblPatio);
             this.Controls.Add(this.lblCodigodocliente);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEntrada";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrada";
             this.Load += new System.EventHandler(this.frmEntrada_Load);
             this.DoubleClick += new System.EventHandler(this.frmEntrada_DoubleClick);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCadastro)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCadastro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnPesquisarcodigo;
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.DateTimePicker dtpData;
-        private System.Windows.Forms.DataGridView dgvCadastro;
         private System.Windows.Forms.Button btnCancelarfuncionario;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnGravar;
@@ -495,5 +614,12 @@ namespace Estacionamento.Entrada
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
+        private System.Windows.Forms.Label lblMensagem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvCadastro;
+        private System.Windows.Forms.PictureBox ptbSair;
+        private System.Windows.Forms.PictureBox ptbMaximar;
+        private System.Windows.Forms.PictureBox ptbMinimizar;
+        private System.Windows.Forms.PictureBox ptbNormal;
     }
 }

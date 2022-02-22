@@ -471,10 +471,37 @@
     <None Include="Resources\mapa.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\maximizar1.png" />
+    <None Include="Resources\icons8-maximizar-janela-50.png" />
+    <None Include="Resources\icons8-subtração-641.png" />
     <None Include="Resources\mapa1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\preferencessystemsearch_1043341.png" />
+    <None Include="Resources\menuicon.png" />
+    <None Include="Resources\icons8-report-641.png" />
+    <None Include="Resources\icons8-team-641.png" />
+    <None Include="Resources\vaga.png" />
+    <None Include="Resources\icons8-suporte-da-cabine-241.png" />
+    <None Include="Resources\sessao1.png" />
+    <None Include="Resources\usuario1.png" />
+    <None Include="Resources\icons8-sair-501.png" />
+    <None Include="Resources\icons8-carro.gif" />
+    <None Include="Resources\icons8-sair-50.png" />
+    <None Include="Resources\maximizar2.png" />
+    <None Include="Resources\icons8-subtração-64.png" />
+    <None Include="Resources\maximizar.png" />
+    <None Include="Resources\icons8-team-64.png" />
+    <None Include="Resources\icons8-suporte-da-cabine-24.png" />
+    <None Include="Resources\sessao.png" />
+    <None Include="Resources\cadcarro.png" />
+    <None Include="Resources\icons8-calendário-de-folgas-50.png" />
+    <None Include="Resources\icons8-cardápio-50.png" />
+    <None Include="Resources\fechar.png" />
+    <None Include="Resources\cadcarro1.png" />
+    <None Include="Resources\icons8-calendário-de-folgas-501.png" />
+    <None Include="Resources\carroo.png" />
+    <None Include="Resources\fechar1.png" />
+    <Content Include="Resources\icons8-carro-30.png" />
+    <None Include="Resources\icons8-report-64.png" />
+    <None Include="Resources\usuario.png" />
     <None Include="Resources\1486505375-edit-pen-change-option-pencil-write_81422.ico" />
     <None Include="Resources\icone_perfil.jpg" />
     <None Include="Resources\olho.png" />
@@ -482,8 +509,6 @@
     <None Include="Resources\Citycons_car_icon-icons.com_67916.png" />
     <Content Include="Resources\Citycons_car_icon-icons.com_67916.ico" />
     <None Include="Resources\icons8-search-64.png" />
-    <None Include="Resources\icons8-magnifying-glass-64.png" />
-    <None Include="Resources\preferencessystemsearch_104334.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

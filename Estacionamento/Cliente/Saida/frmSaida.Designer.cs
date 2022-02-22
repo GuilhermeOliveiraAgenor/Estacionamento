@@ -30,6 +30,9 @@ namespace Estacionamento.Saida
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSaida));
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
@@ -38,7 +41,6 @@ namespace Estacionamento.Saida
             this.btnVoltar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
-            this.btnCodigo = new System.Windows.Forms.Button();
             this.lblpesquisa = new System.Windows.Forms.Label();
             this.btnSaida = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -47,7 +49,6 @@ namespace Estacionamento.Saida
             this.label4 = new System.Windows.Forms.Label();
             this.lblPrecohora = new System.Windows.Forms.Label();
             this.lblEntrada = new System.Windows.Forms.Label();
-            this.dgvEstacionamento = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.lblPatio1 = new System.Windows.Forms.Label();
             this.lblPatio2 = new System.Windows.Forms.Label();
@@ -81,25 +82,39 @@ namespace Estacionamento.Saida
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstacionamento)).BeginInit();
+            this.lblMensagem = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvEstacionamento = new System.Windows.Forms.DataGridView();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstacionamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPesquisar
             // 
             this.txtPesquisar.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisar.Location = new System.Drawing.Point(1585, 75);
+            this.txtPesquisar.Location = new System.Drawing.Point(151, 70);
             this.txtPesquisar.MaxLength = 7;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(121, 30);
             this.txtPesquisar.TabIndex = 204;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
+            this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
             // 
             // dtpData
             // 
             this.dtpData.Font = new System.Drawing.Font("Bahnschrift Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(1160, 805);
+            this.dtpData.Location = new System.Drawing.Point(1610, 481);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(121, 32);
             this.dtpData.TabIndex = 200;
@@ -108,7 +123,7 @@ namespace Estacionamento.Saida
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(1183, 778);
+            this.lblHora.Location = new System.Drawing.Point(1633, 454);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(0, 25);
             this.lblHora.TabIndex = 199;
@@ -116,7 +131,7 @@ namespace Estacionamento.Saida
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(1504, 876);
+            this.btnCancelar.Location = new System.Drawing.Point(1174, 481);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
             this.btnCancelar.TabIndex = 191;
@@ -127,7 +142,7 @@ namespace Estacionamento.Saida
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(1634, 876);
+            this.btnVoltar.Location = new System.Drawing.Point(1304, 481);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(155, 48);
             this.btnVoltar.TabIndex = 190;
@@ -138,41 +153,30 @@ namespace Estacionamento.Saida
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(121, 335);
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(121, 314);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 24);
+            this.label5.Size = new System.Drawing.Size(153, 25);
             this.label5.TabIndex = 185;
             this.label5.Text = "Tempo permanecido:";
             // 
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreco.Location = new System.Drawing.Point(214, 433);
+            this.lblPreco.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreco.Location = new System.Drawing.Point(214, 412);
             this.lblPreco.Name = "lblPreco";
-            this.lblPreco.Size = new System.Drawing.Size(125, 24);
+            this.lblPreco.Size = new System.Drawing.Size(134, 25);
             this.lblPreco.TabIndex = 183;
             this.lblPreco.Text = "Total a pagar : R$";
-            // 
-            // btnCodigo
-            // 
-            this.btnCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCodigo.Location = new System.Drawing.Point(1726, 72);
-            this.btnCodigo.Name = "btnCodigo";
-            this.btnCodigo.Size = new System.Drawing.Size(106, 37);
-            this.btnCodigo.TabIndex = 182;
-            this.btnCodigo.Text = "Pesquisar";
-            this.btnCodigo.UseVisualStyleBackColor = true;
-            this.btnCodigo.Click += new System.EventHandler(this.btnCodigo_Click);
             // 
             // lblpesquisa
             // 
             this.lblpesquisa.AutoSize = true;
-            this.lblpesquisa.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpesquisa.Location = new System.Drawing.Point(1520, 75);
+            this.lblpesquisa.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpesquisa.Location = new System.Drawing.Point(86, 70);
             this.lblpesquisa.Name = "lblpesquisa";
-            this.lblpesquisa.Size = new System.Drawing.Size(48, 24);
+            this.lblpesquisa.Size = new System.Drawing.Size(52, 25);
             this.lblpesquisa.TabIndex = 181;
             this.lblpesquisa.Text = "Placa";
             // 
@@ -180,7 +184,7 @@ namespace Estacionamento.Saida
             // 
             this.btnSaida.Enabled = false;
             this.btnSaida.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaida.Location = new System.Drawing.Point(352, 513);
+            this.btnSaida.Location = new System.Drawing.Point(461, 481);
             this.btnSaida.Name = "btnSaida";
             this.btnSaida.Size = new System.Drawing.Size(128, 63);
             this.btnSaida.TabIndex = 171;
@@ -197,10 +201,10 @@ namespace Estacionamento.Saida
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(193, 251);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(193, 230);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 24);
+            this.label1.Size = new System.Drawing.Size(68, 25);
             this.label1.TabIndex = 206;
             this.label1.Text = "Entrada";
             // 
@@ -208,7 +212,7 @@ namespace Estacionamento.Saida
             // 
             this.cmbFormadepagamento.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFormadepagamento.FormattingEnabled = true;
-            this.cmbFormadepagamento.Location = new System.Drawing.Point(1093, 118);
+            this.cmbFormadepagamento.Location = new System.Drawing.Point(1141, 113);
             this.cmbFormadepagamento.Name = "cmbFormadepagamento";
             this.cmbFormadepagamento.Size = new System.Drawing.Size(147, 31);
             this.cmbFormadepagamento.TabIndex = 207;
@@ -218,10 +222,10 @@ namespace Estacionamento.Saida
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(920, 118);
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(968, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 24);
+            this.label4.Size = new System.Drawing.Size(159, 25);
             this.label4.TabIndex = 208;
             this.label4.Text = "Forma de pagamento";
             // 
@@ -230,10 +234,10 @@ namespace Estacionamento.Saida
             this.lblPrecohora.AutoSize = true;
             this.lblPrecohora.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblPrecohora.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblPrecohora.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecohora.Location = new System.Drawing.Point(361, 433);
+            this.lblPrecohora.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecohora.Location = new System.Drawing.Point(361, 412);
             this.lblPrecohora.Name = "lblPrecohora";
-            this.lblPrecohora.Size = new System.Drawing.Size(0, 23);
+            this.lblPrecohora.Size = new System.Drawing.Size(0, 25);
             this.lblPrecohora.TabIndex = 209;
             // 
             // lblEntrada
@@ -241,32 +245,20 @@ namespace Estacionamento.Saida
             this.lblEntrada.AutoSize = true;
             this.lblEntrada.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblEntrada.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblEntrada.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrada.Location = new System.Drawing.Point(273, 251);
+            this.lblEntrada.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrada.Location = new System.Drawing.Point(273, 230);
             this.lblEntrada.Name = "lblEntrada";
-            this.lblEntrada.Size = new System.Drawing.Size(0, 23);
+            this.lblEntrada.Size = new System.Drawing.Size(0, 25);
             this.lblEntrada.TabIndex = 210;
-            // 
-            // dgvEstacionamento
-            // 
-            this.dgvEstacionamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstacionamento.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvEstacionamento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvEstacionamento.Location = new System.Drawing.Point(138, 615);
-            this.dgvEstacionamento.MultiSelect = false;
-            this.dgvEstacionamento.Name = "dgvEstacionamento";
-            this.dgvEstacionamento.Size = new System.Drawing.Size(648, 339);
-            this.dgvEstacionamento.TabIndex = 214;
-            this.dgvEstacionamento.SelectionChanged += new System.EventHandler(this.dgvEstacionamento_SelectionChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Control;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1183, 595);
+            this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1632, 272);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 24);
+            this.label6.Size = new System.Drawing.Size(134, 25);
             this.label6.TabIndex = 220;
             this.label6.Text = "Vagas disponíveis";
             // 
@@ -274,7 +266,7 @@ namespace Estacionamento.Saida
             // 
             this.lblPatio1.AutoSize = true;
             this.lblPatio1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio1.Location = new System.Drawing.Point(1237, 639);
+            this.lblPatio1.Location = new System.Drawing.Point(1686, 316);
             this.lblPatio1.Name = "lblPatio1";
             this.lblPatio1.Size = new System.Drawing.Size(0, 23);
             this.lblPatio1.TabIndex = 219;
@@ -283,7 +275,7 @@ namespace Estacionamento.Saida
             // 
             this.lblPatio2.AutoSize = true;
             this.lblPatio2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatio2.Location = new System.Drawing.Point(1237, 675);
+            this.lblPatio2.Location = new System.Drawing.Point(1686, 352);
             this.lblPatio2.Name = "lblPatio2";
             this.lblPatio2.Size = new System.Drawing.Size(0, 23);
             this.lblPatio2.TabIndex = 218;
@@ -292,7 +284,7 @@ namespace Estacionamento.Saida
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1122, 675);
+            this.label7.Location = new System.Drawing.Point(1571, 352);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 23);
             this.label7.TabIndex = 217;
@@ -303,7 +295,7 @@ namespace Estacionamento.Saida
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.SystemColors.Control;
             this.label8.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1123, 639);
+            this.label8.Location = new System.Drawing.Point(1572, 316);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 23);
             this.label8.TabIndex = 216;
@@ -311,6 +303,7 @@ namespace Estacionamento.Saida
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sessaoToolStripMenuItem,
@@ -319,7 +312,8 @@ namespace Estacionamento.Saida
             this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 221;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -329,6 +323,7 @@ namespace Estacionamento.Saida
             this.entradaToolStripMenuItem,
             this.saídaToolStripMenuItem,
             this.editarToolStripMenuItem});
+            this.sessaoToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
             this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
             this.sessaoToolStripMenuItem.Text = "Sessão";
@@ -359,6 +354,7 @@ namespace Estacionamento.Saida
             this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clienteToolStripMenuItem,
             this.veiculoToolStripMenuItem});
+            this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
             this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
             this.editarToolStripMenuItem1.Text = "Editar";
@@ -398,6 +394,7 @@ namespace Estacionamento.Saida
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.sairToolStripMenuItem});
+            this.sobreToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
             this.sobreToolStripMenuItem.Text = "Sobre";
@@ -421,6 +418,7 @@ namespace Estacionamento.Saida
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
             this.fecharToolStripMenuItem});
+            this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
             this.usuarioToolStripMenuItem.Text = "Usuário";
@@ -442,46 +440,46 @@ namespace Estacionamento.Saida
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(214, 113);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(214, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 24);
+            this.label3.Size = new System.Drawing.Size(57, 25);
             this.label3.TabIndex = 222;
             this.label3.Text = "Código";
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(289, 113);
+            this.lblCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(289, 92);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(0, 24);
+            this.lblCodigo.Size = new System.Drawing.Size(0, 25);
             this.lblCodigo.TabIndex = 223;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(214, 177);
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(214, 156);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 24);
+            this.label2.Size = new System.Drawing.Size(52, 25);
             this.label2.TabIndex = 197;
             this.label2.Text = "Placa";
             // 
             // lblPlaca
             // 
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaca.Location = new System.Drawing.Point(276, 179);
+            this.lblPlaca.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaca.Location = new System.Drawing.Point(276, 158);
             this.lblPlaca.Name = "lblPlaca";
-            this.lblPlaca.Size = new System.Drawing.Size(0, 23);
+            this.lblPlaca.Size = new System.Drawing.Size(0, 25);
             this.lblPlaca.TabIndex = 211;
             // 
             // lblHoras
             // 
             this.lblHoras.AutoSize = true;
             this.lblHoras.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoras.Location = new System.Drawing.Point(449, 336);
+            this.lblHoras.Location = new System.Drawing.Point(449, 315);
             this.lblHoras.Name = "lblHoras";
             this.lblHoras.Size = new System.Drawing.Size(51, 23);
             this.lblHoras.TabIndex = 224;
@@ -491,7 +489,7 @@ namespace Estacionamento.Saida
             // 
             this.lblMinutos.AutoSize = true;
             this.lblMinutos.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinutos.Location = new System.Drawing.Point(577, 335);
+            this.lblMinutos.Location = new System.Drawing.Point(577, 314);
             this.lblMinutos.Name = "lblMinutos";
             this.lblMinutos.Size = new System.Drawing.Size(78, 23);
             this.lblMinutos.TabIndex = 225;
@@ -501,7 +499,7 @@ namespace Estacionamento.Saida
             // 
             this.lblSegundos.AutoSize = true;
             this.lblSegundos.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSegundos.Location = new System.Drawing.Point(711, 336);
+            this.lblSegundos.Location = new System.Drawing.Point(711, 315);
             this.lblSegundos.Name = "lblSegundos";
             this.lblSegundos.Size = new System.Drawing.Size(84, 23);
             this.lblSegundos.TabIndex = 226;
@@ -511,7 +509,7 @@ namespace Estacionamento.Saida
             // 
             this.lblDias.AutoSize = true;
             this.lblDias.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDias.Location = new System.Drawing.Point(333, 335);
+            this.lblDias.Location = new System.Drawing.Point(333, 314);
             this.lblDias.Name = "lblDias";
             this.lblDias.Size = new System.Drawing.Size(37, 23);
             this.lblDias.TabIndex = 227;
@@ -521,7 +519,7 @@ namespace Estacionamento.Saida
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(340, 354);
+            this.label9.Location = new System.Drawing.Point(340, 333);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 19);
             this.label9.TabIndex = 231;
@@ -531,7 +529,7 @@ namespace Estacionamento.Saida
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(719, 355);
+            this.label10.Location = new System.Drawing.Point(719, 334);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 19);
             this.label10.TabIndex = 230;
@@ -541,7 +539,7 @@ namespace Estacionamento.Saida
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(587, 356);
+            this.label11.Location = new System.Drawing.Point(587, 335);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 19);
             this.label11.TabIndex = 229;
@@ -551,17 +549,140 @@ namespace Estacionamento.Saida
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(457, 356);
+            this.label12.Location = new System.Drawing.Point(457, 335);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 19);
             this.label12.TabIndex = 228;
             this.label12.Text = "Hora(s)";
+            // 
+            // lblMensagem
+            // 
+            this.lblMensagem.AutoSize = true;
+            this.lblMensagem.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensagem.Location = new System.Drawing.Point(1167, 286);
+            this.lblMensagem.Name = "lblMensagem";
+            this.lblMensagem.Size = new System.Drawing.Size(0, 25);
+            this.lblMensagem.TabIndex = 232;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtPesquisar);
+            this.groupBox1.Controls.Add(this.lblpesquisa);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(1536, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(346, 152);
+            this.groupBox1.TabIndex = 233;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // dgvEstacionamento
+            // 
+            this.dgvEstacionamento.AllowUserToAddRows = false;
+            this.dgvEstacionamento.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvEstacionamento.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEstacionamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEstacionamento.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvEstacionamento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvEstacionamento.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvEstacionamento.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEstacionamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEstacionamento.ColumnHeadersHeight = 40;
+            this.dgvEstacionamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEstacionamento.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvEstacionamento.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvEstacionamento.EnableHeadersVisualStyles = false;
+            this.dgvEstacionamento.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvEstacionamento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvEstacionamento.Location = new System.Drawing.Point(52, 602);
+            this.dgvEstacionamento.MultiSelect = false;
+            this.dgvEstacionamento.Name = "dgvEstacionamento";
+            this.dgvEstacionamento.ReadOnly = true;
+            this.dgvEstacionamento.RowHeadersVisible = false;
+            this.dgvEstacionamento.RowTemplate.Height = 50;
+            this.dgvEstacionamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEstacionamento.Size = new System.Drawing.Size(1818, 418);
+            this.dgvEstacionamento.TabIndex = 243;
+            this.dgvEstacionamento.SelectionChanged += new System.EventHandler(this.dgvEstacionamento_SelectionChanged);
+            // 
+            // ptbNormal
+            // 
+            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.ptbNormal.Location = new System.Drawing.Point(1824, 5);
+            this.ptbNormal.Name = "ptbNormal";
+            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
+            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbNormal.TabIndex = 264;
+            this.ptbNormal.TabStop = false;
+            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
+            // 
+            // ptbMaximar
+            // 
+            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbMaximar.Location = new System.Drawing.Point(1824, 5);
+            this.ptbMaximar.Name = "ptbMaximar";
+            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximar.TabIndex = 263;
+            this.ptbMaximar.TabStop = false;
+            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
+            // 
+            // ptbSair
+            // 
+            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Location = new System.Drawing.Point(1880, 3);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(32, 32);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSair.TabIndex = 262;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Location = new System.Drawing.Point(1766, 5);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 261;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
             // frmSaida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbNormal);
+            this.Controls.Add(this.ptbMaximar);
+            this.Controls.Add(this.ptbSair);
+            this.Controls.Add(this.ptbMinimizar);
+            this.Controls.Add(this.dgvEstacionamento);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblMensagem);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -578,14 +699,12 @@ namespace Estacionamento.Saida
             this.Controls.Add(this.lblPatio2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dgvEstacionamento);
             this.Controls.Add(this.lblPlaca);
             this.Controls.Add(this.lblEntrada);
             this.Controls.Add(this.lblPrecohora);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbFormadepagamento);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.dtpData);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.label2);
@@ -593,18 +712,23 @@ namespace Estacionamento.Saida
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblPreco);
-            this.Controls.Add(this.btnCodigo);
-            this.Controls.Add(this.lblpesquisa);
             this.Controls.Add(this.btnSaida);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSaida";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Saída";
             this.Load += new System.EventHandler(this.frmSaida_Load);
             this.DoubleClick += new System.EventHandler(this.frmSaida_DoubleClick);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstacionamento)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstacionamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -619,7 +743,6 @@ namespace Estacionamento.Saida
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPreco;
-        private System.Windows.Forms.Button btnCodigo;
         private System.Windows.Forms.Label lblpesquisa;
         private System.Windows.Forms.Button btnSaida;
         private System.Windows.Forms.Label label1;
@@ -628,7 +751,6 @@ namespace Estacionamento.Saida
         private System.Windows.Forms.Label lblPrecohora;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblEntrada;
-        private System.Windows.Forms.DataGridView dgvEstacionamento;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblPatio1;
         private System.Windows.Forms.Label lblPatio2;
@@ -662,5 +784,12 @@ namespace Estacionamento.Saida
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblMensagem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvEstacionamento;
+        private System.Windows.Forms.PictureBox ptbMinimizar;
+        private System.Windows.Forms.PictureBox ptbNormal;
+        private System.Windows.Forms.PictureBox ptbMaximar;
+        private System.Windows.Forms.PictureBox ptbSair;
     }
 }

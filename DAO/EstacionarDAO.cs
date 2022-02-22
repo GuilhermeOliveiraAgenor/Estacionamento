@@ -42,7 +42,7 @@ namespace Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao concluir entrada - O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             finally
@@ -139,7 +139,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//definir como text
-                cmdo.CommandText = "select Estacionar.idEstacionar as Código, Cliente.Nome, Cliente.Cpf, Veiculo.descricaoVeiculo as Veículo,clienteVeiculo.Placa,Estacionar.dataEntrada as Entrada, Estacionar.Preco, Estacionar.Patio as Pátio, Estacionar.Status from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where Estacionar.Status = 'Ocupado'";
+                cmdo.CommandText = "select Estacionar.idEstacionar as Código, Cliente.Nome, Cliente.Cpf, Veiculo.descricaoVeiculo as Veículo,clienteVeiculo.Placa,Estacionar.dataEntrada as Entrada, Estacionar.Preco as Preço, Estacionar.Patio as Pátio, Estacionar.Status from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Cliente on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where Estacionar.Status = 'Ocupado'";
                 SqlDataReader dr = cmdo.ExecuteReader();
                 dt.Load(dr);//carrega o datatable
 

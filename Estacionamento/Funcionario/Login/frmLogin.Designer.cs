@@ -132,10 +132,10 @@ namespace Estacionamento.Login
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(82, 216);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 24);
+            this.label4.Size = new System.Drawing.Size(56, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Senha";
             // 
@@ -152,10 +152,10 @@ namespace Estacionamento.Login
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(82, 142);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 24);
+            this.label5.Size = new System.Drawing.Size(34, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Cpf";
             // 

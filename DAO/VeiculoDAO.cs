@@ -86,11 +86,12 @@ namespace Controller
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao pesquisar. O que aconteceu foi o seguinte - " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //retorna mensagem de erro 
             }
             finally
             {
-                conn.Close();
+                conn.Close();//fecha a conexao
             }
             return veiculos;
         }

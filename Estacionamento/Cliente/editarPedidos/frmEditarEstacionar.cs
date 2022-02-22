@@ -420,21 +420,22 @@ namespace Estacionamento.editarPedidos
                     }
 
                     dgvEstacionar.DataSource = estacionarDAO.PesqCpfOcupados(cpf);
+
                 }
-                else
+                if (dt.Rows.Count < 1)
                 {
-                    lblMensagem.Text = "Erro ao encontrar cliente";
-                    //mensagem de erro
+                    lblMensagem.Text = "Erro ao encontrar cliente";//mensagem de erro
                     vagasOcupadas();
                     limparPesquisa();
                 }
             }
+            
             else
             {
                 lblMensagem.Text = "";
-                vagasOcupadas();
                 limparPesquisa();
             }
+
 
 
         }
@@ -443,5 +444,41 @@ namespace Estacionamento.editarPedidos
         {
             lblMensagem.Text = "";
         }
-    } 
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+
+
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+
+
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ptbNormal_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+    }
 }

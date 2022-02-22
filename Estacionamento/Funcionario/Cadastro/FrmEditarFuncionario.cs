@@ -160,7 +160,7 @@ namespace Estacionamento
             //TODO: tela
             bool result;
 
-            if(modo == "")
+            if (modo == "")
             {
                 MessageBox.Show("Selecione uma das opções para gravar", "Selecione", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -169,12 +169,12 @@ namespace Estacionamento
                 || String.IsNullOrEmpty(txtSalario.Text) || String.IsNullOrEmpty(txtProfissao.Text))
             {
                 MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+
             }
 
             else
             {
-               
+
                 if (modo == "Cadastrar")
                 {
                     if (caminhoFoto == "")//verificar picture box vazio
@@ -275,7 +275,7 @@ namespace Estacionamento
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
-        
+
         {
             modo = "Excluir";
             MessageBox.Show("Clique em gravar para continuar", "Clique para concluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -293,7 +293,7 @@ namespace Estacionamento
 
             dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
 
-            if(modo == "Cadastrar")
+            if (modo == "Cadastrar")
             {
                 modo = "";
                 btnAlterar.Enabled = true;
@@ -497,7 +497,7 @@ namespace Estacionamento
             {
                 e.Handled = true;
             }
-          
+
         }
 
         private void txtSalario_MouseHover(object sender, EventArgs e)
@@ -525,5 +525,94 @@ namespace Estacionamento
             new frmCadCliente().Show();
             this.Hide();
         }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            string cpf = txtPesquisar.Text;//parametro
+
+            dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
+
+            if (txtPesquisar.Text.Length == 11)
+            {
+                if (modo == "Cadastrar")
+                {
+                    modo = "";
+                    btnAlterar.Enabled = true;
+                    btnCadastrar.Enabled = true;
+                    btnExcluir.Enabled = true;
+                    btnCarregar.Enabled = false;
+                }
+
+                if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o dt
+                {
+                    lblMensagem.Text = "";
+                    ptbEditar.Visible = true;
+                    txtCpf.Enabled = false;
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        txtPrimeironome.Text = row["Nome"].ToString();
+                        txtSobrenome.Text = row["Sobrenome"].ToString();
+                        txtRg.Text = row["Rg"].ToString();
+                        txtSalario.Text = row["Salário"].ToString();
+                        txtCpf.Text = row["Cpf"].ToString();
+                        txtProfissao.Text = row["Profissão"].ToString();
+                        idFuncionario = row["Código"].GetHashCode();
+                        acesso = row["idNivelAcesso"].GetHashCode();
+                        cmbAcesso.Text = row["Nível"].ToString();
+                        fotoFuncionario = (byte[])row["Foto"];
+                        funcionario.foto = fotoFuncionario;
+
+
+                        using (var foto = new MemoryStream(funcionario.foto))//carrega a foto
+                        {
+                            ptbFoto.Image = Image.FromStream(foto);//adiciona a foto
+                        }
+                    }
+
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao encontrar o cliente";
+                    limparPesquisa();
+                    ptbEditar.Visible = false;
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                limparPesquisa();
+                ptbEditar.Visible = false;
+            }
+        }
+
+        private void txtPesquisar_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

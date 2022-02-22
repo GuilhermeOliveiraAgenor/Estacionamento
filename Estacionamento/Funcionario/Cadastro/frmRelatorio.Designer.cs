@@ -29,8 +29,10 @@ namespace Estacionamento.Funcionario.Relatorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRelatorio));
-            this.dgvRelatorio = new System.Windows.Forms.DataGridView();
             this.btnSairmenu = new System.Windows.Forms.Button();
             this.lblValor = new System.Windows.Forms.Label();
             this.cmbPesquisa = new System.Windows.Forms.ComboBox();
@@ -38,11 +40,8 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lblAno = new System.Windows.Forms.Label();
             this.lblMes = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAno = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnPesq = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPesqAno = new System.Windows.Forms.TextBox();
@@ -57,6 +56,8 @@ namespace Estacionamento.Funcionario.Relatorio
             this.vagasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.veiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,28 +68,31 @@ namespace Estacionamento.Funcionario.Relatorio
             this.txtAno = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
+            this.dgvRelatorio = new System.Windows.Forms.DataGridView();
+            this.ptbHora = new System.Windows.Forms.PictureBox();
+            this.ptbMes = new System.Windows.Forms.PictureBox();
+            this.ptbAno = new System.Windows.Forms.PictureBox();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbHora)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvRelatorio
-            // 
-            this.dgvRelatorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRelatorio.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvRelatorio.Location = new System.Drawing.Point(616, 224);
-            this.dgvRelatorio.MultiSelect = false;
-            this.dgvRelatorio.Name = "dgvRelatorio";
-            this.dgvRelatorio.Size = new System.Drawing.Size(671, 358);
-            this.dgvRelatorio.TabIndex = 0;
             // 
             // btnSairmenu
             // 
             this.btnSairmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSairmenu.Location = new System.Drawing.Point(823, 814);
+            this.btnSairmenu.Location = new System.Drawing.Point(833, 809);
             this.btnSairmenu.Name = "btnSairmenu";
-            this.btnSairmenu.Size = new System.Drawing.Size(106, 37);
+            this.btnSairmenu.Size = new System.Drawing.Size(106, 43);
             this.btnSairmenu.TabIndex = 182;
             this.btnSairmenu.Text = "Voltar";
             this.btnSairmenu.UseVisualStyleBackColor = true;
@@ -135,7 +139,7 @@ namespace Estacionamento.Funcionario.Relatorio
             "10",
             "11",
             "12"});
-            this.cmbMes.Location = new System.Drawing.Point(165, 278);
+            this.cmbMes.Location = new System.Drawing.Point(165, 291);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(165, 31);
             this.cmbMes.TabIndex = 185;
@@ -144,103 +148,70 @@ namespace Estacionamento.Funcionario.Relatorio
             // lblAno
             // 
             this.lblAno.AutoSize = true;
-            this.lblAno.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAno.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAno.Location = new System.Drawing.Point(89, 211);
             this.lblAno.Name = "lblAno";
-            this.lblAno.Size = new System.Drawing.Size(35, 24);
+            this.lblAno.Size = new System.Drawing.Size(38, 25);
             this.lblAno.TabIndex = 187;
             this.lblAno.Text = "Ano";
             // 
             // lblMes
             // 
             this.lblMes.AutoSize = true;
-            this.lblMes.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMes.Location = new System.Drawing.Point(89, 277);
+            this.lblMes.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMes.Location = new System.Drawing.Point(89, 290);
             this.lblMes.Name = "lblMes";
-            this.lblMes.Size = new System.Drawing.Size(36, 24);
+            this.lblMes.Size = new System.Drawing.Size(40, 25);
             this.lblMes.TabIndex = 188;
             this.lblMes.Text = "Mês";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(1613, 261);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 24);
+            this.label1.Size = new System.Drawing.Size(195, 25);
             this.label1.TabIndex = 189;
             this.label1.Text = "Valor ganho nesse período";
-            // 
-            // btnAno
-            // 
-            this.btnAno.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAno.Location = new System.Drawing.Point(351, 211);
-            this.btnAno.Name = "btnAno";
-            this.btnAno.Size = new System.Drawing.Size(106, 37);
-            this.btnAno.TabIndex = 190;
-            this.btnAno.Text = "Pesquisar";
-            this.btnAno.UseVisualStyleBackColor = true;
-            this.btnAno.Click += new System.EventHandler(this.btnAno_Click);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(351, 277);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(106, 37);
-            this.btnPesquisar.TabIndex = 191;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(1581, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 24);
+            this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 192;
             this.label2.Text = "Período";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(216, 158);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 24);
+            this.label3.Size = new System.Drawing.Size(63, 25);
             this.label3.TabIndex = 193;
             this.label3.Text = "Período";
-            // 
-            // btnPesq
-            // 
-            this.btnPesq.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesq.Location = new System.Drawing.Point(224, 727);
-            this.btnPesq.Name = "btnPesq";
-            this.btnPesq.Size = new System.Drawing.Size(106, 37);
-            this.btnPesq.TabIndex = 204;
-            this.btnPesq.Text = "Pesquisar";
-            this.btnPesq.UseVisualStyleBackColor = true;
-            this.btnPesq.Click += new System.EventHandler(this.btnPesq_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(125, 637);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 24);
+            this.label4.Size = new System.Drawing.Size(40, 25);
             this.label4.TabIndex = 203;
             this.label4.Text = "Mês";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(125, 571);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 24);
+            this.label5.Size = new System.Drawing.Size(38, 25);
             this.label5.TabIndex = 202;
             this.label5.Text = "Ano";
             // 
@@ -280,10 +251,10 @@ namespace Estacionamento.Funcionario.Relatorio
             // lbl7dias
             // 
             this.lbl7dias.AutoSize = true;
-            this.lbl7dias.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7dias.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl7dias.Location = new System.Drawing.Point(161, 858);
             this.lbl7dias.Name = "lbl7dias";
-            this.lbl7dias.Size = new System.Drawing.Size(239, 24);
+            this.lbl7dias.Size = new System.Drawing.Size(252, 25);
             this.lbl7dias.TabIndex = 210;
             this.lbl7dias.Text = "Hora mais movimentada em 7 dias";
             this.lbl7dias.Click += new System.EventHandler(this.lbl7dias_Click);
@@ -291,16 +262,17 @@ namespace Estacionamento.Funcionario.Relatorio
             // lblPdf
             // 
             this.lblPdf.AutoSize = true;
-            this.lblPdf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPdf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPdf.Location = new System.Drawing.Point(1538, 827);
             this.lblPdf.Name = "lblPdf";
-            this.lblPdf.Size = new System.Drawing.Size(165, 24);
+            this.lblPdf.Size = new System.Drawing.Size(178, 25);
             this.lblPdf.TabIndex = 212;
             this.lblPdf.Text = "Quadro de Funcionários";
             this.lblPdf.Click += new System.EventHandler(this.lblPdf_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sessaoToolStripMenuItem,
@@ -309,7 +281,8 @@ namespace Estacionamento.Funcionario.Relatorio
             this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 215;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -320,6 +293,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.saídaToolStripMenuItem,
             this.editarToolStripMenuItem,
             this.vagasToolStripMenuItem});
+            this.sessaoToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
             this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
             this.sessaoToolStripMenuItem.Text = "Sessão";
@@ -357,6 +331,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clienteToolStripMenuItem,
             this.veiculoToolStripMenuItem});
+            this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
             this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
             this.editarToolStripMenuItem1.Text = "Editar";
@@ -367,13 +342,27 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cadastroToolStripMenuItem,
             this.alterarToolStripMenuItem});
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
             this.clienteToolStripMenuItem.Text = "Cliente";
+            // 
+            // cadastroToolStripMenuItem
+            // 
+            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(156, 28);
+            this.cadastroToolStripMenuItem.Text = "Cadastro";
+            this.cadastroToolStripMenuItem.Click += new System.EventHandler(this.cadastroToolStripMenuItem_Click);
+            // 
+            // alterarToolStripMenuItem
+            // 
+            this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(156, 28);
+            this.alterarToolStripMenuItem.Text = "Alterar";
+            this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
             // veiculoToolStripMenuItem
             // 
             this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
-            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
             this.veiculoToolStripMenuItem.Text = "Veículo";
             this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
             // 
@@ -382,6 +371,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.sairToolStripMenuItem});
+            this.sobreToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
             this.sobreToolStripMenuItem.Text = "Sobre";
@@ -389,14 +379,14 @@ namespace Estacionamento.Funcionario.Relatorio
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -405,6 +395,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
             this.fecharToolStripMenuItem});
+            this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
             this.usuarioToolStripMenuItem.Text = "Usuário";
@@ -412,14 +403,14 @@ namespace Estacionamento.Funcionario.Relatorio
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(139, 28);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.loginToolStripMenuItem.Text = "Logout";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // fecharToolStripMenuItem
             // 
             this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(139, 28);
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
@@ -436,57 +427,175 @@ namespace Estacionamento.Funcionario.Relatorio
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(260, 511);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 24);
+            this.label6.Size = new System.Drawing.Size(45, 25);
             this.label6.TabIndex = 216;
             this.label6.Text = "Hora";
             // 
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(1065, 814);
+            this.btnLimpar.Location = new System.Drawing.Point(1075, 809);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(106, 37);
+            this.btnLimpar.Size = new System.Drawing.Size(106, 43);
             this.btnLimpar.TabIndex = 217;
             this.btnLimpar.Text = "Limpar Campos";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // cadastroToolStripMenuItem
+            // dgvRelatorio
             // 
-            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
-            this.cadastroToolStripMenuItem.Text = "Cadastro";
-            this.cadastroToolStripMenuItem.Click += new System.EventHandler(this.cadastroToolStripMenuItem_Click);
+            this.dgvRelatorio.AllowUserToAddRows = false;
+            this.dgvRelatorio.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvRelatorio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvRelatorio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRelatorio.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRelatorio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvRelatorio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRelatorio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvRelatorio.ColumnHeadersHeight = 40;
+            this.dgvRelatorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRelatorio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvRelatorio.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvRelatorio.EnableHeadersVisualStyles = false;
+            this.dgvRelatorio.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvRelatorio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvRelatorio.Location = new System.Drawing.Point(658, 224);
+            this.dgvRelatorio.MultiSelect = false;
+            this.dgvRelatorio.Name = "dgvRelatorio";
+            this.dgvRelatorio.ReadOnly = true;
+            this.dgvRelatorio.RowHeadersVisible = false;
+            this.dgvRelatorio.RowTemplate.Height = 50;
+            this.dgvRelatorio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRelatorio.Size = new System.Drawing.Size(828, 420);
+            this.dgvRelatorio.TabIndex = 235;
             // 
-            // alterarToolStripMenuItem
+            // ptbHora
             // 
-            this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
-            this.alterarToolStripMenuItem.Text = "Alterar";
-            this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
+            this.ptbHora.Image = global::Estacionamento.Properties.Resources.icons8_search_64;
+            this.ptbHora.Location = new System.Drawing.Point(407, 595);
+            this.ptbHora.Name = "ptbHora";
+            this.ptbHora.Size = new System.Drawing.Size(50, 49);
+            this.ptbHora.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbHora.TabIndex = 238;
+            this.ptbHora.TabStop = false;
+            this.ptbHora.Click += new System.EventHandler(this.ptbHora_Click);
+            // 
+            // ptbMes
+            // 
+            this.ptbMes.Image = global::Estacionamento.Properties.Resources.icons8_search_64;
+            this.ptbMes.Location = new System.Drawing.Point(350, 286);
+            this.ptbMes.Name = "ptbMes";
+            this.ptbMes.Size = new System.Drawing.Size(50, 49);
+            this.ptbMes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbMes.TabIndex = 237;
+            this.ptbMes.TabStop = false;
+            this.ptbMes.Click += new System.EventHandler(this.ptbMes_Click);
+            // 
+            // ptbAno
+            // 
+            this.ptbAno.Image = global::Estacionamento.Properties.Resources.icons8_search_64;
+            this.ptbAno.Location = new System.Drawing.Point(350, 211);
+            this.ptbAno.Name = "ptbAno";
+            this.ptbAno.Size = new System.Drawing.Size(50, 49);
+            this.ptbAno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAno.TabIndex = 236;
+            this.ptbAno.TabStop = false;
+            this.ptbAno.Click += new System.EventHandler(this.ptbAno_Click);
+            // 
+            // ptbNormal
+            // 
+            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.ptbNormal.Location = new System.Drawing.Point(1823, 5);
+            this.ptbNormal.Name = "ptbNormal";
+            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
+            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbNormal.TabIndex = 272;
+            this.ptbNormal.TabStop = false;
+            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
+            // 
+            // ptbMaximar
+            // 
+            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbMaximar.Location = new System.Drawing.Point(1823, 5);
+            this.ptbMaximar.Name = "ptbMaximar";
+            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximar.TabIndex = 271;
+            this.ptbMaximar.TabStop = false;
+            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
+            // 
+            // ptbSair
+            // 
+            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Location = new System.Drawing.Point(1879, 3);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(32, 32);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSair.TabIndex = 270;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Location = new System.Drawing.Point(1765, 5);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 269;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbNormal);
+            this.Controls.Add(this.ptbMaximar);
+            this.Controls.Add(this.ptbSair);
+            this.Controls.Add(this.ptbMinimizar);
+            this.Controls.Add(this.ptbHora);
+            this.Controls.Add(this.ptbMes);
+            this.Controls.Add(this.ptbAno);
+            this.Controls.Add(this.dgvRelatorio);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lblPdf);
             this.Controls.Add(this.lbl7dias);
-            this.Controls.Add(this.btnPesq);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPesqAno);
             this.Controls.Add(this.cmbPesqMes);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.btnAno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMes);
             this.Controls.Add(this.lblAno);
@@ -495,24 +604,29 @@ namespace Estacionamento.Funcionario.Relatorio
             this.Controls.Add(this.cmbPesquisa);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.btnSairmenu);
-            this.Controls.Add(this.dgvRelatorio);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRelatorio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.frmRelatorio_Load);
             this.DoubleClick += new System.EventHandler(this.frmRelatorio_DoubleClick);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbHora)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvRelatorio;
         private System.Windows.Forms.Button btnSairmenu;
         private System.Windows.Forms.Label lblValor;
         private System.Windows.Forms.ComboBox cmbPesquisa;
@@ -520,11 +634,8 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.Label lblAno;
         private System.Windows.Forms.Label lblMes;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAno;
-        private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnPesq;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPesqAno;
@@ -551,5 +662,13 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvRelatorio;
+        private System.Windows.Forms.PictureBox ptbAno;
+        private System.Windows.Forms.PictureBox ptbMes;
+        private System.Windows.Forms.PictureBox ptbHora;
+        private System.Windows.Forms.PictureBox ptbNormal;
+        private System.Windows.Forms.PictureBox ptbMaximar;
+        private System.Windows.Forms.PictureBox ptbSair;
+        private System.Windows.Forms.PictureBox ptbMinimizar;
     }
 }

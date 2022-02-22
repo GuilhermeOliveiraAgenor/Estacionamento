@@ -281,7 +281,6 @@ namespace Estacionamento.editarPedidos
             {
                 lblMensagem.Text = "";
                 limparPesquisa();
-                carregarGrid();
             }
         }
 
@@ -289,5 +288,29 @@ namespace Estacionamento.editarPedidos
         {
             lblMensagem.Text = "";
         }
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

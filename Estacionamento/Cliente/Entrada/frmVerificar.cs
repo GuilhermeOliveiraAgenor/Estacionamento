@@ -159,5 +159,65 @@ namespace Estacionamento.Entrada
             new frmCadCliente().Show();
             this.Hide();
         }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            if (txtCpf.Text.Length == 11)
+            {
+                //passar parametros
+                string cpf = txtCpf.Text;
+
+                dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado do datatable
+
+                if (dt.Rows.Count == 1)
+                {
+                    frmEntrada frmentrada = new frmEntrada(txtCpf.Text);//vai para a tela de entrada
+                    frmentrada.Show();
+                    this.Hide();
+
+                }
+                if (dt.Rows.Count < 1)
+                {
+                    DialogResult dr = MessageBox.Show("Erro ao encontrar cliente. Deseja cadastrar ?", "Erro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
+                    {
+                        frmCadCliente cadCliente = new frmCadCliente(txtCpf.Text);
+                        cadCliente.Show();
+                        this.Hide();//vai para tela de cadastrar cliente
+                    }
+                    if (dr == DialogResult.No)
+                    {
+                        txtCpf.Focus();
+                    }
+
+                }
+            }
+        }
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

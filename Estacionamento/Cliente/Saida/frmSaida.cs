@@ -29,7 +29,7 @@ namespace Estacionamento.Saida
         int codigoEstacionar;
         decimal Valor;
         decimal Min;
-       
+
 
         public frmSaida()
         {
@@ -92,6 +92,22 @@ namespace Estacionamento.Saida
             codigoEstacionar = 0;
             Saida = Convert.ToDateTime("00:00");
         }
+        public void limparPesquisa()
+        {
+            lblPlaca.Text = "";
+            lblEntrada.Text = "";
+            lblPrecohora.Text = "";
+            lblCodigo.Text = "";
+            cmbFormadepagamento.Text = "";
+            lblDias.Text = "";
+            lblHoras.Text = "";
+            lblMinutos.Text = "";
+            lblSegundos.Text = "";
+            dgvEstacionamento.Enabled = true;
+            btnSaida.Enabled = false;
+            codigoEstacionar = 0;
+            Saida = Convert.ToDateTime("00:00");
+        }
         private void btnCodigo_Click(object sender, EventArgs e)
         {
             string placa = txtPesquisar.Text;
@@ -101,20 +117,20 @@ namespace Estacionamento.Saida
 
             dt = estacionarDAO.pesqVeiculo(placa);//recebe o resultado
 
-             if (dt.Rows.Count == 1)//se linhas forem afetadas, as informações vao ser carregadas
-             {
+            if (dt.Rows.Count == 1)//se linhas forem afetadas, as informações vao ser carregadas
+            {
 
                 dgvEstacionamento.Enabled = false;
                 btnSaida.Enabled = false;
 
-                 foreach (DataRow row in dt.Rows)
-                 {
+                foreach (DataRow row in dt.Rows)
+                {
                     lblPlaca.Text = row["Placa"].ToString();
                     Entrada = Convert.ToDateTime(row["Entrada"].ToString());
                     lblEntrada.Text = Convert.ToString(Entrada);
                     codigoEstacionar = row["Código"].GetHashCode();
 
-                 }
+                }
 
                 lblCodigo.Text = Convert.ToString(codigoEstacionar);
 
@@ -124,16 +140,16 @@ namespace Estacionamento.Saida
             }
             else
             {
-                MessageBox.Show("Erro ao encontrar cliente.","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                MessageBox.Show("Erro ao encontrar cliente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
                 txtPesquisar.Focus();
                 cmbFormadepagamento.Text = "";
                 btnSaida.Enabled = false;
                 carregarGrid();
                 limparCampos();
             }
-            
-}
-        
+
+        }
+
 
         private void btnSaida_Click(object sender, EventArgs e)
         {
@@ -142,7 +158,7 @@ namespace Estacionamento.Saida
             if (codigoEstacionar == 0 || String.IsNullOrEmpty(lblPrecohora.Text) || String.IsNullOrEmpty(cmbFormadepagamento.ValueMember))//verificar campos vazios
             {
                 MessageBox.Show("Preencha os campos ou selecione a veiculo novamente", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }   
+            }
 
             else
             {
@@ -168,7 +184,7 @@ namespace Estacionamento.Saida
             DataTable dt = new DataTable();
             DataTable dt1 = new DataTable();
 
-            carregarGrid(); 
+            carregarGrid();
 
             forma = formaDAO.carregarDescricao();
 
@@ -183,28 +199,6 @@ namespace Estacionamento.Saida
             lblHora.Text = DateTime.Now.ToLongTimeString();
 
         }
-
-        private void dgvEstacionamento_SelectionChanged(object sender, EventArgs e)
-        {
-            int linha = 0;
-
-            btnSaida.Enabled = false;
-            cmbFormadepagamento.Text = "";
-            Saida = Convert.ToDateTime(DateTime.Now.ToString("F", System.Globalization.DateTimeFormatInfo.InvariantInfo));
-            
-
-            linha = dgvEstacionamento.CurrentRow.Index;
-            codigoEstacionar = Convert.ToInt32(dgvEstacionamento[0, linha].Value.ToString());
-            lblPlaca.Text = dgvEstacionamento[4, linha].Value.ToString();
-            lblEntrada.Text = dgvEstacionamento[5, linha].Value.ToString();
-
-            Entrada = Convert.ToDateTime(lblEntrada.Text);
-            lblCodigo.Text = Convert.ToString(codigoEstacionar);
-
-            calcularPreco();
-
-        }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
@@ -301,5 +295,102 @@ namespace Estacionamento.Saida
             new frmCadCliente().Show();
             this.Hide();
         }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            string placa = txtPesquisar.Text;
+            DataTable dt = new DataTable();
+
+            Saida = Convert.ToDateTime(DateTime.Now.ToString("F", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+
+            dt = estacionarDAO.pesqVeiculo(placa);//recebe o resultado
+
+            if (txtPesquisar.Text.Length == 7)
+            {
+                if (dt.Rows.Count == 1)//se linhas forem afetadas, as informações vao ser carregadas
+                {
+                    lblMensagem.Text = "";
+                    dgvEstacionamento.Enabled = false;
+                    btnSaida.Enabled = false;
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        lblPlaca.Text = row["Placa"].ToString();
+                        Entrada = Convert.ToDateTime(row["Entrada"].ToString());
+                        lblEntrada.Text = Convert.ToString(Entrada);
+                        codigoEstacionar = row["Código"].GetHashCode();
+
+                    }
+
+                    lblCodigo.Text = Convert.ToString(codigoEstacionar);
+
+                    calcularPreco();
+
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao encontrar o cliente";
+                    txtPesquisar.Focus();
+                    carregarGrid();
+                    limparPesquisa();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                limparPesquisa();
+            }
+
+        }
+
+        private void txtPesquisar_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+
+        private void dgvEstacionamento_SelectionChanged(object sender, EventArgs e)
+        {
+            int linha = 0;
+
+            btnSaida.Enabled = false;
+            cmbFormadepagamento.Text = "";
+            Saida = Convert.ToDateTime(DateTime.Now.ToString("F", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+
+
+            linha = dgvEstacionamento.CurrentRow.Index;
+            codigoEstacionar = Convert.ToInt32(dgvEstacionamento[0, linha].Value.ToString());
+            lblPlaca.Text = dgvEstacionamento[4, linha].Value.ToString();
+            lblEntrada.Text = dgvEstacionamento[5, linha].Value.ToString();
+
+            Entrada = Convert.ToDateTime(lblEntrada.Text);
+            lblCodigo.Text = Convert.ToString(codigoEstacionar);
+
+            calcularPreco();
+        }
+
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

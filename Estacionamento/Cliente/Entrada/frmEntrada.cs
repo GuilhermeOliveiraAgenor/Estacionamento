@@ -79,6 +79,8 @@ namespace Estacionamento.Entrada
         {
             txtPesquisar.Focus();
             lblCodigodocliente.Text = "";
+            cmbcodigoVeiculo.Text = "";
+            cmbPatio.Text = "";
             btnGravar.Enabled = false;//bloqueia o botão
             cmbcodigoVeiculo.Items.Clear();//limpa a combobox a cada pesquisa
         }
@@ -300,7 +302,73 @@ namespace Estacionamento.Entrada
 
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
+            List<clienteVeiculo> veiculo = new List<clienteVeiculo>();
+            string cpf = txtPesquisar.Text;//passa o parametros
 
+            DataTable dt = new DataTable();
+
+            cmbcodigoVeiculo.Text = "";
+            cmbPatio.Text = "";
+
+            dt = cliVeiculoDAO.pesqCpf(cpf);//recebe o resultado
+
+            veiculo = cliVeiculoDAO.listVeiculosCpf(cpf);//recebe o resultado
+
+            if (txtPesquisar.Text.Length == 11)
+            {
+                if (dt.Rows.Count >= 1)
+                {
+                    lblMensagem.Text = "";
+                    configurarPesq();
+
+                    dgvCadastro.DataSource = cliVeiculoDAO.pesqCpf(cpf);//carrega o grid
+
+                    foreach (var item in veiculo)
+                    {
+                        cmbcodigoVeiculo.Items.Add(item.Placa);//adiciona as placas do cliente
+                    }
+
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao encontrar cliente";//mensagem de erro
+                    limparPesq();
+                    carregarGrid();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                limparPesq();
+            }
+        }
+
+        private void txtPesquisar_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ptbNormal_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
         }
     }
 }

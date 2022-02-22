@@ -16,6 +16,6 @@ namespace Model
 
         public int Acesso { get; set; }
 
-        public int idFuncionario { get; set; }
+        public int codigoFuncionario { get; set; }
     }
 }
