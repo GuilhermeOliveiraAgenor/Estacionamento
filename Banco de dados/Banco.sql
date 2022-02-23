@@ -176,6 +176,13 @@ select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '
 
 select DATEPART(HOUR,dataEntrada) as Hora, COUNT(*) as Carros from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,dataEntrada) having COUNT(*) > 1 order by Carros desc
 
+delete Pagamento from Pagamento
+delete clienteVeiculo from clienteVeiculo
+delete Estacionar from Estacionar where idEstacionar = '77'
+
+select Cliente.Nome, Cliente.Cpf, Veiculo.descricaoVeiculo as Veículo,clienteVeiculo.Placa,Estacionar.Patio as Pátio, Estacionar.Preco as Preço, Estacionar.dataEntrada as Entrada, Estacionar.dataSaida as Saída from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo 
+where clienteVeiculo.Placa = 'IYUI7IY'
+
 
 select Funcionarios.idFuncionario as Código, Funcionarios.primeiroNome as Nome, Funcionarios.Sobrenome, Funcionarios.Cpf, Funcionarios.Rg, Funcionarios.Profissao as Profissão, Funcionarios.Salario as Salário, nivelAcesso.Nivel Foto from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso
 

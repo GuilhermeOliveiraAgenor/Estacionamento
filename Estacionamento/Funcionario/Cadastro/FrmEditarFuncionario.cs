@@ -349,11 +349,11 @@ namespace Estacionamento
             openFile.Filter = "Arquivos de imagens jpg e png|*.jpg; *png";//define os tipos de arquivos
             openFile.Multiselect = false;
 
-            modo = "alterarFoto";
             caminhoFoto = "";
 
             if (openFile.ShowDialog() == DialogResult.OK)//se selecionar a foto, coloca o nome do arquivo na variável
             {
+                modo = "alterarFoto";
                 caminhoFoto = openFile.FileName;
             }
 

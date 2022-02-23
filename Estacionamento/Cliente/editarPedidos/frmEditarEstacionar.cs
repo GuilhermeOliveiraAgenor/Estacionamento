@@ -227,21 +227,6 @@ namespace Estacionamento.editarPedidos
                 }
             }
         }
-
-        private void cmbPlaca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<clienteVeiculo> cliVeiculo = cliVeiculoDAO.listarVeiculos();
-
-            foreach (var item in cliVeiculo)
-            {
-                if (cmbPlaca.Text == item.Placa)
-                {
-                    idClienteVeiculo = item.IdClienteVeiculo.GetHashCode();
-                }
-            }
-
-        }
-
         private void btnVoltaraomenu_Click(object sender, EventArgs e)
         {
             frmMenuu frm = new frmMenuu();
@@ -480,5 +465,17 @@ namespace Estacionamento.editarPedidos
             ptbMaximar.Visible = true;
         }
 
+        private void cmbPlaca_TextChanged(object sender, EventArgs e)
+        {
+            List<clienteVeiculo> cliVeiculo = cliVeiculoDAO.listarVeiculos();
+
+            foreach (var item in cliVeiculo)
+            {
+                if (cmbPlaca.Text == item.Placa)
+                {
+                    idClienteVeiculo = item.IdClienteVeiculo.GetHashCode();
+                }
+            }
+        }
     }
 }

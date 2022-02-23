@@ -30,6 +30,11 @@ namespace Estacionamento.Usuarios
         {
             InitializeComponent();
         }
+        public void limparCampos()
+        {
+            txtConfirmar.Clear();
+            txtNovaSenha.Clear();
+        }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
@@ -51,6 +56,7 @@ namespace Estacionamento.Usuarios
                 if (result == true)
                 {
                     MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limparCampos();
                 }
             }
             
@@ -209,5 +215,17 @@ namespace Estacionamento.Usuarios
             Application.Exit();
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void btnVoltarmenu_Click(object sender, EventArgs e)
+        {
+            new frmMenuu().Show();
+            this.Hide();
+        }
     }
 }

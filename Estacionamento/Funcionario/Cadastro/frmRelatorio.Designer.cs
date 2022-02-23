@@ -48,7 +48,17 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbPesqMes = new System.Windows.Forms.ComboBox();
             this.lbl7dias = new System.Windows.Forms.Label();
             this.lblPdf = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.dgvRelatorio = new System.Windows.Forms.DataGridView();
+            this.ptbHora = new System.Windows.Forms.PictureBox();
+            this.ptbMes = new System.Windows.Forms.PictureBox();
+            this.ptbAno = new System.Windows.Forms.PictureBox();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.sessaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,18 +75,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtAno = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.dgvRelatorio = new System.Windows.Forms.DataGridView();
-            this.ptbHora = new System.Windows.Forms.PictureBox();
-            this.ptbMes = new System.Windows.Forms.PictureBox();
-            this.ptbAno = new System.Windows.Forms.PictureBox();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbHora)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMes)).BeginInit();
@@ -85,6 +84,7 @@ namespace Estacionamento.Funcionario.Relatorio
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSairmenu
@@ -270,150 +270,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.lblPdf.Text = "Quadro de Funcionários";
             this.lblPdf.Click += new System.EventHandler(this.lblPdf_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sessaoToolStripMenuItem,
-            this.editarToolStripMenuItem1,
-            this.sobreToolStripMenuItem,
-            this.usuarioToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
-            this.menuStrip1.TabIndex = 215;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // sessaoToolStripMenuItem
-            // 
-            this.sessaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.entradaToolStripMenuItem,
-            this.saídaToolStripMenuItem,
-            this.editarToolStripMenuItem,
-            this.vagasToolStripMenuItem});
-            this.sessaoToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
-            this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
-            this.sessaoToolStripMenuItem.Text = "Sessão";
-            // 
-            // entradaToolStripMenuItem
-            // 
-            this.entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
-            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
-            this.entradaToolStripMenuItem.Text = "Entrada";
-            this.entradaToolStripMenuItem.Click += new System.EventHandler(this.entradaToolStripMenuItem_Click);
-            // 
-            // saídaToolStripMenuItem
-            // 
-            this.saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
-            this.saídaToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
-            this.saídaToolStripMenuItem.Text = "Saída";
-            this.saídaToolStripMenuItem.Click += new System.EventHandler(this.saídaToolStripMenuItem_Click);
-            // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
-            this.editarToolStripMenuItem.Text = "Alterar";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
-            // 
-            // vagasToolStripMenuItem
-            // 
-            this.vagasToolStripMenuItem.Name = "vagasToolStripMenuItem";
-            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
-            this.vagasToolStripMenuItem.Text = "Vagas";
-            this.vagasToolStripMenuItem.Click += new System.EventHandler(this.vagasToolStripMenuItem_Click);
-            // 
-            // editarToolStripMenuItem1
-            // 
-            this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clienteToolStripMenuItem,
-            this.veiculoToolStripMenuItem});
-            this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
-            this.editarToolStripMenuItem1.Text = "Editar";
-            // 
-            // clienteToolStripMenuItem
-            // 
-            this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroToolStripMenuItem,
-            this.alterarToolStripMenuItem});
-            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
-            this.clienteToolStripMenuItem.Text = "Cliente";
-            // 
-            // cadastroToolStripMenuItem
-            // 
-            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(156, 28);
-            this.cadastroToolStripMenuItem.Text = "Cadastro";
-            this.cadastroToolStripMenuItem.Click += new System.EventHandler(this.cadastroToolStripMenuItem_Click);
-            // 
-            // alterarToolStripMenuItem
-            // 
-            this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(156, 28);
-            this.alterarToolStripMenuItem.Text = "Alterar";
-            this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
-            // 
-            // veiculoToolStripMenuItem
-            // 
-            this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
-            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
-            this.veiculoToolStripMenuItem.Text = "Veículo";
-            this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
-            // 
-            // sobreToolStripMenuItem
-            // 
-            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem,
-            this.sairToolStripMenuItem});
-            this.sobreToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
-            this.sobreToolStripMenuItem.Text = "Sobre";
-            // 
-            // menuToolStripMenuItem
-            // 
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
-            this.menuToolStripMenuItem.Text = "Menu";
-            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loginToolStripMenuItem,
-            this.fecharToolStripMenuItem});
-            this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
-            this.usuarioToolStripMenuItem.Text = "Usuário";
-            // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
-            this.loginToolStripMenuItem.Text = "Logout";
-            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
-            // 
-            // fecharToolStripMenuItem
-            // 
-            this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(180, 28);
-            this.fecharToolStripMenuItem.Text = "Fechar";
-            this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
-            // 
             // txtAno
             // 
             this.txtAno.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -526,7 +382,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
             this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
-            this.ptbNormal.Location = new System.Drawing.Point(1823, 5);
+            this.ptbNormal.Location = new System.Drawing.Point(1822, 5);
             this.ptbNormal.Name = "ptbNormal";
             this.ptbNormal.Size = new System.Drawing.Size(32, 27);
             this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -539,7 +395,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
             this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbMaximar.Location = new System.Drawing.Point(1823, 5);
+            this.ptbMaximar.Location = new System.Drawing.Point(1822, 5);
             this.ptbMaximar.Name = "ptbMaximar";
             this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
             this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -551,9 +407,9 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
             this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1879, 3);
+            this.ptbSair.Location = new System.Drawing.Point(1870, -2);
             this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(32, 32);
+            this.ptbSair.Size = new System.Drawing.Size(40, 40);
             this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbSair.TabIndex = 270;
             this.ptbSair.TabStop = false;
@@ -572,13 +428,157 @@ namespace Estacionamento.Funcionario.Relatorio
             this.ptbMinimizar.TabStop = false;
             this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
+            // sessaoToolStripMenuItem
+            // 
+            this.sessaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.entradaToolStripMenuItem,
+            this.saídaToolStripMenuItem,
+            this.editarToolStripMenuItem,
+            this.vagasToolStripMenuItem});
+            this.sessaoToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.sessaoToolStripMenuItem.Name = "sessaoToolStripMenuItem";
+            this.sessaoToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
+            this.sessaoToolStripMenuItem.Text = "Sessão";
+            // 
+            // entradaToolStripMenuItem
+            // 
+            this.entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
+            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
+            this.entradaToolStripMenuItem.Text = "Entrada";
+            this.entradaToolStripMenuItem.Click += new System.EventHandler(this.entradaToolStripMenuItem_Click);
+            // 
+            // saídaToolStripMenuItem
+            // 
+            this.saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
+            this.saídaToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
+            this.saídaToolStripMenuItem.Text = "Saída";
+            this.saídaToolStripMenuItem.Click += new System.EventHandler(this.saídaToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
+            this.editarToolStripMenuItem.Text = "Alterar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // vagasToolStripMenuItem
+            // 
+            this.vagasToolStripMenuItem.Name = "vagasToolStripMenuItem";
+            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(146, 28);
+            this.vagasToolStripMenuItem.Text = "Vagas";
+            this.vagasToolStripMenuItem.Click += new System.EventHandler(this.vagasToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem1
+            // 
+            this.editarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clienteToolStripMenuItem,
+            this.veiculoToolStripMenuItem});
+            this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(72, 27);
+            this.editarToolStripMenuItem1.Text = "Editar";
+            // 
+            // clienteToolStripMenuItem
+            // 
+            this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroToolStripMenuItem,
+            this.alterarToolStripMenuItem});
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
+            this.clienteToolStripMenuItem.Text = "Cliente";
+            // 
+            // cadastroToolStripMenuItem
+            // 
+            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(156, 28);
+            this.cadastroToolStripMenuItem.Text = "Cadastro";
+            this.cadastroToolStripMenuItem.Click += new System.EventHandler(this.cadastroToolStripMenuItem_Click);
+            // 
+            // alterarToolStripMenuItem
+            // 
+            this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(156, 28);
+            this.alterarToolStripMenuItem.Text = "Alterar";
+            this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
+            // 
+            // veiculoToolStripMenuItem
+            // 
+            this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
+            this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
+            this.veiculoToolStripMenuItem.Text = "Veículo";
+            this.veiculoToolStripMenuItem.Click += new System.EventHandler(this.veiculoToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem,
+            this.sairToolStripMenuItem});
+            this.sobreToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 27);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
+            this.menuToolStripMenuItem.Text = "Menu";
+            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem,
+            this.fecharToolStripMenuItem});
+            this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 27);
+            this.usuarioToolStripMenuItem.Text = "Usuário";
+            // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(139, 28);
+            this.loginToolStripMenuItem.Text = "Logout";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
+            // fecharToolStripMenuItem
+            // 
+            this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(139, 28);
+            this.fecharToolStripMenuItem.Text = "Fechar";
+            this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sessaoToolStripMenuItem,
+            this.editarToolStripMenuItem1,
+            this.sobreToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
+            this.menuStrip1.TabIndex = 215;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
-            this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbMaximar);
+            this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbSair);
             this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.ptbHora);
@@ -587,7 +587,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.Controls.Add(this.dgvRelatorio);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lblPdf);
             this.Controls.Add(this.lbl7dias);
             this.Controls.Add(this.label4);
@@ -604,15 +603,14 @@ namespace Estacionamento.Funcionario.Relatorio
             this.Controls.Add(this.cmbPesquisa);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.btnSairmenu);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRelatorio";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.frmRelatorio_Load);
             this.DoubleClick += new System.EventHandler(this.frmRelatorio_DoubleClick);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbHora)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMes)).EndInit();
@@ -621,6 +619,8 @@ namespace Estacionamento.Funcionario.Relatorio
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -642,26 +642,9 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.ComboBox cmbPesqMes;
         private System.Windows.Forms.Label lbl7dias;
         private System.Windows.Forms.Label lblPdf;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vagasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem veiculoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.TextBox txtAno;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvRelatorio;
         private System.Windows.Forms.PictureBox ptbAno;
         private System.Windows.Forms.PictureBox ptbMes;
@@ -670,5 +653,22 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.PictureBox ptbMaximar;
         private System.Windows.Forms.PictureBox ptbSair;
         private System.Windows.Forms.PictureBox ptbMinimizar;
+        private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vagasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem veiculoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

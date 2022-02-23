@@ -30,7 +30,13 @@ namespace Estacionamento.Entrada
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVerificar));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.txtCpf = new System.Windows.Forms.TextBox();
+            this.lblCpf = new System.Windows.Forms.Label();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.sessaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,35 +53,96 @@ namespace Estacionamento.Entrada
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.txtCpf = new System.Windows.Forms.TextBox();
-            this.lblCpf = new System.Windows.Forms.Label();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // btnVoltar
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sessaoToolStripMenuItem,
-            this.editarToolStripMenuItem1,
-            this.sobreToolStripMenuItem,
-            this.usuarioToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
-            this.menuStrip1.Size = new System.Drawing.Size(1417, 39);
-            this.menuStrip1.TabIndex = 219;
-            this.menuStrip1.Text = "menuStrip1";
+            this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(1174, 522);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(100, 48);
+            this.btnVoltar.TabIndex = 218;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.Location = new System.Drawing.Point(675, 287);
+            this.txtCpf.MaxLength = 11;
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(138, 30);
+            this.txtCpf.TabIndex = 221;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
+            // 
+            // lblCpf
+            // 
+            this.lblCpf.AutoSize = true;
+            this.lblCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpf.Location = new System.Drawing.Point(622, 289);
+            this.lblCpf.Name = "lblCpf";
+            this.lblCpf.Size = new System.Drawing.Size(34, 25);
+            this.lblCpf.TabIndex = 222;
+            this.lblCpf.Text = "Cpf";
+            // 
+            // ptbNormal
+            // 
+            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.ptbNormal.Location = new System.Drawing.Point(1317, 5);
+            this.ptbNormal.Name = "ptbNormal";
+            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
+            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbNormal.TabIndex = 260;
+            this.ptbNormal.TabStop = false;
+            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
+            // 
+            // ptbMaximar
+            // 
+            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbMaximar.Location = new System.Drawing.Point(1317, 5);
+            this.ptbMaximar.Name = "ptbMaximar";
+            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximar.TabIndex = 259;
+            this.ptbMaximar.TabStop = false;
+            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
+            // 
+            // ptbSair
+            // 
+            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Location = new System.Drawing.Point(1364, -3);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(40, 40);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSair.TabIndex = 258;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Location = new System.Drawing.Point(1259, 5);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 257;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
             // sessaoToolStripMenuItem
             // 
@@ -205,120 +272,59 @@ namespace Estacionamento.Entrada
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
-            // btnVoltar
+            // menuStrip1
             // 
-            this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(1174, 522);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(100, 48);
-            this.btnVoltar.TabIndex = 218;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
-            // txtCpf
-            // 
-            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpf.Location = new System.Drawing.Point(675, 287);
-            this.txtCpf.MaxLength = 11;
-            this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(138, 30);
-            this.txtCpf.TabIndex = 221;
-            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
-            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
-            // 
-            // lblCpf
-            // 
-            this.lblCpf.AutoSize = true;
-            this.lblCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpf.Location = new System.Drawing.Point(622, 289);
-            this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(34, 25);
-            this.lblCpf.TabIndex = 222;
-            this.lblCpf.Text = "Cpf";
-            // 
-            // ptbNormal
-            // 
-            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
-            this.ptbNormal.Location = new System.Drawing.Point(1317, 5);
-            this.ptbNormal.Name = "ptbNormal";
-            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
-            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbNormal.TabIndex = 260;
-            this.ptbNormal.TabStop = false;
-            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
-            // 
-            // ptbMaximar
-            // 
-            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbMaximar.Location = new System.Drawing.Point(1317, 5);
-            this.ptbMaximar.Name = "ptbMaximar";
-            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximar.TabIndex = 259;
-            this.ptbMaximar.TabStop = false;
-            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
-            // 
-            // ptbSair
-            // 
-            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1373, 3);
-            this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(32, 32);
-            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSair.TabIndex = 258;
-            this.ptbSair.TabStop = false;
-            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
-            this.ptbMinimizar.Location = new System.Drawing.Point(1259, 5);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 257;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
+            this.menuStrip1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sessaoToolStripMenuItem,
+            this.editarToolStripMenuItem1,
+            this.sobreToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
+            this.menuStrip1.Size = new System.Drawing.Size(1417, 39);
+            this.menuStrip1.TabIndex = 219;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // frmVerificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1417, 653);
-            this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbMaximar);
             this.Controls.Add(this.ptbSair);
             this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.txtCpf);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.ptbNormal);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVerificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verificar";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.Label lblCpf;
+        private System.Windows.Forms.PictureBox ptbSair;
+        private System.Windows.Forms.PictureBox ptbMinimizar;
+        private System.Windows.Forms.PictureBox ptbNormal;
+        private System.Windows.Forms.PictureBox ptbMaximar;
         private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;
@@ -326,6 +332,8 @@ namespace Estacionamento.Entrada
         private System.Windows.Forms.ToolStripMenuItem vagasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veiculoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -333,14 +341,6 @@ namespace Estacionamento.Entrada
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
-        private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.TextBox txtCpf;
-        private System.Windows.Forms.Label lblCpf;
-        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
-        private System.Windows.Forms.PictureBox ptbSair;
-        private System.Windows.Forms.PictureBox ptbMinimizar;
-        private System.Windows.Forms.PictureBox ptbNormal;
-        private System.Windows.Forms.PictureBox ptbMaximar;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

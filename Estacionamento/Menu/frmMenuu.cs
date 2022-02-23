@@ -55,7 +55,8 @@ namespace Estacionamento.Menu
             InitializeComponent();
         }
 
-        //TODO: Menu - tela, botão de fechar minimizar e maximar funcionario
+        //TODO: Menu - tela, conferir codigos abertos e excluir, excluir código de botao pesquisar, id existe ou nao procedure e colocar mask
+
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -73,7 +74,6 @@ namespace Estacionamento.Menu
             }
 
             vagasOcupadas();
-
         }
 
         private void btnEntrada_Click(object sender, EventArgs e)
@@ -433,7 +433,7 @@ namespace Estacionamento.Menu
             {
                 Menu.Width = 92;
             }
-            else
+            if (Menu.Width == 92)
             {
                 Menu.Width = 252;
             }
@@ -461,6 +461,18 @@ namespace Estacionamento.Menu
         private void ptbMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ptbMenu_Click(object sender, EventArgs e)
+        {
+            if (Menu.Width == 253)
+            {
+                Menu.Width = 92;
+            }
+            else
+            {
+                Menu.Width = 253;
+            }
         }
     }
 }

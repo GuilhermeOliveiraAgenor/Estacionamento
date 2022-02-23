@@ -404,9 +404,9 @@ namespace Estacionamento.editarPedidos
             // 
             this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
             this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1880, 5);
+            this.ptbSair.Location = new System.Drawing.Point(1872, -2);
             this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(32, 32);
+            this.ptbSair.Size = new System.Drawing.Size(40, 40);
             this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbSair.TabIndex = 248;
             this.ptbSair.TabStop = false;
@@ -456,15 +456,14 @@ namespace Estacionamento.editarPedidos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbSair);
             this.Controls.Add(this.ptbMaximar);
-            this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.dgvVeiculos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMensagem);
             this.Controls.Add(this.txtPlaca);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cmbVeiculo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -473,6 +472,7 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.lblPlaca);
             this.Controls.Add(this.btnCancelarfuncionario);
             this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInserirVeiculo";

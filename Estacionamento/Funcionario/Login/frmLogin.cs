@@ -69,8 +69,10 @@ namespace Estacionamento.Login
                         {
                             MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
-                            frmmenu.btnFuncionario.Enabled = false;
+                            frmmenu.btnFuncionario.Visible = false;
                             frmmenu.btnRelatorio.Visible = false;
+                            frmmenu.pictureBox11.Visible = false;
+                            frmmenu.pictureBox12.Visible = false;
                             frmmenu.Show();
                             this.Hide();
                         }
@@ -122,5 +124,28 @@ namespace Estacionamento.Login
             txtSenha.UseSystemPasswordChar = true;
             ptbAtivarsenha.Visible = true;
         }
-    }  
+        private void ptbMaximar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            ptbNormal.Visible = true;
+            ptbMaximar.Visible = false;
+        }
+
+        private void ptbMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ptbNormal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            ptbNormal.Visible = false;
+            ptbMaximar.Visible = true;
+        }
+
+        private void ptbSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
 }

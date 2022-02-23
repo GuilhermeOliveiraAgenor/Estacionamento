@@ -41,10 +41,20 @@ namespace Estacionamento.Login
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ptbFundo = new System.Windows.Forms.PictureBox();
+            this.ptbNormal = new System.Windows.Forms.PictureBox();
+            this.ptbMaximar = new System.Windows.Forms.PictureBox();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFundo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -162,29 +172,103 @@ namespace Estacionamento.Login
             // ptbFundo
             // 
             this.ptbFundo.Image = global::Estacionamento.Properties.Resources.cidade;
-            this.ptbFundo.Location = new System.Drawing.Point(0, -1);
+            this.ptbFundo.Location = new System.Drawing.Point(3, -2);
             this.ptbFundo.Name = "ptbFundo";
             this.ptbFundo.Size = new System.Drawing.Size(1923, 1062);
             this.ptbFundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbFundo.TabIndex = 1;
             this.ptbFundo.TabStop = false;
             // 
+            // ptbNormal
+            // 
+            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.ptbNormal.Location = new System.Drawing.Point(1798, 12);
+            this.ptbNormal.Name = "ptbNormal";
+            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
+            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbNormal.TabIndex = 276;
+            this.ptbNormal.TabStop = false;
+            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
+            // 
+            // ptbMaximar
+            // 
+            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbMaximar.Location = new System.Drawing.Point(1798, 12);
+            this.ptbMaximar.Name = "ptbMaximar";
+            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximar.TabIndex = 275;
+            this.ptbMaximar.TabStop = false;
+            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
+            // 
+            // ptbSair
+            // 
+            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Location = new System.Drawing.Point(1849, 4);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(40, 40);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbSair.TabIndex = 274;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Location = new System.Drawing.Point(1740, 12);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 273;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.pictureBox1.Location = new System.Drawing.Point(1798, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 277;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.ptbMaximar);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ptbSair);
+            this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ptbFundo);
+            this.Controls.Add(this.ptbNormal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFundo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +286,10 @@ namespace Estacionamento.Login
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox ptbNormal;
+        private System.Windows.Forms.PictureBox ptbMaximar;
+        private System.Windows.Forms.PictureBox ptbSair;
+        private System.Windows.Forms.PictureBox ptbMinimizar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

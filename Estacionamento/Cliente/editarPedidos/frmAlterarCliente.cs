@@ -306,5 +306,71 @@ namespace Estacionamento.editarPedidos
             Application.Exit();
         }
 
+        private void txtPesquisarcodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPesquisarcodigo.Text.Length == 11)
+            {
+                DataTable dt = new DataTable();
+                string cpf = txtPesquisarcodigo.Text;//o cpf recebido
+
+                dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado
+
+                if (dt.Rows.Count == 1)//se encontrar resultados, preenche os texts
+                {
+                    lblCpf.Text = txtPesquisarcodigo.Text;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        txtCliente.Text = row["Nome"].ToString();
+                        txtEmail.Text = row["Email"].ToString();
+                        idCliente = Convert.ToInt32(row["Código"].ToString());
+                    }
+
+                    dgvClientes.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao encontrar cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                    txtPesquisarcodigo.Focus();
+                    carregarGrid();
+                    limparPesquisa();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = ""; 
+                limparPesquisa();
+            }
+
+        }
+
+        private void txtPesquisarnome_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPesquisarnome.Text.Length >= 1)
+            {
+                string nome = txtPesquisarnome.Text;//nome que vai ser pesquisado
+                DataTable dt = new DataTable();
+
+                dt = clienteDAO.PesqClienteNome(nome);//recebe o resultado
+
+
+                if (dt.Rows.Count >= 1)
+                {
+                    dgvClientes.DataSource = clienteDAO.PesqClienteNome(nome);//informações no grid
+                    dgvClientes.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao encontrar nome", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                    txtPesquisarnome.Focus();
+                    carregarGrid();
+                    limparPesquisa();
+                }
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                limparPesquisa();
+            }
+        }
     }
 }

@@ -124,7 +124,7 @@ namespace Estacionamento.Entrada
 
             verificar();
 
-            if (String.IsNullOrEmpty(cmbPatio.Text) || String.IsNullOrEmpty(cmbcodigoVeiculo.ValueMember))//verificar campos vazios
+            if (String.IsNullOrEmpty(cmbPatio.Text) || String.IsNullOrEmpty(cmbcodigoVeiculo.Text))//verificar campos vazios
             {
                 MessageBox.Show("Selecione os itens", "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -186,24 +186,6 @@ namespace Estacionamento.Entrada
                 carregarGrid();
             }
         }
-
-        private void cmbcodigoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            List<clienteVeiculo> veiculos = new List<clienteVeiculo>();//lista de veiculos
-            veiculos = cliVeiculoDAO.listarVeiculos();//recebe o resultado
-
-            foreach (var item in veiculos)
-            {
-                if (cmbcodigoVeiculo.Text == item.Placa)//se o texto clicado for igual ao item da lista, retorna o id
-                {
-                    cmbcodigoVeiculo.ValueMember = item.IdClienteVeiculo.ToString();//recebe o id da combobox
-                }
-
-            }
-
-        }
-
         private void frmEntrada_DoubleClick(object sender, EventArgs e)
         {
             carregarGrid();
@@ -369,6 +351,22 @@ namespace Estacionamento.Entrada
             this.WindowState = FormWindowState.Normal;
             ptbNormal.Visible = false;
             ptbMaximar.Visible = true;
+        }
+
+        private void cmbcodigoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            List<clienteVeiculo> veiculos = new List<clienteVeiculo>();//lista de veiculos
+            veiculos = cliVeiculoDAO.listarVeiculos();//recebe o resultado
+
+            foreach (var item in veiculos)
+            {
+                if (cmbcodigoVeiculo.Text == item.Placa)//se o texto clicado for igual ao item da lista, retorna o id
+                {
+                    cmbcodigoVeiculo.ValueMember = item.IdClienteVeiculo.ToString();//recebe o id da combobox
+                }
+
+            }
         }
     }
 }

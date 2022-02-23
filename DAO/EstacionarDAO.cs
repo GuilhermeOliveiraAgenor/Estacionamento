@@ -391,7 +391,7 @@ namespace Controller
                 conn.Open();//abrir conexao
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
-                cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, Veiculo.descricaoVeiculo as Veículo, clienteVeiculo.Placa, Estacionar.idEstacionar as Código, Estacionar.dataEntrada as Entrada, Estacionar.Preco as Preço, Estacionar.Patio as Pátio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where Cliente.Cpf = @Cpf and Estacionar.Status = 'Ocupado'";
+                cmdo.CommandText = "select Estacionar.idEstacionar as Código, Cliente.Nome, Cliente.Cpf, Veiculo.descricaoVeiculo as Veículo, clienteVeiculo.Placa, Estacionar.dataEntrada as Entrada, Estacionar.Preco as Preço, Estacionar.Patio as Pátio from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where Cliente.Cpf = @Cpf and Estacionar.Status = 'Ocupado'";
                 cmdo.Parameters.Add("@Cpf", SqlDbType.VarChar,11).Value = cpf;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();//recebe o resultado

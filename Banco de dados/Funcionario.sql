@@ -67,7 +67,7 @@ declare @idUsuario int;
 select @idUsuario = idUsuario from Usuario where codigoFuncionario = @idFuncionario
 
 --rg ja existe
-if exists (select Rg from Funcionarios where Rg = @Rg and idFuncionario != @idFuncionario)
+if exists (select Rg from Funcionarios where Rg = @Rg and idFuncionario != @idFuncionario and Rg != '')
 begin
 raiserror ('O Rg já existe',16,1)
 return -1
