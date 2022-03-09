@@ -24,7 +24,7 @@ namespace Estacionamento
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAlterarSenha());
+            Application.Run(new frmMenuu());
         }
     }
 }
