@@ -44,6 +44,7 @@ namespace Estacionamento.Menu
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.Menu = new System.Windows.Forms.Panel();
+            this.ptbMenu = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -59,8 +60,8 @@ namespace Estacionamento.Menu
             this.btnFuncionario = new System.Windows.Forms.Button();
             this.btnAlterarpedido = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblDados = new System.Windows.Forms.Label();
-            this.lblNome = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnAlterarveiculo = new System.Windows.Forms.Button();
             this.btnEntrada = new System.Windows.Forms.Button();
@@ -77,7 +78,6 @@ namespace Estacionamento.Menu
             this.label9 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblPreco = new System.Windows.Forms.Label();
-            this.btnPesq = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.mskHora = new System.Windows.Forms.MaskedTextBox();
@@ -96,8 +96,8 @@ namespace Estacionamento.Menu
             this.ptbSair = new System.Windows.Forms.PictureBox();
             this.ptbMaximar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ptbMenu = new System.Windows.Forms.PictureBox();
             this.Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -118,7 +118,6 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -255,6 +254,18 @@ namespace Estacionamento.Menu
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(253, 1061);
             this.Menu.TabIndex = 187;
+            // 
+            // ptbMenu
+            // 
+            this.ptbMenu.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.ptbMenu.Image = global::Estacionamento.Properties.Resources.menuicon;
+            this.ptbMenu.Location = new System.Drawing.Point(-1, -1);
+            this.ptbMenu.Name = "ptbMenu";
+            this.ptbMenu.Size = new System.Drawing.Size(93, 51);
+            this.ptbMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMenu.TabIndex = 238;
+            this.ptbMenu.TabStop = false;
+            this.ptbMenu.Click += new System.EventHandler(this.ptbMenu_Click);
             // 
             // pictureBox12
             // 
@@ -420,14 +431,24 @@ namespace Estacionamento.Menu
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.txtNome);
             this.panel4.Controls.Add(this.lblDados);
-            this.panel4.Controls.Add(this.lblNome);
             this.panel4.Controls.Add(this.label10);
             this.panel4.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(2, 191);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(251, 119);
             this.panel4.TabIndex = 140;
+            // 
+            // txtNome
+            // 
+            this.txtNome.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(79, 30);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(100, 26);
+            this.txtNome.TabIndex = 238;
             // 
             // lblDados
             // 
@@ -439,15 +460,6 @@ namespace Estacionamento.Menu
             this.lblDados.TabIndex = 212;
             this.lblDados.Text = "Meus dados";
             this.lblDados.Click += new System.EventHandler(this.lblDados_Click);
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(76, 29);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(0, 24);
-            this.lblNome.TabIndex = 206;
             // 
             // label10
             // 
@@ -547,24 +559,28 @@ namespace Estacionamento.Menu
             // 
             // btnSairmenu
             // 
+            this.btnSairmenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSairmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSairmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairmenu.Location = new System.Drawing.Point(1694, 885);
             this.btnSairmenu.Name = "btnSairmenu";
             this.btnSairmenu.Size = new System.Drawing.Size(93, 42);
             this.btnSairmenu.TabIndex = 180;
             this.btnSairmenu.Text = "Sair";
-            this.btnSairmenu.UseVisualStyleBackColor = true;
+            this.btnSairmenu.UseVisualStyleBackColor = false;
             this.btnSairmenu.Click += new System.EventHandler(this.btnSairmenu_Click);
             // 
             // btnVoltarmenu
             // 
+            this.btnVoltarmenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltarmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltarmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltarmenu.Location = new System.Drawing.Point(1581, 885);
             this.btnVoltarmenu.Name = "btnVoltarmenu";
             this.btnVoltarmenu.Size = new System.Drawing.Size(88, 42);
             this.btnVoltarmenu.TabIndex = 179;
             this.btnVoltarmenu.Text = "Voltar";
-            this.btnVoltarmenu.UseVisualStyleBackColor = true;
+            this.btnVoltarmenu.UseVisualStyleBackColor = false;
             this.btnVoltarmenu.Click += new System.EventHandler(this.btnVoltarmenu_Click);
             // 
             // label7
@@ -636,17 +652,6 @@ namespace Estacionamento.Menu
             this.lblPreco.Size = new System.Drawing.Size(0, 25);
             this.lblPreco.TabIndex = 206;
             // 
-            // btnPesq
-            // 
-            this.btnPesq.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesq.Location = new System.Drawing.Point(1741, 643);
-            this.btnPesq.Name = "btnPesq";
-            this.btnPesq.Size = new System.Drawing.Size(106, 37);
-            this.btnPesq.TabIndex = 210;
-            this.btnPesq.Text = "Pesquisar";
-            this.btnPesq.UseVisualStyleBackColor = true;
-            this.btnPesq.Click += new System.EventHandler(this.btnPesq_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -671,7 +676,7 @@ namespace Estacionamento.Menu
             // mskHora
             // 
             this.mskHora.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskHora.Location = new System.Drawing.Point(1568, 652);
+            this.mskHora.Location = new System.Drawing.Point(1581, 650);
             this.mskHora.Mask = "99:99";
             this.mskHora.Name = "mskHora";
             this.mskHora.Size = new System.Drawing.Size(138, 30);
@@ -702,13 +707,15 @@ namespace Estacionamento.Menu
             // 
             // btnLimpar
             // 
+            this.btnLimpar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.Location = new System.Drawing.Point(1470, 885);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(88, 42);
             this.btnLimpar.TabIndex = 218;
             this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // groupBox1
@@ -820,6 +827,7 @@ namespace Estacionamento.Menu
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1491, 45);
             this.panel2.TabIndex = 182;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // ptbNormal
             // 
@@ -885,22 +893,11 @@ namespace Estacionamento.Menu
             this.panel1.Size = new System.Drawing.Size(184, 45);
             this.panel1.TabIndex = 188;
             // 
-            // ptbMenu
-            // 
-            this.ptbMenu.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.ptbMenu.Image = global::Estacionamento.Properties.Resources.menuicon;
-            this.ptbMenu.Location = new System.Drawing.Point(-1, -1);
-            this.ptbMenu.Name = "ptbMenu";
-            this.ptbMenu.Size = new System.Drawing.Size(93, 51);
-            this.ptbMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMenu.TabIndex = 238;
-            this.ptbMenu.TabStop = false;
-            this.ptbMenu.Click += new System.EventHandler(this.ptbMenu_Click);
-            // 
             // frmMenuu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.dgvVeiculos);
             this.Controls.Add(this.groupBox1);
@@ -909,7 +906,6 @@ namespace Estacionamento.Menu
             this.Controls.Add(this.mskHora);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnPesq);
             this.Controls.Add(this.lblPreco);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ptbMapa);
@@ -925,7 +921,6 @@ namespace Estacionamento.Menu
             this.Controls.Add(this.btnVoltarmenu);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenuu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -934,6 +929,7 @@ namespace Estacionamento.Menu
             this.DoubleClick += new System.EventHandler(this.frmMenuu_DoubleClick);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -956,7 +952,6 @@ namespace Estacionamento.Menu
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -987,11 +982,9 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Button btnAlterarpedido;
         public System.Windows.Forms.Button btnFuncionario;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label lblPreco;
-        private System.Windows.Forms.Button btnPesq;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblDados;
         private System.Windows.Forms.Label label1;
@@ -1026,5 +1019,6 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.PictureBox ptbMenu;
         public System.Windows.Forms.PictureBox pictureBox12;
         public System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }

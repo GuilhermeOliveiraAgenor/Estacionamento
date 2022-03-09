@@ -148,35 +148,41 @@ namespace Estacionamento.editarPedidos
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(1535, 452);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(111, 48);
             this.btnCancelar.TabIndex = 215;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Location = new System.Drawing.Point(205, 427);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(102, 39);
             this.btnAlterar.TabIndex = 213;
             this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(1699, 452);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(107, 48);
             this.btnVoltar.TabIndex = 212;
             this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // lblCodigocarro
@@ -210,25 +216,29 @@ namespace Estacionamento.editarPedidos
             // 
             // btnExcluir
             // 
+            this.btnExcluir.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(337, 427);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(102, 39);
             this.btnExcluir.TabIndex = 233;
             this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnGravar
             // 
+            this.btnGravar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnGravar.Enabled = false;
+            this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGravar.Location = new System.Drawing.Point(538, 427);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
             this.btnGravar.TabIndex = 234;
             this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click_1);
             // 
             // cmbPlaca
@@ -524,6 +534,7 @@ namespace Estacionamento.editarPedidos
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 236;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // frmEditarEstacionar
             // 
@@ -554,7 +565,6 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.lblCodigocarro);
             this.Controls.Add(this.lblPatio);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEditarEstacionar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

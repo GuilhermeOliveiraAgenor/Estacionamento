@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,12 @@ namespace Estacionamento.Menu
         EstacionarDAO estacionarDAO = new EstacionarDAO();
         clienteVeiculoDAO cliveiculoDAO = new clienteVeiculoDAO();
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         public void vagasOcupadas()
         {
             DataTable dt = new DataTable();
@@ -53,10 +60,12 @@ namespace Estacionamento.Menu
         public frmMenuu()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
 
-        //TODO: Menu - tela, conferir codigos abertos e excluir, excluir código de botao pesquisar, id existe ou nao procedure e colocar mask
-
+        //TODO: Menu - começar documentação e instruções 
         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
@@ -69,7 +78,7 @@ namespace Estacionamento.Menu
             {
                 foreach(DataRow row in dt2.Rows)
                 {
-                    lblNome.Text = row["Nome"].ToString();            
+                    txtNome.Text = row["Nome"].ToString();            
                 }
             }
 
@@ -126,49 +135,6 @@ namespace Estacionamento.Menu
             dgvVeiculos.DataSource = cliveiculoDAO.CarregarClienteVeiculo();
             dgvVeiculos.Refresh();
         }
-
-        private void txtPesquisar_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-
-            string placa = txtPesquisarplaca.Text.ToUpper();//recebe os parametros
-
-            dt = estacionarDAO.pesqPlaca(placa);//recebe o resultado
-
-            if (dt.Rows.Count >= 1)//se as linhas forem afetadas, carrega o grid
-            {
-                dgvVeiculos.DataSource = estacionarDAO.pesqPlaca(placa);
-                dgvVeiculos.Refresh();
-            }
-            else//se linhas nao forem afetadas
-            {
-                MessageBox.Show("Erro ao encontrar placa", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisarplaca.Focus();
-                vagasOcupadas();
-            }
-        }
-
-        private void btnCpf_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-
-            string cpf = txtCpf.Text;//passa o parametro
-
-            dt = estacionarDAO.pesqCpf(cpf);//recebe o resultado
-
-            if (dt.Rows.Count >= 1)
-            {
-                dgvVeiculos.DataSource = estacionarDAO.pesqCpf(cpf);//carrega o grid
-                dgvVeiculos.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Erro ao encontrar cpf", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtCpf.Focus();
-                vagasOcupadas();
-            }
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
@@ -205,20 +171,6 @@ namespace Estacionamento.Menu
             frm.Show();
             this.Hide();
         }
-
-        private void btnPesq_Click(object sender, EventArgs e)
-        {
-            decimal Valor;
-            TimeSpan Hora = Convert.ToDateTime(mskHora.Text).TimeOfDay;//recebe o parametro
-            decimal Minutos = Convert.ToDecimal(Hora.TotalMinutes.ToString());//converte para minutos
-
-            Valor = (Minutos * 15) / 100;
-
-            Valor = Math.Round(Valor, 2);//passa o valor e defini quantas casas decimais
-
-            lblPreco.Text = Valor.ToString();//o valor vai para o text
-        }
-
         private void lblDados_Click(object sender, EventArgs e)
         {
             frmConfirmarSenha frm = new frmConfirmarSenha();
@@ -248,27 +200,6 @@ namespace Estacionamento.Menu
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
         }
-
-        private void btnCodigo_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-            int idEstacionar = Convert.ToInt32(txtCodigo.Text);
-
-            dt = estacionarDAO.pesqCodigo(idEstacionar);
-
-            if (dt.Rows.Count == 1)
-            {
-                dgvVeiculos.DataSource = estacionarDAO.pesqCodigo(idEstacionar);
-                txtCodigo.Clear();
-            }
-            else
-            {
-                vagasOcupadas();
-                txtCodigo.Focus();
-            }
-
-        }
-
         private void txtCodigo_Leave(object sender, EventArgs e)
         {
             lblMensagem.Text = "";
@@ -312,7 +243,7 @@ namespace Estacionamento.Menu
         }
 
             private void txtPesquisarplaca_TextChanged(object sender, EventArgs e)
-        {
+            {
             DataTable dt = new DataTable();
 
             string placa = txtPesquisarplaca.Text.ToUpper();//recebe os parametros
@@ -369,28 +300,6 @@ namespace Estacionamento.Menu
                 lblMensagem.Text = "";
             }
         }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-            int idEstacionar = Convert.ToInt32(txtCodigo.Text);
-
-            dt = estacionarDAO.pesqCodigo(idEstacionar);
-
-            if (dt.Rows.Count == 1)
-            {
-                lblMensagem.Text = "";
-                dgvVeiculos.DataSource = estacionarDAO.pesqCodigo(idEstacionar);
-                txtCodigo.Clear();
-            }
-            else
-            {
-                lblMensagem.Text = "Erro ao encontrar cliente";
-                vagasOcupadas();
-                txtCodigo.Focus();
-            }
-
-        }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtCodigo.Clear();
@@ -421,12 +330,6 @@ namespace Estacionamento.Menu
             }
             
         }
-
-        private void dgvEstacionamento_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void pictureBox13_Click(object sender, EventArgs e)
         {
             if (Menu.Width == 253)
@@ -473,6 +376,12 @@ namespace Estacionamento.Menu
             {
                 Menu.Width = 253;
             }
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

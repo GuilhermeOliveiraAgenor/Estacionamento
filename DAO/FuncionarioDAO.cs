@@ -17,10 +17,10 @@ namespace Controller
     {
         //string de conexao
         private string conectar = ConfigurationManager.ConnectionStrings["conexao"].ConnectionString;
-        public bool inserirFuncionario(Funcionarios funcionario)
+        public bool inserirFuncionario(Funcionarios funcionario, Usuario usuario)
         {
             //conecta com a string de conexao
-            SqlConnection conn = new SqlConnection(conectar);
+           SqlConnection conn = new SqlConnection(conectar);
            byte[] foto = funcionario.GetFoto(funcionario.caminhoFoto);//recebe o resultado
 
             bool result = false;
@@ -38,6 +38,7 @@ namespace Controller
                 cmdo.Parameters.Add("@Profissao", SqlDbType.VarChar, 40).Value = funcionario.Profissao;
                 cmdo.Parameters.Add("@Salario", SqlDbType.Decimal).Value = funcionario.Salario;
                 cmdo.Parameters.Add("@Foto", SqlDbType.Image, foto.Length).Value = foto;
+                cmdo.Parameters.Add("@Acesso", SqlDbType.Int).Value = usuario.Acesso;
          
                 cadastrar = cmdo.ExecuteNonQuery();
                 //se linhas forem afetadas, o result retorna true

@@ -73,7 +73,7 @@ namespace Controller
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;//defini text
                 cmdo.CommandText = "select Cliente.Nome, Cliente.Cpf, clienteVeiculo.Placa, Veiculo.descricaoVeiculo as Veículo from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo where clienteVeiculo.Placa = @Placa ";
-                cmdo.Parameters.Add("@Placa", SqlDbType.VarChar,10).Value = placa;//parametro
+                cmdo.Parameters.Add("@Placa", SqlDbType.VarChar, 10).Value = placa;//parametro
 
                 SqlDataReader dr = cmdo.ExecuteReader();
                 dt.Load(dr);//carrega o dt
@@ -129,7 +129,6 @@ namespace Controller
                 conn.Close();//fechar conexao
             }
             return cliVeiculo;
-
 
         }
 

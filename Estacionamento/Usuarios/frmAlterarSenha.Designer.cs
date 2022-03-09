@@ -76,13 +76,15 @@ namespace Estacionamento.Usuarios
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Location = new System.Drawing.Point(906, 508);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(102, 39);
             this.btnConfirmar.TabIndex = 199;
             this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // label1
@@ -129,13 +131,15 @@ namespace Estacionamento.Usuarios
             // 
             // btnMenu
             // 
+            this.btnMenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.Location = new System.Drawing.Point(1483, 842);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(100, 48);
             this.btnMenu.TabIndex = 204;
             this.btnMenu.Text = "Voltar";
-            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // menuStrip1
@@ -153,6 +157,7 @@ namespace Estacionamento.Usuarios
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 216;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // sessaoToolStripMenuItem
             // 
@@ -391,13 +396,15 @@ namespace Estacionamento.Usuarios
             // 
             // btnVoltarmenu
             // 
+            this.btnVoltarmenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltarmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltarmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltarmenu.Location = new System.Drawing.Point(1637, 842);
             this.btnVoltarmenu.Name = "btnVoltarmenu";
             this.btnVoltarmenu.Size = new System.Drawing.Size(100, 48);
             this.btnVoltarmenu.TabIndex = 275;
             this.btnVoltarmenu.Text = "Menu";
-            this.btnVoltarmenu.UseVisualStyleBackColor = true;
+            this.btnVoltarmenu.UseVisualStyleBackColor = false;
             this.btnVoltarmenu.Click += new System.EventHandler(this.btnVoltarmenu_Click);
             // 
             // frmAlterarSenha
@@ -422,7 +429,6 @@ namespace Estacionamento.Usuarios
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlterarSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

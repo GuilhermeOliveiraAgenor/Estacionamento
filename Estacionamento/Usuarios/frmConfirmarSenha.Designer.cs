@@ -68,13 +68,15 @@ namespace Estacionamento.Usuarios
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Location = new System.Drawing.Point(412, 306);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(102, 39);
             this.btnConfirmar.TabIndex = 196;
             this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // lblAno
@@ -121,13 +123,15 @@ namespace Estacionamento.Usuarios
             // 
             // btnVoltar
             // 
+            this.btnVoltar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(761, 437);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 48);
             this.btnVoltar.TabIndex = 199;
             this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // ptbNormal
@@ -316,6 +320,7 @@ namespace Estacionamento.Usuarios
             this.menuStrip1.Size = new System.Drawing.Size(912, 39);
             this.menuStrip1.TabIndex = 217;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // frmConfirmarSenha
             // 
@@ -333,7 +338,6 @@ namespace Estacionamento.Usuarios
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConfirmarSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

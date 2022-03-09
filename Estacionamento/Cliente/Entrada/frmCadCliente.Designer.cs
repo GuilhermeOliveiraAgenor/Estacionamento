@@ -39,12 +39,10 @@ namespace Estacionamento.Entrada
             this.txtPesquisarcodigo = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblPlaca = new System.Windows.Forms.Label();
-            this.txtPlaca = new System.Windows.Forms.TextBox();
             this.btnVoltaraomenu = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
-            this.txtCpf = new System.Windows.Forms.TextBox();
             this.txtNomee = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbcodVeiculo = new System.Windows.Forms.ComboBox();
@@ -74,6 +72,8 @@ namespace Estacionamento.Entrada
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.txtCpf = new System.Windows.Forms.TextBox();
+            this.txtPlaca = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadastro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
@@ -129,13 +129,15 @@ namespace Estacionamento.Entrada
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(1340, 855);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 48);
             this.btnCancelar.TabIndex = 181;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblPlaca
@@ -148,36 +150,30 @@ namespace Estacionamento.Entrada
             this.lblPlaca.TabIndex = 190;
             this.lblPlaca.Text = "Placa";
             // 
-            // txtPlaca
-            // 
-            this.txtPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlaca.Location = new System.Drawing.Point(753, 382);
-            this.txtPlaca.MaxLength = 7;
-            this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(154, 30);
-            this.txtPlaca.TabIndex = 177;
-            this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
-            // 
             // btnVoltaraomenu
             // 
+            this.btnVoltaraomenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltaraomenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltaraomenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltaraomenu.Location = new System.Drawing.Point(1503, 855);
             this.btnVoltaraomenu.Name = "btnVoltaraomenu";
             this.btnVoltaraomenu.Size = new System.Drawing.Size(146, 48);
             this.btnVoltaraomenu.TabIndex = 185;
             this.btnVoltaraomenu.Text = "Voltar ao menu";
-            this.btnVoltaraomenu.UseVisualStyleBackColor = true;
+            this.btnVoltaraomenu.UseVisualStyleBackColor = false;
             this.btnVoltaraomenu.Click += new System.EventHandler(this.btnVoltaraomenu_Click);
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(497, 756);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(107, 39);
             this.btnCadastrar.TabIndex = 169;
             this.btnCadastrar.Text = " Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // lblCpf
@@ -199,16 +195,6 @@ namespace Estacionamento.Entrada
             this.lblNome.Size = new System.Drawing.Size(50, 25);
             this.lblNome.TabIndex = 184;
             this.lblNome.Text = "Nome";
-            // 
-            // txtCpf
-            // 
-            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpf.Location = new System.Drawing.Point(248, 387);
-            this.txtCpf.MaxLength = 11;
-            this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(154, 30);
-            this.txtCpf.TabIndex = 171;
-            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // txtNomee
             // 
@@ -520,12 +506,37 @@ namespace Estacionamento.Entrada
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 212;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.Location = new System.Drawing.Point(237, 393);
+            this.txtCpf.MaxLength = 11;
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(154, 30);
+            this.txtCpf.TabIndex = 255;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
+            // 
+            // txtPlaca
+            // 
+            this.txtPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca.Location = new System.Drawing.Point(735, 389);
+            this.txtPlaca.MaxLength = 7;
+            this.txtPlaca.Name = "txtPlaca";
+            this.txtPlaca.Size = new System.Drawing.Size(118, 30);
+            this.txtPlaca.TabIndex = 256;
+            this.txtPlaca.TextChanged += new System.EventHandler(this.txtPlaca_TextChanged);
+            this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
             // 
             // frmCadCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.txtPlaca);
+            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.ptbSair);
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbMinimizar);
@@ -539,15 +550,12 @@ namespace Estacionamento.Entrada
             this.Controls.Add(this.txtNomee);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblPlaca);
-            this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.btnVoltaraomenu);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.ptbMaximar);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmCadCliente";
@@ -576,12 +584,10 @@ namespace Estacionamento.Entrada
         private System.Windows.Forms.TextBox txtPesquisarcodigo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblPlaca;
-        private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.Button btnVoltaraomenu;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.TextBox txtNomee;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbcodVeiculo;
@@ -611,5 +617,7 @@ namespace Estacionamento.Entrada
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.TextBox txtPlaca;
     }
 }

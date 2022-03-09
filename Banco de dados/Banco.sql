@@ -1,9 +1,8 @@
-create database Estacionamento
+/*create database Estacionamento
 go
 use Estacionamento
 go
-/*Guilherme*/
-
+/Guilherme Oliveira Agenor*/
 
 create table Cliente
 (
@@ -18,10 +17,9 @@ Email varchar(100),
 create table Veiculo
 (
 idVeiculo int identity primary key,
-Categoria varchar(20),
+Categoria varchar(20) check (Categoria = 'Carro' or Categoria = 'Moto'),
 Marca varchar (20),
 descricaoVeiculo varchar(40),
-Cor varchar(20)
 
 )
 
@@ -52,16 +50,7 @@ Vagas int
 
 
 )
-
-create table Vaga
-(
-
-idVaga int identity primary key,
-descricao varchar(10),
-
-
-)
-
+		
 create table Funcionarios
 (
 
@@ -122,9 +111,6 @@ alter table Pagamento add foreign key (CodigoFormaPagamento) references formaPag
 alter table Pagamento add codigoEstacionar int
 alter table Pagamento add foreign key (codigoEstacionar) references Estacionar(idEstacionar)
 
-alter table Vaga add Patio int
-alter table Vaga add foreign key (Patio) references Patio(idPatio)
-
 alter table clienteVeiculo add codigo_Cliente int
 alter table clienteVeiculo add foreign key (codigo_Cliente) references Cliente(idCliente)
 
@@ -138,106 +124,75 @@ alter table Usuario add codigoFuncionario int
 alter table Usuario add foreign key (codigoFuncionario) references Funcionarios(idFuncionario)
 
 
-go
-
-
 -- Insert
-insert into Cliente (Nome,Cpf,Email) values ('Roberto','547547','mandrakeguizao@gmail.com')
-insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Carro','Chevrolet','Corsa','Preto')
-insert into Patio (Patio) values ('1')
-insert into Patio (Patio) values ('3')
-insert into Vaga (descricao,Patio) values ('Padrão','1')
-insert into Vaga (descricao,Patio) values ('Padrão','1')
-insert into Vaga (descricao,Patio) values ('Padrão','2')
-insert into Vaga (descricao,Patio) values ('Padrão','2')
-insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('18:30','19:30','10/06/2020','10/06/2020','1','1','1','5.00','1')
-insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('urur','ururt','456546','797768','Cobrador','54754')
-insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Alberto','10/10/1976','75278562','732752732', '93475347')
-insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Fusca','Azul')
-insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Volksvagen','Sedan','Celta','Verde')
-insert into Estacionar (dataEntrada,dataSaida,CodigoClienteVeiculo,Patio,Preco,Status) values ('17:00:00 10/11/2021','19:00:00 10/11/2021','1','2','10.00','-')
-insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('Joao','18/07/1987','945376','894647', '994854794')
-insert into Veiculo (Categoria,Marca,descricaoVeiculo,Cor) values ('Chevrolet','Sedan','a','Preto')
-insert into Estacionar (horarioEntrada,horarioSaida,dataEntrada,dataSaida,codigoCliente,Patio,codigoVeiculo,Preco,Patio) values ('16:00','00:00','20/01/2022','20/01/2022','1','2','1','5.00','1')
-insert into Cliente (Nome,dataNasc,Cpf,Rg,Celular) values ('iytuy','18/07/1987','8657','894647', '994854794')
+insert into Patio (Patio,Vagas) values ('1','5')
+insert into Patio (Patio,Vagas) values ('2','10')
 insert into formaPagamento (descricao) values ('Crédito')
 insert into formaPagamento (descricao) values ('Débito')
 insert into nivelAcesso(idNivelAcesso,Nivel) values ('1','Funcionário')
 insert into nivelAcesso(idNivelAcesso,Nivel) values ('2','Administrador')
-insert into Usuario(Cpf, Senha, Acesso,codigoFuncionario) values ('456546','ola','1','1')
+insert into Usuario(Cpf, Senha, Acesso) values ('12451532443','administrador_gerente123','2')
+insert into Cliente (Nome,Cpf,Email) values ('Roberto','41241241241','mandrakeguizao@gmail.com')
+insert into Cliente (Nome,Cpf,Email) values ('Luiz Alves','86575474545','luiz.10alves@gmail.com')
+insert into Cliente (Nome,Cpf,Email) values ('Lucas Rodrigues','94636524123','rodrigues_lucas@gmail.com')
+insert into Cliente (Nome,Cpf,Email) values ('Murilo Silva','85436543675','murilo1012silva@gmail.com')
+insert into Cliente (Nome,Cpf,Email) values ('Gabriel Rodrigues Magalhães','76542546765','gabrielmagalhães@gmail.com')
+insert into Veiculo (Categoria,Marca,descricaoVeiculo) values ('Carro','Chevrolet','Corsa'), ('Carro','Chevrolet','Celta'),('Carro','Chevrolet','Prisma'),
+('Carro','Chevrolet','Onix'),('Carro','Hyundai','HB20'),('Carro','Ford','Ford KA'),('Carro','Volkswagen','Gol'),('Carro','Fiat','Strada'),
+('Carro','Renault','Sandero'),('Carro','Volkswagen','Fox'),('Carro','Fiat','Palio'),
+('Carro','Fiat','Uno'),('Carro','Hyundai','Creta'),('Carro','Volkswagen','Fusca'),('Carro','Volkswagen','Voyage'),
+('Carro','Volkswagen','Saveiro'),('Carro','Chevrolet','Classic'),('Carro','Fiat','Siena'),('Carro','Ford','Fiesta'),('Carro','Honda','Civic'),
+('Carro','Volkswagen','Polo'),('Carro','Volkswagen','Amarok'),('Carro','Volkswagen','Jetta'),('Carro','Volkswagen','Corsa'),
+('Carro','Chevrolet','Cruze'),('Carro','Chevrolet','Spin'),('Carro','Chevrolet','S10'),('Carro','Chevrolet','Monza'),('Carro','Chevrolet','Vectra'),
+('Carro','Chevrolet','Cruze'),('Carro','Volkswagen','SpaceFox'),('Carro','Volkswagen','Parati'),('Carro','Fiat','Fiorino'),('Carro','Fiat','Argo'),
+('Carro','Renault','Clio'),('Carro','Renault','Duster'),('Carro','Renault','Fluence'),('Carro','Renault','Grand Tour'),('Carro','Renault','Logan'),
+('Carro','Renault','Megane'),('Carro','Renault','Scénic'),('Carro','Renault','Kwid')
+insert into clienteVeiculo (Placa,codigo_Cliente, codigo_Veiculo) values ('IFU8779','1','7'),('KAS7478','1','1'),('AZI6787','2','21'),('ANS9983','2','14'), 
+('IAS9897','3','25'),('OSK9576','4','10'),('KSN9323','4','42'),('BSK8768','5','37')
+insert into Estacionar (dataEntrada,dataSaida,CodigoClienteVeiculo,Patio,Preco,Status) values 
+('17:00:00 20/02/2022','19:00:00 20/02/2022','1','1','18.00','-'),
+('12:00:00 10/02/2022','13:00:00 10/02/2022','1','1','09.00','-'),
+('12:00:00 20/02/2022','13:00:00 20/02/2022','1','1','09.00','-'),
+('10:00:00 15/02/2022','12:30:00 15/02/2022','2','1','22.50','-'),
+('10:00:00 12/02/2022','12:00:00 12/02/2022','2','2','18.00','-'),
+('10:00:00 10/02/2022','19:00:00 10/02/2022','2','2','81.00','-'),
+('10:00:00 20/02/2022','18:00:00 20/02/2022','3','2','72.00','-'),
+('10:00:00 20/01/2022','16:00:00 20/01/2022','3','2','54.00','-'),
+('10:00:00 20/01/2022','19:00:00 20/01/2022','3','1','81.00','-'),
+('14:00:00 15/01/2022','19:00:00 15/01/2022','3','1','45.00','-'),
+('14:00:00 15/01/2022','17:00:00 15/01/2022','4','1','27.00','-'),
+('14:00:00 10/01/2022','19:00:00 10/01/2022','4','2','45.00','-'),
+('17:00:00 15/12/2021','19:00:00 15/12/2021','5','2','18.00','-'),
+('17:00:00 15/12/2021','19:00:00 15/12/2021','5','2','18.00','-'),
+('10:00:00 12/12/2021','19:00:00 12/12/2021','4','1','81.00','-'),
+('10:00:00 12/12/2021','12:00:00 12/12/2021','3','1','18.00','-'),
+('12:00:00 20/11/2021','19:00:00 20/11/2021','5','2','63.00','-'),
+('12:00:00 20/11/2021','19:00:00 20/11/2021','2','2','63.00','-'),
+('14:00:00 15/11/2021','19:00:00 15/11/2021','3','2','45.00','-')
 
 
-select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '1' and Estacionar.Status = 'Ocupado') from Patio where Patio.Patio = '1'
+/*insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('Joao','Da Silva','12451532443','86565475457','Cobrador','2000')
+insert into Usuario(Cpf, Senha, Acesso,codigoFuncionario) values ('12451532443','estacionamento123','1','1')
+insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('Pedro','Santos', '78676876874','12328656877','Manobrista','1500')
+insert into Usuario(Cpf, Senha, Acesso,codigoFuncionario) values ('78676876874','Pedro@7678','1','2')
+insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario) values ('Claudio','Pereira Alves', '98754547468','86655434945','Gerente','5000')
+insert into Usuario(Cpf, Senha, Acesso,codigoFuncionario) values ('98754547468','Claudio_1','2','3')
+*/
 
-select Patio.Vagas - (select COUNT(idEstacionar) from Estacionar where Patio = '2' and Estacionar.Status = 'Ocupado') from Patio where Patio.Patio = '2'
+go
 
-
-/*Consultas*/
-
-select DATEPART(HOUR,dataEntrada) as Hora, COUNT(*) as Carros from Estacionar where dataSaida >= DATEADD(day, -7, GETDATE()) group by DATEPART(HOUR,dataEntrada) having COUNT(*) > 1 order by Carros desc
-
-delete Pagamento from Pagamento
-delete clienteVeiculo from clienteVeiculo
-delete Estacionar from Estacionar where idEstacionar = '77'
-
-select Cliente.Nome, Cliente.Cpf, Veiculo.descricaoVeiculo as Veículo,clienteVeiculo.Placa,Estacionar.Patio as Pátio, Estacionar.Preco as Preço, Estacionar.dataEntrada as Entrada, Estacionar.dataSaida as Saída from Cliente inner join clienteVeiculo on Cliente.idCliente = clienteVeiculo.codigo_Cliente inner join Estacionar on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo inner join Veiculo on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo 
-where clienteVeiculo.Placa = 'IYUI7IY'
-
-
-select Funcionarios.idFuncionario as Código, Funcionarios.primeiroNome as Nome, Funcionarios.Sobrenome, Funcionarios.Cpf, Funcionarios.Rg, Funcionarios.Profissao as Profissão, Funcionarios.Salario as Salário, nivelAcesso.Nivel Foto from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso
-
-		update Estacionar set dataEntrada = '15/02/2022 09:40' where idEstacionar = '1'
-
-select clienteVeiculo.Placa from Estacionar inner join clienteVeiculo on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo where Placa = 'UI786' and Status = 'Ocupado'
-
-select Funcionarios.idFuncionario,Funcionarios.primeiroNome,Funcionarios.Sobrenome,Funcionarios.Cpf,Funcionarios.Rg, Funcionarios.Profissao, Funcionarios.Salario, Funcionarios.Foto, nivelAcesso.idNivelAcesso,nivelAcesso.Nivel from Funcionarios inner join Usuario on Funcionarios.idFuncionario = Usuario.codigoFuncionario inner join nivelAcesso on nivelAcesso.idNivelAcesso = Usuario.Acesso where Funcionarios.Cpf = ''
-
-
-select clienteVeiculo.Placa,clienteVeiculo.IdClienteVeiculo,clienteVeiculo.codigo_Cliente,clienteVeiculo.codigo_Veiculo 
-from clienteVeiculo 
-inner join Cliente 
-on Cliente.idCliente = clienteVeiculo.codigo_Cliente
-where Cliente.Cpf = @Cpf
-
-select Cliente.Nome, Cliente.Cpf, Veiculo.descricaoVeiculo, Veiculo.Cor, clienteVeiculo.Placa, Estacionar.idEstacionar,Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Estacionar.Preco, Estacionar.Patio 
-from Cliente 
-inner join clienteVeiculo 
-on Cliente.idCliente = clienteVeiculo.codigo_Cliente
-inner join Estacionar 
-on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo
-inner join Veiculo 
-on Veiculo.idVeiculo = clienteVeiculo.codigo_Veiculo 
-where Cliente.Cpf = @Cpf and Estacionar.Status = 'Ocupado'
-
-drop table Cliente
-drop table clienteVeiculo
-drop table Estacionar
+/*Tabelas/
 drop table Pagamento
 drop table formaPagamento
-drop table Funcionarios
+drop table Estacionar
+drop table clienteVeiculo
+drop table Cliente
+drop table Veiculo
+drop table Patio
 drop table Usuario
+drop table Funcionarios
 drop table nivelAcesso
 
-
-
--- Selecionar carros que sejam corsas
-select Cliente.Nome, Cliente.Cpf, Veiculo.Placa,Veiculo.Categoria,Veiculo.Cor, Estacionar.idEstacionar
-from Cliente
-inner join Estacionar
-on Cliente.idCliente = Estacionar.codigoCliente
-inner join Veiculo
-on Veiculo.idVeiculo = Estacionar.codigoVeiculo 
-where Veiculo.Categoria ='Carro' and Veiculo.descricaoVeiculo = 'Corsa'
-
-
--- Clientes na data de hoje
-select Cliente.idCliente,Cliente.Nome,Veiculo.idVeiculo,Veiculo.Categoria,Veiculo.Placa,Estacionar.horarioEntrada,Estacionar.horarioSaida,Estacionar.dataEntrada,Estacionar.dataSaida,Estacionar.Preco,Patio.Patio
-from Cliente 
-left join Veiculo  on Cliente.idCliente = Veiculo.codigo_Cliente 
-left join Estacionar on Cliente.idCliente= Estacionar.codigoCliente 
-left join Patio on Patio.idpatio = Estacionar.Patio   
-where Dataentrada between CONVERT(date,GETDATE()) and Dataentrada order by Cliente.idCliente
-  
 --Selects gerais
 select *from clienteVeiculo
 select *from Cliente
@@ -245,23 +200,11 @@ select *from Veiculo
 select *from Funcionarios
 select *from Patio
 select *from Estacionar 
-select *from Vaga
 select *from Pagamento
 select *from formaPagamento 
 select *from Usuario
 select *from nivelAcesso
+*/
 
-
-select Estacionar.horarioEntrada, Estacionar.horarioSaida, Estacionar.dataEntrada, Estacionar.dataSaida, Pagamento.Preco, formaPagamento.descricao, clienteVeiculo.Placa
-from Estacionar 
-inner join clienteVeiculo 
-on clienteVeiculo.IdClienteVeiculo = Estacionar.CodigoClienteVeiculo
-inner join Pagamento
-on Estacionar.idEstacionar = Pagamento.codigoEstacionar
-inner join formaPagamento
-on formaPagamento.idFormaPagamento = Pagamento.CodigoFormaPagamento
-where Estacionar.idEstacionar = '5'
-
-
-
+             
 

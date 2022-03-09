@@ -18,6 +18,7 @@ using Estacionamento.Menu;
 using Estacionamento.Saida;
 using Estacionamento.Entrada;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 
 namespace Estacionamento
 {
@@ -44,7 +45,15 @@ namespace Estacionamento
         public FrmEditarFuncionario()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         public void limparCampos()
         {
@@ -64,6 +73,7 @@ namespace Estacionamento
             btnGravar.Enabled = false;
             btnCarregar.Enabled = false;
             ptbEditar.Visible = false;
+            cmbAcesso.Enabled = false;
         }
 
         public void limparPesquisa()
@@ -84,13 +94,27 @@ namespace Estacionamento
             btnCarregar.Enabled = false;
             ptbEditar.Visible = true;
             txtPesquisar.Focus();
+            cmbAcesso.Enabled = false;
         }
 
         public void carregarFunc()
         {
             dgvFuncionario.DataSource = funcionarioDAO.carregarFuncionario();
         }
-
+        public void validarCampos()
+        {
+            if (modo == "Cadastrar")
+            {
+                if (txtCpf.Text.Length == 11)
+                {
+                    btnGravar.Enabled = true;
+                }
+                else
+                {
+                    btnGravar.Enabled = false;
+                }
+            }
+        }
         public void carregarFoto()
         {
             var openFile = new OpenFileDialog();
@@ -153,6 +177,7 @@ namespace Estacionamento
             ptbEditar.Visible = false;
             btnGravar.Enabled = true;
             btnCarregar.Enabled = true;
+            cmbAcesso.Enabled = true;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -191,8 +216,9 @@ namespace Estacionamento
                     funcionario.Profissao = txtProfissao.Text;
                     funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
                     funcionario.caminhoFoto = caminhoFoto;
+                    usuario.Acesso = acesso;
 
-                    result = funcionarioDAO.inserirFuncionario(funcionario);//retorna o resultado da funcao
+                    result = funcionarioDAO.inserirFuncionario(funcionario,usuario);//retorna o resultado da funcao
 
                     if (result == true)
                     {
@@ -286,58 +312,6 @@ namespace Estacionamento
             btnCarregar.Enabled = false;
             cmbAcesso.Enabled = false;
         }
-
-        private void btnCpf_Click(object sender, EventArgs e)
-        {
-            string cpf = txtPesquisar.Text;//parametro
-
-            dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
-
-            if (modo == "Cadastrar")
-            {
-                modo = "";
-                btnAlterar.Enabled = true;
-                btnCadastrar.Enabled = true;
-                btnExcluir.Enabled = true;
-                btnCarregar.Enabled = false;
-            }
-
-            if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o dt
-            {
-                ptbEditar.Visible = true;
-                txtCpf.Enabled = false;
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    txtPrimeironome.Text = row["Nome"].ToString();
-                    txtSobrenome.Text = row["Sobrenome"].ToString();
-                    txtRg.Text = row["Rg"].ToString();
-                    txtSalario.Text = row["Salário"].ToString();
-                    txtCpf.Text = row["Cpf"].ToString();
-                    txtProfissao.Text = row["Profissão"].ToString();
-                    idFuncionario = row["Código"].GetHashCode();
-                    acesso = row["idNivelAcesso"].GetHashCode();
-                    cmbAcesso.Text = row["Nível"].ToString();
-                    fotoFuncionario = (byte[])row["Foto"];
-                    funcionario.foto = fotoFuncionario;
-
-
-                    using (var foto = new MemoryStream(funcionario.foto))//carrega a foto
-                    {
-                        ptbFoto.Image = Image.FromStream(foto);//adiciona a foto
-                    }
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Erro ao encontrar cliente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                carregarFunc();
-                limparPesquisa();
-                ptbEditar.Visible = false;
-            }
-        }
-
         private void btnCarregar_Click(object sender, EventArgs e)
         {
             carregarFoto();
@@ -356,7 +330,6 @@ namespace Estacionamento
                 modo = "alterarFoto";
                 caminhoFoto = openFile.FileName;
             }
-
             if (caminhoFoto != "")//se estiver com alguma coisa na variável
             {
                 ptbFoto.Load(caminhoFoto);//carrega a foto
@@ -367,6 +340,12 @@ namespace Estacionamento
             }
             else
             {
+                ptbFoto.Load(perfilPadrao);
+                btnGravar.Enabled = false;
+                btnCadastrar.Enabled = true;
+                btnAlterar.Enabled = true;
+                btnExcluir.Enabled = true;
+                txtCpf.Enabled = false;
                 txtPesquisar.Focus();
             }
 
@@ -456,7 +435,7 @@ namespace Estacionamento
         }
 
         private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
-        {
+{
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
         }
@@ -472,25 +451,6 @@ namespace Estacionamento
             if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
                 e.Handled = true;
         }
-
-        private void txtRg_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
-                e.Handled = true;
-        }
-
-        private void txtProfissao_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
-                e.Handled = true;
-        }
-
-        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
-                e.Handled = true;
-        }
-
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsControl(e.KeyChar) && !Char.IsDigit(e.KeyChar) && (e.KeyChar != ',') || (e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
@@ -529,6 +489,7 @@ namespace Estacionamento
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
             string cpf = txtPesquisar.Text;//parametro
+            string img;
 
             dt = funcionarioDAO.selecionarFuncionario(cpf);//recebe o resultado
 
@@ -547,7 +508,9 @@ namespace Estacionamento
                 {
                     lblMensagem.Text = "";
                     ptbEditar.Visible = true;
+                    btnGravar.Enabled = true;
                     txtCpf.Enabled = false;
+                    cmbAcesso.Enabled = true;
 
                     foreach (DataRow row in dt.Rows)
                     {
@@ -560,16 +523,13 @@ namespace Estacionamento
                         idFuncionario = row["Código"].GetHashCode();
                         acesso = row["idNivelAcesso"].GetHashCode();
                         cmbAcesso.Text = row["Nível"].ToString();
-                        fotoFuncionario = (byte[])row["Foto"];
-                        funcionario.foto = fotoFuncionario;
-
+                        funcionario.foto = (byte[])row["Foto"];
 
                         using (var foto = new MemoryStream(funcionario.foto))//carrega a foto
                         {
                             ptbFoto.Image = Image.FromStream(foto);//adiciona a foto
                         }
                     }
-
                 }
                 else
                 {
@@ -613,6 +573,47 @@ namespace Estacionamento
         {
             Application.Exit();
         }
+        private void txtProfissao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
+                e.Handled = true;
+        }
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            validarCampos();
+        }
 
+        private void txtRg_TextChanged(object sender, EventArgs e)
+        {
+            if (modo == "Cadastrar")
+            {
+                if (txtRg.Text.Length == 11 || txtRg.Text == "")
+                {
+                    btnGravar.Enabled = true;
+                }
+                else
+                {
+                    btnGravar.Enabled = false;
+                }
+            }
+        }
+
+        private void txtRg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

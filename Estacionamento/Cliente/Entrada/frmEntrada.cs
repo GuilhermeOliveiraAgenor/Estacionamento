@@ -8,6 +8,7 @@ using Estacionamento.Menu;
 using Estacionamento.Login;
 using Estacionamento.editarPedidos;
 using Estacionamento.Saida;
+using System.Runtime.InteropServices;
 
 namespace Estacionamento.Entrada
 {
@@ -27,6 +28,12 @@ namespace Estacionamento.Entrada
         {
             InitializeComponent();
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         public void verificar()
         {
             if (lblCodigodocliente.Text == "")
@@ -89,6 +96,9 @@ namespace Estacionamento.Entrada
         {
             InitializeComponent();
             lblCodigodocliente.Text = cpfPesquisa;
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
 
         //TODO: Fazer entrada - tela
@@ -152,39 +162,6 @@ namespace Estacionamento.Entrada
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();//hora 
-        }
-        private void btnPesquisarcodigo_Click(object sender, EventArgs e)
-        {
-            List<clienteVeiculo> veiculo = new List<clienteVeiculo>();
-            string cpf = txtPesquisar.Text;//passa o parametros
-
-            DataTable dt = new DataTable();
-
-            cmbcodigoVeiculo.Text = "";
-            cmbPatio.Text = "";
-
-            dt = cliVeiculoDAO.pesqCpf(cpf);//recebe o resultado
-
-            veiculo = cliVeiculoDAO.listVeiculosCpf(cpf);//recebe o resultado
-
-            if (dt.Rows.Count >= 1)
-            {
-                configurarPesq();
-
-                dgvCadastro.DataSource = cliVeiculoDAO.pesqCpf(cpf);//carrega o grid
-             
-                foreach (var item in veiculo)
-                {
-                    cmbcodigoVeiculo.Items.Add(item.Placa);//adiciona as placas do cliente
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Erro ao encontrar Cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                limparPesq();
-                carregarGrid();
-            }
         }
         private void frmEntrada_DoubleClick(object sender, EventArgs e)
         {
@@ -367,6 +344,12 @@ namespace Estacionamento.Entrada
                 }
 
             }
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

@@ -11,7 +11,8 @@ create or alter procedure inserirFuncionario
 @Rg varchar(20),
 @Profissao varchar(40),
 @Salario decimal (10,2),
-@Foto varbinary(MAX)
+@Foto varbinary(MAX),
+@Acesso int
 
 
 
@@ -28,7 +29,7 @@ return -1
 end
 
 --rg ja existe
-if exists (select Rg from Funcionarios where Rg = @Rg)
+if exists (select Rg from Funcionarios where Rg = @Rg and Rg != '')
 begin
 raiserror ('O Rg já existe',16,1)
 return -1
@@ -39,7 +40,7 @@ insert into Funcionarios (primeiroNome,Sobrenome,Cpf,Rg,Profissao,Salario,Foto) 
 
 set @codigoFuncionario = SCOPE_IDENTITY()--pega o id identity da tabela funcionario
 
-insert into Usuario (Cpf,Senha,Acesso,codigoFuncionario) values (@Cpf,'estacionamento123','1',@codigoFuncionario)--insere usuario com senha provisória
+insert into Usuario (Cpf,Senha,Acesso,codigoFuncionario) values (@Cpf,'estacionamento123',@Acesso,@codigoFuncionario)--insere usuario com senha provisória
 
 
 if @@ERROR <> ''
@@ -73,6 +74,12 @@ raiserror ('O Rg já existe',16,1)
 return -1
 end
 
+--funcionario que nao existe
+if not exists (select idFuncionario from Funcionarios where idFuncionario = @idFuncionario)
+begin
+raiserror ('Erro ao encontrar funcionario',16,1)
+return -1
+end
 
 
 --altera
@@ -114,6 +121,14 @@ create or alter procedure excluirFuncionario
 )
 as
 
+
+--funcionario que nao existe
+if not exists (select idFuncionario from Funcionarios where idFuncionario = @idFuncionario)
+begin
+raiserror ('Erro ao encontrar funcionario',16,1)
+return -1
+end
+
 --exclui
 begin tran
 
@@ -126,10 +141,6 @@ rollback tran
 else
 commit tran
 go	
-
-
-exec excluirFuncionario
-@idFuncionario = '7'
 
 
 

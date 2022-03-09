@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,10 +31,18 @@ namespace Estacionamento.Saida
         decimal Valor;
         decimal Min;
 
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
 
         public frmSaida()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
         public void carregarGrid()
         {
@@ -108,49 +117,6 @@ namespace Estacionamento.Saida
             codigoEstacionar = 0;
             Saida = Convert.ToDateTime("00:00");
         }
-        private void btnCodigo_Click(object sender, EventArgs e)
-        {
-            string placa = txtPesquisar.Text;
-            DataTable dt = new DataTable();
-
-            Saida = Convert.ToDateTime(DateTime.Now.ToString("F", System.Globalization.DateTimeFormatInfo.InvariantInfo));
-
-            dt = estacionarDAO.pesqVeiculo(placa);//recebe o resultado
-
-            if (dt.Rows.Count == 1)//se linhas forem afetadas, as informações vao ser carregadas
-            {
-
-                dgvEstacionamento.Enabled = false;
-                btnSaida.Enabled = false;
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    lblPlaca.Text = row["Placa"].ToString();
-                    Entrada = Convert.ToDateTime(row["Entrada"].ToString());
-                    lblEntrada.Text = Convert.ToString(Entrada);
-                    codigoEstacionar = row["Código"].GetHashCode();
-
-                }
-
-                lblCodigo.Text = Convert.ToString(codigoEstacionar);
-
-                calcularPreco();
-
-                txtPesquisar.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Erro ao encontrar cliente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisar.Focus();
-                cmbFormadepagamento.Text = "";
-                btnSaida.Enabled = false;
-                carregarGrid();
-                limparCampos();
-            }
-
-        }
-
-
         private void btnSaida_Click(object sender, EventArgs e)
         {
             bool result = false;
@@ -392,5 +358,10 @@ namespace Estacionamento.Saida
             Application.Exit();
         }
 
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

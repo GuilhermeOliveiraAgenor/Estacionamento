@@ -89,13 +89,15 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             // btnSairmenu
             // 
+            this.btnSairmenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSairmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSairmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairmenu.Location = new System.Drawing.Point(833, 809);
             this.btnSairmenu.Name = "btnSairmenu";
             this.btnSairmenu.Size = new System.Drawing.Size(106, 43);
             this.btnSairmenu.TabIndex = 182;
             this.btnSairmenu.Text = "Voltar";
-            this.btnSairmenu.UseVisualStyleBackColor = true;
+            this.btnSairmenu.UseVisualStyleBackColor = false;
             this.btnSairmenu.Click += new System.EventHandler(this.btnSairmenu_Click);
             // 
             // lblValor
@@ -292,13 +294,15 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             // btnLimpar
             // 
+            this.btnLimpar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.Location = new System.Drawing.Point(1075, 809);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(106, 43);
             this.btnLimpar.TabIndex = 217;
             this.btnLimpar.Text = "Limpar Campos";
-            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // dgvRelatorio
@@ -571,6 +575,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 215;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // frmRelatorio
             // 
@@ -604,7 +609,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.btnSairmenu);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRelatorio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

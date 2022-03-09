@@ -14,6 +14,7 @@ using Estacionamento.Login;
 using Estacionamento.Saida;
 using Estacionamento.Entrada;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
 
 namespace Estacionamento.editarPedidos
 {
@@ -29,7 +30,16 @@ namespace Estacionamento.editarPedidos
         public frmAlterarCliente()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         public void carregarGrid()
         {
             DataTable dt = new DataTable();
@@ -68,37 +78,7 @@ namespace Estacionamento.editarPedidos
         public void desbloquearBotao()
         {
             btnAlterarcliente.Enabled = true;
-        }
-
-
-        private void btnPesquisarcodigo_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-            string cpf = txtPesquisarcodigo.Text;//o cpf recebido
-
-            dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado
-
-            if (dt.Rows.Count == 1)//se encontrar resultados, preenche os texts
-            {
-                lblCpf.Text = txtPesquisarcodigo.Text;
-                foreach (DataRow row in dt.Rows)
-                {
-                    txtCliente.Text = row["Nome"].ToString();
-                    txtEmail.Text = row["Email"].ToString();
-                    idCliente = Convert.ToInt32(row["Código"].ToString());
-                }
-              
-                dgvClientes.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("Erro ao encontrar cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisarcodigo.Focus();
-                carregarGrid();
-                limparPesquisa();
-            }
-        }
-
+        }   
         private void btnAlterarcliente_Click(object sender, EventArgs e)
         {
             bool result = false;
@@ -138,29 +118,6 @@ namespace Estacionamento.editarPedidos
             idCliente = dgvClientes[0, linha].Value.GetHashCode();
 
         }
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            string nome = txtPesquisarnome.Text;//nome que vai ser pesquisado
-            DataTable dt = new DataTable();
-
-            dt = clienteDAO.PesqClienteNome(nome);//recebe o resultado
-
-
-            if (dt.Rows.Count >= 1)
-            {
-                dgvClientes.DataSource = clienteDAO.PesqClienteNome(nome);//informações no grid
-                dgvClientes.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Erro ao encontrar nome", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisarnome.Focus();
-                carregarGrid();
-                limparPesquisa();
-            }
-
-        }
-
         private void frmAlterarCliente_DoubleClick(object sender, EventArgs e)
         {
             carregarGrid();
@@ -371,6 +328,12 @@ namespace Estacionamento.editarPedidos
                 lblMensagem.Text = "";
                 limparPesquisa();
             }
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

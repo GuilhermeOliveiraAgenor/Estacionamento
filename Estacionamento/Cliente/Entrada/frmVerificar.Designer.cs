@@ -63,13 +63,15 @@ namespace Estacionamento.Entrada
             // 
             // btnVoltar
             // 
+            this.btnVoltar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(1174, 522);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 48);
             this.btnVoltar.TabIndex = 218;
             this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // txtCpf
@@ -287,6 +289,7 @@ namespace Estacionamento.Entrada
             this.menuStrip1.Size = new System.Drawing.Size(1417, 39);
             this.menuStrip1.TabIndex = 219;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // frmVerificar
             // 
@@ -301,7 +304,6 @@ namespace Estacionamento.Entrada
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVerificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

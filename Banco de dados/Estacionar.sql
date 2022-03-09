@@ -37,6 +37,11 @@ raiserror('Esse patio esta lotado',16,1)
 return -1
 end
 
+if not exists (select IdClienteVeiculo from clienteVeiculo where IdClienteVeiculo = @CodigoClienteVeiculo)
+begin
+raiserror('O veiculo selecionado nao existe',16,1)
+return -1
+end
 
 --insere
 begin tran
@@ -80,6 +85,19 @@ raiserror ('O pagamento ja foi feito nesse pedido',16,1)
 return -1
 end
 
+--sessao nao existente
+if not exists (select idEstacionar from Estacionar where idEstacionar = @idEstacionar)
+begin
+raiserror('Erro ao selecionar pedido',16,1)
+return -1
+end
+
+--forma de pagamento que nao existe
+if not exists (select idFormaPagamento from formaPagamento where idFormaPagamento = @CodigoFormaPagamento)
+begin
+raiserror('Erro ao selecionar forma de pagamento',16,1)
+return -1
+end
 
 update Estacionar set dataSaida = @dataSaida,Preco = @Preco, Status = '-' where idEstacionar = @idEstacionar
 insert into Pagamento (Preco,CodigoFormaPagamento,codigoEstacionar) values (@Preco,@CodigoFormaPagamento,@idEstacionar)
@@ -193,6 +211,21 @@ raiserror('Esse patio esta lotado',16,1)
 return -1
 end
 
+--veiculo nao existente
+if not exists (select IdClienteVeiculo from clienteVeiculo where IdClienteVeiculo = @CodigoClienteVeiculo)
+begin
+raiserror('O veiculo selecionado nao existe',16,1)
+return -1
+end
+
+--sessao que nao existe
+if not exists (select idEstacionar from Estacionar where idEstacionar = @idEstacionar)
+begin
+raiserror('Erro ao selecionar pedido',16,1)
+return -1
+end
+
+
 --insere
 begin tran
 update Estacionar set CodigoClienteVeiculo = @CodigoClienteVeiculo, Patio = @Patio where idEstacionar = @idEstacionar 
@@ -211,6 +244,12 @@ create or alter procedure excluirEstacionar
 )
 as
 
+--sessao que nao existe
+if not exists (select idEstacionar from Estacionar where idEstacionar = @idEstacionar)
+begin
+raiserror('Erro ao selecionar pedido',16,1)
+return -1
+end
 
 --deleta
 begin tran

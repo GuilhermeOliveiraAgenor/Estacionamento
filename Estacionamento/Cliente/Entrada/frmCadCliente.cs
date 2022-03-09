@@ -13,6 +13,7 @@ using Estacionamento.Menu;
 using Estacionamento.Saida;
 using Estacionamento.editarPedidos;
 using Estacionamento.Login;
+using System.Runtime.InteropServices;
 
 namespace Estacionamento.Entrada
 {
@@ -31,7 +32,15 @@ namespace Estacionamento.Entrada
         public frmCadCliente()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         public frmCadCliente(string cpf)
         {
@@ -50,11 +59,23 @@ namespace Estacionamento.Entrada
             txtPlaca.Clear();
             txtEmail.Clear();
             txtCpf.Clear();
+            btnCadastrar.Enabled = true;
             txtPesquisarcodigo.Clear();
             txtPesquisarplaca.Clear();
             cmbcodVeiculo.Text = "";
         }
-    
+        
+        public void validarCampos()
+        {
+            if (txtCpf.Text.Length == 11 && txtPlaca.Text.Length == 7)
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
+        }
         //TODO: Cadastro de clientes e veículos - tela
         
         private void frmCadCliente_Load(object sender, EventArgs e)
@@ -104,27 +125,6 @@ namespace Estacionamento.Entrada
             }
 
         }
-
-            
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            string cpf = txtPesquisarcodigo.Text;//parametro
-
-            dt = cliveiculoDAO.pesqCpf(cpf);//recebe o resultado da pesquisa
-
-            if (dt.Rows.Count >= 1)//se linhas forem afetadas, carrega o grid
-            {
-                dgvCadastro.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega o grid
-            }
-            else//se não afetar linhas, retorna erro
-            {
-                MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisarcodigo.Focus();
-                carregarGrid();
-            }
-        }
-
         private void cmbcodVeiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -239,43 +239,11 @@ namespace Estacionamento.Entrada
             if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
                 e.Handled = true;
         }
-
-        private void txtPlaca_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
-                e.Handled = true;
-        }
-
         private void txtNomee_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar)))//defini os caracteres somente letra
                 e.Handled = true;
         }
-
-        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
-                e.Handled = true;
-        }
-
-        private void btnPesquisarplaca_Click(object sender, EventArgs e)
-        {
-            string placa = txtPesquisarplaca.Text.ToUpper();
-
-            dt = cliveiculoDAO.pesqPlaca(placa);//recebe o resultado
-
-            if (dt.Rows.Count >= 1)
-            {
-                dgvCadastro.DataSource = cliveiculoDAO.pesqPlaca(placa);//carrega no grid
-            }
-            else
-            {
-                MessageBox.Show("Nenhum registro encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                txtPesquisarplaca.Focus();
-                carregarGrid();
-            }
-        }
-
         private void cmbcodVeiculo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
@@ -377,6 +345,33 @@ namespace Estacionamento.Entrada
         private void ptbSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtPlaca_TextChanged(object sender, EventArgs e)
+        {
+            validarCampos();
+        }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            validarCampos();
+        }
+
+        private void txtPlaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
+                e.Handled = true;
+        }
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+            e.Handled = true;
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
     }

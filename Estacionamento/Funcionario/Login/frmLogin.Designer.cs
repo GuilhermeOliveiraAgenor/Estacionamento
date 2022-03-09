@@ -99,24 +99,30 @@ namespace Estacionamento.Login
             // 
             // btnSairmenu
             // 
+            this.btnSairmenu.BackColor = System.Drawing.Color.MediumBlue;
+            this.btnSairmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSairmenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSairmenu.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSairmenu.Location = new System.Drawing.Point(278, 386);
             this.btnSairmenu.Name = "btnSairmenu";
             this.btnSairmenu.Size = new System.Drawing.Size(98, 39);
             this.btnSairmenu.TabIndex = 5;
             this.btnSairmenu.Text = "Sair";
-            this.btnSairmenu.UseVisualStyleBackColor = true;
+            this.btnSairmenu.UseVisualStyleBackColor = false;
             this.btnSairmenu.Click += new System.EventHandler(this.btnSairmenu_Click);
             // 
             // btnLoginfuncionario
             // 
+            this.btnLoginfuncionario.BackColor = System.Drawing.Color.MediumBlue;
+            this.btnLoginfuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoginfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginfuncionario.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLoginfuncionario.Location = new System.Drawing.Point(164, 291);
             this.btnLoginfuncionario.Name = "btnLoginfuncionario";
-            this.btnLoginfuncionario.Size = new System.Drawing.Size(98, 34);
+            this.btnLoginfuncionario.Size = new System.Drawing.Size(104, 44);
             this.btnLoginfuncionario.TabIndex = 4;
             this.btnLoginfuncionario.Text = "Login";
-            this.btnLoginfuncionario.UseVisualStyleBackColor = true;
+            this.btnLoginfuncionario.UseVisualStyleBackColor = false;
             this.btnLoginfuncionario.Click += new System.EventHandler(this.btnLoginfuncionario_Click);
             // 
             // label2

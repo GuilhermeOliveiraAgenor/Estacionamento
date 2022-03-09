@@ -109,44 +109,52 @@ namespace Estacionamento.Entrada
             // 
             // dtpData
             // 
-            this.dtpData.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpData.Font = new System.Drawing.Font("Bahnschrift Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpData.Location = new System.Drawing.Point(1067, 405);
+            this.dtpData.Margin = new System.Windows.Forms.Padding(4, 3, 3, 3);
             this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(134, 30);
+            this.dtpData.Size = new System.Drawing.Size(134, 28);
             this.dtpData.TabIndex = 185;
+            this.dtpData.Value = new System.DateTime(2022, 3, 10, 0, 0, 0, 0);
             // 
             // btnCancelarfuncionario
             // 
+            this.btnCancelarfuncionario.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelarfuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarfuncionario.Location = new System.Drawing.Point(1493, 499);
             this.btnCancelarfuncionario.Name = "btnCancelarfuncionario";
             this.btnCancelarfuncionario.Size = new System.Drawing.Size(107, 47);
             this.btnCancelarfuncionario.TabIndex = 181;
             this.btnCancelarfuncionario.Text = "Cancelar";
-            this.btnCancelarfuncionario.UseVisualStyleBackColor = true;
+            this.btnCancelarfuncionario.UseVisualStyleBackColor = false;
             this.btnCancelarfuncionario.Click += new System.EventHandler(this.btnCancelarfuncionario_Click);
             // 
             // btnSair
             // 
+            this.btnSair.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(1656, 499);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(157, 47);
             this.btnSair.TabIndex = 180;
             this.btnSair.Text = "Sair para o menu";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnGravar
             // 
+            this.btnGravar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGravar.Location = new System.Drawing.Point(395, 482);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
             this.btnGravar.TabIndex = 179;
             this.btnGravar.Text = " Entrada";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // lblCodigocarro
@@ -527,6 +535,7 @@ namespace Estacionamento.Entrada
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 213;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // frmEntrada
             // 
@@ -557,7 +566,6 @@ namespace Estacionamento.Entrada
             this.Controls.Add(this.lblCodigodocliente);
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEntrada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -41,12 +41,10 @@ namespace Estacionamento
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
-            this.txtRg = new System.Windows.Forms.TextBox();
             this.txtPrimeironome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSobrenome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtCpf = new System.Windows.Forms.TextBox();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
@@ -84,6 +82,8 @@ namespace Estacionamento
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.txtCpf = new System.Windows.Forms.TextBox();
+            this.txtRg = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEditar)).BeginInit();
@@ -123,7 +123,6 @@ namespace Estacionamento
             this.txtProfissao.Name = "txtProfissao";
             this.txtProfissao.Size = new System.Drawing.Size(205, 30);
             this.txtProfissao.TabIndex = 164;
-            this.txtProfissao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProfissao_KeyPress);
             // 
             // label8
             // 
@@ -137,35 +136,41 @@ namespace Estacionamento
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(1255, 879);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
             this.btnCancelar.TabIndex = 166;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(1395, 879);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 48);
             this.btnVoltar.TabIndex = 168;
             this.btnVoltar.Text = "Voltar ";
-            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(292, 816);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(102, 39);
             this.btnCadastrar.TabIndex = 158;
             this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // lblNome
@@ -177,16 +182,6 @@ namespace Estacionamento
             this.lblNome.Size = new System.Drawing.Size(50, 25);
             this.lblNome.TabIndex = 169;
             this.lblNome.Text = "Nome";
-            // 
-            // txtRg
-            // 
-            this.txtRg.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRg.Location = new System.Drawing.Point(1157, 205);
-            this.txtRg.MaxLength = 11;
-            this.txtRg.Name = "txtRg";
-            this.txtRg.Size = new System.Drawing.Size(154, 30);
-            this.txtRg.TabIndex = 161;
-            this.txtRg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRg_KeyPress);
             // 
             // txtPrimeironome
             // 
@@ -228,49 +223,44 @@ namespace Estacionamento
             this.label4.TabIndex = 182;
             this.label4.Text = "Cpf";
             // 
-            // txtCpf
-            // 
-            this.txtCpf.Enabled = false;
-            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpf.Location = new System.Drawing.Point(759, 203);
-            this.txtCpf.MaxLength = 11;
-            this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(154, 30);
-            this.txtCpf.TabIndex = 181;
-            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
-            // 
             // btnAlterar
             // 
+            this.btnAlterar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Location = new System.Drawing.Point(422, 816);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(102, 39);
             this.btnAlterar.TabIndex = 183;
             this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(555, 816);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(102, 39);
             this.btnExcluir.TabIndex = 184;
             this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnGravar
             // 
+            this.btnGravar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnGravar.Enabled = false;
+            this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGravar.Location = new System.Drawing.Point(918, 830);
+            this.btnGravar.Location = new System.Drawing.Point(923, 816);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
             this.btnGravar.TabIndex = 185;
             this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // label5
@@ -297,14 +287,16 @@ namespace Estacionamento
             // 
             // btnCarregar
             // 
+            this.btnCarregar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnCarregar.Enabled = false;
+            this.btnCarregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCarregar.Location = new System.Drawing.Point(1584, 753);
             this.btnCarregar.Name = "btnCarregar";
             this.btnCarregar.Size = new System.Drawing.Size(111, 41);
             this.btnCarregar.TabIndex = 190;
             this.btnCarregar.Text = "Carregar";
-            this.btnCarregar.UseVisualStyleBackColor = true;
+            this.btnCarregar.UseVisualStyleBackColor = false;
             this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
             // 
             // label6
@@ -640,12 +632,37 @@ namespace Estacionamento
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 214;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.Location = new System.Drawing.Point(759, 204);
+            this.txtCpf.MaxLength = 11;
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(154, 30);
+            this.txtCpf.TabIndex = 271;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
+            // 
+            // txtRg
+            // 
+            this.txtRg.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRg.Location = new System.Drawing.Point(1157, 201);
+            this.txtRg.MaxLength = 11;
+            this.txtRg.Name = "txtRg";
+            this.txtRg.Size = new System.Drawing.Size(154, 30);
+            this.txtRg.TabIndex = 272;
+            this.txtRg.TextChanged += new System.EventHandler(this.txtRg_TextChanged);
+            this.txtRg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRg_KeyPress);
             // 
             // FrmEditarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.txtRg);
+            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.ptbMaximar);
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbSair);
@@ -665,7 +682,6 @@ namespace Estacionamento
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSobrenome);
             this.Controls.Add(this.label1);
@@ -676,10 +692,8 @@ namespace Estacionamento
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.txtRg);
             this.Controls.Add(this.txtPrimeironome);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -710,12 +724,10 @@ namespace Estacionamento
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.TextBox txtRg;
         private System.Windows.Forms.TextBox txtPrimeironome;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSobrenome;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnGravar;
@@ -753,5 +765,7 @@ namespace Estacionamento
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.TextBox txtRg;
     }
 }

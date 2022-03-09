@@ -14,6 +14,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,7 +31,16 @@ namespace Estacionamento.Funcionario.Relatorio
         public frmRelatorio()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
 
         public void limparCampoValor()
         {
@@ -218,10 +228,10 @@ namespace Estacionamento.Funcionario.Relatorio
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                tabela.AddCell(dt.Rows[i].Field<string>("primeiroNome").ToString());//adiciona as informaçoes carregadas
+                tabela.AddCell(dt.Rows[i].Field<string>("Nome").ToString());//adiciona as informaçoes carregadas
                 tabela.AddCell(dt.Rows[i].Field<string>("Cpf").ToString());
-                tabela.AddCell(dt.Rows[i].Field<string>("Profissao").ToString());
-                tabela.AddCell(dt.Rows[i].Field<decimal>("Salario").ToString());
+                tabela.AddCell(dt.Rows[i].Field<string>("Profissão").ToString());
+                tabela.AddCell(dt.Rows[i].Field<decimal>("Salário").ToString());
             }
 
             documento.Open();//abre o documento
@@ -432,5 +442,10 @@ namespace Estacionamento.Funcionario.Relatorio
             Application.Exit();
         }
 
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

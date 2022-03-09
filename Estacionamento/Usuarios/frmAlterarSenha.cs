@@ -15,6 +15,7 @@ using Estacionamento.Saida;
 using Estacionamento.editarPedidos;
 using Estacionamento.Login;
 using Controller;
+using System.Runtime.InteropServices;
 
 namespace Estacionamento.Usuarios
 {
@@ -29,7 +30,16 @@ namespace Estacionamento.Usuarios
         public frmAlterarSenha()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         public void limparCampos()
         {
             txtConfirmar.Clear();
@@ -226,6 +236,12 @@ namespace Estacionamento.Usuarios
         {
             new frmMenuu().Show();
             this.Hide();
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

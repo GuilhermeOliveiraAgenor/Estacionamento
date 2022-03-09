@@ -125,35 +125,41 @@ namespace Estacionamento.editarPedidos
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(1424, 898);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 48);
             this.btnCancelar.TabIndex = 171;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnVoltaraomenu
             // 
+            this.btnVoltaraomenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltaraomenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltaraomenu.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltaraomenu.Location = new System.Drawing.Point(1568, 898);
             this.btnVoltaraomenu.Name = "btnVoltaraomenu";
             this.btnVoltaraomenu.Size = new System.Drawing.Size(143, 48);
             this.btnVoltaraomenu.TabIndex = 176;
             this.btnVoltaraomenu.Text = "Voltar ao menu";
-            this.btnVoltaraomenu.UseVisualStyleBackColor = true;
+            this.btnVoltaraomenu.UseVisualStyleBackColor = false;
             this.btnVoltaraomenu.Click += new System.EventHandler(this.btnVoltaraomenu_Click);
             // 
             // btnAlterarcliente
             // 
+            this.btnAlterarcliente.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAlterarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterarcliente.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterarcliente.Location = new System.Drawing.Point(419, 631);
             this.btnAlterarcliente.Name = "btnAlterarcliente";
             this.btnAlterarcliente.Size = new System.Drawing.Size(102, 39);
             this.btnAlterarcliente.TabIndex = 161;
             this.btnAlterarcliente.Text = "Alterar";
-            this.btnAlterarcliente.UseVisualStyleBackColor = true;
+            this.btnAlterarcliente.UseVisualStyleBackColor = false;
             this.btnAlterarcliente.Click += new System.EventHandler(this.btnAlterarcliente_Click);
             // 
             // lblNomee
@@ -209,7 +215,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.lblCpf.AutoSize = true;
             this.lblCpf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpf.Location = new System.Drawing.Point(487, 143);
+            this.lblCpf.Location = new System.Drawing.Point(464, 143);
             this.lblCpf.Name = "lblCpf";
             this.lblCpf.Size = new System.Drawing.Size(0, 25);
             this.lblCpf.TabIndex = 216;
@@ -472,6 +478,7 @@ namespace Estacionamento.editarPedidos
             this.menuStrip1.Size = new System.Drawing.Size(1924, 44);
             this.menuStrip1.TabIndex = 213;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // lblMensagem
             // 
@@ -504,7 +511,6 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.lblNomee);
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlterarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -37,10 +37,8 @@ namespace Estacionamento.editarPedidos
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCodigocliente = new System.Windows.Forms.TextBox();
             this.btnCadastrarveiculo = new System.Windows.Forms.Button();
             this.lblPlaca = new System.Windows.Forms.Label();
-            this.btnCancelarfuncionario = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.cmbVeiculo = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -60,7 +58,6 @@ namespace Estacionamento.editarPedidos
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtPlaca = new System.Windows.Forms.TextBox();
             this.lblMensagem = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvVeiculos = new System.Windows.Forms.DataGridView();
@@ -68,6 +65,9 @@ namespace Estacionamento.editarPedidos
             this.ptbMaximar = new System.Windows.Forms.PictureBox();
             this.ptbNormal = new System.Windows.Forms.PictureBox();
             this.ptbMinimizar = new System.Windows.Forms.PictureBox();
+            this.txtPlaca = new System.Windows.Forms.TextBox();
+            this.txtCpf = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
@@ -118,25 +118,17 @@ namespace Estacionamento.editarPedidos
             this.label3.TabIndex = 230;
             this.label3.Text = "Cpf";
             // 
-            // txtCodigocliente
-            // 
-            this.txtCodigocliente.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigocliente.Location = new System.Drawing.Point(233, 322);
-            this.txtCodigocliente.MaxLength = 11;
-            this.txtCodigocliente.Name = "txtCodigocliente";
-            this.txtCodigocliente.Size = new System.Drawing.Size(127, 30);
-            this.txtCodigocliente.TabIndex = 227;
-            this.txtCodigocliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigocliente_KeyPress_1);
-            // 
             // btnCadastrarveiculo
             // 
+            this.btnCadastrarveiculo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCadastrarveiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarveiculo.Location = new System.Drawing.Point(408, 650);
             this.btnCadastrarveiculo.Name = "btnCadastrarveiculo";
             this.btnCadastrarveiculo.Size = new System.Drawing.Size(102, 39);
             this.btnCadastrarveiculo.TabIndex = 218;
             this.btnCadastrarveiculo.Text = "Cadastrar";
-            this.btnCadastrarveiculo.UseVisualStyleBackColor = true;
+            this.btnCadastrarveiculo.UseVisualStyleBackColor = false;
             this.btnCadastrarveiculo.Click += new System.EventHandler(this.btnCadastrarveiculo_Click);
             // 
             // lblPlaca
@@ -149,26 +141,17 @@ namespace Estacionamento.editarPedidos
             this.lblPlaca.TabIndex = 222;
             this.lblPlaca.Text = "Placa";
             // 
-            // btnCancelarfuncionario
-            // 
-            this.btnCancelarfuncionario.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarfuncionario.Location = new System.Drawing.Point(1321, 852);
-            this.btnCancelarfuncionario.Name = "btnCancelarfuncionario";
-            this.btnCancelarfuncionario.Size = new System.Drawing.Size(107, 47);
-            this.btnCancelarfuncionario.TabIndex = 216;
-            this.btnCancelarfuncionario.Text = "Cancelar";
-            this.btnCancelarfuncionario.UseVisualStyleBackColor = true;
-            this.btnCancelarfuncionario.Click += new System.EventHandler(this.btnCancelarfuncionario_Click);
-            // 
             // btnSair
             // 
+            this.btnSair.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(1463, 852);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(145, 47);
             this.btnSair.TabIndex = 215;
             this.btnSair.Text = "Sair para o menu";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // cmbVeiculo
@@ -197,6 +180,7 @@ namespace Estacionamento.editarPedidos
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 237;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // sessaoToolStripMenuItem
             // 
@@ -326,16 +310,6 @@ namespace Estacionamento.editarPedidos
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
-            // txtPlaca
-            // 
-            this.txtPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlaca.Location = new System.Drawing.Point(606, 328);
-            this.txtPlaca.MaxLength = 7;
-            this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(98, 30);
-            this.txtPlaca.TabIndex = 238;
-            this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
-            // 
             // lblMensagem
             // 
             this.lblMensagem.AutoSize = true;
@@ -451,11 +425,49 @@ namespace Estacionamento.editarPedidos
             this.ptbMinimizar.TabStop = false;
             this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
+            // txtPlaca
+            // 
+            this.txtPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca.Location = new System.Drawing.Point(590, 328);
+            this.txtPlaca.MaxLength = 7;
+            this.txtPlaca.Name = "txtPlaca";
+            this.txtPlaca.Size = new System.Drawing.Size(98, 30);
+            this.txtPlaca.TabIndex = 250;
+            this.txtPlaca.TextChanged += new System.EventHandler(this.txtPlaca_TextChanged);
+            this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.Location = new System.Drawing.Point(214, 322);
+            this.txtCpf.MaxLength = 11;
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(127, 30);
+            this.txtCpf.TabIndex = 251;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(1325, 852);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(102, 47);
+            this.btnCancelar.TabIndex = 252;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // frmInserirVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.txtCpf);
+            this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.ptbSair);
             this.Controls.Add(this.ptbMaximar);
@@ -463,17 +475,13 @@ namespace Estacionamento.editarPedidos
             this.Controls.Add(this.dgvVeiculos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMensagem);
-            this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.cmbVeiculo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCodigocliente);
             this.Controls.Add(this.btnCadastrarveiculo);
             this.Controls.Add(this.lblPlaca);
-            this.Controls.Add(this.btnCancelarfuncionario);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInserirVeiculo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -499,10 +507,8 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCodigocliente;
         private System.Windows.Forms.Button btnCadastrarveiculo;
         private System.Windows.Forms.Label lblPlaca;
-        private System.Windows.Forms.Button btnCancelarfuncionario;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.ComboBox cmbVeiculo;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -520,7 +526,6 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vagasToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
         private System.Windows.Forms.Label lblMensagem;
@@ -530,5 +535,8 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.PictureBox ptbMaximar;
         private System.Windows.Forms.PictureBox ptbNormal;
         private System.Windows.Forms.PictureBox ptbMinimizar;
+        private System.Windows.Forms.TextBox txtPlaca;
+        private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

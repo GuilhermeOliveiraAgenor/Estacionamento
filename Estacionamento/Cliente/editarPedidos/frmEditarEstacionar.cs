@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +32,15 @@ namespace Estacionamento.editarPedidos
         public frmEditarEstacionar()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         public void desbloquearCampo()
         {
@@ -96,49 +105,6 @@ namespace Estacionamento.editarPedidos
         {
             vagasOcupadas();
             //TODO: Mostrar id estacionar
-
-        }
-
-        private void btnPesquisarcodigo_Click(object sender, EventArgs e)
-        {
-            string cpf = txtPesquisar.Text;//parametro
-
-            cmbPatio.Text = "";
-            cmbPlaca.Text = "";
-
-            dt = estacionarDAO.PesqCpfOcupados(cpf);//recebe o resultado
-
-            cliVeiculo = cliVeiculoDAO.listVeiculosCpf(cpf);
-
-            //if (txtPesquisar.Text.Length == 11)
-            //{
-                if (dt.Rows.Count == 1)
-                {
-                    cmbPlaca.Items.Clear();//limpa o combobox
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        lblData.Text = row["Entrada"].ToString();//passa as informaçoes
-                        cmbPatio.Text = row["Pátio"].ToString();
-                        cmbPlaca.Text = row["Placa"].ToString();
-                        idEstacionar = Convert.ToInt32(row["Código"].GetHashCode());
-                    }
-                    foreach (var item in cliVeiculo)
-                    {
-                        cmbPlaca.Items.Add(item.Placa);//adiciona na combobox
-                    }
-
-                    dgvEstacionar.DataSource = estacionarDAO.PesqCpfOcupados(cpf);
-                }
-               
-           // }
-            else
-            {
-                lblMensagem.Text = "Erro ao encontrar cliente";
-                //mensagem de erro
-                vagasOcupadas();
-                limparPesquisa();
-            }
 
         }
         private void cmbcodigoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
@@ -476,6 +442,12 @@ namespace Estacionamento.editarPedidos
                     idClienteVeiculo = item.IdClienteVeiculo.GetHashCode();
                 }
             }
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

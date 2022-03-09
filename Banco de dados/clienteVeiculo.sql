@@ -40,6 +40,12 @@ raiserror('O Email ja existe',16,1)
 return -1
 end
 
+--veiculo nao existe
+if not exists (select idVeiculo from Veiculo where idVeiculo = @codigo_Veiculo)
+begin
+raiserror('O Veiculo selecionado nao existe',16,1)
+return -1
+end
 
 begin tran--insere
 insert into Cliente (Nome,Cpf,Email) values (@Nome,@Cpf,@Email)
@@ -53,8 +59,6 @@ rollback tran
 else
 commit tran
 go
-
-
 
 
 
@@ -82,6 +86,13 @@ if not exists (select Cpf from Cliente where Cpf = @Cpf)
 begin 
 raiserror ('O cpf nao existe',16,1)
 return -1 
+end
+
+--veiculo nao existe
+if not exists (select idVeiculo from Veiculo where idVeiculo = @codigo_Veiculo)
+begin
+raiserror('O Veiculo selecionado nao existe',16,1)
+return -1
 end
 
 --insere

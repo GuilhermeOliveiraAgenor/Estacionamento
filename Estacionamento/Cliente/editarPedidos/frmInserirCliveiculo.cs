@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,7 +31,15 @@ namespace Estacionamento.editarPedidos
         public frmInserirVeiculo()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         public void carregarGrid()
         {
@@ -41,17 +50,31 @@ namespace Estacionamento.editarPedidos
 
         public void limparCampos()
         {
-            txtCodigocliente.Clear();
+            txtCpf.Clear();
             cmbVeiculo.Text = "";
             txtPlaca.Clear();
             txtPesquisar.Clear();
+            btnCadastrarveiculo.Enabled = true;
         }
         public void limparPesquisa()
         {
-            txtCodigocliente.Clear();
+            txtCpf.Clear();
             cmbVeiculo.Text = "";
             txtPlaca.Clear();
+            btnCadastrarveiculo.Enabled = true;
         }
+        public void validarCampos()
+        {
+            if (txtCpf.Text.Length == 11 && txtPlaca.Text.Length == 7)
+            {
+                btnCadastrarveiculo.Enabled = true;
+            }
+            else
+            {
+                btnCadastrarveiculo.Enabled = false;
+            }
+        }
+
         private void frmInserirCliveiculo_Load(object sender, EventArgs e)
         {
             List<Veiculo> veiculos = veiculoDAO.carregarVeiculo();//recebe o resultado
@@ -64,43 +87,11 @@ namespace Estacionamento.editarPedidos
             carregarGrid();
 
         }
-
-        private void btnCodigo_Click(object sender, EventArgs e)
-        {
-            string cpf = txtPesquisar.Text;//parametro
-            DataTable dt = new DataTable();
-
-            dt = cliveiculoDAO.pesqCpf(cpf);//recebe o resultado
-
-            if (txtPesquisar.Text.Length == 11)
-            {
-                lblMensagem.Text = "";
-                if (dt.Rows.Count >= 1)
-                {
-                    dgvVeiculos.DataSource = cliveiculoDAO.pesqCpf(cpf);//carrega no grid
-                }
-                else
-                {
-                    MessageBox.Show("Cpf não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
-                    txtPesquisar.Focus();
-                    limparPesquisa();
-                    carregarGrid();
-                }
-            }
-            else
-            {
-                lblMensagem.Text = "Erro ao encontrar o cliente";
-                limparPesquisa();
-                carregarGrid();
-            }
-
-        }
-
         private void btnCadastrarveiculo_Click(object sender, EventArgs e)
         {
             bool result = false;
 
-            if (String.IsNullOrEmpty(txtCodigocliente.Text) || String.IsNullOrEmpty(txtPlaca.Text) || String.IsNullOrEmpty(cmbVeiculo.ValueMember))//verificar campos vazios
+            if (String.IsNullOrEmpty(txtCpf.Text) || String.IsNullOrEmpty(txtPlaca.Text) || String.IsNullOrEmpty(cmbVeiculo.ValueMember))//verificar campos vazios
             {
                 MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -108,7 +99,7 @@ namespace Estacionamento.editarPedidos
             {
                 cliveiculo.codigo_Veiculo = Convert.ToInt32(cmbVeiculo.ValueMember);//parametros
                 cliveiculo.Placa = txtPlaca.Text.ToUpper();
-                cliente.Cpf = txtCodigocliente.Text;
+                cliente.Cpf = txtCpf.Text;
 
                 result = cliveiculoDAO.inserirVeiculocv(cliveiculo, cliente);//recebe o resultado
 
@@ -226,19 +217,6 @@ namespace Estacionamento.editarPedidos
             if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
         }
-       
-        private void txtPlaca_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
-                e.Handled = true;
-        }
-
-        private void txtCodigocliente_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
-                e.Handled = true;
-        }
-
         private void cmbVeiculo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
@@ -273,14 +251,12 @@ namespace Estacionamento.editarPedidos
                 {
                     lblMensagem.Text = "Erro ao encontrar o cliente";
                     txtPesquisar.Focus();
-                    limparPesquisa();
                     carregarGrid();
                 }
             }
             else
             {
                 lblMensagem.Text = "";
-                limparPesquisa();
             }
         }
 
@@ -312,5 +288,39 @@ namespace Estacionamento.editarPedidos
             Application.Exit();
         }
 
+        private void txtPlaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
+                e.Handled = true;
+        }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            validarCampos();
+        }
+
+        private void txtPlaca_TextChanged(object sender, EventArgs e)
+        {
+            validarCampos();
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+                e.Handled = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            carregarGrid();
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }
+

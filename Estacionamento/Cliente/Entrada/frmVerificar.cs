@@ -13,6 +13,7 @@ using Estacionamento.Login;
 using Estacionamento.Menu;
 using Estacionamento.editarPedidos;
 using Estacionamento.Saida;
+using System.Runtime.InteropServices;
 
 namespace Estacionamento.Entrada
 {
@@ -24,9 +25,18 @@ namespace Estacionamento.Entrada
         EstacionarDAO estacionarDAO = new EstacionarDAO();
         int patio1;
         int patio2;
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         public frmVerificar()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;//tirar a borda da tela
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
 
         public void irMenu(){
@@ -110,39 +120,6 @@ namespace Estacionamento.Entrada
             new frmLogin().Show();
             this.Hide();
         }
-        private void btnCodigo_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-
-            //passar parametros
-            string cpf = txtCpf.Text;
-
-            dt = clienteDAO.PesqClienteCpf(cpf);//recebe o resultado do datatable
-
-            if (dt.Rows.Count == 1)
-            {
-                frmEntrada frmentrada = new frmEntrada(txtCpf.Text);//vai para a tela de entrada
-                frmentrada.Show();
-                this.Hide();
-
-            }
-            if (dt.Rows.Count < 1)
-            {
-                DialogResult dr = MessageBox.Show("Erro ao encontrar cliente. Deseja cadastrar ?", "Erro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
-                {
-                    frmCadCliente cadCliente = new frmCadCliente(txtCpf.Text);
-                    cadCliente.Show();
-                    this.Hide();//vai para tela de cadastrar cliente
-                }
-                if (dr == DialogResult.No)
-                {
-                    txtCpf.Focus();
-                }
-
-            }
-        }
-
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
@@ -219,5 +196,10 @@ namespace Estacionamento.Entrada
             Application.Exit();
         }
 
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

@@ -130,24 +130,28 @@ namespace Estacionamento.Saida
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(1174, 481);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
             this.btnCancelar.TabIndex = 191;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(1304, 481);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(155, 48);
             this.btnVoltar.TabIndex = 190;
             this.btnVoltar.Text = "Voltar para o menu";
-            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // label5
@@ -182,14 +186,16 @@ namespace Estacionamento.Saida
             // 
             // btnSaida
             // 
+            this.btnSaida.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnSaida.Enabled = false;
+            this.btnSaida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaida.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaida.Location = new System.Drawing.Point(461, 481);
             this.btnSaida.Name = "btnSaida";
             this.btnSaida.Size = new System.Drawing.Size(128, 63);
             this.btnSaida.TabIndex = 171;
             this.btnSaida.Text = "Efetuar \r\nsaída";
-            this.btnSaida.UseVisualStyleBackColor = true;
+            this.btnSaida.UseVisualStyleBackColor = false;
             this.btnSaida.Click += new System.EventHandler(this.btnSaida_Click);
             // 
             // timer1
@@ -670,6 +676,7 @@ namespace Estacionamento.Saida
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 221;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // frmSaida
             // 
@@ -713,7 +720,6 @@ namespace Estacionamento.Saida
             this.Controls.Add(this.btnSaida);
             this.Controls.Add(this.ptbNormal);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSaida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
