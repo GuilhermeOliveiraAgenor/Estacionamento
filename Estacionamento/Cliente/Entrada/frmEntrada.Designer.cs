@@ -92,7 +92,7 @@ namespace Estacionamento.Entrada
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(118, 30);
-            this.txtPesquisar.TabIndex = 189;
+            this.txtPesquisar.TabIndex = 0;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
@@ -126,7 +126,7 @@ namespace Estacionamento.Entrada
             this.btnCancelarfuncionario.Location = new System.Drawing.Point(1493, 499);
             this.btnCancelarfuncionario.Name = "btnCancelarfuncionario";
             this.btnCancelarfuncionario.Size = new System.Drawing.Size(107, 47);
-            this.btnCancelarfuncionario.TabIndex = 181;
+            this.btnCancelarfuncionario.TabIndex = 3;
             this.btnCancelarfuncionario.Text = "Cancelar";
             this.btnCancelarfuncionario.UseVisualStyleBackColor = false;
             this.btnCancelarfuncionario.Click += new System.EventHandler(this.btnCancelarfuncionario_Click);
@@ -139,7 +139,7 @@ namespace Estacionamento.Entrada
             this.btnSair.Location = new System.Drawing.Point(1656, 499);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(157, 47);
-            this.btnSair.TabIndex = 180;
+            this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair para o menu";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -152,7 +152,7 @@ namespace Estacionamento.Entrada
             this.btnGravar.Location = new System.Drawing.Point(395, 482);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
-            this.btnGravar.TabIndex = 179;
+            this.btnGravar.TabIndex = 2;
             this.btnGravar.Text = " Entrada";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -181,7 +181,7 @@ namespace Estacionamento.Entrada
             // 
             this.lblCodigodocliente.AutoSize = true;
             this.lblCodigodocliente.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigodocliente.Location = new System.Drawing.Point(415, 135);
+            this.lblCodigodocliente.Location = new System.Drawing.Point(379, 135);
             this.lblCodigodocliente.Name = "lblCodigodocliente";
             this.lblCodigodocliente.Size = new System.Drawing.Size(0, 25);
             this.lblCodigodocliente.TabIndex = 174;
@@ -208,7 +208,7 @@ namespace Estacionamento.Entrada
             this.cmbcodigoVeiculo.Location = new System.Drawing.Point(395, 355);
             this.cmbcodigoVeiculo.Name = "cmbcodigoVeiculo";
             this.cmbcodigoVeiculo.Size = new System.Drawing.Size(121, 31);
-            this.cmbcodigoVeiculo.TabIndex = 200;
+            this.cmbcodigoVeiculo.TabIndex = 1;
             this.cmbcodigoVeiculo.SelectedIndexChanged += new System.EventHandler(this.cmbcodigoVeiculo_SelectedIndexChanged);
             this.cmbcodigoVeiculo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbcodigoVeiculo_KeyPress);
             // 
@@ -232,7 +232,7 @@ namespace Estacionamento.Entrada
             this.cmbPatio.Location = new System.Drawing.Point(395, 239);
             this.cmbPatio.Name = "cmbPatio";
             this.cmbPatio.Size = new System.Drawing.Size(56, 31);
-            this.cmbPatio.TabIndex = 203;
+            this.cmbPatio.TabIndex = 0;
             this.cmbPatio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPatio_KeyPress);
             // 
             // label1
@@ -302,7 +302,7 @@ namespace Estacionamento.Entrada
             this.groupBox1.Location = new System.Drawing.Point(1447, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 163);
-            this.groupBox1.TabIndex = 215;
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
             // 

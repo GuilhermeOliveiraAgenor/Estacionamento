@@ -100,7 +100,7 @@ namespace Estacionamento.Entrada
             this.txtPesquisarplaca.MaxLength = 7;
             this.txtPesquisarplaca.Name = "txtPesquisarplaca";
             this.txtPesquisarplaca.Size = new System.Drawing.Size(125, 30);
-            this.txtPesquisarplaca.TabIndex = 202;
+            this.txtPesquisarplaca.TabIndex = 1;
             this.txtPesquisarplaca.TextChanged += new System.EventHandler(this.txtPesquisarplaca_TextChanged);
             this.txtPesquisarplaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarplaca_KeyPress);
             this.txtPesquisarplaca.Leave += new System.EventHandler(this.txtPesquisarplaca_Leave);
@@ -122,7 +122,7 @@ namespace Estacionamento.Entrada
             this.txtPesquisarcodigo.MaxLength = 11;
             this.txtPesquisarcodigo.Name = "txtPesquisarcodigo";
             this.txtPesquisarcodigo.Size = new System.Drawing.Size(125, 30);
-            this.txtPesquisarcodigo.TabIndex = 199;
+            this.txtPesquisarcodigo.TabIndex = 0;
             this.txtPesquisarcodigo.TextChanged += new System.EventHandler(this.txtPesquisarcodigo_TextChanged);
             this.txtPesquisarcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarcodigo_KeyPress);
             this.txtPesquisarcodigo.Leave += new System.EventHandler(this.txtPesquisarcodigo_Leave);
@@ -135,7 +135,7 @@ namespace Estacionamento.Entrada
             this.btnCancelar.Location = new System.Drawing.Point(1340, 855);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 48);
-            this.btnCancelar.TabIndex = 181;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -158,7 +158,7 @@ namespace Estacionamento.Entrada
             this.btnVoltaraomenu.Location = new System.Drawing.Point(1503, 855);
             this.btnVoltaraomenu.Name = "btnVoltaraomenu";
             this.btnVoltaraomenu.Size = new System.Drawing.Size(146, 48);
-            this.btnVoltaraomenu.TabIndex = 185;
+            this.btnVoltaraomenu.TabIndex = 7;
             this.btnVoltaraomenu.Text = "Voltar ao menu";
             this.btnVoltaraomenu.UseVisualStyleBackColor = false;
             this.btnVoltaraomenu.Click += new System.EventHandler(this.btnVoltaraomenu_Click);
@@ -171,7 +171,7 @@ namespace Estacionamento.Entrada
             this.btnCadastrar.Location = new System.Drawing.Point(497, 756);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(107, 39);
-            this.btnCadastrar.TabIndex = 169;
+            this.btnCadastrar.TabIndex = 5;
             this.btnCadastrar.Text = " Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -203,7 +203,7 @@ namespace Estacionamento.Entrada
             this.txtNomee.MaxLength = 150;
             this.txtNomee.Name = "txtNomee";
             this.txtNomee.Size = new System.Drawing.Size(370, 30);
-            this.txtNomee.TabIndex = 206;
+            this.txtNomee.TabIndex = 0;
             this.txtNomee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomee_KeyPress);
             // 
             // label1
@@ -223,7 +223,7 @@ namespace Estacionamento.Entrada
             this.cmbcodVeiculo.Location = new System.Drawing.Point(468, 536);
             this.cmbcodVeiculo.Name = "cmbcodVeiculo";
             this.cmbcodVeiculo.Size = new System.Drawing.Size(204, 31);
-            this.cmbcodVeiculo.TabIndex = 209;
+            this.cmbcodVeiculo.TabIndex = 4;
             this.cmbcodVeiculo.SelectedIndexChanged += new System.EventHandler(this.cmbcodVeiculo_SelectedIndexChanged);
             this.cmbcodVeiculo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbcodVeiculo_KeyPress);
             // 
@@ -244,7 +244,7 @@ namespace Estacionamento.Entrada
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(370, 30);
-            this.txtEmail.TabIndex = 210;
+            this.txtEmail.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -256,7 +256,7 @@ namespace Estacionamento.Entrada
             this.groupBox1.Location = new System.Drawing.Point(1412, 77);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(429, 214);
-            this.groupBox1.TabIndex = 213;
+            this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
             // 
@@ -515,7 +515,7 @@ namespace Estacionamento.Entrada
             this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(154, 30);
-            this.txtCpf.TabIndex = 255;
+            this.txtCpf.TabIndex = 2;
             this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
@@ -526,7 +526,7 @@ namespace Estacionamento.Entrada
             this.txtPlaca.MaxLength = 7;
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(118, 30);
-            this.txtPlaca.TabIndex = 256;
+            this.txtPlaca.TabIndex = 3;
             this.txtPlaca.TextChanged += new System.EventHandler(this.txtPlaca_TextChanged);
             this.txtPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlaca_KeyPress);
             // 

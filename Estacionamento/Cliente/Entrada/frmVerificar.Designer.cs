@@ -69,7 +69,7 @@ namespace Estacionamento.Entrada
             this.btnVoltar.Location = new System.Drawing.Point(1174, 522);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 48);
-            this.btnVoltar.TabIndex = 218;
+            this.btnVoltar.TabIndex = 1;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -81,7 +81,7 @@ namespace Estacionamento.Entrada
             this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(138, 30);
-            this.txtCpf.TabIndex = 221;
+            this.txtCpf.TabIndex = 0;
             this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
@@ -287,7 +287,7 @@ namespace Estacionamento.Entrada
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
             this.menuStrip1.Size = new System.Drawing.Size(1417, 39);
-            this.menuStrip1.TabIndex = 219;
+            this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 

@@ -143,7 +143,7 @@ namespace Estacionamento.editarPedidos
             this.cmbPatio.Location = new System.Drawing.Point(337, 162);
             this.cmbPatio.Name = "cmbPatio";
             this.cmbPatio.Size = new System.Drawing.Size(48, 31);
-            this.cmbPatio.TabIndex = 222;
+            this.cmbPatio.TabIndex = 3;
             this.cmbPatio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPatio_KeyPress);
             // 
             // btnCancelar
@@ -154,7 +154,7 @@ namespace Estacionamento.editarPedidos
             this.btnCancelar.Location = new System.Drawing.Point(1535, 452);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(111, 48);
-            this.btnCancelar.TabIndex = 215;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -167,7 +167,7 @@ namespace Estacionamento.editarPedidos
             this.btnAlterar.Location = new System.Drawing.Point(205, 427);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(102, 39);
-            this.btnAlterar.TabIndex = 213;
+            this.btnAlterar.TabIndex = 1;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -180,7 +180,7 @@ namespace Estacionamento.editarPedidos
             this.btnVoltar.Location = new System.Drawing.Point(1699, 452);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(107, 48);
-            this.btnVoltar.TabIndex = 212;
+            this.btnVoltar.TabIndex = 7;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -222,7 +222,7 @@ namespace Estacionamento.editarPedidos
             this.btnExcluir.Location = new System.Drawing.Point(337, 427);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(102, 39);
-            this.btnExcluir.TabIndex = 233;
+            this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -236,7 +236,7 @@ namespace Estacionamento.editarPedidos
             this.btnGravar.Location = new System.Drawing.Point(538, 427);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
-            this.btnGravar.TabIndex = 234;
+            this.btnGravar.TabIndex = 5;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click_1);
@@ -248,7 +248,7 @@ namespace Estacionamento.editarPedidos
             this.cmbPlaca.Location = new System.Drawing.Point(337, 282);
             this.cmbPlaca.Name = "cmbPlaca";
             this.cmbPlaca.Size = new System.Drawing.Size(137, 31);
-            this.cmbPlaca.TabIndex = 235;
+            this.cmbPlaca.TabIndex = 4;
             this.cmbPlaca.TextChanged += new System.EventHandler(this.cmbPlaca_TextChanged);
             this.cmbPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPlaca_KeyPress);
             // 
@@ -269,7 +269,7 @@ namespace Estacionamento.editarPedidos
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(121, 30);
-            this.txtPesquisar.TabIndex = 217;
+            this.txtPesquisar.TabIndex = 1;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
@@ -301,7 +301,7 @@ namespace Estacionamento.editarPedidos
             this.groupBox1.Location = new System.Drawing.Point(1535, 67);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(346, 152);
-            this.groupBox1.TabIndex = 239;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
             // 
@@ -532,7 +532,7 @@ namespace Estacionamento.editarPedidos
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
-            this.menuStrip1.TabIndex = 236;
+            this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 

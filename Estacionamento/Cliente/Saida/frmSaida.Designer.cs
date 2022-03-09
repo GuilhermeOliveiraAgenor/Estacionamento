@@ -105,7 +105,7 @@ namespace Estacionamento.Saida
             this.txtPesquisar.MaxLength = 7;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(121, 30);
-            this.txtPesquisar.TabIndex = 204;
+            this.txtPesquisar.TabIndex = 0;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
@@ -136,7 +136,7 @@ namespace Estacionamento.Saida
             this.btnCancelar.Location = new System.Drawing.Point(1174, 481);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
-            this.btnCancelar.TabIndex = 191;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -149,7 +149,7 @@ namespace Estacionamento.Saida
             this.btnVoltar.Location = new System.Drawing.Point(1304, 481);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(155, 48);
-            this.btnVoltar.TabIndex = 190;
+            this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar para o menu";
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -193,7 +193,7 @@ namespace Estacionamento.Saida
             this.btnSaida.Location = new System.Drawing.Point(461, 481);
             this.btnSaida.Name = "btnSaida";
             this.btnSaida.Size = new System.Drawing.Size(128, 63);
-            this.btnSaida.TabIndex = 171;
+            this.btnSaida.TabIndex = 2;
             this.btnSaida.Text = "Efetuar \r\nsaída";
             this.btnSaida.UseVisualStyleBackColor = false;
             this.btnSaida.Click += new System.EventHandler(this.btnSaida_Click);
@@ -221,7 +221,7 @@ namespace Estacionamento.Saida
             this.cmbFormadepagamento.Location = new System.Drawing.Point(1141, 113);
             this.cmbFormadepagamento.Name = "cmbFormadepagamento";
             this.cmbFormadepagamento.Size = new System.Drawing.Size(147, 31);
-            this.cmbFormadepagamento.TabIndex = 207;
+            this.cmbFormadepagamento.TabIndex = 1;
             this.cmbFormadepagamento.SelectedIndexChanged += new System.EventHandler(this.cmbFormadepagamento_SelectedIndexChanged);
             this.cmbFormadepagamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbFormadepagamento_KeyPress);
             // 
@@ -442,7 +442,7 @@ namespace Estacionamento.Saida
             this.groupBox1.Location = new System.Drawing.Point(1536, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(346, 152);
-            this.groupBox1.TabIndex = 233;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
             // 

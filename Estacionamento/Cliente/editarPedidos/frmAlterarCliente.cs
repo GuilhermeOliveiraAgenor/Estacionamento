@@ -69,6 +69,7 @@ namespace Estacionamento.editarPedidos
         private void frmAlterarCliente_Load(object sender, EventArgs e)
         {
             carregarGrid();
+            txtPesquisarcodigo.Focus();
         }
 
         public void bloquearBotao()
