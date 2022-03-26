@@ -52,13 +52,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.label6 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.dgvRelatorio = new System.Windows.Forms.DataGridView();
-            this.ptbHora = new System.Windows.Forms.PictureBox();
-            this.ptbMes = new System.Windows.Forms.PictureBox();
-            this.ptbAno = new System.Windows.Forms.PictureBox();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.sessaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,15 +69,18 @@ namespace Estacionamento.Funcionario.Relatorio
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbHora = new System.Windows.Forms.PictureBox();
+            this.ptbMes = new System.Windows.Forms.PictureBox();
+            this.ptbAno = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbHora)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAno)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSairmenu
@@ -95,7 +91,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.btnSairmenu.Location = new System.Drawing.Point(833, 809);
             this.btnSairmenu.Name = "btnSairmenu";
             this.btnSairmenu.Size = new System.Drawing.Size(106, 43);
-            this.btnSairmenu.TabIndex = 182;
+            this.btnSairmenu.TabIndex = 6;
             this.btnSairmenu.Text = "Voltar";
             this.btnSairmenu.UseVisualStyleBackColor = false;
             this.btnSairmenu.Click += new System.EventHandler(this.btnSairmenu_Click);
@@ -120,7 +116,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbPesquisa.Location = new System.Drawing.Point(1672, 94);
             this.cmbPesquisa.Name = "cmbPesquisa";
             this.cmbPesquisa.Size = new System.Drawing.Size(159, 31);
-            this.cmbPesquisa.TabIndex = 184;
+            this.cmbPesquisa.TabIndex = 0;
             this.cmbPesquisa.SelectedIndexChanged += new System.EventHandler(this.cmbPesquisa_SelectedIndexChanged);
             this.cmbPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPesquisa_KeyPress);
             // 
@@ -144,7 +140,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbMes.Location = new System.Drawing.Point(165, 291);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(165, 31);
-            this.cmbMes.TabIndex = 185;
+            this.cmbMes.TabIndex = 2;
             this.cmbMes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbMes_KeyPress);
             // 
             // lblAno
@@ -224,7 +220,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.txtPesqAno.MaxLength = 4;
             this.txtPesqAno.Name = "txtPesqAno";
             this.txtPesqAno.Size = new System.Drawing.Size(165, 30);
-            this.txtPesqAno.TabIndex = 201;
+            this.txtPesqAno.TabIndex = 3;
             this.txtPesqAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesqAno_KeyPress);
             // 
             // cmbPesqMes
@@ -247,17 +243,17 @@ namespace Estacionamento.Funcionario.Relatorio
             this.cmbPesqMes.Location = new System.Drawing.Point(201, 638);
             this.cmbPesqMes.Name = "cmbPesqMes";
             this.cmbPesqMes.Size = new System.Drawing.Size(165, 31);
-            this.cmbPesqMes.TabIndex = 200;
+            this.cmbPesqMes.TabIndex = 4;
             this.cmbPesqMes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPesqMes_KeyPress);
             // 
             // lbl7dias
             // 
             this.lbl7dias.AutoSize = true;
             this.lbl7dias.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl7dias.Location = new System.Drawing.Point(161, 858);
+            this.lbl7dias.Location = new System.Drawing.Point(161, 802);
             this.lbl7dias.Name = "lbl7dias";
             this.lbl7dias.Size = new System.Drawing.Size(252, 25);
-            this.lbl7dias.TabIndex = 210;
+            this.lbl7dias.TabIndex = 7;
             this.lbl7dias.Text = "Hora mais movimentada em 7 dias";
             this.lbl7dias.Click += new System.EventHandler(this.lbl7dias_Click);
             // 
@@ -265,10 +261,10 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             this.lblPdf.AutoSize = true;
             this.lblPdf.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPdf.Location = new System.Drawing.Point(1538, 827);
+            this.lblPdf.Location = new System.Drawing.Point(1538, 803);
             this.lblPdf.Name = "lblPdf";
             this.lblPdf.Size = new System.Drawing.Size(178, 25);
-            this.lblPdf.TabIndex = 212;
+            this.lblPdf.TabIndex = 8;
             this.lblPdf.Text = "Quadro de Funcionários";
             this.lblPdf.Click += new System.EventHandler(this.lblPdf_Click);
             // 
@@ -279,7 +275,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.txtAno.MaxLength = 4;
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(165, 30);
-            this.txtAno.TabIndex = 186;
+            this.txtAno.TabIndex = 1;
             this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress);
             // 
             // label6
@@ -300,7 +296,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.btnLimpar.Location = new System.Drawing.Point(1075, 809);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(106, 43);
-            this.btnLimpar.TabIndex = 217;
+            this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar Campos";
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -313,7 +309,7 @@ namespace Estacionamento.Funcionario.Relatorio
             this.dgvRelatorio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRelatorio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRelatorio.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvRelatorio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvRelatorio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -347,90 +343,6 @@ namespace Estacionamento.Funcionario.Relatorio
             this.dgvRelatorio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRelatorio.Size = new System.Drawing.Size(828, 420);
             this.dgvRelatorio.TabIndex = 235;
-            // 
-            // ptbHora
-            // 
-            this.ptbHora.Image = global::Estacionamento.Properties.Resources.icons8_search_64;
-            this.ptbHora.Location = new System.Drawing.Point(407, 595);
-            this.ptbHora.Name = "ptbHora";
-            this.ptbHora.Size = new System.Drawing.Size(50, 49);
-            this.ptbHora.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbHora.TabIndex = 238;
-            this.ptbHora.TabStop = false;
-            this.ptbHora.Click += new System.EventHandler(this.ptbHora_Click);
-            // 
-            // ptbMes
-            // 
-            this.ptbMes.Image = global::Estacionamento.Properties.Resources.icons8_search_64;
-            this.ptbMes.Location = new System.Drawing.Point(350, 286);
-            this.ptbMes.Name = "ptbMes";
-            this.ptbMes.Size = new System.Drawing.Size(50, 49);
-            this.ptbMes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbMes.TabIndex = 237;
-            this.ptbMes.TabStop = false;
-            this.ptbMes.Click += new System.EventHandler(this.ptbMes_Click);
-            // 
-            // ptbAno
-            // 
-            this.ptbAno.Image = global::Estacionamento.Properties.Resources.icons8_search_64;
-            this.ptbAno.Location = new System.Drawing.Point(350, 211);
-            this.ptbAno.Name = "ptbAno";
-            this.ptbAno.Size = new System.Drawing.Size(50, 49);
-            this.ptbAno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAno.TabIndex = 236;
-            this.ptbAno.TabStop = false;
-            this.ptbAno.Click += new System.EventHandler(this.ptbAno_Click);
-            // 
-            // ptbNormal
-            // 
-            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
-            this.ptbNormal.Location = new System.Drawing.Point(1822, 5);
-            this.ptbNormal.Name = "ptbNormal";
-            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
-            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbNormal.TabIndex = 272;
-            this.ptbNormal.TabStop = false;
-            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
-            // 
-            // ptbMaximar
-            // 
-            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbMaximar.Location = new System.Drawing.Point(1822, 5);
-            this.ptbMaximar.Name = "ptbMaximar";
-            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximar.TabIndex = 271;
-            this.ptbMaximar.TabStop = false;
-            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
-            // 
-            // ptbSair
-            // 
-            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1870, -2);
-            this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(40, 40);
-            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSair.TabIndex = 270;
-            this.ptbSair.TabStop = false;
-            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
-            this.ptbMinimizar.Location = new System.Drawing.Point(1765, 5);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 269;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
             // sessaoToolStripMenuItem
             // 
@@ -575,17 +487,69 @@ namespace Estacionamento.Funcionario.Relatorio
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 215;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.relatorio;
+            this.pictureBox1.Location = new System.Drawing.Point(265, 830);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 273;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // ptbHora
+            // 
+            this.ptbHora.Image = global::UI.Properties.Resources.icons8_search_64;
+            this.ptbHora.Location = new System.Drawing.Point(407, 595);
+            this.ptbHora.Name = "ptbHora";
+            this.ptbHora.Size = new System.Drawing.Size(50, 49);
+            this.ptbHora.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbHora.TabIndex = 238;
+            this.ptbHora.TabStop = false;
+            this.ptbHora.Click += new System.EventHandler(this.ptbHora_Click);
+            // 
+            // ptbMes
+            // 
+            this.ptbMes.Image = global::UI.Properties.Resources.icons8_search_64;
+            this.ptbMes.Location = new System.Drawing.Point(350, 286);
+            this.ptbMes.Name = "ptbMes";
+            this.ptbMes.Size = new System.Drawing.Size(50, 49);
+            this.ptbMes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbMes.TabIndex = 237;
+            this.ptbMes.TabStop = false;
+            this.ptbMes.Click += new System.EventHandler(this.ptbMes_Click);
+            // 
+            // ptbAno
+            // 
+            this.ptbAno.Image = global::UI.Properties.Resources.icons8_search_64;
+            this.ptbAno.Location = new System.Drawing.Point(350, 211);
+            this.ptbAno.Name = "ptbAno";
+            this.ptbAno.Size = new System.Drawing.Size(50, 49);
+            this.ptbAno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAno.TabIndex = 236;
+            this.ptbAno.TabStop = false;
+            this.ptbAno.Click += new System.EventHandler(this.ptbAno_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::UI.Properties.Resources.relatorio;
+            this.pictureBox2.Location = new System.Drawing.Point(1594, 831);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 73);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 274;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
-            this.Controls.Add(this.ptbMaximar);
-            this.Controls.Add(this.ptbNormal);
-            this.Controls.Add(this.ptbSair);
-            this.Controls.Add(this.ptbMinimizar);
+            this.ClientSize = new System.Drawing.Size(1940, 1100);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ptbHora);
             this.Controls.Add(this.ptbMes);
             this.Controls.Add(this.ptbAno);
@@ -613,18 +577,17 @@ namespace Estacionamento.Funcionario.Relatorio
             this.Name = "frmRelatorio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmRelatorio_Load);
             this.DoubleClick += new System.EventHandler(this.frmRelatorio_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbHora)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAno)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,10 +616,6 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.PictureBox ptbAno;
         private System.Windows.Forms.PictureBox ptbMes;
         private System.Windows.Forms.PictureBox ptbHora;
-        private System.Windows.Forms.PictureBox ptbNormal;
-        private System.Windows.Forms.PictureBox ptbMaximar;
-        private System.Windows.Forms.PictureBox ptbSair;
-        private System.Windows.Forms.PictureBox ptbMinimizar;
         private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;
@@ -674,5 +633,7 @@ namespace Estacionamento.Funcionario.Relatorio
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

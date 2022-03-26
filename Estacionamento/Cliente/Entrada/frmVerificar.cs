@@ -25,12 +25,6 @@ namespace Estacionamento.Entrada
         EstacionarDAO estacionarDAO = new EstacionarDAO();
         int patio1;
         int patio2;
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
         public frmVerificar()
         {
             InitializeComponent();
@@ -39,7 +33,8 @@ namespace Estacionamento.Entrada
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
 
-        public void irMenu(){
+        public void irMenu()
+        {
 
             frmMenuu menu = new frmMenuu();
             menu.Show();
@@ -122,7 +117,7 @@ namespace Estacionamento.Entrada
         }
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
+            if (!(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres somente numero
                 e.Handled = true;
         }
         private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -171,35 +166,6 @@ namespace Estacionamento.Entrada
 
                 }
             }
-        }
-        private void ptbMaximar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            ptbNormal.Visible = true;
-            ptbMaximar.Visible = false;
-        }
-
-        private void ptbMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void ptbNormal_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            ptbNormal.Visible = false;
-            ptbMaximar.Visible = true;
-        }
-
-        private void ptbSair_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

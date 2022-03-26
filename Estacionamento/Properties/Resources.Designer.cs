@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Estacionamento.Properties {
+namespace UI.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Estacionamento.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Estacionamento.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -286,6 +286,16 @@ namespace Estacionamento.Properties {
         internal static System.Drawing.Bitmap olho {
             get {
                 object obj = ResourceManager.GetObject("olho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap relatorio {
+            get {
+                object obj = ResourceManager.GetObject("relatorio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

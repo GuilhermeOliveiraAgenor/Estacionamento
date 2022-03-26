@@ -53,25 +53,13 @@ namespace Estacionamento.Usuarios
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblSenha = new System.Windows.Forms.Label();
+            this.btnVoltarmenu = new System.Windows.Forms.Button();
             this.ptbAtivarsenha = new System.Windows.Forms.PictureBox();
             this.ptbSenha = new System.Windows.Forms.PictureBox();
-            this.lblSenha = new System.Windows.Forms.Label();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnVoltarmenu = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConfirmar
@@ -82,7 +70,7 @@ namespace Estacionamento.Usuarios
             this.btnConfirmar.Location = new System.Drawing.Point(906, 508);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(102, 39);
-            this.btnConfirmar.TabIndex = 199;
+            this.btnConfirmar.TabIndex = 2;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
@@ -104,7 +92,7 @@ namespace Estacionamento.Usuarios
             this.txtConfirmar.MaxLength = 50;
             this.txtConfirmar.Name = "txtConfirmar";
             this.txtConfirmar.Size = new System.Drawing.Size(226, 30);
-            this.txtConfirmar.TabIndex = 200;
+            this.txtConfirmar.TabIndex = 1;
             this.txtConfirmar.UseSystemPasswordChar = true;
             this.txtConfirmar.TextChanged += new System.EventHandler(this.txtConfirmar_TextChanged);
             // 
@@ -125,7 +113,7 @@ namespace Estacionamento.Usuarios
             this.txtNovaSenha.MaxLength = 50;
             this.txtNovaSenha.Name = "txtNovaSenha";
             this.txtNovaSenha.Size = new System.Drawing.Size(226, 30);
-            this.txtNovaSenha.TabIndex = 202;
+            this.txtNovaSenha.TabIndex = 0;
             this.txtNovaSenha.UseSystemPasswordChar = true;
             this.txtNovaSenha.TextChanged += new System.EventHandler(this.txtNovaSenha_TextChanged);
             // 
@@ -137,7 +125,7 @@ namespace Estacionamento.Usuarios
             this.btnMenu.Location = new System.Drawing.Point(1483, 842);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(100, 48);
-            this.btnMenu.TabIndex = 204;
+            this.btnMenu.TabIndex = 3;
             this.btnMenu.Text = "Voltar";
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
@@ -154,10 +142,9 @@ namespace Estacionamento.Usuarios
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(1940, 39);
             this.menuStrip1.TabIndex = 216;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // sessaoToolStripMenuItem
             // 
@@ -287,28 +274,6 @@ namespace Estacionamento.Usuarios
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
-            // ptbAtivarsenha
-            // 
-            this.ptbAtivarsenha.Image = global::Estacionamento.Properties.Resources.olho;
-            this.ptbAtivarsenha.Location = new System.Drawing.Point(1131, 378);
-            this.ptbAtivarsenha.Name = "ptbAtivarsenha";
-            this.ptbAtivarsenha.Size = new System.Drawing.Size(38, 39);
-            this.ptbAtivarsenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAtivarsenha.TabIndex = 218;
-            this.ptbAtivarsenha.TabStop = false;
-            this.ptbAtivarsenha.Click += new System.EventHandler(this.ptbAtivarsenha_Click);
-            // 
-            // ptbSenha
-            // 
-            this.ptbSenha.Image = global::Estacionamento.Properties.Resources.ver;
-            this.ptbSenha.Location = new System.Drawing.Point(1131, 378);
-            this.ptbSenha.Name = "ptbSenha";
-            this.ptbSenha.Size = new System.Drawing.Size(38, 39);
-            this.ptbSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbSenha.TabIndex = 217;
-            this.ptbSenha.TabStop = false;
-            this.ptbSenha.Click += new System.EventHandler(this.ptbSenha_Click);
-            // 
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
@@ -317,82 +282,6 @@ namespace Estacionamento.Usuarios
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(0, 18);
             this.lblSenha.TabIndex = 219;
-            // 
-            // ptbNormal
-            // 
-            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
-            this.ptbNormal.Location = new System.Drawing.Point(1824, 7);
-            this.ptbNormal.Name = "ptbNormal";
-            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
-            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbNormal.TabIndex = 272;
-            this.ptbNormal.TabStop = false;
-            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
-            // 
-            // ptbMaximar
-            // 
-            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbMaximar.Location = new System.Drawing.Point(1824, 8);
-            this.ptbMaximar.Name = "ptbMaximar";
-            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximar.TabIndex = 271;
-            this.ptbMaximar.TabStop = false;
-            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
-            // 
-            // ptbSair
-            // 
-            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1869, -1);
-            this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(40, 40);
-            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSair.TabIndex = 270;
-            this.ptbSair.TabStop = false;
-            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
-            this.ptbMinimizar.Location = new System.Drawing.Point(1766, 7);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 269;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.GhostWhite;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Estacionamento.Properties.Resources.maximizar1;
-            this.pictureBox1.Location = new System.Drawing.Point(1824, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 273;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.GhostWhite;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::Estacionamento.Properties.Resources.maximizar1;
-            this.pictureBox2.Location = new System.Drawing.Point(1824, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 274;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnVoltarmenu
             // 
@@ -407,16 +296,34 @@ namespace Estacionamento.Usuarios
             this.btnVoltarmenu.UseVisualStyleBackColor = false;
             this.btnVoltarmenu.Click += new System.EventHandler(this.btnVoltarmenu_Click);
             // 
+            // ptbAtivarsenha
+            // 
+            this.ptbAtivarsenha.Image = global::UI.Properties.Resources.olho;
+            this.ptbAtivarsenha.Location = new System.Drawing.Point(1131, 378);
+            this.ptbAtivarsenha.Name = "ptbAtivarsenha";
+            this.ptbAtivarsenha.Size = new System.Drawing.Size(38, 39);
+            this.ptbAtivarsenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAtivarsenha.TabIndex = 218;
+            this.ptbAtivarsenha.TabStop = false;
+            this.ptbAtivarsenha.Click += new System.EventHandler(this.ptbAtivarsenha_Click);
+            // 
+            // ptbSenha
+            // 
+            this.ptbSenha.Image = global::UI.Properties.Resources.ver;
+            this.ptbSenha.Location = new System.Drawing.Point(1131, 378);
+            this.ptbSenha.Name = "ptbSenha";
+            this.ptbSenha.Size = new System.Drawing.Size(38, 39);
+            this.ptbSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbSenha.TabIndex = 217;
+            this.ptbSenha.TabStop = false;
+            this.ptbSenha.Click += new System.EventHandler(this.ptbSenha_Click);
+            // 
             // frmAlterarSenha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1940, 1100);
             this.Controls.Add(this.btnVoltarmenu);
-            this.Controls.Add(this.ptbMaximar);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.ptbSair);
-            this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.ptbAtivarsenha);
             this.Controls.Add(this.ptbSenha);
@@ -426,23 +333,17 @@ namespace Estacionamento.Usuarios
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtConfirmar);
             this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.ptbNormal);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlterarSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar Senha";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAtivarsenha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSenha)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,12 +377,6 @@ namespace Estacionamento.Usuarios
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
-        private System.Windows.Forms.PictureBox ptbNormal;
-        private System.Windows.Forms.PictureBox ptbMaximar;
-        private System.Windows.Forms.PictureBox ptbSair;
-        private System.Windows.Forms.PictureBox ptbMinimizar;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnVoltarmenu;
     }
 }

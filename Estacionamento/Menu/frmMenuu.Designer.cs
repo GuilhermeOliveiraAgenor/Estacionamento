@@ -91,10 +91,6 @@ namespace Estacionamento.Menu
             this.dgvVeiculos = new System.Windows.Forms.DataGridView();
             this.ptbMapa = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenu)).BeginInit();
@@ -113,11 +109,6 @@ namespace Estacionamento.Menu
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -126,7 +117,7 @@ namespace Estacionamento.Menu
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(253, 45);
-            this.panel3.TabIndex = 126;
+            this.panel3.TabIndex = 10;
             // 
             // label4
             // 
@@ -181,7 +172,7 @@ namespace Estacionamento.Menu
             this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(125, 30);
-            this.txtCpf.TabIndex = 189;
+            this.txtCpf.TabIndex = 2;
             this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             this.txtCpf.Leave += new System.EventHandler(this.txtCpf_Leave);
@@ -215,7 +206,7 @@ namespace Estacionamento.Menu
             this.btnVoltar.Location = new System.Drawing.Point(0, 698);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(253, 55);
-            this.btnVoltar.TabIndex = 6;
+            this.btnVoltar.TabIndex = 7;
             this.btnVoltar.Text = "                  Sessões hoje";
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -258,7 +249,7 @@ namespace Estacionamento.Menu
             // ptbMenu
             // 
             this.ptbMenu.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.ptbMenu.Image = global::Estacionamento.Properties.Resources.menuicon;
+            this.ptbMenu.Image = global::UI.Properties.Resources.menuicon;
             this.ptbMenu.Location = new System.Drawing.Point(-1, -1);
             this.ptbMenu.Name = "ptbMenu";
             this.ptbMenu.Size = new System.Drawing.Size(93, 51);
@@ -269,7 +260,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Image = global::Estacionamento.Properties.Resources.icons8_report_64;
+            this.pictureBox12.Image = global::UI.Properties.Resources.icons8_report_64;
             this.pictureBox12.Location = new System.Drawing.Point(33, 816);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(46, 40);
@@ -279,7 +270,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = global::Estacionamento.Properties.Resources.icons8_team_64;
+            this.pictureBox11.Image = global::UI.Properties.Resources.icons8_team_64;
             this.pictureBox11.Location = new System.Drawing.Point(33, 759);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(46, 40);
@@ -289,7 +280,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::Estacionamento.Properties.Resources.icons8_calendário_de_folgas_50;
+            this.pictureBox9.Image = global::UI.Properties.Resources.icons8_calendário_de_folgas_50;
             this.pictureBox9.Location = new System.Drawing.Point(33, 704);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(46, 40);
@@ -299,7 +290,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::Estacionamento.Properties.Resources.vaga;
+            this.pictureBox8.Image = global::UI.Properties.Resources.vaga;
             this.pictureBox8.Location = new System.Drawing.Point(33, 650);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(46, 40);
@@ -309,7 +300,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::Estacionamento.Properties.Resources.icons8_suporte_da_cabine_24;
+            this.pictureBox7.Image = global::UI.Properties.Resources.icons8_suporte_da_cabine_24;
             this.pictureBox7.Location = new System.Drawing.Point(33, 594);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(46, 40);
@@ -319,7 +310,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::Estacionamento.Properties.Resources.sessao1;
+            this.pictureBox6.Image = global::UI.Properties.Resources.sessao1;
             this.pictureBox6.Location = new System.Drawing.Point(33, 539);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(46, 40);
@@ -329,7 +320,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Estacionamento.Properties.Resources.cadcarro;
+            this.pictureBox5.Image = global::UI.Properties.Resources.cadcarro;
             this.pictureBox5.Location = new System.Drawing.Point(33, 486);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(46, 40);
@@ -339,7 +330,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Estacionamento.Properties.Resources.usuario;
+            this.pictureBox4.Image = global::UI.Properties.Resources.usuario;
             this.pictureBox4.Location = new System.Drawing.Point(33, 429);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(46, 40);
@@ -349,7 +340,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Estacionamento.Properties.Resources.icons8_sair_50;
+            this.pictureBox3.Image = global::UI.Properties.Resources.icons8_sair_50;
             this.pictureBox3.Location = new System.Drawing.Point(33, 377);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(46, 40);
@@ -359,7 +350,7 @@ namespace Estacionamento.Menu
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Estacionamento.Properties.Resources.carroo;
+            this.pictureBox2.Image = global::UI.Properties.Resources.carroo;
             this.pictureBox2.Location = new System.Drawing.Point(33, 322);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(46, 40);
@@ -379,14 +370,14 @@ namespace Estacionamento.Menu
             this.btnRelatorio.Location = new System.Drawing.Point(-1, 810);
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(254, 55);
-            this.btnRelatorio.TabIndex = 145;
+            this.btnRelatorio.TabIndex = 9;
             this.btnRelatorio.Text = "           Relatório";
             this.btnRelatorio.UseVisualStyleBackColor = false;
             this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::Estacionamento.Properties.Resources.Citycons_car_icon_icons_com_67916;
+            this.pictureBox10.Image = global::UI.Properties.Resources.Citycons_car_icon_icons_com_67916;
             this.pictureBox10.Location = new System.Drawing.Point(3, 47);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(250, 141);
@@ -406,7 +397,7 @@ namespace Estacionamento.Menu
             this.btnFuncionario.Location = new System.Drawing.Point(-2, 755);
             this.btnFuncionario.Name = "btnFuncionario";
             this.btnFuncionario.Size = new System.Drawing.Size(255, 55);
-            this.btnFuncionario.TabIndex = 143;
+            this.btnFuncionario.TabIndex = 8;
             this.btnFuncionario.Text = "                      Editar funcionário";
             this.btnFuncionario.UseVisualStyleBackColor = false;
             this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
@@ -423,7 +414,7 @@ namespace Estacionamento.Menu
             this.btnAlterarpedido.Location = new System.Drawing.Point(1, 532);
             this.btnAlterarpedido.Name = "btnAlterarpedido";
             this.btnAlterarpedido.Size = new System.Drawing.Size(252, 55);
-            this.btnAlterarpedido.TabIndex = 141;
+            this.btnAlterarpedido.TabIndex = 4;
             this.btnAlterarpedido.Text = "                  Editar sessão";
             this.btnAlterarpedido.UseVisualStyleBackColor = false;
             this.btnAlterarpedido.Click += new System.EventHandler(this.btnAlterarpedido_Click);
@@ -438,7 +429,7 @@ namespace Estacionamento.Menu
             this.panel4.Location = new System.Drawing.Point(2, 191);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(251, 119);
-            this.panel4.TabIndex = 140;
+            this.panel4.TabIndex = 6;
             // 
             // txtNome
             // 
@@ -483,7 +474,7 @@ namespace Estacionamento.Menu
             this.btnAlterarveiculo.Location = new System.Drawing.Point(-3, 478);
             this.btnAlterarveiculo.Name = "btnAlterarveiculo";
             this.btnAlterarveiculo.Size = new System.Drawing.Size(256, 55);
-            this.btnAlterarveiculo.TabIndex = 138;
+            this.btnAlterarveiculo.TabIndex = 3;
             this.btnAlterarveiculo.Text = "                      Cadastrar veículo";
             this.btnAlterarveiculo.UseVisualStyleBackColor = false;
             this.btnAlterarveiculo.Click += new System.EventHandler(this.btnAlterarveiculo_Click);
@@ -535,7 +526,7 @@ namespace Estacionamento.Menu
             this.btnVagas.Location = new System.Drawing.Point(-3, 643);
             this.btnVagas.Name = "btnVagas";
             this.btnVagas.Size = new System.Drawing.Size(256, 55);
-            this.btnVagas.TabIndex = 5;
+            this.btnVagas.TabIndex = 6;
             this.btnVagas.Text = "                     Vagas ocupadas";
             this.btnVagas.UseVisualStyleBackColor = false;
             this.btnVagas.Click += new System.EventHandler(this.btnVagas_Click);
@@ -552,7 +543,7 @@ namespace Estacionamento.Menu
             this.btnListar.Location = new System.Drawing.Point(-1, 588);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(254, 55);
-            this.btnListar.TabIndex = 4;
+            this.btnListar.TabIndex = 5;
             this.btnListar.Text = "                       Veículos e clientes";
             this.btnListar.UseVisualStyleBackColor = false;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
@@ -565,7 +556,7 @@ namespace Estacionamento.Menu
             this.btnSairmenu.Location = new System.Drawing.Point(1694, 885);
             this.btnSairmenu.Name = "btnSairmenu";
             this.btnSairmenu.Size = new System.Drawing.Size(93, 42);
-            this.btnSairmenu.TabIndex = 180;
+            this.btnSairmenu.TabIndex = 4;
             this.btnSairmenu.Text = "Sair";
             this.btnSairmenu.UseVisualStyleBackColor = false;
             this.btnSairmenu.Click += new System.EventHandler(this.btnSairmenu_Click);
@@ -578,7 +569,7 @@ namespace Estacionamento.Menu
             this.btnVoltarmenu.Location = new System.Drawing.Point(1581, 885);
             this.btnVoltarmenu.Name = "btnVoltarmenu";
             this.btnVoltarmenu.Size = new System.Drawing.Size(88, 42);
-            this.btnVoltarmenu.TabIndex = 179;
+            this.btnVoltarmenu.TabIndex = 3;
             this.btnVoltarmenu.Text = "Voltar";
             this.btnVoltarmenu.UseVisualStyleBackColor = false;
             this.btnVoltarmenu.Click += new System.EventHandler(this.btnVoltarmenu_Click);
@@ -680,7 +671,7 @@ namespace Estacionamento.Menu
             this.mskHora.Mask = "99:99";
             this.mskHora.Name = "mskHora";
             this.mskHora.Size = new System.Drawing.Size(138, 30);
-            this.mskHora.TabIndex = 213;
+            this.mskHora.TabIndex = 1;
             this.mskHora.ValidatingType = typeof(System.DateTime);
             this.mskHora.TextChanged += new System.EventHandler(this.mskHora_TextChanged);
             // 
@@ -691,7 +682,7 @@ namespace Estacionamento.Menu
             this.txtCodigo.MaxLength = 7;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(125, 30);
-            this.txtCodigo.TabIndex = 215;
+            this.txtCodigo.TabIndex = 0;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCódigo_KeyPress);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
@@ -713,7 +704,7 @@ namespace Estacionamento.Menu
             this.btnLimpar.Location = new System.Drawing.Point(1470, 885);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(88, 42);
-            this.btnLimpar.TabIndex = 218;
+            this.btnLimpar.TabIndex = 2;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -730,7 +721,7 @@ namespace Estacionamento.Menu
             this.groupBox1.Location = new System.Drawing.Point(1470, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(411, 240);
-            this.groupBox1.TabIndex = 219;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
             // 
@@ -761,7 +752,7 @@ namespace Estacionamento.Menu
             this.txtPesquisarplaca.MaxLength = 7;
             this.txtPesquisarplaca.Name = "txtPesquisarplaca";
             this.txtPesquisarplaca.Size = new System.Drawing.Size(125, 30);
-            this.txtPesquisarplaca.TabIndex = 175;
+            this.txtPesquisarplaca.TabIndex = 1;
             this.txtPesquisarplaca.TextChanged += new System.EventHandler(this.txtPesquisarplaca_TextChanged);
             this.txtPesquisarplaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarplaca_KeyPress);
             this.txtPesquisarplaca.Leave += new System.EventHandler(this.txtPesquisarplaca_Leave);
@@ -811,7 +802,7 @@ namespace Estacionamento.Menu
             // 
             // ptbMapa
             // 
-            this.ptbMapa.Image = global::Estacionamento.Properties.Resources.mapa1;
+            this.ptbMapa.Image = global::UI.Properties.Resources.mapa1;
             this.ptbMapa.Location = new System.Drawing.Point(847, 161);
             this.ptbMapa.Name = "ptbMapa";
             this.ptbMapa.Size = new System.Drawing.Size(82, 89);
@@ -827,67 +818,10 @@ namespace Estacionamento.Menu
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1491, 45);
             this.panel2.TabIndex = 182;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
-            // 
-            // ptbNormal
-            // 
-            this.ptbNormal.BackColor = System.Drawing.Color.GhostWhite;
-            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar1;
-            this.ptbNormal.Location = new System.Drawing.Point(88, 8);
-            this.ptbNormal.Name = "ptbNormal";
-            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
-            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbNormal.TabIndex = 4;
-            this.ptbNormal.TabStop = false;
-            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.BackColor = System.Drawing.Color.GhostWhite;
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
-            this.ptbMinimizar.Location = new System.Drawing.Point(37, 8);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 3;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
-            // 
-            // ptbSair
-            // 
-            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar1;
-            this.ptbSair.Location = new System.Drawing.Point(132, 1);
-            this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(40, 40);
-            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSair.TabIndex = 5;
-            this.ptbSair.TabStop = false;
-            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
-            // 
-            // ptbMaximar
-            // 
-            this.ptbMaximar.BackColor = System.Drawing.Color.GhostWhite;
-            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbMaximar.Location = new System.Drawing.Point(88, 8);
-            this.ptbMaximar.Name = "ptbMaximar";
-            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximar.TabIndex = 2;
-            this.ptbMaximar.TabStop = false;
-            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel1.Controls.Add(this.ptbMaximar);
-            this.panel1.Controls.Add(this.ptbSair);
-            this.panel1.Controls.Add(this.ptbMinimizar);
-            this.panel1.Controls.Add(this.ptbNormal);
             this.panel1.Location = new System.Drawing.Point(1741, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(184, 45);
@@ -923,8 +857,9 @@ namespace Estacionamento.Menu
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenuu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Menu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenuu_Load);
             this.DoubleClick += new System.EventHandler(this.frmMenuu_DoubleClick);
             this.Menu.ResumeLayout(false);
@@ -947,11 +882,6 @@ namespace Estacionamento.Menu
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMapa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1011,10 +941,6 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox ptbNormal;
-        private System.Windows.Forms.PictureBox ptbMinimizar;
-        private System.Windows.Forms.PictureBox ptbSair;
-        private System.Windows.Forms.PictureBox ptbMaximar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox ptbMenu;
         public System.Windows.Forms.PictureBox pictureBox12;

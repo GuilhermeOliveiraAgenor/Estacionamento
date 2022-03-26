@@ -23,17 +23,11 @@ namespace Estacionamento.Entrada
         int idVeiculo;
         int patio1;
         int patio2;
-
         public frmEntrada()
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
         public void verificar()
         {
             if (lblCodigodocliente.Text == "")
@@ -105,6 +99,7 @@ namespace Estacionamento.Entrada
 
         private void frmEntrada_Load(object sender, EventArgs e)
         {
+            
             List<clienteVeiculo> veiculo = new List<clienteVeiculo>();
             string cpf = lblCodigodocliente.Text;//passa o parametros
 
@@ -344,12 +339,6 @@ namespace Estacionamento.Entrada
                 }
 
             }
-        }
-
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

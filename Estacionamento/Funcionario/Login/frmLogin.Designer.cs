@@ -77,7 +77,7 @@ namespace Estacionamento.Login
             // 
             // ptbAtivarsenha
             // 
-            this.ptbAtivarsenha.Image = global::Estacionamento.Properties.Resources.olho;
+            this.ptbAtivarsenha.Image = global::UI.Properties.Resources.olho;
             this.ptbAtivarsenha.Location = new System.Drawing.Point(309, 216);
             this.ptbAtivarsenha.Name = "ptbAtivarsenha";
             this.ptbAtivarsenha.Size = new System.Drawing.Size(38, 39);
@@ -88,7 +88,7 @@ namespace Estacionamento.Login
             // 
             // ptbSenha
             // 
-            this.ptbSenha.Image = global::Estacionamento.Properties.Resources.ver;
+            this.ptbSenha.Image = global::UI.Properties.Resources.ver;
             this.ptbSenha.Location = new System.Drawing.Point(309, 216);
             this.ptbSenha.Name = "ptbSenha";
             this.ptbSenha.Size = new System.Drawing.Size(38, 39);
@@ -106,7 +106,7 @@ namespace Estacionamento.Login
             this.btnSairmenu.Location = new System.Drawing.Point(278, 386);
             this.btnSairmenu.Name = "btnSairmenu";
             this.btnSairmenu.Size = new System.Drawing.Size(98, 39);
-            this.btnSairmenu.TabIndex = 5;
+            this.btnSairmenu.TabIndex = 3;
             this.btnSairmenu.Text = "Sair";
             this.btnSairmenu.UseVisualStyleBackColor = false;
             this.btnSairmenu.Click += new System.EventHandler(this.btnSairmenu_Click);
@@ -120,7 +120,7 @@ namespace Estacionamento.Login
             this.btnLoginfuncionario.Location = new System.Drawing.Point(164, 291);
             this.btnLoginfuncionario.Name = "btnLoginfuncionario";
             this.btnLoginfuncionario.Size = new System.Drawing.Size(104, 44);
-            this.btnLoginfuncionario.TabIndex = 4;
+            this.btnLoginfuncionario.TabIndex = 2;
             this.btnLoginfuncionario.Text = "Login";
             this.btnLoginfuncionario.UseVisualStyleBackColor = false;
             this.btnLoginfuncionario.Click += new System.EventHandler(this.btnLoginfuncionario_Click);
@@ -142,7 +142,7 @@ namespace Estacionamento.Login
             this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(153, 30);
-            this.txtCpf.TabIndex = 1;
+            this.txtCpf.TabIndex = 0;
             this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // label4
@@ -162,7 +162,7 @@ namespace Estacionamento.Login
             this.txtSenha.MaxLength = 50;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(153, 30);
-            this.txtSenha.TabIndex = 2;
+            this.txtSenha.TabIndex = 1;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
             // label5
@@ -177,8 +177,8 @@ namespace Estacionamento.Login
             // 
             // ptbFundo
             // 
-            this.ptbFundo.Image = global::Estacionamento.Properties.Resources.cidade;
-            this.ptbFundo.Location = new System.Drawing.Point(3, -2);
+            this.ptbFundo.Image = global::UI.Properties.Resources.cidade;
+            this.ptbFundo.Location = new System.Drawing.Point(3, -1);
             this.ptbFundo.Name = "ptbFundo";
             this.ptbFundo.Size = new System.Drawing.Size(1923, 1062);
             this.ptbFundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,7 +189,7 @@ namespace Estacionamento.Login
             // 
             this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
             this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.ptbNormal.Image = global::UI.Properties.Resources.maximizar;
             this.ptbNormal.Location = new System.Drawing.Point(1798, 12);
             this.ptbNormal.Name = "ptbNormal";
             this.ptbNormal.Size = new System.Drawing.Size(32, 27);
@@ -202,7 +202,7 @@ namespace Estacionamento.Login
             // 
             this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
             this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbMaximar.Image = global::UI.Properties.Resources.icons8_maximizar_janela_50;
             this.ptbMaximar.Location = new System.Drawing.Point(1798, 12);
             this.ptbMaximar.Name = "ptbMaximar";
             this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
@@ -214,7 +214,7 @@ namespace Estacionamento.Login
             // ptbSair
             // 
             this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Image = global::UI.Properties.Resources.fechar;
             this.ptbSair.Location = new System.Drawing.Point(1849, 4);
             this.ptbSair.Name = "ptbSair";
             this.ptbSair.Size = new System.Drawing.Size(40, 40);
@@ -227,7 +227,7 @@ namespace Estacionamento.Login
             // 
             this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
             this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Image = global::UI.Properties.Resources.icons8_subtração_64;
             this.ptbMinimizar.Location = new System.Drawing.Point(1740, 12);
             this.ptbMinimizar.Name = "ptbMinimizar";
             this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
@@ -240,7 +240,7 @@ namespace Estacionamento.Login
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.pictureBox1.Image = global::UI.Properties.Resources.maximizar;
             this.pictureBox1.Location = new System.Drawing.Point(1798, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 27);

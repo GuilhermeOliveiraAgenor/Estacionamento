@@ -31,21 +31,26 @@ namespace Estacionamento.Usuarios
         {
             InitializeComponent();
             this.Text = string.Empty;
-            this.ControlBox = false;//tirar a borda da tela
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
         public void limparCampos()
         {
             txtConfirmar.Clear();
             txtNovaSenha.Clear();
         }
-
+        public void validarSenha()
+        {
+            if (txtConfirmar.Text != txtNovaSenha.Text)
+            {
+                lblSenha.Text = "As senhas não são iguais";
+                btnConfirmar.Enabled = false;
+            }
+            if (txtConfirmar.Text == txtNovaSenha.Text)
+            {
+                lblSenha.Text = "";
+                btnConfirmar.Enabled = true;
+            }
+        }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             bool result = false;
@@ -165,30 +170,12 @@ namespace Estacionamento.Usuarios
         }
         private void txtConfirmar_TextChanged(object sender, EventArgs e)
         {
-            if (txtConfirmar.Text != txtNovaSenha.Text)
-            {
-                lblSenha.Text = "As senhas não são iguais";
-                btnConfirmar.Enabled = false;
-            }
-            if (txtConfirmar.Text == txtNovaSenha.Text)
-            {
-                lblSenha.Text = "";
-                btnConfirmar.Enabled = true;
-            }
+            validarSenha();
         }
 
         private void txtNovaSenha_TextChanged(object sender, EventArgs e)
         {
-            if (txtConfirmar.Text != txtNovaSenha.Text)
-            {
-                lblSenha.Text = "As senhas não são iguais";
-                btnConfirmar.Enabled = false;
-            }
-            if (txtConfirmar.Text == txtNovaSenha.Text)
-            {
-                lblSenha.Text = "";
-                btnConfirmar.Enabled = true;
-            }
+            validarSenha();
         }
         private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -201,47 +188,11 @@ namespace Estacionamento.Usuarios
             new frmCadCliente().Show();
             this.Hide();
         }
-        private void ptbMaximar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            ptbNormal.Visible = true;
-            ptbMaximar.Visible = false;
-        }
-
-        private void ptbMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void ptbNormal_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            ptbNormal.Visible = false;
-            ptbMaximar.Visible = true;
-        }
-
-        private void ptbSair_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            ptbNormal.Visible = false;
-            ptbMaximar.Visible = true;
-        }
-
         private void btnVoltarmenu_Click(object sender, EventArgs e)
         {
             new frmMenuu().Show();
             this.Hide();
         }
 
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
     }
 }

@@ -27,7 +27,7 @@ end
 --cpf que nao existe
 if not exists (select Cpf from Usuario where Cpf = @Cpf)
 begin
-raiserror('Cpf nao encontrado',16,1)
+raiserror('Cpf não encontrado',16,1)
 return -1
 end
 

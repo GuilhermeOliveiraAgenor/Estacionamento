@@ -26,20 +26,13 @@ namespace Estacionamento.editarPedidos
         int idCliente;
         int patio1;
         int patio2;
-
         public frmAlterarCliente()
         {
             InitializeComponent();
             this.Text = string.Empty;
-            this.ControlBox = false;//tirar a borda da tela
+            this.ControlBox = true;//tirar a borda da tela
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
         public void carregarGrid()
         {
             DataTable dt = new DataTable();
@@ -235,35 +228,6 @@ namespace Estacionamento.editarPedidos
             new frmCadCliente().Show();
             this.Hide();
         }
-        private void ptbMaximar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            ptbNormal.Visible = true;
-            ptbMaximar.Visible = false;
-
-
-        }
-
-        private void ptbMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-
-        }
-
-        private void ptbNormal_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            ptbNormal.Visible = false;
-            ptbMaximar.Visible = true;
-
-
-        }
-
-        private void ptbSair_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void txtPesquisarcodigo_TextChanged(object sender, EventArgs e)
         {
             if (txtPesquisarcodigo.Text.Length == 11)
@@ -329,12 +293,6 @@ namespace Estacionamento.editarPedidos
                 lblMensagem.Text = "";
                 limparPesquisa();
             }
-        }
-
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

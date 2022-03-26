@@ -51,10 +51,6 @@ namespace Estacionamento.Entrada
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblMensagem = new System.Windows.Forms.Label();
             this.dgvCadastro = new System.Windows.Forms.DataGridView();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.sessaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,10 +72,6 @@ namespace Estacionamento.Entrada
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadastro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -312,57 +304,6 @@ namespace Estacionamento.Entrada
             this.dgvCadastro.Size = new System.Drawing.Size(701, 402);
             this.dgvCadastro.TabIndex = 242;
             // 
-            // ptbSair
-            // 
-            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1873, -2);
-            this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(40, 40);
-            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSair.TabIndex = 252;
-            this.ptbSair.TabStop = false;
-            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
-            // 
-            // ptbMaximar
-            // 
-            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.maximizar;
-            this.ptbMaximar.Location = new System.Drawing.Point(1825, 5);
-            this.ptbMaximar.Name = "ptbMaximar";
-            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximar.TabIndex = 249;
-            this.ptbMaximar.TabStop = false;
-            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
-            // 
-            // ptbNormal
-            // 
-            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbNormal.Location = new System.Drawing.Point(1825, 5);
-            this.ptbNormal.Name = "ptbNormal";
-            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
-            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbNormal.TabIndex = 251;
-            this.ptbNormal.TabStop = false;
-            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
-            this.ptbMinimizar.Location = new System.Drawing.Point(1766, 5);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 250;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
-            // 
             // sessaoToolStripMenuItem
             // 
             this.sessaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -506,7 +447,6 @@ namespace Estacionamento.Entrada
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 212;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // txtCpf
             // 
@@ -534,12 +474,9 @@ namespace Estacionamento.Entrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1940, 1100);
             this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.txtCpf);
-            this.Controls.Add(this.ptbSair);
-            this.Controls.Add(this.ptbNormal);
-            this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.dgvCadastro);
             this.Controls.Add(this.lblMensagem);
             this.Controls.Add(this.groupBox1);
@@ -554,22 +491,18 @@ namespace Estacionamento.Entrada
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.ptbMaximar);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmCadCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Cliente";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCadCliente_Load);
             this.DoubleClick += new System.EventHandler(this.frmCadCliente_DoubleClick);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadastro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -596,10 +529,6 @@ namespace Estacionamento.Entrada
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblMensagem;
         private System.Windows.Forms.DataGridView dgvCadastro;
-        private System.Windows.Forms.PictureBox ptbSair;
-        private System.Windows.Forms.PictureBox ptbMaximar;
-        private System.Windows.Forms.PictureBox ptbNormal;
-        private System.Windows.Forms.PictureBox ptbMinimizar;
         private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;

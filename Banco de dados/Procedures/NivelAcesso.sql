@@ -13,14 +13,14 @@ as
 --se existir esse id, retorna erro
 if exists(select idNivelAcesso from nivelAcesso where idNivelAcesso = @idNivelAcesso)
 begin
-raiserror('Esse nivel ja existe',16,1)
+raiserror('Esse nivel já existe',16,1)
 return -1
 end
 
 --se existir esse nivel, retorna erro
 if exists(select Nivel from nivelAcesso where Nivel = @Nivel)
 begin
-raiserror('Esse nivel ja existe',16,1)
+raiserror('Esse nivel já existe',16,1)
 return -1
 end
 

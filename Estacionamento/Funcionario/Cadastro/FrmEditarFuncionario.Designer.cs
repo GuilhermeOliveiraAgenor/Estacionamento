@@ -61,10 +61,6 @@ namespace Estacionamento
             this.label7 = new System.Windows.Forms.Label();
             this.ptbEditar = new System.Windows.Forms.PictureBox();
             this.ptbFoto = new System.Windows.Forms.PictureBox();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.sessaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,10 +84,6 @@ namespace Estacionamento
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,7 +114,7 @@ namespace Estacionamento
             this.txtProfissao.MaxLength = 40;
             this.txtProfissao.Name = "txtProfissao";
             this.txtProfissao.Size = new System.Drawing.Size(205, 30);
-            this.txtProfissao.TabIndex = 164;
+            this.txtProfissao.TabIndex = 6;
             // 
             // label8
             // 
@@ -142,7 +134,7 @@ namespace Estacionamento
             this.btnCancelar.Location = new System.Drawing.Point(1255, 879);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
-            this.btnCancelar.TabIndex = 166;
+            this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -155,7 +147,7 @@ namespace Estacionamento
             this.btnVoltar.Location = new System.Drawing.Point(1395, 879);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 48);
-            this.btnVoltar.TabIndex = 168;
+            this.btnVoltar.TabIndex = 14;
             this.btnVoltar.Text = "Voltar ";
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -168,7 +160,7 @@ namespace Estacionamento
             this.btnCadastrar.Location = new System.Drawing.Point(292, 816);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(102, 39);
-            this.btnCadastrar.TabIndex = 158;
+            this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -190,7 +182,7 @@ namespace Estacionamento
             this.txtPrimeironome.MaxLength = 60;
             this.txtPrimeironome.Name = "txtPrimeironome";
             this.txtPrimeironome.Size = new System.Drawing.Size(205, 30);
-            this.txtPrimeironome.TabIndex = 159;
+            this.txtPrimeironome.TabIndex = 4;
             this.txtPrimeironome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimeironome_KeyPress);
             // 
             // label3
@@ -210,7 +202,7 @@ namespace Estacionamento
             this.txtSobrenome.MaxLength = 100;
             this.txtSobrenome.Name = "txtSobrenome";
             this.txtSobrenome.Size = new System.Drawing.Size(370, 30);
-            this.txtSobrenome.TabIndex = 179;
+            this.txtSobrenome.TabIndex = 5;
             this.txtSobrenome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSobrenome_KeyPress);
             // 
             // label4
@@ -231,7 +223,7 @@ namespace Estacionamento
             this.btnAlterar.Location = new System.Drawing.Point(422, 816);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(102, 39);
-            this.btnAlterar.TabIndex = 183;
+            this.btnAlterar.TabIndex = 1;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -244,7 +236,7 @@ namespace Estacionamento
             this.btnExcluir.Location = new System.Drawing.Point(555, 816);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(102, 39);
-            this.btnExcluir.TabIndex = 184;
+            this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -258,7 +250,7 @@ namespace Estacionamento
             this.btnGravar.Location = new System.Drawing.Point(923, 816);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(102, 39);
-            this.btnGravar.TabIndex = 185;
+            this.btnGravar.TabIndex = 12;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -280,7 +272,7 @@ namespace Estacionamento
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(128, 30);
-            this.txtPesquisar.TabIndex = 186;
+            this.txtPesquisar.TabIndex = 0;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
@@ -294,7 +286,7 @@ namespace Estacionamento
             this.btnCarregar.Location = new System.Drawing.Point(1584, 753);
             this.btnCarregar.Name = "btnCarregar";
             this.btnCarregar.Size = new System.Drawing.Size(111, 41);
-            this.btnCarregar.TabIndex = 190;
+            this.btnCarregar.TabIndex = 11;
             this.btnCarregar.Text = "Carregar";
             this.btnCarregar.UseVisualStyleBackColor = false;
             this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
@@ -316,7 +308,7 @@ namespace Estacionamento
             this.cmbAcesso.Location = new System.Drawing.Point(242, 298);
             this.cmbAcesso.Name = "cmbAcesso";
             this.cmbAcesso.Size = new System.Drawing.Size(159, 31);
-            this.cmbAcesso.TabIndex = 201;
+            this.cmbAcesso.TabIndex = 10;
             this.cmbAcesso.SelectedIndexChanged += new System.EventHandler(this.cmbAcesso_SelectedIndexChanged);
             this.cmbAcesso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbAcesso_KeyPress);
             // 
@@ -327,7 +319,7 @@ namespace Estacionamento
             this.txtSalario.MaxLength = 11;
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(154, 30);
-            this.txtSalario.TabIndex = 215;
+            this.txtSalario.TabIndex = 8;
             this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
             this.txtSalario.MouseLeave += new System.EventHandler(this.txtSalario_MouseLeave);
             this.txtSalario.MouseHover += new System.EventHandler(this.txtSalario_MouseHover);
@@ -358,7 +350,7 @@ namespace Estacionamento
             this.groupBox1.Location = new System.Drawing.Point(1510, 74);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(346, 152);
-            this.groupBox1.TabIndex = 218;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
             // 
@@ -417,7 +409,7 @@ namespace Estacionamento
             // ptbEditar
             // 
             this.ptbEditar.BackColor = System.Drawing.SystemColors.Control;
-            this.ptbEditar.Image = global::Estacionamento.Properties.Resources._1486505375_edit_pen_change_option_pencil_write_81422;
+            this.ptbEditar.Image = global::UI.Properties.Resources._1486505375_edit_pen_change_option_pencil_write_81422;
             this.ptbEditar.Location = new System.Drawing.Point(1792, 686);
             this.ptbEditar.Name = "ptbEditar";
             this.ptbEditar.Size = new System.Drawing.Size(46, 41);
@@ -430,64 +422,13 @@ namespace Estacionamento
             // ptbFoto
             // 
             this.ptbFoto.BackColor = System.Drawing.SystemColors.Control;
-            this.ptbFoto.Image = global::Estacionamento.Properties.Resources.icone_perfil;
+            this.ptbFoto.Image = global::UI.Properties.Resources.icone_perfil;
             this.ptbFoto.Location = new System.Drawing.Point(1479, 302);
             this.ptbFoto.Name = "ptbFoto";
             this.ptbFoto.Size = new System.Drawing.Size(307, 395);
             this.ptbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbFoto.TabIndex = 189;
             this.ptbFoto.TabStop = false;
-            // 
-            // ptbNormal
-            // 
-            this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
-            this.ptbNormal.Location = new System.Drawing.Point(1824, 6);
-            this.ptbNormal.Name = "ptbNormal";
-            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
-            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbNormal.TabIndex = 268;
-            this.ptbNormal.TabStop = false;
-            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
-            // 
-            // ptbMaximar
-            // 
-            this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbMaximar.Location = new System.Drawing.Point(1824, 6);
-            this.ptbMaximar.Name = "ptbMaximar";
-            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximar.TabIndex = 267;
-            this.ptbMaximar.TabStop = false;
-            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
-            // 
-            // ptbSair
-            // 
-            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1873, -2);
-            this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(40, 40);
-            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSair.TabIndex = 266;
-            this.ptbSair.TabStop = false;
-            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
-            this.ptbMinimizar.Location = new System.Drawing.Point(1766, 6);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 265;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
             // 
             // sessaoToolStripMenuItem
             // 
@@ -632,7 +573,6 @@ namespace Estacionamento
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 214;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // txtCpf
             // 
@@ -641,7 +581,7 @@ namespace Estacionamento
             this.txtCpf.MaxLength = 11;
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(154, 30);
-            this.txtCpf.TabIndex = 271;
+            this.txtCpf.TabIndex = 7;
             this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
@@ -652,7 +592,7 @@ namespace Estacionamento
             this.txtRg.MaxLength = 11;
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(154, 30);
-            this.txtRg.TabIndex = 272;
+            this.txtRg.TabIndex = 9;
             this.txtRg.TextChanged += new System.EventHandler(this.txtRg_TextChanged);
             this.txtRg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRg_KeyPress);
             // 
@@ -660,13 +600,9 @@ namespace Estacionamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1940, 1100);
             this.Controls.Add(this.txtRg);
             this.Controls.Add(this.txtCpf);
-            this.Controls.Add(this.ptbMaximar);
-            this.Controls.Add(this.ptbNormal);
-            this.Controls.Add(this.ptbSair);
-            this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.dgvFuncionario);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
@@ -698,16 +634,13 @@ namespace Estacionamento
             this.Name = "FrmEditarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar funcionário";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCadFuncionario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -744,10 +677,6 @@ namespace Estacionamento
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvFuncionario;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox ptbNormal;
-        private System.Windows.Forms.PictureBox ptbMaximar;
-        private System.Windows.Forms.PictureBox ptbSair;
-        private System.Windows.Forms.PictureBox ptbMinimizar;
         private System.Windows.Forms.ToolStripMenuItem sessaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saídaToolStripMenuItem;

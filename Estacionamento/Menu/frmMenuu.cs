@@ -26,12 +26,6 @@ namespace Estacionamento.Menu
         EstacionarDAO estacionarDAO = new EstacionarDAO();
         clienteVeiculoDAO cliveiculoDAO = new clienteVeiculoDAO();
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
         public void vagasOcupadas()
         {
             DataTable dt = new DataTable();
@@ -61,12 +55,12 @@ namespace Estacionamento.Menu
         {
             InitializeComponent();
             this.Text = string.Empty;
-            this.ControlBox = false;//tirar a borda da tela
+            this.Height = Screen.PrimaryScreen.Bounds.Height;
+            this.Width = Screen.PrimaryScreen.Bounds.Width;
+            this.TopMost = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
-
-        //TODO: Menu - começar documentação e instruções e fazer tab index
-        private void frmMenuu_Load(object sender, EventArgs e)
+         private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
 
@@ -104,10 +98,7 @@ namespace Estacionamento.Menu
             frmSaida frm = new frmSaida();
             frm.Show();
             this.Hide();
-
-            //TODO: Fazer saida - tela
         }
-
         private void btnAlterarveiculo_Click(object sender, EventArgs e)
         {
             frmInserirVeiculo frm = new frmInserirVeiculo();
@@ -341,31 +332,6 @@ namespace Estacionamento.Menu
                 Menu.Width = 252;
             }
         }
-
-        private void ptbSair_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void ptbNormal_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            ptbNormal.Visible = false;
-            ptbMaximar.Visible = true;
-        }
-
-        private void ptbMaximar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            ptbNormal.Visible = true;
-            ptbMaximar.Visible = false;
-        }
-
-        private void ptbMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void ptbMenu_Click(object sender, EventArgs e)
         {
             if (Menu.Width == 253)
@@ -378,10 +344,5 @@ namespace Estacionamento.Menu
             }
         }
 
-        private void panel2_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
     }
 }

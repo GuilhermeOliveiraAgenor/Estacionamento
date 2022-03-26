@@ -353,7 +353,7 @@ namespace Estacionamento.Entrada
             // 
             this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
             this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.maximizar;
+            this.ptbNormal.Image = global::UI.Properties.Resources.maximizar;
             this.ptbNormal.Location = new System.Drawing.Point(1823, 4);
             this.ptbNormal.Name = "ptbNormal";
             this.ptbNormal.Size = new System.Drawing.Size(32, 27);
@@ -365,7 +365,7 @@ namespace Estacionamento.Entrada
             // ptbSair
             // 
             this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
+            this.ptbSair.Image = global::UI.Properties.Resources.fechar;
             this.ptbSair.Location = new System.Drawing.Point(1872, -3);
             this.ptbSair.Name = "ptbSair";
             this.ptbSair.Size = new System.Drawing.Size(40, 40);
@@ -378,7 +378,7 @@ namespace Estacionamento.Entrada
             // 
             this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
             this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
+            this.ptbMaximar.Image = global::UI.Properties.Resources.icons8_maximizar_janela_50;
             this.ptbMaximar.Location = new System.Drawing.Point(1823, 4);
             this.ptbMaximar.Name = "ptbMaximar";
             this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
@@ -391,7 +391,7 @@ namespace Estacionamento.Entrada
             // 
             this.ptbMinimizar.BackColor = System.Drawing.SystemColors.Window;
             this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
+            this.ptbMinimizar.Image = global::UI.Properties.Resources.icons8_subtração_64;
             this.ptbMinimizar.Location = new System.Drawing.Point(1766, 4);
             this.ptbMinimizar.Name = "ptbMinimizar";
             this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
@@ -535,13 +535,12 @@ namespace Estacionamento.Entrada
             this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 213;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // frmEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1940, 1100);
             this.Controls.Add(this.ptbSair);
             this.Controls.Add(this.ptbMaximar);
             this.Controls.Add(this.ptbMinimizar);
@@ -570,6 +569,7 @@ namespace Estacionamento.Entrada
             this.Name = "frmEntrada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrada";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmEntrada_Load);
             this.DoubleClick += new System.EventHandler(this.frmEntrada_DoubleClick);
             this.groupBox1.ResumeLayout(false);

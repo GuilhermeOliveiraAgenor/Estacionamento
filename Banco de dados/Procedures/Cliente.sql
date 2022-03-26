@@ -15,14 +15,14 @@ as
 --Cpf ja existe
 if exists (select Cpf from Cliente where Cpf = @Cpf)
 begin
-raiserror ('O Cpf ja existe', 16,1)
+raiserror ('O Cpf já existe', 16,1)
 return -1
 end
 
 --Email ja existe
 if exists (select Email from Cliente where Email = @Email)
 begin
-raiserror('O Email ja existe',16,1)
+raiserror('O Email já existe',16,1)
 return -1
 end
 
@@ -51,7 +51,7 @@ as
 --Email ja existe
 if exists (select Email from Cliente where Email = @Email and idCliente != @idCliente)
 begin
-raiserror('O Email ja existe',16,1)
+raiserror('O Email já existe',16,1)
 return -1
 end
 
@@ -64,6 +64,4 @@ rollback tran
 else
 commit tran
 go
-
-	
 

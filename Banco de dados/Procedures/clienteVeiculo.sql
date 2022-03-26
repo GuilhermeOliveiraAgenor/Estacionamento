@@ -29,21 +29,21 @@ end
 --cpf ja existe
 if exists (select Cpf from Cliente where Cpf = @Cpf)
 begin
-raiserror ('O Cpf ja existe', 16,1)
+raiserror ('O Cpf já existe', 16,1)
 return -1
 end
 
 --email ja existe
 if exists (select Email from Cliente where Email = @Email)
 begin
-raiserror('O Email ja existe',16,1)
+raiserror('O Email já existe',16,1)
 return -1
 end
 
 --veiculo nao existe
 if not exists (select idVeiculo from Veiculo where idVeiculo = @codigo_Veiculo)
 begin
-raiserror('O Veiculo selecionado nao existe',16,1)
+raiserror('O Veículo selecionado não existe',16,1)
 return -1
 end
 
@@ -77,21 +77,21 @@ select @id = idCliente from Cliente where Cpf = @Cpf--seleciona o id do cliente 
 
 if exists (select Placa from clienteVeiculo where Placa = @Placa)-- se existir essa placa, retorna erro
 begin
-raiserror ('A placa ja existe',16,1)
+raiserror ('A placa já existe',16,1)
 return -1
 end
 
 --se nao existir cpf, retorna erro
 if not exists (select Cpf from Cliente where Cpf = @Cpf)
 begin 
-raiserror ('O cpf nao existe',16,1)
+raiserror ('O cpf não existe',16,1)
 return -1 
 end
 
 --veiculo nao existe
 if not exists (select idVeiculo from Veiculo where idVeiculo = @codigo_Veiculo)
 begin
-raiserror('O Veiculo selecionado nao existe',16,1)
+raiserror('O Veículo selecionado não existe',16,1)
 return -1
 end
 

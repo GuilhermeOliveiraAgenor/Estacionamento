@@ -1,6 +1,3 @@
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Estacionamento.exe.config
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Estacionamento.exe
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Estacionamento.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Model.dll
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Model.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.csproj.AssemblyReference.cache
@@ -10,12 +7,9 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacion
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Entrada.frmVerificar.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Login.frmLogin.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Menu.frmMenuu.resources
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Properties.Resources.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.Saida.frmSaida.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.csproj.GenerateResource.cache
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.csproj.CoreCompileInputs.cache
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.exe
-C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\AutoMapper.dll
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Eleflex.Core.dll
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\Eleflex.Email.Messages.dll
@@ -111,3 +105,9 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacion
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmInserirVeiculo.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.FrmEditarFuncionario.resources
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\Estacionamento.editarPedidos.frmEditarEstacionar.resources
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.Properties.Resources.resources
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\UI.exe.config
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\UI.exe
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\UI.pdb
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.exe
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.pdb

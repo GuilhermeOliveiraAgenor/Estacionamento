@@ -61,20 +61,12 @@ namespace Estacionamento.editarPedidos
             this.lblMensagem = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvVeiculos = new System.Windows.Forms.DataGridView();
-            this.ptbSair = new System.Windows.Forms.PictureBox();
-            this.ptbMaximar = new System.Windows.Forms.PictureBox();
-            this.ptbNormal = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -177,10 +169,9 @@ namespace Estacionamento.editarPedidos
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(1940, 39);
             this.menuStrip1.TabIndex = 237;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             // 
             // sessaoToolStripMenuItem
             // 
@@ -374,57 +365,6 @@ namespace Estacionamento.editarPedidos
             this.dgvVeiculos.Size = new System.Drawing.Size(898, 416);
             this.dgvVeiculos.TabIndex = 7;
             // 
-            // ptbSair
-            // 
-            this.ptbSair.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ptbSair.Image = global::Estacionamento.Properties.Resources.fechar;
-            this.ptbSair.Location = new System.Drawing.Point(1872, -2);
-            this.ptbSair.Name = "ptbSair";
-            this.ptbSair.Size = new System.Drawing.Size(40, 40);
-            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbSair.TabIndex = 248;
-            this.ptbSair.TabStop = false;
-            this.ptbSair.Click += new System.EventHandler(this.ptbSair_Click);
-            // 
-            // ptbMaximar
-            // 
-            this.ptbMaximar.BackColor = System.Drawing.Color.White;
-            this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximar.Image = global::Estacionamento.Properties.Resources.maximizar1;
-            this.ptbMaximar.Location = new System.Drawing.Point(1825, 5);
-            this.ptbMaximar.Name = "ptbMaximar";
-            this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximar.TabIndex = 245;
-            this.ptbMaximar.TabStop = false;
-            this.ptbMaximar.Click += new System.EventHandler(this.ptbMaximar_Click);
-            // 
-            // ptbNormal
-            // 
-            this.ptbNormal.BackColor = System.Drawing.Color.White;
-            this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbNormal.Image = global::Estacionamento.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbNormal.Location = new System.Drawing.Point(1825, 5);
-            this.ptbNormal.Name = "ptbNormal";
-            this.ptbNormal.Size = new System.Drawing.Size(32, 27);
-            this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbNormal.TabIndex = 247;
-            this.ptbNormal.TabStop = false;
-            this.ptbNormal.Click += new System.EventHandler(this.ptbNormal_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.BackColor = System.Drawing.Color.White;
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = global::Estacionamento.Properties.Resources.icons8_subtração_64;
-            this.ptbMinimizar.Location = new System.Drawing.Point(1766, 5);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(32, 27);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 246;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
-            // 
             // txtPlaca
             // 
             this.txtPlaca.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -464,14 +404,10 @@ namespace Estacionamento.editarPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1940, 1100);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.txtPlaca);
-            this.Controls.Add(this.ptbNormal);
-            this.Controls.Add(this.ptbSair);
-            this.Controls.Add(this.ptbMaximar);
-            this.Controls.Add(this.ptbMinimizar);
             this.Controls.Add(this.dgvVeiculos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMensagem);
@@ -486,6 +422,7 @@ namespace Estacionamento.editarPedidos
             this.Name = "frmInserirVeiculo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inserir Veículo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmInserirCliveiculo_Load);
             this.DoubleClick += new System.EventHandler(this.frmInserirCliveiculo_DoubleClick);
             this.menuStrip1.ResumeLayout(false);
@@ -493,10 +430,6 @@ namespace Estacionamento.editarPedidos
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeiculos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNormal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,10 +464,6 @@ namespace Estacionamento.editarPedidos
         private System.Windows.Forms.Label lblMensagem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvVeiculos;
-        private System.Windows.Forms.PictureBox ptbSair;
-        private System.Windows.Forms.PictureBox ptbMaximar;
-        private System.Windows.Forms.PictureBox ptbNormal;
-        private System.Windows.Forms.PictureBox ptbMinimizar;
         private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.Button btnCancelar;

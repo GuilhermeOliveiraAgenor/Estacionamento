@@ -32,15 +32,8 @@ namespace Estacionamento.editarPedidos
         {
             InitializeComponent();
             this.Text = string.Empty;
-            this.ControlBox = false;//tirar a borda da tela
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
         public void carregarGrid()
         {
 
@@ -264,30 +257,6 @@ namespace Estacionamento.editarPedidos
         {
             lblMensagem.Text = "";
         }
-        private void ptbMaximar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            ptbNormal.Visible = true;
-            ptbMaximar.Visible = false;
-        }
-
-        private void ptbMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void ptbNormal_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            ptbNormal.Visible = false;
-            ptbMaximar.Visible = true;
-        }
-
-        private void ptbSair_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void txtPlaca_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)))//defini os caracteres numero e letra
@@ -314,12 +283,6 @@ namespace Estacionamento.editarPedidos
         {
             limparCampos();
             carregarGrid();
-        }
-
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

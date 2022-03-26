@@ -77,7 +77,7 @@ end
 --funcionario que nao existe
 if not exists (select idFuncionario from Funcionarios where idFuncionario = @idFuncionario)
 begin
-raiserror ('Erro ao encontrar funcionario',16,1)
+raiserror ('Erro ao encontrar funcionário',16,1)
 return -1
 end
 
@@ -125,7 +125,7 @@ as
 --funcionario que nao existe
 if not exists (select idFuncionario from Funcionarios where idFuncionario = @idFuncionario)
 begin
-raiserror ('Erro ao encontrar funcionario',16,1)
+raiserror ('Erro ao encontrar funcionário',16,1)
 return -1
 end
 

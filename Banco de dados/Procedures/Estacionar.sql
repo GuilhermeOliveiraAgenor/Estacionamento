@@ -1,4 +1,4 @@
-﻿use Estacionamento
+﻿	use Estacionamento
 go
 
 create or alter procedure Entrada
@@ -33,13 +33,13 @@ end
 
 if @vagas >= @limite--se as vagas ocupadas forem maiores ou igual ao limite do patio, retorna erro
 begin
-raiserror('Esse patio esta lotado',16,1)
+raiserror('Esse pátio está lotado',16,1)
 return -1
 end
 
 if not exists (select IdClienteVeiculo from clienteVeiculo where IdClienteVeiculo = @CodigoClienteVeiculo)
 begin
-raiserror('O veiculo selecionado nao existe',16,1)
+raiserror('O veículo selecionado não existe',16,1)
 return -1
 end
 
@@ -81,7 +81,7 @@ select @Email = Email from Cliente inner join clienteVeiculo on Cliente.idClient
 --se existir esse id no pagamento, retorna erro
 if exists (select codigoEstacionar from Pagamento where codigoEstacionar = @idEstacionar)
 begin
-raiserror ('O pagamento ja foi feito nesse pedido',16,1)
+raiserror ('O pagamento já foi feito nesse pedido',16,1)
 return -1
 end
 
@@ -207,14 +207,14 @@ select @limite = Vagas from Patio where Patio.idPatio = @Patio
 
 if @vagas >= @limite--se as vagas ocupadas forem maiores ou igual ao limite do patio, retorna erro
 begin
-raiserror('Esse patio esta lotado',16,1)
+raiserror('Esse pátio está lotado',16,1)
 return -1
 end
 
 --veiculo nao existente
 if not exists (select IdClienteVeiculo from clienteVeiculo where IdClienteVeiculo = @CodigoClienteVeiculo)
 begin
-raiserror('O veiculo selecionado nao existe',16,1)
+raiserror('O veículo selecionado não existe',16,1)
 return -1
 end
 
