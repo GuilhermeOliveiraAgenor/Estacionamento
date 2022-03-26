@@ -142,7 +142,7 @@ namespace Estacionamento.Usuarios
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
-            this.menuStrip1.Size = new System.Drawing.Size(1940, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 216;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -334,7 +334,6 @@ namespace Estacionamento.Usuarios
             this.Controls.Add(this.txtConfirmar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlterarSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
