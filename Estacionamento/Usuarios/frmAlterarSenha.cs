@@ -30,7 +30,6 @@ namespace Estacionamento.Usuarios
         public frmAlterarSenha()
         {
             InitializeComponent();
-            this.Text = string.Empty;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
         public void limparCampos()

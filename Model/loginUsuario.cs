@@ -10,32 +10,33 @@ namespace Model
     {
         static string cpfUsuario;
         static string senhaUsuario;
+        static int nivelUsuario;
 
-        public static void login(string cpf, string senha)
+        public static void login(string cpf, string senha, int nivel)
         {
             cpfUsuario = cpf;
             senhaUsuario = senha;
+            nivelUsuario = nivel;
         }
 
         public static void logout()
         {
-
             cpfUsuario = null;
             senhaUsuario = null;
-
+            nivelUsuario = 0;
         }
         public static string getUsuario()
         {
-            return "Cpf: " + cpfUsuario + "\nSenha: " + senhaUsuario;
+            return cpfUsuario + senhaUsuario;
         }
-
         public static string getCpf()
         {
             return cpfUsuario;
         }
-
-
-
+        public static string getNivel() 
+        {
+            return Convert.ToString(nivelUsuario);
+        }
     }
 }
 

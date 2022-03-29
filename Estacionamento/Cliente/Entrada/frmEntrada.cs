@@ -90,8 +90,6 @@ namespace Estacionamento.Entrada
         {
             InitializeComponent();
             lblCodigodocliente.Text = cpfPesquisa;
-            this.Text = string.Empty;
-            this.ControlBox = false;//tirar a borda da tela
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
 
@@ -301,30 +299,10 @@ namespace Estacionamento.Entrada
         {
             lblMensagem.Text = "";
         }
-
-        private void ptbMaximar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            ptbNormal.Visible = true;
-            ptbMaximar.Visible = false;
-        }
-
         private void ptbMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void ptbSair_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void ptbNormal_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            ptbNormal.Visible = false;
-            ptbMaximar.Visible = true;
-        }
-
         private void cmbcodigoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
 

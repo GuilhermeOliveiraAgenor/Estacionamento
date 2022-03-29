@@ -139,7 +139,7 @@ namespace Estacionamento.Usuarios
             this.ptbNormal.BackColor = System.Drawing.SystemColors.Window;
             this.ptbNormal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbNormal.Image = global::UI.Properties.Resources.maximizar;
-            this.ptbNormal.Location = new System.Drawing.Point(814, 3);
+            this.ptbNormal.Location = new System.Drawing.Point(816, 5);
             this.ptbNormal.Name = "ptbNormal";
             this.ptbNormal.Size = new System.Drawing.Size(32, 27);
             this.ptbNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -152,7 +152,7 @@ namespace Estacionamento.Usuarios
             this.ptbMaximar.BackColor = System.Drawing.SystemColors.Window;
             this.ptbMaximar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbMaximar.Image = global::UI.Properties.Resources.icons8_maximizar_janela_50;
-            this.ptbMaximar.Location = new System.Drawing.Point(814, 5);
+            this.ptbMaximar.Location = new System.Drawing.Point(816, 5);
             this.ptbMaximar.Name = "ptbMaximar";
             this.ptbMaximar.Size = new System.Drawing.Size(32, 27);
             this.ptbMaximar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

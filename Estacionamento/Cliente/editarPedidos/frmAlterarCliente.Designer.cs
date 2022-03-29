@@ -216,7 +216,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(350, 79);
+            this.lblCodigo.Location = new System.Drawing.Point(341, 79);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(34, 25);
             this.lblCodigo.TabIndex = 187;
@@ -225,13 +225,14 @@ namespace Estacionamento.editarPedidos
             // txtPesquisarcodigo
             // 
             this.txtPesquisarcodigo.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisarcodigo.Location = new System.Drawing.Point(414, 79);
+            this.txtPesquisarcodigo.Location = new System.Drawing.Point(405, 79);
             this.txtPesquisarcodigo.MaxLength = 11;
             this.txtPesquisarcodigo.Name = "txtPesquisarcodigo";
-            this.txtPesquisarcodigo.Size = new System.Drawing.Size(113, 30);
+            this.txtPesquisarcodigo.Size = new System.Drawing.Size(122, 30);
             this.txtPesquisarcodigo.TabIndex = 1;
             this.txtPesquisarcodigo.TextChanged += new System.EventHandler(this.txtPesquisarcodigo_TextChanged);
             this.txtPesquisarcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarcodigo_KeyPress);
+            this.txtPesquisarcodigo.Leave += new System.EventHandler(this.txtPesquisarcodigo_Leave);
             // 
             // lblNome
             // 
@@ -253,6 +254,7 @@ namespace Estacionamento.editarPedidos
             this.txtPesquisarnome.TabIndex = 2;
             this.txtPesquisarnome.TextChanged += new System.EventHandler(this.txtPesquisarnome_TextChanged);
             this.txtPesquisarnome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisarnome_KeyPress);
+            this.txtPesquisarnome.Leave += new System.EventHandler(this.txtPesquisarnome_Leave);
             // 
             // groupBox1
             // 

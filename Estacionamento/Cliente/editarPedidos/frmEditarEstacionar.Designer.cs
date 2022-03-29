@@ -260,7 +260,7 @@ namespace Estacionamento.editarPedidos
             this.txtPesquisar.Location = new System.Drawing.Point(152, 70);
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(121, 30);
+            this.txtPesquisar.Size = new System.Drawing.Size(122, 30);
             this.txtPesquisar.TabIndex = 1;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);

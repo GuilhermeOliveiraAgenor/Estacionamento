@@ -29,8 +29,6 @@ namespace Estacionamento.editarPedidos
         public frmAlterarCliente()
         {
             InitializeComponent();
-            this.Text = string.Empty;
-            this.ControlBox = true;//tirar a borda da tela
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
         public void carregarGrid()
@@ -84,7 +82,6 @@ namespace Estacionamento.editarPedidos
 
             else
             {
-
                 cliente.Nome = txtCliente.Text;//parametros
                 cliente.Email = txtEmail.Text;
                 cliente.idCliente = idCliente;
@@ -93,7 +90,7 @@ namespace Estacionamento.editarPedidos
 
                 if (result == true)
                 {
-                    MessageBox.Show("Concluido com sucesso", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Concluído com sucesso", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     carregarGrid();
                     limparCampos();
                 }
@@ -101,7 +98,7 @@ namespace Estacionamento.editarPedidos
 
         }
 
-            private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
             int linha;
 
@@ -251,7 +248,7 @@ namespace Estacionamento.editarPedidos
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao encontrar cpf", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                    lblMensagem.Text = "Erro ao encontrar cpf";
                     txtPesquisarcodigo.Focus();
                     carregarGrid();
                     limparPesquisa();
@@ -282,7 +279,7 @@ namespace Estacionamento.editarPedidos
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao encontrar nome", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);//mensagem de erro
+                    lblMensagem.Text = "Erro ao encontrar cliente";
                     txtPesquisarnome.Focus();
                     carregarGrid();
                     limparPesquisa();
@@ -293,6 +290,16 @@ namespace Estacionamento.editarPedidos
                 lblMensagem.Text = "";
                 limparPesquisa();
             }
+        }
+
+        private void txtPesquisarcodigo_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
+        }
+
+        private void txtPesquisarnome_Leave(object sender, EventArgs e)
+        {
+            lblMensagem.Text = "";
         }
     }
 }

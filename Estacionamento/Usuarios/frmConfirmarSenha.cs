@@ -23,7 +23,6 @@ namespace Estacionamento.Usuarios
         public frmConfirmarSenha()
         {
             InitializeComponent();
-            this.Text = string.Empty;
             this.ControlBox = false;//tirar a borda da tela
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }

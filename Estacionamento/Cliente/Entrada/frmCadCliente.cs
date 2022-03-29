@@ -31,7 +31,6 @@ namespace Estacionamento.Entrada
         public frmCadCliente()
         {
             InitializeComponent();
-            this.Text = string.Empty;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
         public frmCadCliente(string cpf)

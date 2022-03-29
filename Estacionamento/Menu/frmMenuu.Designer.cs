@@ -42,7 +42,7 @@ namespace Estacionamento.Menu
             this.label6 = new System.Windows.Forms.Label();
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.btnCliente = new System.Windows.Forms.Button();
-            this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnHoje = new System.Windows.Forms.Button();
             this.Menu = new System.Windows.Forms.Panel();
             this.ptbMenu = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -63,7 +63,7 @@ namespace Estacionamento.Menu
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblDados = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnAlterarveiculo = new System.Windows.Forms.Button();
+            this.btnCadastrarveiculo = new System.Windows.Forms.Button();
             this.btnEntrada = new System.Windows.Forms.Button();
             this.btnSaída = new System.Windows.Forms.Button();
             this.btnVagas = new System.Windows.Forms.Button();
@@ -116,7 +116,7 @@ namespace Estacionamento.Menu
             this.panel3.BackColor = System.Drawing.Color.DarkBlue;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(253, 45);
+            this.panel3.Size = new System.Drawing.Size(253, 44);
             this.panel3.TabIndex = 10;
             // 
             // label4
@@ -194,22 +194,22 @@ namespace Estacionamento.Menu
             this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
-            // btnVoltar
+            // btnHoje
             // 
-            this.btnVoltar.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.btnVoltar.FlatAppearance.BorderSize = 0;
-            this.btnVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoltar.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVoltar.Location = new System.Drawing.Point(0, 698);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(253, 55);
-            this.btnVoltar.TabIndex = 7;
-            this.btnVoltar.Text = "                  Sessões hoje";
-            this.btnVoltar.UseVisualStyleBackColor = false;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            this.btnHoje.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnHoje.FlatAppearance.BorderSize = 0;
+            this.btnHoje.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnHoje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnHoje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoje.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoje.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnHoje.Location = new System.Drawing.Point(0, 698);
+            this.btnHoje.Name = "btnHoje";
+            this.btnHoje.Size = new System.Drawing.Size(253, 55);
+            this.btnHoje.TabIndex = 7;
+            this.btnHoje.Text = "                  Sessões hoje";
+            this.btnHoje.UseVisualStyleBackColor = false;
+            this.btnHoje.Click += new System.EventHandler(this.btnHoje_Click);
             // 
             // Menu
             // 
@@ -230,14 +230,14 @@ namespace Estacionamento.Menu
             this.Menu.Controls.Add(this.btnFuncionario);
             this.Menu.Controls.Add(this.btnAlterarpedido);
             this.Menu.Controls.Add(this.panel4);
-            this.Menu.Controls.Add(this.btnAlterarveiculo);
+            this.Menu.Controls.Add(this.btnCadastrarveiculo);
             this.Menu.Controls.Add(this.panel3);
             this.Menu.Controls.Add(this.label4);
             this.Menu.Controls.Add(this.btnEntrada);
             this.Menu.Controls.Add(this.btnSaída);
             this.Menu.Controls.Add(this.btnCliente);
             this.Menu.Controls.Add(this.btnVagas);
-            this.Menu.Controls.Add(this.btnVoltar);
+            this.Menu.Controls.Add(this.btnHoje);
             this.Menu.Controls.Add(this.btnListar);
             this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.Menu.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,7 +252,7 @@ namespace Estacionamento.Menu
             this.ptbMenu.Image = global::UI.Properties.Resources.menuicon;
             this.ptbMenu.Location = new System.Drawing.Point(-1, -1);
             this.ptbMenu.Name = "ptbMenu";
-            this.ptbMenu.Size = new System.Drawing.Size(93, 51);
+            this.ptbMenu.Size = new System.Drawing.Size(93, 45);
             this.ptbMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbMenu.TabIndex = 238;
             this.ptbMenu.TabStop = false;
@@ -267,6 +267,7 @@ namespace Estacionamento.Menu
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 247;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox11
             // 
@@ -277,6 +278,7 @@ namespace Estacionamento.Menu
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox11.TabIndex = 246;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
             // pictureBox9
             // 
@@ -287,6 +289,7 @@ namespace Estacionamento.Menu
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 245;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // pictureBox8
             // 
@@ -297,6 +300,7 @@ namespace Estacionamento.Menu
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 244;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox7
             // 
@@ -307,6 +311,7 @@ namespace Estacionamento.Menu
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 243;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox6
             // 
@@ -317,6 +322,7 @@ namespace Estacionamento.Menu
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 242;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox5
             // 
@@ -327,6 +333,7 @@ namespace Estacionamento.Menu
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 241;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox4
             // 
@@ -337,6 +344,7 @@ namespace Estacionamento.Menu
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 240;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
@@ -347,6 +355,7 @@ namespace Estacionamento.Menu
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 239;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 
@@ -357,6 +366,7 @@ namespace Estacionamento.Menu
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 238;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnRelatorio
             // 
@@ -462,22 +472,22 @@ namespace Estacionamento.Menu
             this.label10.TabIndex = 205;
             this.label10.Text = "Nome:";
             // 
-            // btnAlterarveiculo
+            // btnCadastrarveiculo
             // 
-            this.btnAlterarveiculo.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.btnAlterarveiculo.FlatAppearance.BorderSize = 0;
-            this.btnAlterarveiculo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAlterarveiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnAlterarveiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterarveiculo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAlterarveiculo.Location = new System.Drawing.Point(-3, 478);
-            this.btnAlterarveiculo.Name = "btnAlterarveiculo";
-            this.btnAlterarveiculo.Size = new System.Drawing.Size(256, 55);
-            this.btnAlterarveiculo.TabIndex = 3;
-            this.btnAlterarveiculo.Text = "                      Cadastrar veículo";
-            this.btnAlterarveiculo.UseVisualStyleBackColor = false;
-            this.btnAlterarveiculo.Click += new System.EventHandler(this.btnAlterarveiculo_Click);
+            this.btnCadastrarveiculo.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnCadastrarveiculo.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarveiculo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCadastrarveiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCadastrarveiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarveiculo.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarveiculo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCadastrarveiculo.Location = new System.Drawing.Point(-3, 478);
+            this.btnCadastrarveiculo.Name = "btnCadastrarveiculo";
+            this.btnCadastrarveiculo.Size = new System.Drawing.Size(256, 55);
+            this.btnCadastrarveiculo.TabIndex = 3;
+            this.btnCadastrarveiculo.Text = "                      Cadastrar veículo";
+            this.btnCadastrarveiculo.UseVisualStyleBackColor = false;
+            this.btnCadastrarveiculo.Click += new System.EventHandler(this.btnCadastrarveiculo_Click);
             // 
             // btnEntrada
             // 
@@ -897,7 +907,7 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.Button btnEntrada;
         private System.Windows.Forms.Button btnCliente;
-        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnHoje;
         private System.Windows.Forms.Panel Menu;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnSairmenu;
@@ -910,7 +920,6 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.PictureBox ptbMapa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAlterarpedido;
-        public System.Windows.Forms.Button btnFuncionario;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -919,9 +928,8 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Label lblDados;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox mskHora;
-        public System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Button btnAlterarveiculo;
+        private System.Windows.Forms.Button btnCadastrarveiculo;
         private System.Windows.Forms.Button btnSaída;
         private System.Windows.Forms.Button btnVagas;
         private System.Windows.Forms.TextBox txtCodigo;
@@ -943,8 +951,10 @@ namespace Estacionamento.Menu
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox ptbMenu;
+        private System.Windows.Forms.TextBox txtNome;
         public System.Windows.Forms.PictureBox pictureBox12;
         public System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.TextBox txtNome;
+        public System.Windows.Forms.Button btnFuncionario;
+        public System.Windows.Forms.Button btnRelatorio;
     }
 }

@@ -85,7 +85,7 @@ namespace Estacionamento.editarPedidos
             this.txtPesquisar.Location = new System.Drawing.Point(146, 61);
             this.txtPesquisar.MaxLength = 11;
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(113, 30);
+            this.txtPesquisar.Size = new System.Drawing.Size(122, 30);
             this.txtPesquisar.TabIndex = 0;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.Leave += new System.EventHandler(this.txtPesquisar_Leave);
@@ -169,7 +169,7 @@ namespace Estacionamento.editarPedidos
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 10);
-            this.menuStrip1.Size = new System.Drawing.Size(1940, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 39);
             this.menuStrip1.TabIndex = 237;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -404,7 +404,7 @@ namespace Estacionamento.editarPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1940, 1100);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.txtPlaca);

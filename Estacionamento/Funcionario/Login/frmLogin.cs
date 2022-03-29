@@ -23,7 +23,6 @@ namespace Estacionamento.Login
         {
             InitializeComponent();
         }
-    
         //TODO: JÁ FEITO - Fazer login. Sessao e login
         
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -43,12 +42,12 @@ namespace Estacionamento.Login
         {
             DataTable dt = new DataTable();
             frmMenuu frmmenu = new frmMenuu();//vai para o menu
+
             int Nivel;//codigo do nivel do acesso
 
             if (String.IsNullOrEmpty(txtCpf.Text) || String.IsNullOrEmpty(txtSenha.Text))//verificar campos vazios
             {
                 MessageBox.Show("Preencha os campos", "Campo vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
 
             else
@@ -68,7 +67,7 @@ namespace Estacionamento.Login
                         if (Nivel == 1)//se o nivel pesquisado for igual ao código, faz o login. Nivel 1 - Funcionario
                         {
                             MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
+                            loginUsuario.login(usuario.Cpf, usuario.Senha, Nivel);//faz a autenticação na classe
                             frmmenu.btnFuncionario.Visible = false;
                             frmmenu.btnRelatorio.Visible = false;
                             frmmenu.pictureBox11.Visible = false;
@@ -79,7 +78,7 @@ namespace Estacionamento.Login
                         if (Nivel == 2)//Nivel 2 - Administrador
                         {
                             MessageBox.Show("Login concluido com sucesso. Seja bem vindo", "Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            loginUsuario.login(usuario.Cpf, usuario.Senha);//faz a autenticação na classe
+                            loginUsuario.login(usuario.Cpf, usuario.Senha, Nivel);//faz a autenticação na classe
                             frmmenu.Show();
                             this.Hide();
 

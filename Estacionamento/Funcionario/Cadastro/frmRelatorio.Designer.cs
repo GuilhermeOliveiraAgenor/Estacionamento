@@ -307,9 +307,8 @@ namespace Estacionamento.Funcionario.Relatorio
             this.dgvRelatorio.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.dgvRelatorio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvRelatorio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRelatorio.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRelatorio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvRelatorio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -547,7 +546,7 @@ namespace Estacionamento.Funcionario.Relatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1940, 1100);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ptbHora);

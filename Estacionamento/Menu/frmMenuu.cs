@@ -26,6 +26,57 @@ namespace Estacionamento.Menu
         EstacionarDAO estacionarDAO = new EstacionarDAO();
         clienteVeiculoDAO cliveiculoDAO = new clienteVeiculoDAO();
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+
+        public void irVerificar()
+        {
+            new frmVerificar().Show();
+            this.Hide();
+        }
+        public void irEntrada()
+        {
+            new frmEntrada().Show();
+            this.Hide();
+        }
+        public void irSaida()
+        {
+            new frmSaida().Show();
+            this.Hide();
+        }
+        public void irCliente()
+        {
+            new frmAlterarCliente().Show();
+            this.Hide();
+        }
+        public void irVeiculo()
+        {
+            new frmInserirVeiculo().Show();
+            this.Hide();
+        }
+        public void irSessao()
+        {
+            new frmEditarEstacionar().Show();
+            this.Hide();
+        }
+        public void irFuncionario()
+        {
+            new FrmEditarFuncionario().Show();
+            this.Hide();
+        }
+        public void irRelatorio()
+        {
+            new frmRelatorio().Show();
+            this.Hide();
+        }
+        public void listarClienteVeiculo()
+        {
+            dgvVeiculos.DataSource = cliveiculoDAO.CarregarClienteVeiculo();
+            dgvVeiculos.Refresh();
+        }
+        public void listarVeiculoHoje()
+        {
+            dgvVeiculos.DataSource = estacionarDAO.veiculosHoje();
+            dgvVeiculos.Refresh();
+        }
         public void vagasOcupadas()
         {
             DataTable dt = new DataTable();
@@ -54,7 +105,7 @@ namespace Estacionamento.Menu
         public frmMenuu()
         {
             InitializeComponent();
-            this.Text = string.Empty;
+            
             this.Height = Screen.PrimaryScreen.Bounds.Height;
             this.Width = Screen.PrimaryScreen.Bounds.Width;
             this.TopMost = true;
@@ -63,7 +114,8 @@ namespace Estacionamento.Menu
          private void frmMenuu_Load(object sender, EventArgs e)
         {
             string cpf = loginUsuario.getCpf();
-
+            string nivel = loginUsuario.getNivel();
+            
             DataTable dt2 = new DataTable();
 
             dt2 = funcionarioDAO.selecionarFuncionario(cpf);
@@ -74,16 +126,21 @@ namespace Estacionamento.Menu
                 {
                     txtNome.Text = row["Nome"].ToString();            
                 }
+                if (nivel == "1")
+                {
+                    btnFuncionario.Visible = false;
+                    btnRelatorio.Visible = false;
+                    pictureBox11.Visible = false;
+                    pictureBox12.Visible = false;
+                }
             }
-
+            
             vagasOcupadas();
         }
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
-            frmVerificar frm = new frmVerificar();
-            frm.Show();
-            this.Hide();
+            irVerificar();
         }
 
         private void btnVoltarmenu_Click(object sender, EventArgs e)
@@ -95,23 +152,8 @@ namespace Estacionamento.Menu
 
         private void btnSaída_Click(object sender, EventArgs e)
         {
-            frmSaida frm = new frmSaida();
-            frm.Show();
-            this.Hide();
+            irSaida();
         }
-        private void btnAlterarveiculo_Click(object sender, EventArgs e)
-        {
-            frmInserirVeiculo frm = new frmInserirVeiculo();
-            frm.Show();
-            this.Hide();
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            dgvVeiculos.DataSource = estacionarDAO.veiculosHoje();
-            dgvVeiculos.Refresh();
-        }
-
         private void frmMenuu_DoubleClick(object sender, EventArgs e)
         {
             vagasOcupadas();
@@ -123,8 +165,7 @@ namespace Estacionamento.Menu
         }
         private void btnListar_Click(object sender, EventArgs e)
         {
-            dgvVeiculos.DataSource = cliveiculoDAO.CarregarClienteVeiculo();
-            dgvVeiculos.Refresh();
+            listarClienteVeiculo();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -139,9 +180,7 @@ namespace Estacionamento.Menu
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            frmAlterarCliente frm = new frmAlterarCliente();
-            frm.Show();
-            this.Hide();
+            irCliente();
         }
 
         private void btnSairmenu_Click(object sender, EventArgs e)
@@ -151,16 +190,12 @@ namespace Estacionamento.Menu
 
         private void btnAlterarpedido_Click(object sender, EventArgs e)
         {
-            frmEditarEstacionar frm = new frmEditarEstacionar();
-            frm.Show();
-            this.Hide();
+            irSessao();
         }
 
         private void btnFuncionario_Click(object sender, EventArgs e)
         {
-            FrmEditarFuncionario frm = new FrmEditarFuncionario();
-            frm.Show();
-            this.Hide();
+            irFuncionario();
         }
         private void lblDados_Click(object sender, EventArgs e)
         {
@@ -171,8 +206,7 @@ namespace Estacionamento.Menu
 
         private void btnRelatorio_Click(object sender, EventArgs e)
         {
-            new frmRelatorio().Show();
-            this.Hide();
+            irRelatorio();
         }
 
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
@@ -344,5 +378,63 @@ namespace Estacionamento.Menu
             }
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            irVerificar();
+        }
+
+        private void btnCadastrarveiculo_Click(object sender, EventArgs e)
+        {
+            irVeiculo();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            irSaida();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            irCliente();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            irVeiculo();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            irSessao();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            vagasOcupadas();
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            listarVeiculoHoje();
+        }
+
+        private void btnHoje_Click(object sender, EventArgs e)
+        {
+            listarVeiculoHoje();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            listarClienteVeiculo();
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            irFuncionario();
+        }
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            irRelatorio();
+        }
     }
 }

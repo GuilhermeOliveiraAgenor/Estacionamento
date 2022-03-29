@@ -35,7 +35,8 @@ namespace Estacionamento
         DataTable dt = new DataTable();
         string modo = "";
         string caminhoFoto = "";
-        string perfilPadrao = "../../Resources/icone_perfil.jpg";
+        static string caminho = System.AppDomain.CurrentDomain.BaseDirectory.ToString();//abre o arquivo local
+        string iconPadrao = caminho + "/icon/icone_perfil.jpg";
         byte[] fotoFuncionario;
         int idFuncionario;
         int acesso;
@@ -44,7 +45,6 @@ namespace Estacionamento
         public FrmEditarFuncionario()
         {
             InitializeComponent();
-            this.Text = string.Empty;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
         public void limparCampos()
@@ -61,7 +61,8 @@ namespace Estacionamento
             cmbAcesso.Enabled = true;
             idFuncionario = 0;
             acesso = 0;
-            ptbFoto.Load(perfilPadrao);
+            ptbFoto.Load(iconPadrao);
+            caminhoFoto = "";
             btnGravar.Enabled = false;
             btnCarregar.Enabled = false;
             ptbEditar.Visible = false;
@@ -81,7 +82,8 @@ namespace Estacionamento
             cmbAcesso.Enabled = true;
             idFuncionario = 0;
             acesso = 0;
-            ptbFoto.Load(perfilPadrao);
+            ptbFoto.Load(iconPadrao);
+            caminhoFoto = "";
             btnGravar.Enabled = false;
             btnCarregar.Enabled = false;
             ptbEditar.Visible = true;
@@ -95,17 +97,7 @@ namespace Estacionamento
         }
         public void validarCampos()
         {
-            if (modo == "Cadastrar")
-            {
-                if (txtCpf.Text.Length == 11)
-                {
-                    btnGravar.Enabled = true;
-                }
-                else
-                {
-                    btnGravar.Enabled = false;
-                }
-            }
+            
         }
         public void carregarFoto()
         {
@@ -174,7 +166,7 @@ namespace Estacionamento
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            //TODO: tela
+            //TODO: tela, instalar projeto e atualizar projeto github
             bool result;
 
             if (modo == "")
@@ -196,8 +188,7 @@ namespace Estacionamento
                 {
                     if (caminhoFoto == "")//verificar picture box vazio
                     {
-
-                        caminhoFoto = perfilPadrao;//adiciona a foto de perfil
+                        caminhoFoto = iconPadrao;//adiciona a foto de perfil
                     }
 
                     //*passa os parametros do text para a classe
@@ -332,7 +323,7 @@ namespace Estacionamento
             }
             else
             {
-                ptbFoto.Load(perfilPadrao);
+                ptbFoto.Load(iconPadrao);
                 btnGravar.Enabled = false;
                 btnCadastrar.Enabled = true;
                 btnAlterar.Enabled = true;
@@ -549,14 +540,27 @@ namespace Estacionamento
         }
         private void txtCpf_TextChanged(object sender, EventArgs e)
         {
-            validarCampos();
+            if (modo == "Cadastrar")
+            {
+                if (txtCpf.Text.Length == 11)
+                {
+                    if (txtCpf.Text.Length == 11 && txtRg.Text.Length == 11 || String.IsNullOrEmpty(txtRg.Text))
+                    {
+                        btnGravar.Enabled = true;
+                    }
+                }
+                else
+                {
+                    btnGravar.Enabled = false;
+                }
+            }
         }
 
         private void txtRg_TextChanged(object sender, EventArgs e)
         {
             if (modo == "Cadastrar")
             {
-                if (txtRg.Text.Length == 11 || txtRg.Text == "")
+                if (txtCpf.Text.Length == 11 && txtRg.Text.Length == 11 || txtRg.Text == "" )
                 {
                     btnGravar.Enabled = true;
                 }

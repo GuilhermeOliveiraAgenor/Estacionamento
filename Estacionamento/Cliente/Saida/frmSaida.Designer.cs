@@ -96,7 +96,7 @@ namespace Estacionamento.Saida
             this.txtPesquisar.Location = new System.Drawing.Point(151, 70);
             this.txtPesquisar.MaxLength = 7;
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(121, 30);
+            this.txtPesquisar.Size = new System.Drawing.Size(122, 30);
             this.txtPesquisar.TabIndex = 0;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
@@ -622,7 +622,7 @@ namespace Estacionamento.Saida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1940, 1100);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.dgvEstacionamento);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMensagem);
