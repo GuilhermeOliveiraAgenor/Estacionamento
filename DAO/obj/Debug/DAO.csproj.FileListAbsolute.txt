@@ -75,3 +75,4 @@ C:\Users\Guilherme\source\repos\Estacionamento\DAO\obj\Debug\DAO.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\DAO\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Guilherme\source\repos\Estacionamento\DAO\bin\Debug\itextsharp.dll
 C:\Users\Guilherme\source\repos\Estacionamento\DAO\bin\Debug\itextsharp.xml
+C:\Users\Guilherme\source\repos\Estacionamento\DAO\obj\Debug\DAO.csproj.CopyComplete

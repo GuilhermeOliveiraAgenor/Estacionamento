@@ -93,8 +93,6 @@ namespace Estacionamento.Entrada
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//maximizar a tela
         }
 
-        //TODO: Fazer entrada - tela
-
         private void frmEntrada_Load(object sender, EventArgs e)
         {
             

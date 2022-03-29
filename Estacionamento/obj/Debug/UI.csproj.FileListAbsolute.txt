@@ -111,3 +111,4 @@ C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\UI.exe
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\bin\Debug\UI.pdb
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.exe
 C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.pdb
+C:\Users\Guilherme\source\repos\Estacionamento\Estacionamento\obj\Debug\UI.csproj.CopyComplete

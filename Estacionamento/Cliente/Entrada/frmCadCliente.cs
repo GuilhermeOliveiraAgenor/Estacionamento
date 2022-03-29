@@ -67,8 +67,7 @@ namespace Estacionamento.Entrada
                 btnCadastrar.Enabled = false;
             }
         }
-        //TODO:    
-        
+       
         private void frmCadCliente_Load(object sender, EventArgs e)
         {
             List<Veiculo> veiculos = veiculoDAO.carregarVeiculo();//recebe o resultado

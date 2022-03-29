@@ -96,7 +96,6 @@ namespace Estacionamento.editarPedidos
         private void frmAlterarEstacionar_Load(object sender, EventArgs e)
         {
             vagasOcupadas();
-            //TODO: Mostrar id estacionar
 
         }
         private void cmbcodigoVeiculo_SelectedIndexChanged(object sender, EventArgs e)

@@ -169,7 +169,6 @@ namespace Estacionamento.Funcionario.Relatorio
 
         private void frmRelatorio_Load(object sender, EventArgs e)
         {
-            //TODO: tela
             carregarGrid();
         }
 

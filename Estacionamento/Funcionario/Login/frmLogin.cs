@@ -23,7 +23,6 @@ namespace Estacionamento.Login
         {
             InitializeComponent();
         }
-        //TODO: JÁ FEITO - Fazer login. Sessao e login
         
         private void btnCadastrar_Click(object sender, EventArgs e)
         {

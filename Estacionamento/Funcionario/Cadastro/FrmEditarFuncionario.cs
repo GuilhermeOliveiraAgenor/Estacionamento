@@ -166,7 +166,6 @@ namespace Estacionamento
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            //TODO: tela, instalar projeto e atualizar projeto github
             bool result;
 
             if (modo == "")
