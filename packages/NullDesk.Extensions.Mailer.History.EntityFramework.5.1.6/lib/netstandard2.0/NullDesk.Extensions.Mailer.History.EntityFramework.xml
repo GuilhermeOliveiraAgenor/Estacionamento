@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NullDesk.Extensions.Mailer.History.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions">
+            <summary>
+                Class DependencyInjectionExtensions.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerHistory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings)">
+            <summary>
+                Adds a mailer history store of the specified HistoryContext.
+            </summary>
+            <typeparam name="TContext">The type of the History DbContext.</typeparam>
+            <param name="services">The services collection.</param>
+            <param name="entityHistorySettings">The entity history settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.DependencyInjectionExtensions.AddMailerHistory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.IServiceProvider,NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings})">
+            <summary>
+                Adds a mailer history store of the specified HistoryContext.
+            </summary>
+            <typeparam name="TContext">The type of the t context.</typeparam>
+            <param name="services">The services.</param>
+            <param name="historySettings">The history settings.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1">
+            <summary>
+                EntityFramework message and delivery history store service
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.#ctor(NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings,Microsoft.Extensions.Logging.ILogger{NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore{`0}})">
+            <summary>
+                Creates an instance of the EntityHistoryStore
+            </summary>
+            <param name="settings">The history store settings.</param>
+            <param name="logger">An optional logger.</param>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.AddAsync(NullDesk.Extensions.Mailer.Core.DeliveryItem,System.Threading.CancellationToken)">
+            <summary>
+                /// Adds the history item to the history store.
+            </summary>
+            <param name="item">The item to add.</param>
+            <param name="token">A cancellation token.</param>
+            <returns>Task&lt;Guid&gt; the ID of the message.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Gets the history item from the store.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.GetAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+                Gets a list of history items from the store.
+            </summary>
+            <param name="offset">The offset.</param>
+            <param name="limit">The limit.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.SearchAsync(System.String,System.Int32,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary>
+                search as an asynchronous operation.
+            </summary>
+            <param name="searchText">The search text.</param>
+            <param name="limit">The limit.</param>
+            <param name="sourceApplicationName">Optional, if supplied limits the search to just the supplied source application.</param>
+            <param name="startDate">Optional start date for range searches.</param>
+            <param name="endDate">Optional end date for range searches.</param>
+            <param name="token">The cancellation token.</param>
+            <returns>Task&lt;HistoryItem&gt;.</returns>
+            <remarks>Searches the sender, reply to, and recipient email and display names, and the subject</remarks>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.Logger">
+            <summary>
+                Optional logger
+            </summary>
+            <value>The logger.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.Settings">
+            <summary>
+                Gets or sets the settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStore`1.GetHistoryContext">
+            <summary>
+                Gets an instance of the history context.
+            </summary>
+            <returns>HistoryContext.</returns>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings">
+            <summary>
+                Settings for Entity Framework History Stores.
+            </summary>
+            <seealso cref="T:NullDesk.Extensions.Mailer.Core.StandardHistoryStoreSettings" />
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings.DbOptions">
+            <summary>
+                The database context options.
+            </summary>
+            <value>The database context options.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryStoreSettings.AutoInitializeDatabase">
+            <summary>
+                Indicates whether to automaticly initialize the database on startup.
+            </summary>
+            <value><c>true</c> to automaticly initialize database; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext">
+            <summary>
+                Base DbContext for Message History.
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext" /> class.
+            </summary>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext})">
+            <summary>
+                Initializes a new instance of the <see cref="T:NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext" /> class.
+            </summary>
+            <param name="options">The options.</param>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext.MessageHistory">
+            <summary>
+                Gets or sets the history items.
+            </summary>
+            <value>The history items.</value>
+        </member>
+        <member name="M:NullDesk.Extensions.Mailer.History.EntityFramework.HistoryContext.InitializeDatabase">
+            <summary>
+                Initializes the database.
+            </summary>
+            <remarks>Used to run migrations, provision schemas, setup document templates, etc.</remarks>
+        </member>
+        <member name="T:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem">
+            <summary>
+                Class HistoryDeliveryItem.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.Id">
+            <summary>
+                The unique message identifier
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.DeliveryProvider">
+            <summary>
+                Gets or sets the delivery provider.
+            </summary>
+            <value>The delivery provider.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.ProviderMessageId">
+            <summary>
+                Gets or sets the provider's identifier for the message.
+            </summary>
+            <remarks>
+                Used to reference the message in the underlying mail system after delivery has been attempted.
+            </remarks>
+            <value>The provider message identifier.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.CreatedDate">
+            <summary>
+                Gets or sets the message created date.
+            </summary>
+            <value>The message date.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.IsSuccess">
+            <summary>
+                Gets or sets a value indicating whether the message was successfully sent.
+            </summary>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.FromEmailAddress">
+            <summary>
+                Gets or sets the email address.
+            </summary>
+            <value>The email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.FromDisplayName">
+            <summary>
+                Gets or sets the display name for the reply address.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.ReplyToEmailAddress">
+            <summary>
+                Gets or sets the reply to email address.
+            </summary>
+            <value>The email address.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.ReplyToDisplayName">
+            <summary>
+                Gets or sets the reply to display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.ToEmailAddress">
+            <summary>
+                Gets or sets the sent to email.
+            </summary>
+            <value>The sent to email.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.ToDisplayName">
+            <summary>
+                Gets or sets to display name.
+            </summary>
+            <value>To display name.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.Subject">
+            <summary>
+                The message subject.
+            </summary>
+            <remarks>
+                If substitutions are provided, they will be used here. Some services may ignore this value when using templates,
+                others will use this value in place of any subject defined in the template.
+            </remarks>
+            <value>The subject.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.HtmlContent">
+            <summary>
+                Gets or sets the html body.
+            </summary>
+            <value>The body.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.TextContent">
+            <summary>
+                Gets or sets the text body.
+            </summary>
+            <value>The text body.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.TemplateName">
+            <summary>
+                Gets or sets the template name.
+            </summary>
+            <value>The template body.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.AttachmentsJson">
+            <summary>
+                A collection of attachments to include with the message.
+            </summary>
+            <value>The attachments.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.SubstitutionsJson">
+            <summary>
+                Gets or sets the substitutions json.
+            </summary>
+            <value>The substitutions json.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.ExceptionMessage">
+            <summary>
+                Gets or sets the exception message if an exception occurred.
+            </summary>
+            <value>The exception message.</value>
+        </member>
+        <member name="P:NullDesk.Extensions.Mailer.History.EntityFramework.EntityHistoryDeliveryItem.SourceApplicationName">
+            <summary>
+                The name of the sending application.
+            </summary>
+            <remarks>Use to give a name to the system recording history.</remarks>
+            <value>The name of the delivery provider.</value>
+        </member>
+    </members>
+</doc>
